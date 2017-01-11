@@ -1,0 +1,5 @@
+<li ng-switch on="$ctrl.service.currentLanguage"><a class="language-link" tabindex="0" href title="{{ 'navbar.en' | translate }}"
+    analytics-on analytics-event="click" analytics-category="HEADER" analytics-label="Lang Switch to EN"
+    ng-switch-when="fr" ng-click="$ctrl.service.changeLanguage('en')" translate>{{'navbar.en'}}</a><a class="language-link" tabindex="0" href title="{{ 'navbar.fr' | translate }}"
+    analytics-on analytics-event="click" analytics-category="HEADER" analytics-label="Lang Switch to FR"
+    ng-switch-when="en" ng-click="$ctrl.service.changeLanguage('fr')" translate>{{'navbar.fr'}}</a></li>

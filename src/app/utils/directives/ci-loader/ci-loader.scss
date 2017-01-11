@@ -1,0 +1,18 @@
+%loading {
+  //background: url(../assets/images/loading.svg) no-repeat !important;
+  background: url(../assets/images/loader.svg) top center no-repeat;
+  //background: url(../assets/images/loader-beta.gif) no-repeat;
+  // -webkit-background-size: 100% 100%;
+  // background-size: auto 100%;
+}
+
+//.loading2 {
+//  @extend %loading;
+//}
+
+.loading {
+  @extend %loading;
+  height:45px;  
+  width:100%;
+  //width: 137px;
+}

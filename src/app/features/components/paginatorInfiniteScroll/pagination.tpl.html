@@ -1,0 +1,7 @@
+<ul class="pagination" role="navigation">
+    <li ng-if="::boundaryLinks" ng-class="{disabled: noPrevious()||ngDisabled}" class="pagination-first"><a href aria-label="{{'aria.pagination.first' | translate}}" ng-click="selectPage(1, $event)">{{::getText('first')}}</a></li>
+    <li ng-if="::directionLinks" ng-class="{disabled: noPrevious()||ngDisabled}" class="pagination-prev"><a href aria-label="{{'aria.pagination.previous' | translate}}"  ng-click="selectPage(page - 1, $event)">{{::getText('previous')}}</a></li>
+    <li ng-repeat="page in pages track by $index" ng-class="{active: page.active,disabled: ngDisabled&&!page.active}" class="pagination-page"><a href scroll-to-top aria-label="{{'aria.pagination.page' | translate}} {{page.text}}" ng-click="selectPage(page.number, $event)">{{page.text}}</a></li>
+    <li ng-if="::directionLinks" ng-class="{disabled: noNext()||ngDisabled}" class="pagination-next"><a href aria-label="{{'aria.pagination.next' | translate}}"  ng-click="selectPage(page + 1, $event)">{{::getText('next')}}</a></li>
+    <li ng-if="::boundaryLinks" ng-class="{disabled: noNext()||ngDisabled}" class="pagination-last"><a href aria-label="{{'aria.pagination.last' | translate}}"  ng-click="selectPage(totalPages, $event)">{{::getText('last')}}</a></li>
+</ul>

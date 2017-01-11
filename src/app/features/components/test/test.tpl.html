@@ -1,0 +1,12 @@
+hello world<br><br>
+<div translate-compile translate>TITLE</div>
+<div translate>TITLE</div>
+<div>{{'TITLE' | translate}}</div>
+
+
+<language-switcher></language-switcher>
+
+XX{{$ctrl.testService.data.name}}XX
+<div ng-repeat="(key, value) in $ctrl.testService.data">{{value}}</div>
+
+<test2 more-data="$ctrl.testService.data.name" more-data2="$ctrl.testService.data"></test2>

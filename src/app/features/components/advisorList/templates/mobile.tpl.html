@@ -1,0 +1,25 @@
+<table style="width:100%">
+    <thead>
+    <tr>
+        <th>
+            <button ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[0])">First Name</button>
+        </th>
+        <th>
+            <button ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[1])">Last Name</button>
+        </th>
+        <th>
+            <button ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[2])">City</button>
+        </th>
+        <th>
+            <button ng-click="$ctrl.service.sortBy($ctrl.service.sortableColumns[3])">Province</button>
+        </th>
+    </tr>
+    </thead>
+</table>
+<div ng-class="{'lastAdvisorRow': $last, 'notLastAdvisorRow': !$last}" ng-repeat="element in $ctrl.service[$ctrl.service.objectName] | limitTo:$ctrl.service.mobileMaxNumDisplay track by $index">
+    <a ui-sref="main.advisorLocator.advisorDetails({id: element.id})" >
+        <span ng-if="element.showCommon">{{element.commonName}}</span>
+        <span ng-if="!element.showCommon">{{element.firstName}}</span> {{element.lastName}}
+        <span style="float:right;">{{element.partialBranchInfo.city}}, {{element.partialBranchInfo.provinceAbbr}}<img style='margin-left:30px' src="assets/images/circleChevron.png" /></span>
+    </a>
+</div>
