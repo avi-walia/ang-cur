@@ -18,14 +18,12 @@
     function testService(server, $rootScope, i18nService, languageSwitcherService, dataCacheSessionStorage, waitForResourcesService) {
         var service = this;
         service.data = {};
-
-        service.getData1 = getData1;
-        service.getData2 = getData2;
-        service.getData3 = getData3;
+        service.callCount = 0;
+        service.getData = getData;
 
 
-        function getData1(url) {
-            var ret = server.getNoStorage(url + '6', false).then(function(data){
+        function getData(url) {
+            var ret = server.getNoStorage(url, false).then(function(data){
                 service.data = data.data;
                 //languageSwitcherService.localizationObjects.push({unLocalized: data.unLocalizedData, callBack: translateData, key: "testService.data"});
                 languageSwitcherService.addLocalizationObject({unLocalized: data.unLocalizedData, callBack: translateData, key: "testService.data"})
@@ -38,30 +36,6 @@
         function translateData(translatedData) {
             //service.data = translatedData;
             _.assign(service.data, translatedData);
-        }
-        function getData2(url) {
-            var ret = server.getNoStorage(url + '4', false).then(function(data){
-                service.data = data.data;
-                //languageSwitcherService.localizationObjects.push({unLocalized: data.unLocalizedData, callBack: translateData, key: "testService.data"});
-                data.unLocalizedData.id = "fish";
-                languageSwitcherService.addLocalizationObject({unLocalized: data.unLocalizedData, callBack: translateData, key: "testService.data"})
-                return service.data;
-            });
-            waitForResourcesService.pendingResources.push(ret);
-            waitForResourcesService.startWaiting();
-            return ret;
-        }
-        function getData3(url) {
-            var ret = server.getNoStorage(url + '2', false).then(function(data){
-                service.data = data.data;
-                data.unLocalizedData.id = "asdg";
-                //languageSwitcherService.localizationObjects.push({unLocalized: data.unLocalizedData, callBack: translateData, key: "testService.data"});
-                languageSwitcherService.addLocalizationObject({unLocalized: data.unLocalizedData, callBack: translateData, key: "testService.data"})
-                return service.data;
-            });
-            waitForResourcesService.pendingResources.push(ret);
-            waitForResourcesService.startWaiting();
-            return ret;
         }
 
         /*refresh data with translations without page reload or translate filter

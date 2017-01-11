@@ -6,13 +6,13 @@
 
     runBlock.$inject = [
         '$rootScope',
-        '$translate', 'pageStateResolver', '$window', '$state', '$interval', '$location', 'loadingService', 'notificationService'
+        '$translate', 'pageStateResolver', '$window', '$state', '$interval', '$location', 'loadingService', 'notificationService', 'languageSwitcherService'
     ];
 
     /* @ngInject */
 
     function runBlock($rootScope,
-                      $translate, pageStateResolver, $window, $state, $interval, $location, loadingService, notificationService) {
+                      $translate, pageStateResolver, $window, $state, $interval, $location, loadingService, notificationService, languageSwitcherService) {
         $rootScope.locale = null;
         var didScroll = false;
         var lastScrollTop = 0;
@@ -158,6 +158,8 @@
 
         $rootScope.$on('$stateChangeStart',
             function (event, toState, toParams, fromState, fromParams) {
+                console.log('calling languageSwitcher');
+                languageSwitcherService.switchLanguages(toState.name);
                 loadingService.loading = true;
                 console.log('fromState: ', fromState);
                 console.log('toState: ', toState);

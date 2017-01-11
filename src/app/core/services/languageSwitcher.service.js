@@ -48,10 +48,13 @@
         }
 
         //iterates through the array of localizationPairs and applies i18nService.translate to the unLocalized object, and stores the result in the localized object.
-        function switchLanguages() {
-            _.forEach(service.localizationObjects[parseService.stripDots($state.current.name)], function(value, key){
-                //value.callBack();
+        //newStateName is a string representing the state you are about to transition to. This is used to translate any data received from an API for the page you are about to transition to.
+        //newStateName would only be used to translate data if the user is navigating back to a page they have been on previously.
+        function switchLanguages(newStateName) {
 
+            _.forEach(service.localizationObjects[newStateName ? parseService.stripDots(newStateName) : parseService.stripDots($state.current.name)], function(value, key){
+                //value.callBack();
+                console.log('unLocalized: ', value.unLocalized);
                 value.callBack(i18nService.filterLocalizedKeys(value.unLocalized));
             });
         }

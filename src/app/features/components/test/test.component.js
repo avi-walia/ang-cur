@@ -53,7 +53,7 @@
         })
         */
 
-        testService.getData1('http://192.168.180.155:3003/tests/').then(
+        testService.getData('http://192.168.180.155:3003/tests/1').then(
             function(data){
                 //handle success event
                 //console.log('data successfully retrieved: ', data);
@@ -63,7 +63,7 @@
                 //console.log('an error occured: ', error);
             }
         );
-        testService.getData2('http://192.168.180.155:3003/tests/').then(
+        testService.getData('http://192.168.180.155:3003/tests/2').then(
             function(data){
                 //handle success event
                 //console.log('data successfully retrieved: ', data);
@@ -73,7 +73,7 @@
                 //console.log('an error occured: ', error);
             }
         );
-        testService.getData3('http://192.168.180.155:3003/tests/').then(
+        testService.getData('http://192.168.180.155:3003/tests/3').then(
             function(data){
                 //handle success event
                 //console.log('data successfully retrieved: ', data);

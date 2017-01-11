@@ -24,8 +24,11 @@
         },10000);
         waitForResourcesService.pendingResources.push(fakeRequest.promise);
         waitForResourcesService.startWaiting();
-
-        testService.getData1('http://192.168.180.155:3003/tests/');
+        vm.service = testService;
+        if (vm.service.callCount === 0) {
+            vm.service.callCount++;
+            testService.getData('http://192.168.180.155:3003/tests/4');
+        }
     }
 
 })();
