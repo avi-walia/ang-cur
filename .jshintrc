@@ -1,24 +1,42 @@
 {
-  "strict": "global",
+  "globalstrict": true,
+  "bitwise": true,
+  "camelcase": true,
+  "curly": true,
+  "eqeqeq": true,
+  //  "immed": true,
+  //  "indent": 2,
+  "latedef": false,
+  // used before it was defined
+  "newcap": true,
+  "noarg": true,
+  //"quotmark": "single",
+  "regexp": true,
+  "undef": true,
+  "unused": false,
+  // variable defined but not used
+  "strict": true,
+  "trailing": true,
+  "smarttabs": true,
+  "white": true,
+  "validthis": true,
   "globals": {
-    // Angular
     "angular": false,
-
-    // Angular mocks
-    "module": false,
+    "_": false,
+    "$log": false,
+    "document": true,
+    "confirm": false,
+    "console": false,
+    // Angular Mocks
     "inject": false,
-
-    // Jasmine
-    "jasmine": false,
+    "module": false,
+    // JASMINE
     "describe": false,
-    "beforeEach": false,
-    "afterEach": false,
     "it": false,
-    "expect": false,
-
-    // Protractor
-    "browser": false,
-    "element": false,
-    "by": false
+    "before": false,
+    "beforeEach": false,
+    "after": false,
+    "afterEach": false,
+    "expect": false
   }
 }
