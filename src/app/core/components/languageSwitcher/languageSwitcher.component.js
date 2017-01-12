@@ -8,10 +8,14 @@
             controller: LangSwitcherCtrl
         });
 
-    LangSwitcherCtrl.$inject = ['$translate', '$state', 'languageSwitcherService'];
+    LangSwitcherCtrl.$inject = [
+        'languageSwitcherService'
+    ];
 
     /* @ngInject */
-    function LangSwitcherCtrl($translate, $state, languageSwitcherService) {
+    function LangSwitcherCtrl(
+        languageSwitcherService
+    ) {
         var vm = this;
         vm.service = languageSwitcherService;
     }

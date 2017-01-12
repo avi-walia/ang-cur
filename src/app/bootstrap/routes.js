@@ -4,9 +4,9 @@
     angular.module('evolution.core.main')
         .config([
             '$stateProvider',
-            '$urlRouterProvider',
             '$urlMatcherFactoryProvider',
-            function ($stateProvider, $urlRouterProvider, $urlMatcherFactoryProvider) {
+            '$urlRouterProvider',
+            function ($stateProvider, $urlMatcherFactoryProvider, $urlRouterProvider) {
                 function valToString(val) {
                     return val !== null ? decodeURIComponent(val).toString() : val;
                 }

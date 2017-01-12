@@ -6,28 +6,29 @@
 
 
     MainCtrl.$inject = [
-            '$rootScope',
-            '$scope',
-            'pageStateResolver',
-            '$window',
-            'detectMobile'
+        '$window',
+        'detectMobile',
+        'pageStateResolver'
     ];
 
-            function MainCtrl ($rootScope, $scope,
-                      pageStateResolver, $window, detectMobile) {
+    function MainCtrl(
+        $window,
+        detectMobile,
+        pageStateResolver
+    ) {
 
-                var vm = this;
+        var vm = this;
 
-                vm.print = print;
+        vm.print = print;
 
-                vm.pageStateResolver = pageStateResolver;
-                vm.detectMobile = detectMobile;
+        vm.pageStateResolver = pageStateResolver;
+        vm.detectMobile = detectMobile;
 
 
-                function print() {
-                    $window.print();
-                }
+        function print() {
+            $window.print();
+        }
 
-            }
+    }
 
 })();

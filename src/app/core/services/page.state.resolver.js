@@ -6,12 +6,15 @@
         .service('pageStateResolver', pageStateResolver);
 
     pageStateResolver.$inject = [
-        'ROUTES',
-        'i18nService'
+        'i18nService',
+        'ROUTES'
     ];
 
     /* @ngInject */
-    function pageStateResolver(ROUTES, i18nService) {
+    function pageStateResolver(
+        i18nService,
+        ROUTES
+    ) {
         var service = this;
 
         service.activePageName = '';

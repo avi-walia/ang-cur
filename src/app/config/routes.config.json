@@ -1,36 +1,6 @@
 {
   "ROUTES": [
     {
-      "stateName": "main.evolution.advisorList",
-      "isAbstract": false,
-      "pageName": "advisorList"
-    },
-    {
-      "stateName": "main.evolution.advisorDetails",
-      "isAbstract": false,
-      "pageName": "advisorDetail"
-    },
-    {
-      "stateName": "main.evolution.branchList",
-      "isAbstract": false,
-      "pageName": "branchList"
-    },
-    {
-      "stateName": "main.evolution.branchListQuery",
-      "isAbstract": false,
-      "pageName": "branchListQuery"
-    },
-    {
-      "stateName": "main.evolution.branchesQuery",
-      "isAbstract": false,
-      "pageName": "branchList"
-    },
-    {
-      "stateName": "main.evolution.branchDetails",
-      "isAbstract": false,
-      "pageName": "branchDetail"
-    },
-    {
       "stateName": "main",
       "isAbstract": true,
       "pageName": ""

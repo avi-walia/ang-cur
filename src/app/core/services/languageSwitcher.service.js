@@ -6,14 +6,19 @@
         .service('languageSwitcherService', languageSwitcherService);
 
     languageSwitcherService.$inject = [
-        'i18nService',
-        '$translate',
         '$state',
+        '$translate',
+        'i18nService',
         'parseService'
     ];
 
     /* @ngInject */
-    function languageSwitcherService(i18nService, $translate, $state, parseService) {
+    function languageSwitcherService(
+        $state,
+        $translate,
+        i18nService,
+        parseService
+    ) {
         var service = this;
 
         service.currentLanguage = $translate.use();

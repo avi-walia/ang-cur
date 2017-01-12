@@ -8,25 +8,34 @@
         .constant("POST", "post");
 
     server.$inject = [
-        '$q',
         '$http',
-        'dataCacheSessionStorage',
-        'dataCacheLocalStorage',
-        'pageStateResolver',
-        'i18nService',
+        '$q',
         '$rootScope',
+        '$timeout',
+        'dataCacheLocalStorage',
+        'dataCacheSessionStorage',
         'ENDPOINT_URI',
-        'SERVER_TIMEOUT',
         'GET',
-        'POST',
+        'i18nService',
         'md5',
-        '$timeout'
+        'POST',
+        'SERVER_TIMEOUT'
     ];
 
     /* @ngInject */
-    function server($q, $http,
-                    dataCacheSessionStorage, dataCacheLocalStorage,
-                    pageStateResolver, i18nService, $rootScope, ENDPOINT_URI, SERVER_TIMEOUT, GET, POST, md5, $timeout
+    function server(
+        $http,
+        $q,
+        $rootScope,
+        $timeout,
+        dataCacheLocalStorage,
+        dataCacheSessionStorage,
+        ENDPOINT_URI,
+        GET,
+        i18nService,
+        md5,
+        POST,
+        SERVER_TIMEOUT
     ) {
 console.log('GET: ', GET);
         var service = this;
@@ -142,7 +151,7 @@ console.log('GET: ', GET);
 
             } else {//post requests
                 pathKey = sPath;
-                if (!_isEmpty(data)) {
+                if (!_.isEmpty(data)) {
                     pathKey += md5.createHash(JSON.stringify(data));
                 } else {
                     data = {};
@@ -171,17 +180,19 @@ console.log('GET: ', GET);
             //return fetch(GET, sPath, false, 'noStorage', bIsUnlocalized);
             //these $timeouts were added to test asynchronous loading, remove before pushing to prod
             var deferred = $q.defer();
-            fetch(GET, sPath, false, 'noStorage', bIsUnlocalized).then(function(data) {
-                $timeout(function() {
-                    deferred.resolve(data);
-                },800);
-            },
-            function(error) {
+            fetch(GET, sPath, false, 'noStorage', bIsUnlocalized).then(
+                function(data) {
+                    $timeout(function() {
+                        deferred.resolve(data);
+                    },800);
+                },
+                function(error) {
 
-                $timeout(function() {
-                    deferred.reject(data);
-                },800);
-            });
+                    $timeout(function() {
+                        deferred.reject(data);
+                    },800);
+                }
+            );
             return deferred.promise;
         }
 
@@ -196,6 +207,7 @@ console.log('GET: ', GET);
         };
 
         function fetch(method, sPath, bRemoveCache, sStorageType, bIsUnlocalized) {
+            sPath = ENDPOINT_URI + sPath;
             var deferred = $q.defer();
             var cachedObj;
             if (typeof bRemoveCache === 'undefined' && typeof sStorageType === 'undefined' && typeof bIsUnlocalized === 'undefined') {
@@ -249,15 +261,15 @@ console.log('GET: ', GET);
 
 
         function postLocalStorage(sPath, bIsUnlocalized) {
-            return post(sPath, false, 'localStorage', bIsUnlocalized);
+            return fetch(POST, sPath, false, 'localStorage', bIsUnlocalized);
         }
 
         function postSessionStorage(sPath, bIsUnlocalized) {
-            return post(sPath, false, 'sessionStorage', bIsUnlocalized);
+            return fetch(POST, sPath, false, 'sessionStorage', bIsUnlocalized);
         }
 
         function postNoStorage(sPath, bIsUnlocalized) {
-            return post(sPath, false, 'noStorage', bIsUnlocalized);
+            return fetch(POST, sPath, false, 'noStorage', bIsUnlocalized);
         }
 /*
         function post(path, data, removeCache, storageType, isUnlocalized) {

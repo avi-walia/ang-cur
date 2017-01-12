@@ -12,14 +12,15 @@
 
     /* @ngInject */
 
-    notificationCtrl.$inject = ['notificationService'];
+    notificationCtrl.$inject = [
+        'notificationService'
+    ];
     /* @ngInject */
     function notificationCtrl(
         notificationService
     ) {
         var vm = this;
         vm.notificationService = notificationService;
-        console.log('hello world123');
 
     }
 

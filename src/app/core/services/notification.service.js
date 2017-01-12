@@ -10,14 +10,15 @@
         .service('notificationService', notificationService);
 
     notificationService.$inject = [
-        '$state',
-        '$sce',
-        'ROUTES',
-        'parseService'
+        'parseService',
+        '$sce'
     ];
 
     /* @ngInject */
-    function notificationService($state, $sce, ROUTES, parseService) {
+    function notificationService(
+        parseService,
+        $sce
+    ) {
         var service = this;
         service.addMessage = addMessage;
         service.messages = {};

@@ -12,10 +12,19 @@
 
     /* @ngInject */
 
-    test4Ctrl.$inject = ['$q', '$timeout', 'waitForResourcesService', 'testService'];
+    test4Ctrl.$inject = [
+        '$q',
+        '$timeout',
+        'testService',
+        'waitForResourcesService'
+    ];
 
     /* @ngInject */
-    function test4Ctrl($q, $timeout, waitForResourcesService, testService
+    function test4Ctrl(
+        $q,
+        $timeout,
+        testService,
+        waitForResourcesService
     ) {
         var vm = this;
         var fakeRequest = $q.defer();
@@ -27,7 +36,7 @@
         vm.service = testService;
         if (vm.service.callCount === 0) {
             vm.service.callCount++;
-            testService.getData('http://192.168.180.155:3003/tests/4');
+            testService.getData('/tests/4');
         }
     }
 

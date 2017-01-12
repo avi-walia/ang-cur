@@ -8,10 +8,14 @@
             controller: loadingCtrl
         });
 
-    loadingCtrl.$inject = ['loadingService'];
+    loadingCtrl.$inject = [
+        'loadingService'
+    ];
 
     /* @ngInject */
-    function loadingCtrl(loadingService) {
+    function loadingCtrl(
+        loadingService
+    ) {
         var vm = this;
         vm.service = loadingService;
     }

@@ -5,10 +5,14 @@
         .module('evolution.core.main')
         .service('i18nService', i18nService);
 
-    i18nService.$inject = ['$translate'];
+    i18nService.$inject = [
+        '$translate'
+    ];
 
     /* @ngInject */
-    function i18nService($translate) {
+    function i18nService(
+        $translate
+    ) {
         var service = this;
         service.filterLocalizedKeys = getFilteredKeys;
         service.translate = translate;

@@ -75,8 +75,8 @@ module.exports = function (options) {
             .pipe(assets = $.useref.assets())
             .pipe($.rev())
             .pipe(jsFilter)
-            //.pipe($.stripDebug()) // remove any debug/console
-            //.pipe($.stripNgLog()) // remove any $log
+            .pipe($.stripDebug()) // remove any debug/console
+            .pipe($.stripNgLog()) // remove any $log
             .pipe($.ngAnnotate())
             .pipe($.uglify({preserveComments: $.uglifySaveLicense})).on('error', options.errorHandler('Uglify'))
             .pipe(jsFilter.restore())

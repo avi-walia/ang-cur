@@ -1,4 +1,0 @@
-<div id="input">
-  <input id="searchBar" ng-blur="$ctrl.onBlur()" ng-focus= "$ctrl.onFocus()" placeholder="{{'shortSearchTerm' | translate}}" tabindex="0" aria-label="{{'aria.nameSearch.searchBarLabel' | translate}}" type="text" ng-model="$ctrl.service.searchCriteria" ng-model-options='{ debounce: 200 }' ng-change="$ctrl.service.search($ctrl.service.searchCriteria)" aria-live="off" autofocus />
-  <p id="resultmessage" ng-if="$ctrl.service[$ctrl.service.objectName].length > 0">{{$ctrl.service[$ctrl.service.objectName].length}} {{'searchResultsFound' | translate}}</p>
-</div>

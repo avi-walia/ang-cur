@@ -6,16 +6,13 @@
         .service('testService', testService);
 
     testService.$inject = [
-        'server',
-        '$rootScope',
-        'i18nService',
         'languageSwitcherService',
-        'dataCacheSessionStorage',
+        'server',
         'waitForResourcesService'
     ];
 
     /* @ngInject */
-    function testService(server, $rootScope, i18nService, languageSwitcherService, dataCacheSessionStorage, waitForResourcesService) {
+    function testService(languageSwitcherService, server, waitForResourcesService) {
         var service = this;
         service.data = {};
         service.callCount = 0;

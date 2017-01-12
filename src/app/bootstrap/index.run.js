@@ -5,14 +5,28 @@
         .run(runBlock);
 
     runBlock.$inject = [
+        '$interval',
         '$rootScope',
-        '$translate', 'pageStateResolver', '$window', '$state', '$interval', '$location', 'loadingService', 'notificationService', 'languageSwitcherService'
+        '$translate',
+        '$window',
+        'languageSwitcherService',
+        'loadingService',
+        'notificationService',
+        'pageStateResolver'
     ];
 
     /* @ngInject */
 
-    function runBlock($rootScope,
-                      $translate, pageStateResolver, $window, $state, $interval, $location, loadingService, notificationService, languageSwitcherService) {
+    function runBlock(
+        $interval,
+        $rootScope,
+        $translate,
+        $window,
+        languageSwitcherService,
+        loadingService,
+        notificationService,
+        pageStateResolver
+    ) {
         $rootScope.locale = null;
         var didScroll = false;
         var lastScrollTop = 0;

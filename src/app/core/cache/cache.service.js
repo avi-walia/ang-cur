@@ -12,12 +12,12 @@
         .factory('dataCacheLocalStorage', dataCacheLocalStorage)
         .factory('notificationsCacheService', notificationsCacheService);
 
-    dataCacheSessionStorage.$inject = ['CacheFactory', 'APP_NAME'];
-    dataCacheLocalStorage.$inject = ['CacheFactory', 'APP_NAME', 'EXPIRY_TIME'];//EXPIRY_TIME is how long an item can be stored in localstorage before it expires.
-    notificationsCacheService.$inject = ['CacheFactory', 'APP_NAME'];//should session storage also have an expiration time?
+    dataCacheSessionStorage.$inject = ['APP_NAME', 'CacheFactory'];
+    dataCacheLocalStorage.$inject = ['APP_NAME', 'CacheFactory', 'EXPIRY_TIME'];//EXPIRY_TIME is how long an item can be stored in localstorage before it expires.
+    notificationsCacheService.$inject = ['APP_NAME', 'CacheFactory', ];//should session storage also have an expiration time?
 
     /* @ngInject */
-    function dataCacheSessionStorage(CacheFactory, APP_NAME){
+    function dataCacheSessionStorage(APP_NAME, CacheFactory){
         var dataCache = CacheFactory.get('TempAppData');
         if (!dataCache) {
             dataCache = CacheFactory.createCache('TempAppData', {
@@ -27,7 +27,7 @@
         }
         return dataCache;
     }
-    function dataCacheLocalStorage(CacheFactory, APP_NAME, EXPIRY_TIME){
+    function dataCacheLocalStorage(APP_NAME, CacheFactory, EXPIRY_TIME){
         var dataCache = CacheFactory.get('PermAppData');
         if (!dataCache) {
             dataCache = CacheFactory.createCache('PermAppData', {
@@ -81,7 +81,7 @@
         };
         return localCache;
     }
-    function notificationsCacheService(CacheFactory, APP_NAME) {
+    function notificationsCacheService(APP_NAME, CacheFactory) {
         var appErrors = CacheFactory.get('TempAppNotifications');
         if (!appErrors) {
             appErrors = CacheFactory.createCache('TempAppNotifications', {

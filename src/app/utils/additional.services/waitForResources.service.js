@@ -6,12 +6,15 @@
         .service('waitForResourcesService', waitForResourcesService);
 
     waitForResourcesService.$inject = [
-        'loadingService',
-        '$q'
+        '$q',
+        'loadingService'
     ];
 
     /* @ngInject */
-    function waitForResourcesService(loadingService, $q) {
+    function waitForResourcesService(
+        $q,
+        loadingService
+    ) {
         var service = this;
         var pendingPromise = null;
         var resourceCounter = 0;
