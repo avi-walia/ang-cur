@@ -76,7 +76,7 @@
              */
             var stateParts = newStateName.split("_");
             if (stateParts.length > 3 ) {
-                delete stateParts[stateParts.length-1]
+                delete stateParts[stateParts.length-1];
                 newStateName = stateParts.join("_");
                 newStateName = newStateName.substring(0, newStateName.length - 1);
                 var newStateLength = newStateName.length;
@@ -91,7 +91,7 @@
             var lang = $translate.use();
             _.forEach(states, function(stateName) {
                 //only translate if the last language this page was translated for is different from the current language
-                if (service.localizationObjects[stateName] && service.localizationObjects[stateName].lang != lang) {
+                if (service.localizationObjects[stateName] && service.localizationObjects[stateName].lang !== lang) {
                     service.localizationObjects[stateName].lang = lang;
                     _.forEach(service.localizationObjects[stateName].localizationCallbacks, function (localizationDataKey) {
                         //value.callBack();

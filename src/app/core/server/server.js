@@ -135,7 +135,7 @@ console.log('GET: ', GET);
                 var getRequest = function() {
                     return $http.get(sPath, {timeout: SERVER_TIMEOUT})//15 seconds, timeout is measured in milliseconds.
                         .then(success, failure);
-                }
+                };
 
                 return checkActiveRequests(pathKey, requests, getRequest, GET);
 
@@ -150,7 +150,8 @@ console.log('GET: ', GET);
                 var postRequest = function() {
                     return $http.post(sPath, data, {timeout: SERVER_TIMEOUT})//15 seconds, timeout is measured in milliseconds.
                         .then(success, failure);
-                }
+                };
+
                 return checkActiveRequests(sPath, requests, postRequest, POST);
 
 
@@ -170,17 +171,19 @@ console.log('GET: ', GET);
             //return fetch(GET, sPath, false, 'noStorage', bIsUnlocalized);
             //these $timeouts were added to test asynchronous loading, remove before pushing to prod
             var deferred = $q.defer();
-            fetch(GET, sPath, false, 'noStorage', bIsUnlocalized).then(function(data) {
-                $timeout(function() {
-                    deferred.resolve(data);
-                },800);
-            },
-            function(error) {
 
-                $timeout(function() {
-                    deferred.reject(data);
-                },800);
-            });
+            fetch(GET, sPath, false, 'noStorage', bIsUnlocalized)
+                .then(function(data) {
+                    $timeout(function() {
+                        deferred.resolve(data);
+                    },800);
+                },
+                function(data) {
+                    $timeout(function() {
+                        deferred.reject(data);
+                    },800);
+                });
+
             return deferred.promise;
         }
 
@@ -192,7 +195,7 @@ console.log('GET: ', GET);
          */
         function getSessionStorage(sPath, bIsUnlocalized) {
             return fetch(GET, sPath, false, 'sessionStorage', bIsUnlocalized);
-        };
+        }
 
         function fetch(method, sPath, bRemoveCache, sStorageType, bIsUnlocalized) {
             var deferred = $q.defer();
