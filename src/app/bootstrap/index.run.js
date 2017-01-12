@@ -221,7 +221,7 @@
                 ///////// *** END LANGUAGE NEGOTIATION *** /////////
 
 
-                pageStateResolver.pageLoadingfor = false;
+                pageStateResolver.pageLoading = false;
                 if (toState.resolve) {
                     pageStateResolver.pageLoading = true;
                 }
