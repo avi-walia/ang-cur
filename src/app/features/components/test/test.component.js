@@ -40,7 +40,7 @@
             }
             return hash;
         };
-        //notificationService.addMessage({msg:"<h1>Test Error Message</h1>", type:1});
+        notificationService.addMessage({msg:"<h1>Test Error Message</h1>", type:1});
         var obj = {
             "hello":"world",
             "test": "fibonnacci"
