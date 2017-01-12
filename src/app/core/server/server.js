@@ -4,8 +4,8 @@
     angular
         .module('evolution.core.server')
         .service('server', server)
-        .constant("GET", "get")
-        .constant("POST", "post");
+        .constant('GET', 'get')
+        .constant('POST', 'post');
 
     server.$inject = [
         '$http',
@@ -47,8 +47,8 @@ console.log('GET: ', GET);
         */
 
         var activeRequests = {
-            "post": [],
-            "get": []
+            'post': [],
+            'get': []
         };
 
         /**
@@ -100,7 +100,6 @@ console.log('GET: ', GET);
                 //remove request from array of unresolved requests.
                 removeFromActiveRequests(pathKey, requests);
 
-
                 // check for no data being sent
                 if (response && response.status !== 204) {
                     // put data in cache if it is not an empty array
@@ -145,7 +144,7 @@ console.log('GET: ', GET);
                 var getRequest = function() {
                     return $http.get(sPath, {timeout: SERVER_TIMEOUT})//15 seconds, timeout is measured in milliseconds.
                         .then(success, failure);
-                }
+                };
 
                 return checkActiveRequests(pathKey, requests, getRequest, GET);
 
@@ -160,7 +159,8 @@ console.log('GET: ', GET);
                 var postRequest = function() {
                     return $http.post(sPath, data, {timeout: SERVER_TIMEOUT})//15 seconds, timeout is measured in milliseconds.
                         .then(success, failure);
-                }
+                };
+
                 return checkActiveRequests(sPath, requests, postRequest, POST);
 
 
@@ -180,19 +180,18 @@ console.log('GET: ', GET);
             //return fetch(GET, sPath, false, 'noStorage', bIsUnlocalized);
             //these $timeouts were added to test asynchronous loading, remove before pushing to prod
             var deferred = $q.defer();
-            fetch(GET, sPath, false, 'noStorage', bIsUnlocalized).then(
-                function(data) {
+
+            fetch(GET, sPath, false, 'noStorage', bIsUnlocalized)
+                .then(function(data) {
                     $timeout(function() {
                         deferred.resolve(data);
                     },800);
                 },
-                function(error) {
-
+                function(data) {
                     $timeout(function() {
                         deferred.reject(data);
                     },800);
-                }
-            );
+                });
             return deferred.promise;
         }
 
@@ -204,7 +203,7 @@ console.log('GET: ', GET);
          */
         function getSessionStorage(sPath, bIsUnlocalized) {
             return fetch(GET, sPath, false, 'sessionStorage', bIsUnlocalized);
-        };
+        }
 
         function fetch(method, sPath, bRemoveCache, sStorageType, bIsUnlocalized) {
             sPath = ENDPOINT_URI + sPath;
@@ -248,6 +247,7 @@ console.log('GET: ', GET);
                 requests.splice(index, 1);
             }
         }
+
         function indexOfActiveRequests(path, requests) {
             var index = -1;//activePosts.indexOf(path);
             _.forEach(requests, function(value, key){

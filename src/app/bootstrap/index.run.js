@@ -31,7 +31,8 @@
         var didScroll = false;
         var lastScrollTop = 0;
         var delta = 10;
-        var navbarHeight = document.getElementById('header');//$('header').outerHeight();
+        var navbarHeight = document.getElementById('header');
+
         var lastSt = 0;
         var scrollDebounce = 250;//250ms
         var headerClasses = "";
@@ -39,6 +40,7 @@
 
             didScroll = true;
         };
+
         $interval(function() {
             if (didScroll) {
                 hasScrolled();
@@ -56,7 +58,6 @@
             if(Math.abs(lastScrollTop - st) <= delta){
                 return;
             }
-
 
             // If they scrolled down and are past the navbar, add class .nav-up.
             // This is necessary so you never see what is "behind" the navbar.
@@ -220,7 +221,7 @@
                 ///////// *** END LANGUAGE NEGOTIATION *** /////////
 
 
-                pageStateResolver.pageLoading = false;
+                pageStateResolver.pageLoadingfor = false;
                 if (toState.resolve) {
                     pageStateResolver.pageLoading = true;
                 }
