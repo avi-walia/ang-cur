@@ -4,8 +4,8 @@
     angular
         .module('evolution.core.server')
         .service('server', server)
-        .constant("GET", "get")
-        .constant("POST", "post");
+        .constant('GET', 'get')
+        .constant('POST', 'post');
 
     server.$inject = [
         '$q',
@@ -38,8 +38,8 @@ console.log('GET: ', GET);
         */
 
         var activeRequests = {
-            "post": [],
-            "get": []
+            'post': [],
+            'get': []
         };
 
         /**
@@ -91,7 +91,6 @@ console.log('GET: ', GET);
                 //remove request from array of unresolved requests.
                 removeFromActiveRequests(pathKey, requests);
 
-
                 // check for no data being sent
                 if (response && response.status !== 204) {
                     // put data in cache if it is not an empty array
@@ -142,7 +141,7 @@ console.log('GET: ', GET);
 
             } else {//post requests
                 pathKey = sPath;
-                if (!_isEmpty(data)) {
+                if (!_.isEmpty(data)) {
                     pathKey += md5.createHash(JSON.stringify(data));
                 } else {
                     data = {};
@@ -236,6 +235,7 @@ console.log('GET: ', GET);
                 requests.splice(index, 1);
             }
         }
+
         function indexOfActiveRequests(path, requests) {
             var index = -1;//activePosts.indexOf(path);
             _.forEach(requests, function(value, key){
