@@ -17,7 +17,7 @@
 
         //remove all persiods from given string
         function stripDots(state) {
-            return state.replace(/\./g,'');
+            return state.replace(/\./g,'_');
         }
     }
 

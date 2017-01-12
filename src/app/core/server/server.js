@@ -169,17 +169,18 @@ console.log('GET: ', GET);
 
         function getNoStorage(sPath, bIsUnlocalized) {
             //return fetch(GET, sPath, false, 'noStorage', bIsUnlocalized);
+            //these $timeouts were added to test asynchronous loading, remove before pushing to prod
             var deferred = $q.defer();
             fetch(GET, sPath, false, 'noStorage', bIsUnlocalized).then(function(data) {
                 $timeout(function() {
                     deferred.resolve(data);
-                },2000);
+                },800);
             },
             function(error) {
 
                 $timeout(function() {
                     deferred.reject(data);
-                },2000);
+                },800);
             });
             return deferred.promise;
         }
