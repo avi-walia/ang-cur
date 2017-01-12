@@ -74,7 +74,7 @@ module.exports = function(options) {
     var jsnRouter = jsonServer.router('mockBackend.json');
     jsnServer.use(function (req, res, next) {
         res.header('Access-Control-Allow-Origin', '*');
-        next() // continue to JSON Server router\
+        next(); // continue to JSON Server router\
     });
     jsnServer.use(jsnRouter);
     jsnServer.listen(3003);
