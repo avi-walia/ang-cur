@@ -206,7 +206,11 @@ console.log('GET: ', GET);
         }
 
         function fetch(method, sPath, bRemoveCache, sStorageType, bIsUnlocalized) {
-            sPath = ENDPOINT_URI + sPath;
+            var endpoint = ENDPOINT_URI;
+            if (sPath === '/tests/1') {
+                endpoint = 'localhost:3003'
+            }
+            sPath = endpoint + sPath;
             var deferred = $q.defer();
             var cachedObj;
             if (typeof bRemoveCache === 'undefined' && typeof sStorageType === 'undefined' && typeof bIsUnlocalized === 'undefined') {

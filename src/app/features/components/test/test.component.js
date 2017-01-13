@@ -42,6 +42,7 @@
                 //typically a call to notificationService
             }
         );
+        /*
         testService.getData('/tests/2').then(
             function(data){
                 //handle success event
@@ -61,7 +62,8 @@
                 //handle error event
                 //typically a call to notificationService
             }
-        )
+        );
+        */
     }
 
 })();
