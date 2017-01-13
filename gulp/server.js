@@ -71,13 +71,34 @@ module.exports = function(options) {
 
   gulp.task('JSON-Server', function () {
     var jsnServer = jsonServer.create();
+
+
     var jsnRouter = jsonServer.router('mockBackend.json');
     jsnServer.use(function (req, res, next) {
+        console.log('query: ', req.query);
+      console.log('url: ', req.url);
+      console.log('method: ', req.method);
         res.header('Access-Control-Allow-Origin', '*');
+/*
+        if (req.url === '/big_post' && req.method === 'GET') {
+          res.json({id: 1, title: 'Big post'});
+        }
+        */
+      if (req.url === '/testsdfs/1' && req.method === 'POST') {
+        res.json({id: 1, title: 'Big post'});
+      }
+
+      if (req.url === '/testsdfs/1' && req.method === 'OPTIONS') {
+        res.json({id: 1, title: 'Big post'});
+      }
         next(); // continue to JSON Server router\
     });
+
+
     jsnServer.use(jsnRouter);
     jsnServer.listen(3003);
+
+
   });
 
 
