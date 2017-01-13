@@ -366,11 +366,26 @@ module.exports = function (options) {
      .pipe(gulp.dest(options.dist));
      });
      */
-    gulp.task('del-index', ['convertToPHP'], function (done) {
-        $.del([options.dist + '/index.html'], done);
+
+    gulp.task('cleanEnvironmentConfigs', function() {
+        return gulp.src(options.src + "/environment-configs/")
+            .pipe(clean());
     });
 
-    gulp.task('build', function() {
+    gulp.task('copyProdConfig', ['cleanEnvironmentConfigs'], function() {
+        return gulp.src(options.src + "/environment-configs-unbundled-mock-apis/environment.config.prod.js")
+            .pipe(gulp.dest(options.src + "/environment-configs"));
+    });
+
+
+    gulp.task('compileMock_API_Routes', ['cleanEnvironmentConfigs', 'copyProdConfig'], function() {
+        var fileContent = fs.readFileSync(options.src + "/environment-configs-unbundled-mock-apis/mock_api.config.json", "utf8");
+        gulp.src([options.src + '/environment-configs-unbundled-mock-apis/environment.config.*.js', "!" + options.src + '/environment-configs-unbundled-mock-apis/environment.config.prod.js'])
+            .pipe(inject.replace("\\[\\]", fileContent))
+            .pipe(gulp.dest(options.src + "/environment-configs"));
+    });
+
+    gulp.task('build', ['compileMock_API_Routes'], function() {
         build();
     });
     gulp.task('build:dev', function() {
