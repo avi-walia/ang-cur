@@ -32,7 +32,7 @@
         notificationService.addMessage({msg:"<h2 translate>testNotification2</h2>", type:1});
 
 
-        testService.getData('/testsdfs/1').then(
+        testService.getData('/tests/1').then(
             function(data){
                 //handle success event
                 //console.log('data successfully retrieved: ', data);

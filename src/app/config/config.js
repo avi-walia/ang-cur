@@ -9,6 +9,6 @@ return angular.module("evolution")
 .constant("SERVER_TIMEOUT", 15000)
 .constant("EXPIRY_TIME", 86400000)
 .constant("ROUTES", [{"stateName":"main","isAbstract":true,"pageName":""},{"stateName":"main.evolution","isAbstract":true,"pageName":""},{"stateName":"main.evolution.test","isAbstract":false,"pageName":"test"},{"stateName":"main.evolution.abstract","isAbstract":true,"pageName":"testAbstract"},{"stateName":"main.evolution.abstract.test4","isAbstract":false,"pageName":"test4"}])
-.constant("version", "0.0.3(local)");
+.constant("version", "0.0.3");
  
 })();

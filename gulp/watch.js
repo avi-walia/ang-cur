@@ -34,11 +34,14 @@ module.exports = function(options) {
     gulp.watch(options.src + '/app/**/*.html', function(event) {
       browserSync.reload(event.path);
     });
-
+/*
     gulp.watch(options.src + '/app/environment-configs/environment.config.dev.js', function(event) {
       browserSync.reload(event.path);
     });
-
+*/
+    gulp.watch(options.src + '', function(event) {
+      gulp.start('compileMock_API_Routes');
+    });
 
 
 

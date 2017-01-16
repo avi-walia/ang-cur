@@ -23,7 +23,7 @@ var $ = require('gulp-load-plugins')({
 // Setting up the test task
 gulp.task('protractor', function(callback) {
     gulp
-        .src(['src/app/test/spec/e2e/*.js'])
+        .src([options.src + '/app/test/spec/e2e/*.js'])
         .pipe(angularProtractor({
             'configFile': 'protractor.conf.js',
             'debug': false,
@@ -330,12 +330,13 @@ module.exports = function (options) {
             ['html', 'fonts', 'other', 'locales'],
             'clean-dist');
     }
+
     function build() {
         console.time("Build");
         runSequence('clean-build',
             'config',
             ['html', 'fonts', 'other', 'locales'],
-            'clean-dist', 'del-index');
+            'clean-dist');
     }
     function buildTEST() {
         console.time("Build");
@@ -344,16 +345,7 @@ module.exports = function (options) {
             ['html', 'fonts', 'other', 'locales'],
             'clean-dist');
     }
-
-    gulp.task('convertToPHP', function() {
-        gulp.src(options.dist + '/index.html')
-            //.pipe(inject.replace('<script src="environment.config.js">', '<script><?php echo file_get_contents("./environment.config.js");?></script>'))
-            .pipe(inject.replace('//Environment Configs', '<?php echo file_get_contents("./environment.config.js");?>'))
-            .pipe(inject.replace('//English Verbiage', '<?php echo file_get_contents("./assets/locales/locale-en.js");?>'))
-            .pipe(inject.replace('//French Verbiage', '<?php echo file_get_contents("./assets/locales/locale-fr.js");?>'))
-            .pipe(rename('index.php'))
-            .pipe(gulp.dest(options.dist));
-    });
+    
     gulp.task('copyLocals', function() {
         gulp.src(options.src + '/assets/locales/locale-*.js')
             .pipe(gulp.dest(options.dist));
