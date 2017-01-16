@@ -67,22 +67,22 @@
          .value();
          */
         /*
-        _.forEach(oCopy, function(value, key) {
-            if (_.endsWith(key, keepVal)) {
-                oCopy[key.substring(0, key.length - 2)] = oCopy[key];
-                if (stripLocalizedVersion) {
-                    delete oCopy[key];
-                }
-            } else if (stripLocalizedVersion && _.endsWith(key, removeVal)) {
-                delete oCopy[key];
-            }
-        });
-        */
+         _.forEach(oCopy, function(value, key) {
+         if (_.endsWith(key, keepVal)) {
+         oCopy[key.substring(0, key.length - 2)] = oCopy[key];
+         if (stripLocalizedVersion) {
+         delete oCopy[key];
+         }
+         } else if (stripLocalizedVersion && _.endsWith(key, removeVal)) {
+         delete oCopy[key];
+         }
+         });
+         */
         var retVal = {};
         if (_.isObject(output)) {
             retVal = output;
         }
-        _.forEach(o, function(value,key) {
+        _.forEach(o, function (value, key) {
             if (_.endsWith(key, keepVal)) {
                 retVal[key.substring(0, key.length - 2)] = value;
             } else if (!_.endsWith(key, removeVal)) {

@@ -8,7 +8,7 @@
             appTitle: "FR Evolution",
             pages: {
                 test: {
-                    title: "FR test"
+                    title: "FR test test"
                 },
                 test4: {
                     title: "FR test4"

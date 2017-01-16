@@ -30,6 +30,7 @@
             waitForResourcesService.startWaiting();
             return ret;
         }
+
         function translateData(translatedData) {
             //service.data = translatedData;
             _.assign(service.data, translatedData);
