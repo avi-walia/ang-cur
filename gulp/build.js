@@ -98,8 +98,13 @@ module.exports = function (options) {
              conditionals: true
              }))*/
             .pipe(htmlFilter.restore())
-            .pipe(gulp.dest(options.dist + '/'))
-            .pipe($.size({title: options.dist + '/', showFiles: true}));
+            //Need the next four lines because the scripts, styles, assets, fonts, folders have been moved under the application folder after building.
+            .pipe(inject.replace('scripts/', 'application/scripts/'))
+            .pipe(inject.replace('styles/', 'application/styles/'))
+            .pipe(inject.replace('assets/', 'application/assets/'))
+            .pipe(inject.replace('fonts/', 'application/fonts/'))
+            .pipe(gulp.dest(options.dist2 + '/'))
+            .pipe($.size({title: options.dist2 + '/', showFiles: true}));
     });
 
     // Only applies for fonts from bower dependencies
@@ -114,12 +119,13 @@ module.exports = function (options) {
 
 
     gulp.task('fonts', function () {
-        return gulp.src([
-            'bower_components/**/*',
-            '!' + options.src + '/**/*.{html,css,js,scss}'
-        ])
-            .pipe($.flatten())
-            .pipe(gulp.dest(options.dist + '/fonts/'));
+
+        //return gulp.src([
+        //    'bower_components/**/*',
+        //    '!' + options.src + '/**/*.{html,css,js,scss}'
+        //])
+        //    .pipe($.flatten())
+        //    .pipe(gulp.dest(options.dist2 + '/fonts/'));
     });
 
     gulp.task('other', function () {
@@ -128,14 +134,14 @@ module.exports = function (options) {
             '!' + options.src + '/**/*.{html,css,js,scss,mock.json}',
             '!' + options.src + '/app/config/*.json'
         ])
-            .pipe(gulp.dest(options.dist + '/'));
+            .pipe(gulp.dest(options.dist2 + '/'));
     });
 
 
     gulp.task('locales', function () {
         return gulp.src([options.src + '/assets/locales/*.js'])
             .pipe($.uglify({mangle: false}))
-            .pipe(gulp.dest(options.dist + '/assets/locales/'));
+            .pipe(gulp.dest(options.dist2 + '/assets/locales/'));
     });
     gulp.task('cleanTmp', function () {
         return gulp.src('./.tmp/')
@@ -158,11 +164,11 @@ module.exports = function (options) {
      });
      */
     gulp.task('clean-build', function (done) {
-        $.del([options.dist + '/', options.tmp + '/'], done);
+        $.del([options.dist2 + '/', options.tmp + '/'], done);
     });
 
     gulp.task('clean-dist', function (done) {
-        $.del([options.dist + '/app/', options.tmp + '/'], done);
+        $.del([options.dist2 + '/app/', options.tmp + '/'], done);
         console.timeEnd("Build");
     })
 
@@ -335,7 +341,7 @@ module.exports = function (options) {
         console.time("Build");
         runSequence('clean-build',
             'config',
-            ['html', 'fonts', 'other', 'locales'],
+            'delete-index',
             'clean-dist');
     }
     function buildTEST() {
@@ -345,10 +351,21 @@ module.exports = function (options) {
             ['html', 'fonts', 'other', 'locales'],
             'clean-dist');
     }
+
+    gulp.task('delete-index', ['re-arrange'], function() {
+        $.del([options.dist2 + '/index.html']);
+        //gulp.src(options.dist2 + '/index.html')
+        //    .pipe(gulp.dest(options.dist));
+    });
+
+    gulp.task('re-arrange', ['html', 'fonts', 'other', 'locales'], function() {
+        return gulp.src(options.dist2 + '/index.html')
+            .pipe(gulp.dest(options.dist));
+    });
     
     gulp.task('copyLocals', function() {
         gulp.src(options.src + '/assets/locales/locale-*.js')
-            .pipe(gulp.dest(options.dist));
+            .pipe(gulp.dest(options.dist2));
     });
     /*
      gulp.task('injectLocals', function() {
@@ -410,7 +427,7 @@ module.exports = function (options) {
     // copy bower components
     gulp.task('cbc', function () {
         return gulp.src("./bower_components/**/*")
-            .pipe(gulp.dest("./www/lib"));
+            .pipe(gulp.dest(options.dist2 + "/lib"));
     });
     function buildIonic() {
         console.time("Build");

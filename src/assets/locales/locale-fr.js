@@ -19,7 +19,10 @@
                 fr: 'FR'
             },
             testNotification: "<h1>FR TEST MSG</h1>",
-            testNotification2: "FR 2nd test msg"
+            testNotification2: "FR 2nd test msg",
+            errors: {
+                noData: "No Data Error Msg"
+            }
         });
     }
 })();
