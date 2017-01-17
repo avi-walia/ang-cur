@@ -12,7 +12,9 @@
         'languageSwitcherService',
         'loadingService',
         'notificationService',
-        'pageStateResolver'
+        'pageStateResolver',
+        '$httpBackend',
+        'mockService'
     ];
 
     /* @ngInject */
@@ -25,7 +27,9 @@
         languageSwitcherService,
         loadingService,
         notificationService,
-        pageStateResolver
+        pageStateResolver,
+        $httpBackend,
+        mockService
     ) {
         $rootScope.locale = null;
         var didScroll = false;
@@ -36,6 +40,9 @@
         var lastSt = 0;
         var scrollDebounce = 250;//250ms
         var headerClasses = "";
+
+        mockService.init();
+
         window.onscroll = function() {
 
             didScroll = true;

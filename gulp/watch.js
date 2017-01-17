@@ -45,7 +45,7 @@ module.exports = function(options) {
 
 
 
-    gulp.watch(['./src/app/config/app.config.json', './src/app/config/app.config.local.json', './src/app/config/routes.config.json'], function(event) {
+    gulp.watch(['./src/app/config/app.config.json', './src/app/config/app.config.local.json', './src/app/config/routes.config.json', './src/app/config/mockBackend.json'], function(event) {
       gulp.start('config:local');
     });
   });
