@@ -28,7 +28,7 @@
 
         function updateMessageKey(msgKey) {
             service.messageKey = parseService.stripDots(msgKey);
-            console.log('service.messageKey: ', service.messageKey);
+            // console.log('service.messageKey: ', service.messageKey);
         }
 
 
@@ -48,7 +48,7 @@
             }
             service.messages[service.messageKey].push({text: $sce.trustAsHtml(msg.msg), type: msg.type});
 
-            console.log('service.messages: ', service.messages);
+            // console.log('service.messages: ', service.messages);
         }
 
         function dismissMessage(index) {

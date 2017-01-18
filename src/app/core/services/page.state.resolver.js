@@ -6,15 +6,12 @@
         .service('pageStateResolver', pageStateResolver);
 
     pageStateResolver.$inject = [
-        'i18nService',
-        'ROUTES'
+        'ROUTES',
+        'i18nService'
     ];
 
     /* @ngInject */
-    function pageStateResolver(
-        i18nService,
-        ROUTES
-    ) {
+    function pageStateResolver(ROUTES, i18nService) {
         var service = this;
 
         service.activePageName = '';
@@ -25,6 +22,8 @@
         service.setActivePageName = setActivePageName;
         service.resolve = pageToStateMapper;
         service.check = stateToPageMapper;
+        service.setNextPageName = setNextPageName;
+        service.setPreviousPageName = setPreviousPageName;
 
         /**
          * Given a state will give you the entire page configuration.
@@ -113,6 +112,49 @@
             }
         }
 
+        function setNextPageName(stateName){
+//            console.clear();
+//            console.info('stateName = '+stateName);
+
+            var oPageConfiguration = _.find(ROUTES, {stateName: stateName});
+//            console.log(oPageConfiguration);
+            if ('nextPageName' in oPageConfiguration) {
+                if (!oPageConfiguration.isAbstract) {
+//                    console.info(oPageConfiguration.nextPageName);
+                    service.nextPageName  = oPageConfiguration.nextPageName;
+                }
+            }
+        }
+
+        function setPreviousPageName(stateName){
+//            console.clear();
+//            console.info('stateName = '+stateName);
+
+            var oPageConfiguration = _.find(ROUTES, {stateName: stateName});
+//            console.log(oPageConfiguration);
+            if (!oPageConfiguration.isAbstract){
+                if ('previousPageName' in oPageConfiguration && oPageConfiguration.previousPageName !== '') {
+//                    console.info(oPageConfiguration.previousPageName);
+                    service.previousPageName  = oPageConfiguration.previousPageName;
+                }
+                else{
+                    //no previous page. maybe we're in the beginning of the app!
+                    service.previousPageName = '';
+                }
+            }
+//            if ('previousPageName' in oPageConfiguration) {
+//                if (oPageConfiguration.previousPageName !== '' && !oPageConfiguration.isAbstract) {
+//                    console.info(oPageConfiguration.previousPageName);
+//                    service.previousPageName  = oPageConfiguration.previousPageName;
+//                }else{
+//                    //no previous page. maybe we're in the beginning of the app!
+//                    service.previousPageName = '';
+//                }
+//            }else{
+//                //no previous page. maybe we're in the beginning of the app!
+//                service.previousPageName = '';
+//            }
+        }
 
     }
 

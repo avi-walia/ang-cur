@@ -1,14 +1,18 @@
-<ci-header></ci-header>
-<banner></banner>
-<div id="" ng-class="Main.pageStateResolver.activePageName" role="main" aria-label="{{ 'aria.main-label' | translate }}">
-<!--
-    <ci-loader loading="Main.pageStateResolver.pageLoading">
-    -->
-        <ci-notifications></ci-notifications>
-        <div id="content" ui-view="content"></div>
+<!--<ci-header></ci-header>-->
+<!--<banner></banner>-->
+<div id="header" ui-view="header"></div>
+<div id="" ng-class="Main.pageStateResolver.activePageName" role="main"
+     style="border:1px solid red;"
+     aria-label="{{ 'aria.main-label' | translate }}">
+    <!--
+        <ci-loader loading="Main.pageStateResolver.pageLoading">
+        -->
+    <ci-notifications></ci-notifications>
+    <div id="content" ui-view="content"></div>
     <!--
     </ci-loader>
     -->
 </div>
-<ci-footer></ci-footer>
-<loading></loading>
+<!--<ci-footer></ci-footer>-->
+<!--<loading></loading>-->
+<div id="footer" ui-view="footer"></div>
