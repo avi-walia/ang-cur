@@ -1,3 +1,18 @@
 <footer class="footer region region-footer" role="contentinfo">
-    footer
+    <p >
+        <a target="_blank" ui-sref="main.evolution.help">Help</a>
+        <a href="javascript:alert('reset');">reset</a>
+    </p>
+    <p ng-if="$ctrl.displaySplit">
+        <a  ui-sref="main.evolution.split">Split</a>
+    </p>
+
+       <a ng-if="$ctrl.previousState" ui-sref="{{$ctrl.previousState}}">Back</a>
+    <!--|-->
+    <!--{{$ctrl.pageStateResolver.nextPageName}}-->
+    <!--&lt;!&ndash;<input type="button" value="" />&ndash;&gt;-->
+    <a ng-if="$ctrl.nextState" ui-sref="{{$ctrl.nextState}}">{{$ctrl.nextLabel}}</a>
+
+    <a ng-if="$ctrl.submit" href="javascript:alert('submit');">Submit</a>
 </footer>
+{{$ctrl.nextState | json}}
