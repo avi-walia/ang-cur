@@ -37,7 +37,7 @@
         POST,
         SERVER_TIMEOUT
     ) {
-console.log('GET: ', GET);
+// console.log('GET: ', GET);
         var service = this;
         //get and post arrays should be arrays of objects of type:
         /*
