@@ -1,0 +1,1004 @@
+{
+  "ASSET_CLASS_MIX": [
+    [
+      {
+        "id": 0,
+        "profileName": "Wyatt",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Emily",
+            "assetClassNameFR": "FR Emily",
+            "percentage": 0.7
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Isaac",
+            "assetFundNameFR": "FR Isaac",
+            "percentage": 0.22
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 1,
+        "profileName": "Elizabeth",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Sophie",
+            "assetClassNameFR": "FR Sophie",
+            "percentage": 0.61
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Anna",
+            "assetFundNameFR": "FR Anna",
+            "percentage": 0.08
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 2,
+        "profileName": "Sophie",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Kaylee",
+            "assetClassNameFR": "FR Kaylee",
+            "percentage": 0.56
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Peyton",
+            "assetFundNameFR": "FR Peyton",
+            "percentage": 0.33
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 3,
+        "profileName": "Samuel",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Madison",
+            "assetClassNameFR": "FR Madison",
+            "percentage": 0.79
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Mason",
+            "assetFundNameFR": "FR Mason",
+            "percentage": 0.46
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 4,
+        "profileName": "Hannah",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Sarah",
+            "assetClassNameFR": "FR Sarah",
+            "percentage": 0.17
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Sarah",
+            "assetFundNameFR": "FR Sarah",
+            "percentage": 0.64
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 5,
+        "profileName": "Arianna",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Grace",
+            "assetClassNameFR": "FR Grace",
+            "percentage": 0.02
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "David",
+            "assetFundNameFR": "FR David",
+            "percentage": 0.96
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 6,
+        "profileName": "Natalie",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Ryan",
+            "assetClassNameFR": "FR Ryan",
+            "percentage": 0.03
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Kaitlyn",
+            "assetFundNameFR": "FR Kaitlyn",
+            "percentage": 0.11
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 7,
+        "profileName": "Zachary",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Carter",
+            "assetClassNameFR": "FR Carter",
+            "percentage": 0.19
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Zoe",
+            "assetFundNameFR": "FR Zoe",
+            "percentage": 0.08
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 8,
+        "profileName": "Ella",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Harper",
+            "assetClassNameFR": "FR Harper",
+            "percentage": 0.45
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Kylie",
+            "assetFundNameFR": "FR Kylie",
+            "percentage": 0.94
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 9,
+        "profileName": "Zoe",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Luke",
+            "assetClassNameFR": "FR Luke",
+            "percentage": 0.5
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Jayden",
+            "assetFundNameFR": "FR Jayden",
+            "percentage": 0.58
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 10,
+        "profileName": "Charlotte",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Hunter",
+            "assetClassNameFR": "FR Hunter",
+            "percentage": 0.62
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Gavin",
+            "assetFundNameFR": "FR Gavin",
+            "percentage": 0.79
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 11,
+        "profileName": "Logan",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Gavin",
+            "assetClassNameFR": "FR Gavin",
+            "percentage": 0.34
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Liam",
+            "assetFundNameFR": "FR Liam",
+            "percentage": 0.33
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 12,
+        "profileName": "Zoe",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Emma",
+            "assetClassNameFR": "FR Emma",
+            "percentage": 0.64
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Jacob",
+            "assetFundNameFR": "FR Jacob",
+            "percentage": 0.87
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 13,
+        "profileName": "Dylan",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Isaac",
+            "assetClassNameFR": "FR Isaac",
+            "percentage": 0.32
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Elizabeth",
+            "assetFundNameFR": "FR Elizabeth",
+            "percentage": 0.04
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 14,
+        "profileName": "Charlotte",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Maya",
+            "assetClassNameFR": "FR Maya",
+            "percentage": 0.1
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Gavin",
+            "assetFundNameFR": "FR Gavin",
+            "percentage": 0.07
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 15,
+        "profileName": "Lucy",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Isabella",
+            "assetClassNameFR": "FR Isabella",
+            "percentage": 0.44
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Landon",
+            "assetFundNameFR": "FR Landon",
+            "percentage": 0.51
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 16,
+        "profileName": "Zachary",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Lucas",
+            "assetClassNameFR": "FR Lucas",
+            "percentage": 0.03
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Hannah",
+            "assetFundNameFR": "FR Hannah",
+            "percentage": 0
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 17,
+        "profileName": "Connor",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Lily",
+            "assetClassNameFR": "FR Lily",
+            "percentage": 1
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Anna",
+            "assetFundNameFR": "FR Anna",
+            "percentage": 0.08
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 18,
+        "profileName": "Mason",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Dylan",
+            "assetClassNameFR": "FR Dylan",
+            "percentage": 0.89
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Harper",
+            "assetFundNameFR": "FR Harper",
+            "percentage": 0.31
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 19,
+        "profileName": "Madison",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Isabelle",
+            "assetClassNameFR": "FR Isabelle",
+            "percentage": 0.94
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Grayson",
+            "assetFundNameFR": "FR Grayson",
+            "percentage": 0.87
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 20,
+        "profileName": "Mackenzie",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Elijah",
+            "assetClassNameFR": "FR Elijah",
+            "percentage": 0.9
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Owen",
+            "assetFundNameFR": "FR Owen",
+            "percentage": 0.44
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 21,
+        "profileName": "Hunter",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Amelia",
+            "assetClassNameFR": "FR Amelia",
+            "percentage": 0.86
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Gavin",
+            "assetFundNameFR": "FR Gavin",
+            "percentage": 0.53
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 22,
+        "profileName": "Max",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Sarah",
+            "assetClassNameFR": "FR Sarah",
+            "percentage": 0.76
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Andrew",
+            "assetFundNameFR": "FR Andrew",
+            "percentage": 0.29
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 23,
+        "profileName": "Max",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Claire",
+            "assetClassNameFR": "FR Claire",
+            "percentage": 0.42
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Leah",
+            "assetFundNameFR": "FR Leah",
+            "percentage": 0.55
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 24,
+        "profileName": "David",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Madelyn",
+            "assetClassNameFR": "FR Madelyn",
+            "percentage": 0.47
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Elizabeth",
+            "assetFundNameFR": "FR Elizabeth",
+            "percentage": 0.11
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 25,
+        "profileName": "Aubrey",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Oliver",
+            "assetClassNameFR": "FR Oliver",
+            "percentage": 0.45
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Andrew",
+            "assetFundNameFR": "FR Andrew",
+            "percentage": 0.32
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 26,
+        "profileName": "Hailey",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Henry",
+            "assetClassNameFR": "FR Henry",
+            "percentage": 0.72
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Kaitlyn",
+            "assetFundNameFR": "FR Kaitlyn",
+            "percentage": 0.96
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 27,
+        "profileName": "Andrew",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "William",
+            "assetClassNameFR": "FR William",
+            "percentage": 0.36
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Benjamin",
+            "assetFundNameFR": "FR Benjamin",
+            "percentage": 0.59
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 28,
+        "profileName": "Gabriel",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Kylie",
+            "assetClassNameFR": "FR Kylie",
+            "percentage": 0.74
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Oliver",
+            "assetFundNameFR": "FR Oliver",
+            "percentage": 0.88
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 29,
+        "profileName": "Nathan",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Charlotte",
+            "assetClassNameFR": "FR Charlotte",
+            "percentage": 0.96
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Claire",
+            "assetFundNameFR": "FR Claire",
+            "percentage": 0.61
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 30,
+        "profileName": "Aiden",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Makayla",
+            "assetClassNameFR": "FR Makayla",
+            "percentage": 0.88
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Lillian",
+            "assetFundNameFR": "FR Lillian",
+            "percentage": 0.14
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 31,
+        "profileName": "Elizabeth",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Henry",
+            "assetClassNameFR": "FR Henry",
+            "percentage": 0.28
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Sophia",
+            "assetFundNameFR": "FR Sophia",
+            "percentage": 0.67
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 32,
+        "profileName": "Alexander",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Harper",
+            "assetClassNameFR": "FR Harper",
+            "percentage": 0.65
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Ella",
+            "assetFundNameFR": "FR Ella",
+            "percentage": 0.53
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 33,
+        "profileName": "Grace",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Liam",
+            "assetClassNameFR": "FR Liam",
+            "percentage": 0.47
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Isabelle",
+            "assetFundNameFR": "FR Isabelle",
+            "percentage": 0.58
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 34,
+        "profileName": "Logan",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Nicholas",
+            "assetClassNameFR": "FR Nicholas",
+            "percentage": 0.3
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Connor",
+            "assetFundNameFR": "FR Connor",
+            "percentage": 0.48
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 35,
+        "profileName": "Liam",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Madelyn",
+            "assetClassNameFR": "FR Madelyn",
+            "percentage": 0.06
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Mason",
+            "assetFundNameFR": "FR Mason",
+            "percentage": 0.63
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 36,
+        "profileName": "Nicholas",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Wyatt",
+            "assetClassNameFR": "FR Wyatt",
+            "percentage": 0.78
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Matthew",
+            "assetFundNameFR": "FR Matthew",
+            "percentage": 0.43
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 37,
+        "profileName": "Madelyn",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Andrew",
+            "assetClassNameFR": "FR Andrew",
+            "percentage": 0.82
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Ryan",
+            "assetFundNameFR": "FR Ryan",
+            "percentage": 0.9
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 38,
+        "profileName": "Lillian",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Jayden",
+            "assetClassNameFR": "FR Jayden",
+            "percentage": 0.97
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Olivia",
+            "assetFundNameFR": "FR Olivia",
+            "percentage": 0.39
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 39,
+        "profileName": "Gabriel",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Ella",
+            "assetClassNameFR": "FR Ella",
+            "percentage": 0.06
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Benjamin",
+            "assetFundNameFR": "FR Benjamin",
+            "percentage": 0.31
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 40,
+        "profileName": "Hannah",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Logan",
+            "assetClassNameFR": "FR Logan",
+            "percentage": 0.59
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Riley",
+            "assetFundNameFR": "FR Riley",
+            "percentage": 0.35
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 41,
+        "profileName": "Luke",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Daniel",
+            "assetClassNameFR": "FR Daniel",
+            "percentage": 0.9
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Isaac",
+            "assetFundNameFR": "FR Isaac",
+            "percentage": 0.41
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 42,
+        "profileName": "Mason",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Noah",
+            "assetClassNameFR": "FR Noah",
+            "percentage": 0.81
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Hailey",
+            "assetFundNameFR": "FR Hailey",
+            "percentage": 0.76
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 43,
+        "profileName": "David",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Jack",
+            "assetClassNameFR": "FR Jack",
+            "percentage": 0.55
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Avery",
+            "assetFundNameFR": "FR Avery",
+            "percentage": 0.91
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 44,
+        "profileName": "Sarah",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Landon",
+            "assetClassNameFR": "FR Landon",
+            "percentage": 0.68
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Lillian",
+            "assetFundNameFR": "FR Lillian",
+            "percentage": 0.87
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 45,
+        "profileName": "Arianna",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Maya",
+            "assetClassNameFR": "FR Maya",
+            "percentage": 0.58
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Lucas",
+            "assetFundNameFR": "FR Lucas",
+            "percentage": 0.12
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 46,
+        "profileName": "Aaliyah",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "James",
+            "assetClassNameFR": "FR James",
+            "percentage": 0.21
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Riley",
+            "assetFundNameFR": "FR Riley",
+            "percentage": 0.13
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 47,
+        "profileName": "Elizabeth",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Hailey",
+            "assetClassNameFR": "FR Hailey",
+            "percentage": 0.31
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Michael",
+            "assetFundNameFR": "FR Michael",
+            "percentage": 0.44
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 48,
+        "profileName": "Chloe",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Mia",
+            "assetClassNameFR": "FR Mia",
+            "percentage": 0.72
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Mason",
+            "assetFundNameFR": "FR Mason",
+            "percentage": 0.61
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 49,
+        "profileName": "Andrew",
+        "assetClassMix": [
+          {
+            "assetClassNameEN": "Eli",
+            "assetClassNameFR": "FR Eli",
+            "percentage": 0.03
+          }
+        ],
+        "assetFundMix": [
+          {
+            "assetFundNameEN": "Abigail",
+            "assetFundNameFR": "FR Abigail",
+            "percentage": 0.49
+          }
+        ]
+      }
+    ]
+  ]
+}

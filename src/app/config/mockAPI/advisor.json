@@ -1,0 +1,15 @@
+{
+  "ADVISOR": {
+    "dealerNameEN": [],
+    "dealerNameFR": [],
+    "fullName": "",
+    "street": "",
+    "province": 1,
+    "email": "",
+    "phone": "",
+    "fax": "",
+    "city": "",
+    "postalCode": "",
+    "chosenDealerName": 1
+  }
+}

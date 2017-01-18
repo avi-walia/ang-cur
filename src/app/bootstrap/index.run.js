@@ -13,7 +13,6 @@
         'loadingService',
         'notificationService',
         'pageStateResolver',
-        '$httpBackend',
         'mockService'
     ];
 
@@ -28,7 +27,6 @@
         loadingService,
         notificationService,
         pageStateResolver,
-        $httpBackend,
         mockService
     ) {
         $rootScope.locale = null;

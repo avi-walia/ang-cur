@@ -197,7 +197,7 @@ module.exports = function (options) {
     gulp.task('config:local', function () {
         var pkg = JSON.parse(fs.readFileSync('./package.json'));
 
-        gulp.src(['./src/app/config/app.config.json', './src/app/config/app.config.local.json', './src/app/config/routes.config.json', './src/app/config/mockBackend.json'])
+        gulp.src(['./src/app/config/app.config.json', './src/app/config/app.config.local.json', './src/app/config/routes.config.json', './src/app/config/mockAPI/*.json'])
             .pipe(jsonMerge('config.json'))
             .pipe(gulpNgConfig(options.app, {
                 createModule: false,
