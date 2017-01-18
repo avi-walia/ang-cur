@@ -145,16 +145,8 @@
                  */
                 pageStateResolver.setActivePageName(toState.name);
 
-
-                // DELETE Notifications on every route change,
-                // BUT "login|portfolio"
-                // Or first step of registration, password resetting, or web id retrieval if coming from a later step.
-                // OR same route
-                //if (!NotificationService.isEmpty())
-                //{
-                //    console.info('*** About to delete Notifications !!!');
-                //    NotificationService.delete();
-                //}
+                // pageStateResolver.setPreviousPageName(toState.name);
+                // pageStateResolver.setNextPageName(toState.name);
 
                 if (toState.resolve) {
                     pageStateResolver.pageLoading = false;
@@ -166,14 +158,14 @@
             });
 
         $rootScope.$on('$stateNotFound',function(event, unfoundState, fromState, fromParams){
-            console.log('$stateNotFound '+unfoundState.to+'  - fired when a state cannot be found by its name.');
-            console.log(unfoundState, fromState, fromParams);
+            console.error('$stateNotFound '+unfoundState.to+'  - fired when a state cannot be found by its name.');
+            console.error(unfoundState, fromState, fromParams);
         });
 
 
         $rootScope.$on('$stateChangeStart',
             function (event, toState, toParams, fromState, fromParams) {
-                console.log('calling languageSwitcher');
+                // console.log('calling languageSwitcher');
                 languageSwitcherService.switchLanguages(toState.name);
                 loadingService.loading = true;
                 console.log('fromState: ', fromState);
