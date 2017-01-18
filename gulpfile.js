@@ -8,6 +8,7 @@ var options = {
   src: 'src',
   //dist: 'dist',
   dist: 'www',
+  dist2: 'www/application',
   tmp: '.tmp',
   e2e: 'e2e',
   app: 'evolution',

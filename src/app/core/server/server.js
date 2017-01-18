@@ -18,6 +18,7 @@
         'GET',
         'i18nService',
         'md5',
+        'MOCK_API',
         'POST',
         'SERVER_TIMEOUT'
     ];
@@ -34,10 +35,10 @@
         GET,
         i18nService,
         md5,
+        MOCK_API,
         POST,
         SERVER_TIMEOUT
     ) {
-// console.log('GET: ', GET);
         var service = this;
         //get and post arrays should be arrays of objects of type:
         /*
@@ -92,6 +93,7 @@
         */
 
         function fetchFromServer(method, sPath, deferred, sStorageType, bIsUnlocalized, data) {
+            console.log('method: ', method);
             //currently only support methods get and post.
             var requests = activeRequests[method];
             var pathKey = sPath;
@@ -139,6 +141,7 @@
 
 
             if (method === GET) {
+                console.log('get received');
                 requests = activeRequests.get;
 
                 var getRequest = function() {
@@ -149,6 +152,7 @@
                 return checkActiveRequests(pathKey, requests, getRequest, GET);
 
             } else {//post requests
+                console.log('post received');
                 pathKey = sPath;
                 if (!_.isEmpty(data)) {
                     pathKey += md5.createHash(JSON.stringify(data));
@@ -157,6 +161,7 @@
                 }
                 requests = activeRequests.post;
                 var postRequest = function() {
+                    console.log('making post');
                     return $http.post(sPath, data, {timeout: SERVER_TIMEOUT})//15 seconds, timeout is measured in milliseconds.
                         .then(success, failure);
                 };
@@ -205,8 +210,32 @@
             return fetch(GET, sPath, false, 'sessionStorage', bIsUnlocalized);
         }
 
-        function fetch(method, sPath, bRemoveCache, sStorageType, bIsUnlocalized) {
-            sPath = ENDPOINT_URI + sPath;
+        function fetch(method, sPath, bRemoveCache, sStorageType, bIsUnlocalized, data) {
+            if (!data) {
+                data = {};
+            }
+            var endpoint = ENDPOINT_URI;
+
+            /*************************************************************************************************************************************************************************************************************************
+             * REMOVE BELOW IF BLOCK BEFORE DEPLOYING TO PRODUCTION
+             **************************************************************************************************************************************************************************************************************************/
+            /*
+            _.forEach(MOCK_API, function(mockPath, index) {
+                if (sPath.length >= mockPath.length) {
+                    console.log("sPath: ", sPath.substring(0, mockPath.length));
+                    console.log("mockPath: ", mockPath);
+                }
+                if (sPath.length >= mockPath.length && sPath.substring(0, mockPath.length) === mockPath) {
+                    endpoint = 'http://localhost:3003';
+                    return false;//the sPath matches a MOCK_API path, use the fake endpoint and break out of the forEach
+                }
+            });
+            */
+            /*************************************************************************************************************************************************************************************************************************
+             * END OF REMOVE BLOCK
+             **************************************************************************************************************************************************************************************************************************/
+
+            sPath = endpoint + sPath;
             var deferred = $q.defer();
             var cachedObj;
             if (typeof bRemoveCache === 'undefined' && typeof sStorageType === 'undefined' && typeof bIsUnlocalized === 'undefined') {
@@ -232,7 +261,7 @@
                 deferred.resolve(bIsUnlocalized ? cachedObj : filterLangResponse(cachedObj));
 
             } else {
-                fetchFromServer(method, sPath, deferred, sStorageType, bIsUnlocalized);
+                fetchFromServer(method, sPath, deferred, sStorageType, bIsUnlocalized, data);
 
             }
 
@@ -260,16 +289,16 @@
         }
 
 
-        function postLocalStorage(sPath, bIsUnlocalized) {
-            return fetch(POST, sPath, false, 'localStorage', bIsUnlocalized);
+        function postLocalStorage(sPath, bIsUnlocalized, data) {
+            return fetch(POST, sPath, false, 'localStorage', bIsUnlocalized, data);
         }
 
-        function postSessionStorage(sPath, bIsUnlocalized) {
-            return fetch(POST, sPath, false, 'sessionStorage', bIsUnlocalized);
+        function postSessionStorage(sPath, bIsUnlocalized, data) {
+            return fetch(POST, sPath, false, 'sessionStorage', bIsUnlocalized, data);
         }
 
-        function postNoStorage(sPath, bIsUnlocalized) {
-            return fetch(POST, sPath, false, 'noStorage', bIsUnlocalized);
+        function postNoStorage(sPath, bIsUnlocalized, data) {
+            return fetch(POST, sPath, false, 'noStorage', bIsUnlocalized, data);
         }
 /*
         function post(path, data, removeCache, storageType, isUnlocalized) {

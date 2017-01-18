@@ -23,7 +23,7 @@ var $ = require('gulp-load-plugins')({
 // Setting up the test task
 gulp.task('protractor', function(callback) {
     gulp
-        .src(['src/app/test/spec/e2e/*.js'])
+        .src([options.src + '/app/test/spec/e2e/*.js'])
         .pipe(angularProtractor({
             'configFile': 'protractor.conf.js',
             'debug': false,
@@ -98,8 +98,13 @@ module.exports = function (options) {
              conditionals: true
              }))*/
             .pipe(htmlFilter.restore())
-            .pipe(gulp.dest(options.dist + '/'))
-            .pipe($.size({title: options.dist + '/', showFiles: true}));
+            //Need the next four lines because the scripts, styles, assets, fonts, folders have been moved under the application folder after building.
+            .pipe(inject.replace('scripts/', 'application/scripts/'))
+            .pipe(inject.replace('styles/', 'application/styles/'))
+            .pipe(inject.replace('assets/', 'application/assets/'))
+            .pipe(inject.replace('fonts/', 'application/fonts/'))
+            .pipe(gulp.dest(options.dist2 + '/'))
+            .pipe($.size({title: options.dist2 + '/', showFiles: true}));
     });
 
     // Only applies for fonts from bower dependencies
@@ -114,12 +119,13 @@ module.exports = function (options) {
 
 
     gulp.task('fonts', function () {
-        return gulp.src([
-            'bower_components/**/*',
-            '!' + options.src + '/**/*.{html,css,js,scss}'
-        ])
-            .pipe($.flatten())
-            .pipe(gulp.dest(options.dist + '/fonts/'));
+
+        //return gulp.src([
+        //    'bower_components/**/*',
+        //    '!' + options.src + '/**/*.{html,css,js,scss}'
+        //])
+        //    .pipe($.flatten())
+        //    .pipe(gulp.dest(options.dist2 + '/fonts/'));
     });
 
     gulp.task('other', function () {
@@ -128,14 +134,14 @@ module.exports = function (options) {
             '!' + options.src + '/**/*.{html,css,js,scss,mock.json}',
             '!' + options.src + '/app/config/*.json'
         ])
-            .pipe(gulp.dest(options.dist + '/'));
+            .pipe(gulp.dest(options.dist2 + '/'));
     });
 
 
     gulp.task('locales', function () {
         return gulp.src([options.src + '/assets/locales/*.js'])
             .pipe($.uglify({mangle: false}))
-            .pipe(gulp.dest(options.dist + '/assets/locales/'));
+            .pipe(gulp.dest(options.dist2 + '/assets/locales/'));
     });
     gulp.task('cleanTmp', function () {
         return gulp.src('./.tmp/')
@@ -158,11 +164,11 @@ module.exports = function (options) {
      });
      */
     gulp.task('clean-build', function (done) {
-        $.del([options.dist + '/', options.tmp + '/'], done);
+        $.del([options.dist2 + '/', options.tmp + '/'], done);
     });
 
     gulp.task('clean-dist', function (done) {
-        $.del([options.dist + '/app/', options.tmp + '/'], done);
+        $.del([options.dist2 + '/app/', options.tmp + '/'], done);
         console.timeEnd("Build");
     })
 
@@ -191,7 +197,7 @@ module.exports = function (options) {
     gulp.task('config:local', function () {
         var pkg = JSON.parse(fs.readFileSync('./package.json'));
 
-        gulp.src(['./src/app/config/app.config.json', './src/app/config/app.config.local.json', './src/app/config/routes.config.json'])
+        gulp.src(['./src/app/config/app.config.json', './src/app/config/app.config.local.json', './src/app/config/routes.config.json', './src/app/config/mockAPI/*.json'])
             .pipe(jsonMerge('config.json'))
             .pipe(gulpNgConfig(options.app, {
                 createModule: false,
@@ -330,12 +336,13 @@ module.exports = function (options) {
             ['html', 'fonts', 'other', 'locales'],
             'clean-dist');
     }
+
     function build() {
         console.time("Build");
         runSequence('clean-build',
             'config',
-            ['html', 'fonts', 'other', 'locales'],
-            'clean-dist', 'del-index');
+            'delete-index',
+            'clean-dist');
     }
     function buildTEST() {
         console.time("Build");
@@ -345,18 +352,20 @@ module.exports = function (options) {
             'clean-dist');
     }
 
-    gulp.task('convertToPHP', function() {
-        gulp.src(options.dist + '/index.html')
-            //.pipe(inject.replace('<script src="environment.config.js">', '<script><?php echo file_get_contents("./environment.config.js");?></script>'))
-            .pipe(inject.replace('//Environment Configs', '<?php echo file_get_contents("./environment.config.js");?>'))
-            .pipe(inject.replace('//English Verbiage', '<?php echo file_get_contents("./assets/locales/locale-en.js");?>'))
-            .pipe(inject.replace('//French Verbiage', '<?php echo file_get_contents("./assets/locales/locale-fr.js");?>'))
-            .pipe(rename('index.php'))
+    gulp.task('delete-index', ['re-arrange'], function() {
+        $.del([options.dist2 + '/index.html']);
+        //gulp.src(options.dist2 + '/index.html')
+        //    .pipe(gulp.dest(options.dist));
+    });
+
+    gulp.task('re-arrange', ['html', 'fonts', 'other', 'locales'], function() {
+        return gulp.src(options.dist2 + '/index.html')
             .pipe(gulp.dest(options.dist));
     });
+    
     gulp.task('copyLocals', function() {
         gulp.src(options.src + '/assets/locales/locale-*.js')
-            .pipe(gulp.dest(options.dist));
+            .pipe(gulp.dest(options.dist2));
     });
     /*
      gulp.task('injectLocals', function() {
@@ -366,11 +375,26 @@ module.exports = function (options) {
      .pipe(gulp.dest(options.dist));
      });
      */
-    gulp.task('del-index', ['convertToPHP'], function (done) {
-        $.del([options.dist + '/index.html'], done);
+
+    gulp.task('cleanEnvironmentConfigs', function() {
+        return gulp.src(options.src + "/environment-configs/")
+            .pipe(clean());
     });
 
-    gulp.task('build', function() {
+    gulp.task('copyProdConfig', ['cleanEnvironmentConfigs'], function() {
+        return gulp.src(options.src + "/environment-configs-unbundled-mock-apis/environment.config.prod.js")
+            .pipe(gulp.dest(options.src + "/environment-configs"));
+    });
+
+
+    gulp.task('compileMock_API_Routes', ['cleanEnvironmentConfigs', 'copyProdConfig'], function() {
+        var fileContent = fs.readFileSync(options.src + "/environment-configs-unbundled-mock-apis/mock_api.config.json", "utf8");
+        gulp.src([options.src + '/environment-configs-unbundled-mock-apis/environment.config.*.js', "!" + options.src + '/environment-configs-unbundled-mock-apis/environment.config.prod.js'])
+            .pipe(inject.replace("\\[\\]", fileContent))
+            .pipe(gulp.dest(options.src + "/environment-configs"));
+    });
+
+    gulp.task('build', ['compileMock_API_Routes'], function() {
         build();
     });
     gulp.task('build:dev', function() {
@@ -403,7 +427,7 @@ module.exports = function (options) {
     // copy bower components
     gulp.task('cbc', function () {
         return gulp.src("./bower_components/**/*")
-            .pipe(gulp.dest("./www/lib"));
+            .pipe(gulp.dest(options.dist2 + "/lib"));
     });
     function buildIonic() {
         console.time("Build");

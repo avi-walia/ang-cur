@@ -1,14 +1,14 @@
 {
-  "tests" : [
+  "TESTS": [
     {
       "id": 1,
       "nameEN": "Mo",
       "nameFR": "FR Mo",
       "testFR": {
-        "jon":"snowFR"
+        "jon": "snowFR"
       },
       "testEN": {
-        "jon":"snowEN"
+        "jon": "snowEN"
       },
       "test2": {
         "asdfFR": "FR ASDF",
@@ -20,10 +20,10 @@
       "nameEN": "Vanessa",
       "nameFR": "FR Vanessa",
       "testFR": {
-        "jon":"snowFR"
+        "jon": "snowFR"
       },
       "testEN": {
-        "jon":"snowEN"
+        "jon": "snowEN"
       },
       "test2": {
         "asdfFR": "FR ASDF",
@@ -35,10 +35,10 @@
       "nameEN": "Dziana",
       "nameFR": "FR Dziana",
       "testFR": {
-        "jon":"snowFR"
+        "jon": "snowFR"
       },
       "testEN": {
-        "jon":"snowEN"
+        "jon": "snowEN"
       },
       "test2": {
         "asdfFR": "FR ASDF",
@@ -50,10 +50,10 @@
       "nameEN": "Mo2",
       "nameFR": "FR Mo2",
       "testFR": {
-        "jon":"snowFR"
+        "jon": "snowFR"
       },
       "testEN": {
-        "jon":"snowEN"
+        "jon": "snowEN"
       },
       "test2": {
         "asdfFR": "FR ASDF",
@@ -65,10 +65,10 @@
       "nameEN": "Avi",
       "nameFR": "FR Avi",
       "testFR": {
-        "jon":"snowFR"
+        "jon": "snowFR"
       },
       "testEN": {
-        "jon":"snowEN"
+        "jon": "snowEN"
       },
       "test2": {
         "asdfFR": "FR ASDF",
@@ -80,29 +80,15 @@
       "nameEN": "Michael",
       "nameFR": "FR Michael",
       "testFR": {
-        "jon":"snowFR"
+        "jon": "snowFR"
       },
       "testEN": {
-        "jon":"snowEN"
+        "jon": "snowEN"
       },
       "test2": {
         "asdfFR": "FR ASDF",
         "asdfEN": "ASDF"
       }
-    }
-  ],
-  "getFundListByClass": [
-    {
-      "fundNameFR": "",
-      "fundNameEN": "",
-      "portMgmtEN": "",
-      "portMgmtFR": "",
-      "currencyEN": "",
-      "currencyFR": "",
-      "assetClassEN": "",
-      "assetClassFR": "",
-      "platformEN": "",
-      "platformFR": ""
     }
   ]
 }

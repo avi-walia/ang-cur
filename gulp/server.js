@@ -71,13 +71,52 @@ module.exports = function(options) {
 
   gulp.task('JSON-Server', function () {
     var jsnServer = jsonServer.create();
+
+
     var jsnRouter = jsonServer.router('mockBackend.json');
+    /*
+      use this for routes defined in the json file.
+     */
     jsnServer.use(function (req, res, next) {
-        res.header('Access-Control-Allow-Origin', '*');
-        next(); // continue to JSON Server router\
+      /*
+       console.log('query: ', req.query);
+       console.log('url: ', req.url);
+       console.log('method: ', req.method);
+       //console.log('header: ', req.headers);
+       console.log('origin: ', req.origin);
+       */
+
+      res.header('Access-Control-Allow-Origin', '*');
+      next(); // continue to JSON Server router\
     });
+
     jsnServer.use(jsnRouter);
+    /*
+    end of json file defined routes
+     */
+
+
+    /* use this block for custom cors requests
+    jsnServer.use(function (req, res, next) {
+      res.header('Access-Control-Allow-Origin', '*');
+
+
+      if (req.method === 'POST') {
+        //CORS requests with request method post and response content-type: application/json; charset=utf-8 need this header. Not sure about get, but didn't hurt to add it.
+        //res.header('Access-Control-Allow-Headers', 'Content-Type');
+      }
+      if (req.url === '/testsdfs/1') {
+        res.json({id: 1, title: 'Big post'});
+      }
+
+      if (req.url === '/testsdfs/1' && req.method === 'OPTIONS') {
+        //res.json({id: 1, title: 'Big post'});
+      }
+    });
+*/
     jsnServer.listen(3003);
+
+
   });
 
 

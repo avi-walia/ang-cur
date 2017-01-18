@@ -33,6 +33,7 @@
     //---------------- UTILITIES ---------------- //
     angular.module('evolution.utils', ['matchMedia', 'ng.deviceDetector']);
 
+
     //---------------- MAIN ---------------- //
     angular.module('evolution', [
         'ui.router',
@@ -66,6 +67,11 @@
         'evolution.features.test4',
         'angulartics',
         'angulartics.google.analytics',
-        'angular-md5'
+        'angular-md5',
+        'ngMockE2E'
     ]);
+
+
 })();
+
+

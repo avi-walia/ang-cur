@@ -34,15 +34,18 @@ module.exports = function(options) {
     gulp.watch(options.src + '/app/**/*.html', function(event) {
       browserSync.reload(event.path);
     });
-
+/*
     gulp.watch(options.src + '/app/environment-configs/environment.config.dev.js', function(event) {
       browserSync.reload(event.path);
+    });
+*/
+    gulp.watch(options.src + '', function(event) {
+      gulp.start('compileMock_API_Routes');
     });
 
 
 
-
-    gulp.watch(['./src/app/config/app.config.json', './src/app/config/app.config.local.json', './src/app/config/routes.config.json'], function(event) {
+    gulp.watch(['./src/app/config/app.config.json', './src/app/config/app.config.local.json', './src/app/config/routes.config.json', './src/app/config/mockAPI/*.json'], function(event) {
       gulp.start('config:local');
     });
   });

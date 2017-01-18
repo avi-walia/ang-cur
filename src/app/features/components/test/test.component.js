@@ -15,14 +15,16 @@
     testCtrl.$inject = [
         'notificationService',
         'testService',
-        'waitForResourcesService'
+        'waitForResourcesService',
+        'mockService'
     ];
 
     /* @ngInject */
     function testCtrl(
         notificationService,
         testService,
-        waitForResourcesService
+        waitForResourcesService,
+        mockService
     ) {
         waitForResourcesService.stopWaiting();
         var vm = this;
@@ -42,6 +44,7 @@
                 //typically a call to notificationService
             }
         );
+
         testService.getData('/tests/2').then(
             function(data){
                 //handle success event
@@ -61,7 +64,11 @@
                 //handle error event
                 //typically a call to notificationService
             }
-        )
+        );
+
+        //used to generate mock data
+        vm.mock = mockService.repeater(1);
+
     }
 
 })();
