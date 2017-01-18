@@ -1,15 +1,15 @@
 {
   "ADVISOR": {
-    "dealerNameEN": [],
-    "dealerNameFR": [],
-    "fullName": "",
-    "street": "",
+    "dealerNameEN": ["stark corporation", "lanister corporation", "tyrell corporation", "direwolf corporation"],
+    "dealerNameFR": ["FR stark corporation", "FR lanister corporation", "FR tyrell corporation", "FR direwolf corporation"],
+    "fullName": "Isaac",
+    "street": "Wyatt",
     "province": 1,
-    "email": "",
-    "phone": "",
-    "fax": "",
-    "city": "",
-    "postalCode": "",
+    "email": "Arianna",
+    "phone": "Kylie",
+    "fax": "Sophie",
+    "city": "Caleb",
+    "postalCode": "Oliver",
     "chosenDealerName": 1
   }
 }

@@ -32,6 +32,12 @@
                     mockData = TESTS[id];
                 } else if(urlParams[0] === 'getProfileGroups') {
                     mockData = PROFILE_GROUPS[id];
+                } else if(urlParams[0] === 'getFundListByClass') {
+                    mockData = FUND_LIST_BY_CLASS[id];
+                } else if(urlParams[0] === 'getAdvisor') {
+                    mockData = ADVISOR;
+                } else if(urlParams[0] === 'getAssetClassMix') {
+                    mockData = ASSET_CLASS_MIX[id];
                 }
 
                 //var mockData = mockBackend[urlParams[0]][urlParams[1]];
@@ -236,7 +242,7 @@
         function repeater(num) {
             var ret = [];
             for(var i = 0; i < num; i++) {
-                ret.push(dataMocker(angular.copy(PROFILE_GROUPS), num, i));
+                ret.push(dataMocker(angular.copy(ADVISOR), num, i));
 
             }
             return ret;
@@ -309,5 +315,22 @@
  ]
  }
  ]
+ }
+
+
+ {
+ "ADVISOR": {
+ "dealerNameEN": [],
+ "dealerNameFR": [],
+ "fullName": "",
+ "street": "",
+ "province": 1,
+ "email": "",
+ "phone": "",
+ "fax": "",
+ "city": "",
+ "postalCode": "",
+ "chosenDealerName": 1
+ }
  }
  */

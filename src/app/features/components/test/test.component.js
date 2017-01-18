@@ -45,7 +45,7 @@
             }
         );
 
-        testService.getData('/getProfileGroups/2').then(
+        testService.getData('/tests/2').then(
             function(data){
                 //handle success event
                 //typically a call to notificationService
@@ -55,7 +55,7 @@
                 //typically a call to notificationService
             }
         );
-        testService.getData('/getProfileGroups/3').then(
+        testService.getData('/tests/3').then(
             function(data){
                 //handle success event
                 //console.log('data successfully retrieved: ', data);
@@ -67,7 +67,7 @@
         );
 
         //used to generate mock data
-        //vm.mock = mockService.repeater(50);
+        vm.mock = mockService.repeater(1);
 
     }
 
