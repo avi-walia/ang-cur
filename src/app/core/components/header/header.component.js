@@ -9,15 +9,15 @@
             templateUrl:'app/core/components/header/header.tpl.html'
         });
 
-
     /* @ngInject */
 
-    headerCtrl.$inject = [
-    ];
+    headerCtrl.$inject = ['$state'];
     /* @ngInject */
-    function headerCtrl(
-    ) {
+    function headerCtrl($state) {
         var vm = this;
+        vm.isActive = true;
+
+        console.log($state.current.name);
     }
 
 })();
