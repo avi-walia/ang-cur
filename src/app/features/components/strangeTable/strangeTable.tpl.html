@@ -1,0 +1,9 @@
+<table>
+
+    <tr ng-repeat="profileGroup in $ctrl.data track by $index">
+        <td ng-repeat="profile in profileGroup track by $index">
+            {{profile.id}}
+        </td>
+    </tr>
+
+</table>

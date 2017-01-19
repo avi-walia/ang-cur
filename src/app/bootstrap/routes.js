@@ -76,6 +76,15 @@
                             }
                         }
                     })
+                    .state('main.evolution.strangeTableTest', {
+                        url: '/strangeTableTest',
+                        reloadOnSearch: false,
+                        views: {
+                            'content@main': {
+                                template: '<strange-table-test></strange-table-test>'
+                            }
+                        }
+                    })
                     .state('main.evolution.abstract', {
                         url: '/abstract',
                         abstract: true,

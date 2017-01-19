@@ -8,11 +8,14 @@
         $translateProvider.translations('en', {
             TITLE: '<h1>test title</h1>',
             pages: {
+                strangeTableTest: {
+                    title: "strangeTableTest"
+                },
                 test: {
-                    title: "FR test"
+                    title: "test"
                 },
                 test4: {
-                    title: "FR test4"
+                    title: "test4"
                 }
             },
             appTitle: "Evolution",

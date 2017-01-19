@@ -7,6 +7,7 @@
     angular.module('evolution.core.main', ['evolution.core.server']);
     //---------------- FEATURES ---------------- //
     angular.module('evolution.features.searchByName', ['evolution.utils']);
+    angular.module('evolution.features.strangeTableTest', ['evolution.utils']);
     angular.module('evolution.features.test', ['evolution.utils']);
     angular.module('evolution.features.test2', ['evolution.utils']);
     angular.module('evolution.features.test3', ['evolution.utils']);
@@ -29,6 +30,7 @@
         'ngAria',
         'evolution.core.main',
         'evolution.features.searchByName',
+        'evolution.features.strangeTableTest',
         'evolution.features.test',
         'evolution.features.test2',
         'evolution.features.test3',

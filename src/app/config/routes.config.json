@@ -24,6 +24,11 @@
       "stateName": "main.evolution.abstract.test4",
       "isAbstract": false,
       "pageName": "test4"
+    },
+    {
+      "stateName": "main.evolution.strangeTableTest",
+      "isAbstract": false,
+      "pageName": "strangeTableTest"
     }
   ]
 }

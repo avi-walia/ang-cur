@@ -25,13 +25,19 @@
                 //var message = angular.fromJson(data);
                 var urlParams = url.split('/');
                 urlParams.shift();//get rid of the first element in the array as it is just the web service endpoint
-                var id = urlParams[1];
+                var id = null;
+                if(urlParams.length > 0)
+                    id = urlParams[1];
                 //urlParams[0] holds the name of the webservice we are trying to call
                 //urlParams[>= 1] holds route params passed to our service
                 if (urlParams[0] === 'tests') {
                     mockData = TESTS[id];
                 } else if(urlParams[0] === 'getProfileGroups') {
-                    mockData = PROFILE_GROUPS[id];
+                    if (id) {
+                        mockData = PROFILE_GROUPS[id];
+                    } else {
+                        mockData = PROFILE_GROUPS;
+                    }
                 } else if(urlParams[0] === 'getFundListByClass') {
                     mockData = FUND_LIST_BY_CLASS[id];
                 } else if(urlParams[0] === 'getAdvisor') {

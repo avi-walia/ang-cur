@@ -7,6 +7,9 @@
             TITLE: '<h1>FR test title</h1>',
             appTitle: "FR Evolution",
             pages: {
+                strangeTableTest: {
+                    title: "FR strangeTableTest"
+                },
                 test: {
                     title: "FR test test"
                 },

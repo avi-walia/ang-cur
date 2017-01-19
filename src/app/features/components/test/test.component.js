@@ -66,8 +66,9 @@
             }
         );
 
+
         //used to generate mock data
-        vm.mock = mockService.repeater(1);
+        //vm.mock = mockService.repeater(1);
 
     }
 
