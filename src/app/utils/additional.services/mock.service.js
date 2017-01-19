@@ -14,6 +14,7 @@
     function mockService($httpBackend, FUND_LIST_BY_CLASS, ASSET_CLASS_MIX, ADVISOR, PROFILE_GROUPS, TESTS) {
         var service = this;
         service.init = init;
+        service.data = {};
 
         function init() {
             $httpBackend.whenGET(/(app|styles|scripts|assets|fonts).*/).passThrough();
@@ -45,6 +46,8 @@
                 return [200, mockData, {/*headers*/}];
             });
 
+            //used to generate mock data
+            service.data = repeater(50, assetClassMixTemplate);
         }
 
 
@@ -174,11 +177,66 @@
             return rndDate.toUTCString();
         }
 
+        var profileGroupTemplate =  {
+            "id": 1,
+            "profileSummary": {
+                "id": 1,
+                "profileName": "",
+                "clientName": "",
+                "modificationDate": "date",
+                "logs": false,
+                "pdf": false,
+                "status": "",
+                "fundsReceived": true,
+                "cafReceived": true,
+                "createdBy": "",
+                "creationDate": "date"
+            }
+        };
+
+        var fundListTemplate =  {
+            "id": 1,
+            "fundNameFR": "",
+            "fundNameEN": "",
+            "portMgmtEN": "",
+            "portMgmtFR": "",
+            "currencyEN": "",
+            "currencyFR": "",
+            "assetClassEN": "",
+            "assetClassFR": "",
+            "platformEN": "",
+            "platformFR": ""
+        };
+
+        var assetClassMixTemplate = {
+            "id": 1,
+            "profileName": "",
+            "assetClassMix": [
+                {
+                    "assetClassNameEN": "",
+                    "assetClassNameFR": "",
+                    "percentage": 1.12
+                }
+            ],
+            "assetFundMix": [
+                {
+                    "assetFundNameEN": "",
+                    "assetFundNameFR": "",
+                    "percentage": 1.10
+                }
+            ]
+        }
+
+
+
         function dataMocker(obj, max, index) {
             _.forEach(obj, function(val, key) {
-               if (typeof val === 'object') {
+                if (_.isArray(val)) {
+                    //dataMocker(obj[key], max, index);
+                    obj[key] = repeater(7, angular.copy(val[0]));
+                } else if (typeof val === 'object') {
                    dataMocker(obj[key], max, index);
-               } else if (typeof key === "string" && !Number.isInteger(key)) {
+                } else if (typeof key === "string" && !Number.isInteger(key)) {
                     var local = key.substring(key.length - 2, key.length);
                     var root = key.substring(0, key.length - 2);
                     if (local === "EN") {
@@ -239,10 +297,10 @@
 
         service.repeater = repeater;
 
-        function repeater(num) {
+        function repeater(num, obj) {
             var ret = [];
             for(var i = 0; i < num; i++) {
-                ret.push(dataMocker(angular.copy(ADVISOR), num, i));
+                ret.push(dataMocker(angular.copy(obj), num, i));
 
             }
             return ret;
