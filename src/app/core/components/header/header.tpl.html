@@ -2,12 +2,37 @@
     .active{
         color: red;
     }
+    #step-indicator ul li{
+        display: inline;
+    }
 </style>
 
 <header id="header" class="header nav-down" role="banner">
-    <div class="container">
-        header
+   <!--state =  {{$ctrl.state}}-->
+    <div ng-if="$ctrl.displayOpenExistingPro">
+        <a ui-sref="main.evolution.selectClientProfile">Create/Open existing profile</a>
+        <p>  <!-- display Profile Name here -->
+            Profile name =
+            {{$ctrl.profileName}}
+        </p>
     </div>
+
+
+  
+
+    <div id="ecissFlag">
+       <input type="checkbox" ng-checked="$ctrl.isEcissUser" disabled>Eciss
+    </div>
+
+    <div id="languageSwitcher">
+        <language-switcher></language-switcher>
+    </div>
+
+    <div id="help">
+        <a ui-sref="main.evolution.help">Help </a>
+    </div>
+
+
     <div ng-if="$ctrl.stepIndicator" id="step-indicator">
         <ul>
             <!--{ active: $ctrl.isActive }-->
