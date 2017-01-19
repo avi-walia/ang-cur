@@ -9,7 +9,11 @@
                 nextState: '=?',
                 previousState: '=?',
                 submit: '<?',
-                displaySplit: '<?'
+                split: '<?',
+                reset: '<?',
+                createTemplate: '<?', //aka Clone!!!
+                save: '<?',
+                preview: '<?' //used in Reports screen only!
             },
             templateUrl:'app/core/components/footer/footer.tpl.html'
         });
@@ -24,7 +28,7 @@
         vm.nextLabel = '';
         vm.pageStateResolver = pageStateResolver;
         // console.log(vm.nextState);
-        console.log($state);
+        // console.log($state);
         if ($state.current.name === 'main.evolution.selectClientProfile'){
             vm.nextLabel = 'Open Profile';
         }else{

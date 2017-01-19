@@ -1,18 +1,23 @@
 <footer class="footer region region-footer" role="contentinfo">
     <p >
         <a target="_blank" ui-sref="main.evolution.help">Help</a>
-        <a href="javascript:alert('reset');">reset</a>
+        <a ng-if="$ctrl.reset" href="javascript:alert('reset');">reset</a>
     </p>
-    <p ng-if="$ctrl.displaySplit">
+    <p ng-if="$ctrl.split">
         <a  ui-sref="main.evolution.split">Split</a>
     </p>
 
-       <a ng-if="$ctrl.previousState" ui-sref="{{$ctrl.previousState}}">Back</a>
-    <!--|-->
-    <!--{{$ctrl.pageStateResolver.nextPageName}}-->
-    <!--&lt;!&ndash;<input type="button" value="" />&ndash;&gt;-->
+    <a ng-if="$ctrl.createTemplate" href="javascript:void" ng-click="">Create Template</a>
+    <a ng-if="$ctrl.preview" href="javascript:void" ng-click="">Preview selected forms</a>
+
+    <a  ng-if="$ctrl.save" href="javascript:void" ng-click="">Save</a>
+    <a ng-if="$ctrl.previousState" ui-sref="{{$ctrl.previousState}}">Back</a>
+
+
+
     <a ng-if="$ctrl.nextState" ui-sref="{{$ctrl.nextState}}">{{$ctrl.nextLabel}}</a>
 
     <a ng-if="$ctrl.submit" href="javascript:alert('submit');">Submit</a>
 </footer>
+Next state is =
 {{$ctrl.nextState | json}}
