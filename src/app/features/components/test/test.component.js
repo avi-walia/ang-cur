@@ -29,6 +29,7 @@
         waitForResourcesService.stopWaiting();
         var vm = this;
         vm.testService = testService;
+        vm.mockService = mockService;
 
         notificationService.addMessage({msg:"testNotification", type:1});
         notificationService.addMessage({msg:"<h2 translate>testNotification2</h2>", type:1});
@@ -66,9 +67,6 @@
             }
         );
 
-
-        //used to generate mock data
-        //vm.mock = mockService.repeater(1);
 
     }
 
