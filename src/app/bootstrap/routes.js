@@ -33,6 +33,9 @@
                             //$state.go('main.advisorLocator.portfolio');
                             $state.go('main.evolution.selectClientProfile');
                         // }
+                           // $state.go('main.evolution.fee.profileSearch');
+                            // $state.go('main.evolution.abstract.test4');
+                        // }
                     }]);
 
                 });

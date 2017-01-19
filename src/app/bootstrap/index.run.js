@@ -48,7 +48,8 @@
 
         $interval(function() {
             if (didScroll) {
-                hasScrolled();
+                //commented for now..
+                // hasScrolled();
             }
         }, scrollDebounce);
 
@@ -163,7 +164,7 @@
             });
 
         $rootScope.$on('$stateNotFound',function(event, unfoundState, fromState, fromParams){
-            console.error('$stateNotFound '+unfoundState.to+'  - fired when a state cannot be found by its name.');
+            console.error('$stateNotFound: '+ unfoundState.to +'  - fired when a state cannot be found by its name.');
             console.error(unfoundState, fromState, fromParams);
         });
 
