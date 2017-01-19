@@ -138,7 +138,7 @@
 
                 //Check routes.config.json for configurating oPageConfig objects
                 pageStateResolver.getPageConfigFromState(toState.name, function (oPageConfig) {
-                    console.log('oPageConfig: ', oPageConfig);
+                    // console.log('oPageConfig: ', oPageConfig);
                     if ('pageName' in oPageConfig) {
                         $rootScope.oRequestedPageConfig = oPageConfig;
                     }
@@ -150,6 +150,9 @@
                  * dynamic CSS class on main layout,
                  */
                 pageStateResolver.setActivePageName(toState.name);
+
+                //for the wizard
+                pageStateResolver.setStepIndicator(toState.name);
 
                 // pageStateResolver.setPreviousPageName(toState.name);
                 // pageStateResolver.setNextPageName(toState.name);

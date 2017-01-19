@@ -15,6 +15,7 @@
         var service = this;
 
         service.activePageName = '';
+        service.stepIndicator = 0;
 
         service.pageLoading = false;
 
@@ -24,6 +25,7 @@
         service.check = stateToPageMapper;
         service.setNextPageName = setNextPageName;
         service.setPreviousPageName = setPreviousPageName;
+        service.setStepIndicator = setStepIndicator;
 
         /**
          * Given a state will give you the entire page configuration.
@@ -110,6 +112,31 @@
                 if (attr in oPageConfiguration) {
                     if (!oPageConfiguration.isAbstract) {
                         service.activePageName = oPageConfiguration.pageName;
+                    }
+                }
+            } else {
+                console.error('state: ' + sState + ' has missing ' + attr + ' attribute. Check your ROUTES constant variable');
+
+            }
+
+        }
+
+        function setStepIndicator(sState) {
+            var attr = 'stepIndicator';
+            // var oPageConfiguration = _.find(ROUTES, { stepIndicator: sState});
+            var oPageConfiguration = _.find(ROUTES, function(o){
+                // console.log(o);
+                if (o.stateName === sState){
+                    return o.stepIndicator;
+                }
+            });
+            console.clear();
+            console.log(oPageConfiguration);
+            if (angular.isDefined(oPageConfiguration)) {
+                if (attr in oPageConfiguration) {
+                    if (!oPageConfiguration.isAbstract) {
+                        service.stepIndicator = oPageConfiguration.stepIndicator;
+
                     }
                 }
             } else {
