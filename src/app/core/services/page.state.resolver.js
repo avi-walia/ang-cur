@@ -104,43 +104,53 @@
          * @param sState string, a state name
          */
         function setActivePageName(sState) {
+            var attr = 'pageName';
             var oPageConfiguration = _.find(ROUTES, {stateName: sState});
-            if (angular.isDefined(oPageConfiguration)){
-                if ('pageName' in oPageConfiguration) {
+            if (angular.isDefined(oPageConfiguration)) {
+                if (attr in oPageConfiguration) {
                     if (!oPageConfiguration.isAbstract) {
                         service.activePageName = oPageConfiguration.pageName;
                     }
                 }
+            } else {
+                console.error('state: ' + sState + ' has missing ' + attr + ' attribute. Check your ROUTES constant variable');
+
             }
 
         }
 
-        function setNextPageName(stateName){
+        function setNextPageName(stateName) {
 //            console.clear();
 //            console.info('stateName = '+stateName);
-
+            var attr = 'nextPageName';
             var oPageConfiguration = _.find(ROUTES, {stateName: stateName});
-//            console.log(oPageConfiguration);
-            if ('nextPageName' in oPageConfiguration) {
-                if (!oPageConfiguration.isAbstract) {
+            if (angular.isDefined(oPageConfiguration)) {
+                if (attr in oPageConfiguration) {
+                    if (!oPageConfiguration.isAbstract) {
 //                    console.info(oPageConfiguration.nextPageName);
-                    service.nextPageName  = oPageConfiguration.nextPageName;
+                        service.nextPageName = oPageConfiguration.nextPageName;
+                    }
                 }
+            } else {
+                console.error('state: ' + stateName + ' has missing ' + attr + ' attribute. Check your ROUTES constant variable');
+
             }
+
+
         }
 
-        function setPreviousPageName(stateName){
+        function setPreviousPageName(stateName) {
 //            console.clear();
 //            console.info('stateName = '+stateName);
 
             var oPageConfiguration = _.find(ROUTES, {stateName: stateName});
 //            console.log(oPageConfiguration);
-            if (!oPageConfiguration.isAbstract){
+            if (!oPageConfiguration.isAbstract) {
                 if ('previousPageName' in oPageConfiguration && oPageConfiguration.previousPageName !== '') {
 //                    console.info(oPageConfiguration.previousPageName);
-                    service.previousPageName  = oPageConfiguration.previousPageName;
+                    service.previousPageName = oPageConfiguration.previousPageName;
                 }
-                else{
+                else {
                     //no previous page. maybe we're in the beginning of the app!
                     service.previousPageName = '';
                 }
