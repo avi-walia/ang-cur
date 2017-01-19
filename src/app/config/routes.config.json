@@ -26,43 +26,43 @@
       "stateName": "main.evolution.portfolioSelection",
       "isAbstract": false,
       "pageName": "portfolioSelection",
-      "stepIndicator": 2
+      "stepIndicator": 3
     },
     {
       "stateName": "main.evolution.fundCustomization",
       "isAbstract": false,
       "pageName": "fundCustomization",
-      "stepIndicator": 2
+      "stepIndicator": 4
     },
     {
       "stateName": "main.evolution.advisorInfo",
       "isAbstract": false,
       "pageName": "advisorInfo",
-      "stepIndicator": 2
+      "stepIndicator": 5
     },
     {
       "stateName": "main.evolution.profileSummary",
       "isAbstract": false,
       "pageName": "ipq",
-      "stepIndicator": 2
+      "stepIndicator": 6
     },
     {
       "stateName": "main.evolution.reports",
       "isAbstract": false,
       "pageName": "ipq",
-      "stepIndicator": 2
+      "stepIndicator": 7
     },
     {
       "stateName": "main.evolution.split",
       "isAbstract": false,
       "pageName": "ipq",
-      "stepIndicator": 2
+      "stepIndicator": 3
     },
     {
       "stateName": "main.evolution.help",
       "isAbstract": false,
       "pageName": "help",
-      "stepIndicator": 2
+      "stepIndicator": 0
     },
     {
       "stateName": "main.evolution.fee.profileSearch",
@@ -77,7 +77,8 @@
       "isAbstract": false,
       "pageName": "profileSearch",
       "nextPageName": "main.evolution.fee.investmentOverview",
-      "previousPageName": "main.evolution.fee.profileSearch"
+      "previousPageName": "main.evolution.fee.profileSearch",
+      "stepIndicator": 0
     },
     {
       "stateName": "main",
