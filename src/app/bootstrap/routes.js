@@ -83,7 +83,7 @@
                                 template: '<select-client-profile></select-client-profile>'
                             },
                             'footer@main': {
-                                template: '<ci-footer next-state="\'main.evolution.clientAccountInfo\'"></ci-footer>'
+                                template: '<ci-footer reset="false" next-state="\'main.evolution.clientAccountInfo\'"></ci-footer>'
                             }
                         }
                     })
@@ -91,14 +91,14 @@
                         url: '/client-account-info',
                         views: {
                             'header@main': {
-                                template: '<ci-header></ci-header>'
+                                template: '<ci-header step-indicator="true"></ci-header>'
                             },
                             'content@main': {
                                 // template: '<test></test>'
                                 template: '<client-account-info></client-account-info>'
                             },
                             'footer@main': {
-                                template: '<ci-footer next-state="\'main.evolution.ipq\'" previous-state="\'main.evolution.selectClientProfile\'"></ci-footer>'
+                                template: '<ci-footer save="true" reset="true" create-template="false" next-state="\'main.evolution.ipq\'" previous-state="\'main.evolution.selectClientProfile\'"></ci-footer>'
                             }
                         }
                     })
@@ -106,14 +106,14 @@
                         url: '/ipq',
                         views: {
                             'header@main': {
-                                template: '<ci-header></ci-header>'
+                                template: '<ci-header step-indicator="true"></ci-header>'
                             },
                             'content@main': {
                                 // template: '<test></test>'
                                 template: '<ipq></ipq>'
                             },
                             'footer@main': {
-                                template: '<ci-footer next-state="\'main.evolution.portfolioSelection\'" previous-state="\'main.evolution.clientAccountInfo\'"></ci-footer>'
+                                template: '<ci-footer save="true" reset="true" create-template="true" next-state="\'main.evolution.portfolioSelection\'" previous-state="\'main.evolution.clientAccountInfo\'"></ci-footer>'
                             }
                         }
                     })
@@ -121,14 +121,14 @@
                         url: '/portfolio-selection',
                         views: {
                             'header@main': {
-                                template: '<ci-header></ci-header>'
+                                template: '<ci-header step-indicator="true"></ci-header>'
                             },
                             'content@main': {
                                 // template: '<test></test>'
                                 template: '<portfolio-selection></portfolio-selection>'
                             },
                             'footer@main': {
-                                template: '<ci-footer next-state="\'main.evolution.fundCustomization\'" previous-state="\'main.evolution.ipq\'"></ci-footer>'
+                                template: '<ci-footer save="true" split="true" create-template="true" next-state="\'main.evolution.fundCustomization\'" previous-state="\'main.evolution.ipq\'"></ci-footer>'
                             }
                         }
                     })
@@ -136,14 +136,14 @@
                         url: '/fund-customization',
                         views: {
                             'header@main': {
-                                template: '<ci-header></ci-header>'
+                                template: '<ci-header step-indicator="true"></ci-header>'
                             },
                             'content@main': {
                                 // template: '<test></test>'
                                 template: '<fund-customization></fund-customization>'
                             },
                             'footer@main': {
-                                template: '<ci-footer display-split="true" next-state="\'main.evolution.advisorInfo\'" previous-state="\'main.evolution.portfolioSelection\'"></ci-footer>'
+                                template: '<ci-footer create-template="true" save="true" reset="true" next-state="\'main.evolution.advisorInfo\'" previous-state="\'main.evolution.portfolioSelection\'"></ci-footer>'
                             }
                         }
                     })
@@ -151,14 +151,14 @@
                         url: '/advisor-info',
                         views: {
                             'header@main': {
-                                template: '<ci-header></ci-header>'
+                                template: '<ci-header step-indicator="true"></ci-header>'
                             },
                             'content@main': {
                                 // template: '<test></test>'
                                 template: '<advisor-info></advisor-info>'
                             },
                             'footer@main': {
-                                template: '<ci-footer next-state="\'main.evolution.profileSummary\'" previous-state="\'main.evolution.fundCustomization\'"></ci-footer>'
+                                template: '<ci-footer create-template="true" save="true" reset="true" next-state="\'main.evolution.profileSummary\'" previous-state="\'main.evolution.fundCustomization\'"></ci-footer>'
                             }
                         }
                     })
@@ -166,7 +166,7 @@
                         url: '/profile-summary',
                         views: {
                             'header@main': {
-                                template: '<ci-header></ci-header>'
+                                template: '<ci-header step-indicator="true"></ci-header>'
                             },
                             'content@main': {
                                 // template: '<test></test>'
@@ -181,14 +181,14 @@
                         url: '/reports',
                         views: {
                             'header@main': {
-                                template: '<ci-header></ci-header>'
+                                template: '<ci-header step-indicator="true"></ci-header>'
                             },
                             'content@main': {
                                 // template: '<test></test>'
                                 template: '<reports></reports>'
                             },
                             'footer@main': {
-                                template: '<ci-footer submit="true" next-state="" previous-state="\'main.evolution.profileSummary\'"></ci-footer>'
+                                template: '<ci-footer save="true" submit="true" preview="true" previous-state="\'main.evolution.profileSummary\'"></ci-footer>'
                             }
                         }
                     })
@@ -196,7 +196,7 @@
                         url: '/split-profile',
                         views: {
                             'header@main': {
-                                template: '<ci-header></ci-header>'
+                                template: '<ci-header step-indicator="true"></ci-header>'
                             },
                             'content@main': {
                                 // template: '<test></test>'
@@ -212,7 +212,7 @@
                         url: '/help',
                         views: {
                             'header@main': {
-                                template: '<ci-header></ci-header>'
+                                template: '<ci-header step-indicator="true"></ci-header>'
                             },
                             'content@main': {
                                 // template: '<test></test>'
