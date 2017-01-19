@@ -7,3 +7,4 @@ tmp
 .idea
 www
 .tmp
+src/app/config/config.js
