@@ -28,11 +28,12 @@
                     $injector.invoke(['$state', 'deviceDetector', function ($state, deviceDetector) {
                        
                         // //if we are not in IE 9 then lets try to go to portfolio.
-                        if (!(deviceDetector.browser === 'ie' && deviceDetector.browser_version <= '9.0')  ) {
+                        // if (!(deviceDetector.browser === 'ie' && deviceDetector.browser_version <= '9.0')  ) {
                             // @todo: check if back btn functionality apply
                             //$state.go('main.advisorLocator.portfolio');
-                            $state.go('main.evolution.test');
-                        }
+                            $state.go('main.evolution.fee.profileSearch');
+                            // $state.go('main.evolution.abstract.test4');
+                        // }
                     }]);
 
                 });
@@ -69,6 +70,12 @@
                     })*/
 
                     /****** FEE PROPOSAL ROUTES STARTS HERE **/
+                    .state('main.evolution.fee', {
+                        abstract: true,
+                        views: {
+                            'content@main': {}
+                        }
+                    })
                     .state('main.evolution.fee.profileSearch', {
                         url: '/fee/profile-search',
                         views: {
