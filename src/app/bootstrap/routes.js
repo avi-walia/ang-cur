@@ -72,6 +72,7 @@
                             }
                         }
                     })*/
+                    //You can create profile & open existing profile in this state
                     .state('main.evolution.selectClientProfile', {
                         url: '/select-client-profile',
                         views: {
@@ -212,7 +213,7 @@
                         url: '/help',
                         views: {
                             'header@main': {
-                                template: '<ci-header step-indicator="true"></ci-header>'
+                                template: '<ci-header step-indicator="false"></ci-header>'
                             },
                             'content@main': {
                                 // template: '<test></test>'
