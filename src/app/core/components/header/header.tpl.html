@@ -8,27 +8,28 @@
     <div class="container">
         header
     </div>
-    <div id="step-indicator">
+    <div ng-if="$ctrl.stepIndicator" id="step-indicator">
         <ul>
-            <li ng-class="{ active: $ctrl.isActive }">
+            <!--{ active: $ctrl.isActive }-->
+            <li ng-class="{ active: $ctrl.pageStateResolver.stepIndicator === 1}">
                 1
             </li>
-            <li>2
+            <li ng-class="{ active: $ctrl.pageStateResolver.stepIndicator ===  2 }">2
 
             </li>
-            <li>3
+            <li ng-class="{ active: $ctrl.pageStateResolver.stepIndicator === 3}">3
 
             </li>
-            <li>4
+            <li ng-class="{ active: $ctrl.pageStateResolver.stepIndicator === 4}">4
 
             </li>
-            <li>5
+            <li ng-class="{ active: $ctrl.pageStateResolver.stepIndicator === 5}">5
 
             </li>
-            <li>6
+            <li ng-class="{ active: $ctrl.pageStateResolver.stepIndicator === 6}">6
 
             </li>
-            <li>7
+            <li ng-class="{ active: $ctrl.pageStateResolver.stepIndicator === 7}">7
 
             </li>
         </ul>
