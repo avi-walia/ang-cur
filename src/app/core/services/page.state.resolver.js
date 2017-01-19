@@ -23,8 +23,7 @@
         service.setActivePageName = setActivePageName;
         service.resolve = pageToStateMapper;
         service.check = stateToPageMapper;
-        service.setNextPageName = setNextPageName;
-        service.setPreviousPageName = setPreviousPageName;
+      
         service.setStepIndicator = setStepIndicator;
 
         /**
@@ -123,20 +122,30 @@
 
         function setStepIndicator(sState) {
             var attr = 'stepIndicator';
+            console.clear();
             // var oPageConfiguration = _.find(ROUTES, { stepIndicator: sState});
             var oPageConfiguration = _.find(ROUTES, function(o){
-                // console.log(o);
-                if (o.stateName === sState){
-                    return o.stepIndicator;
+                console.log(o);
+                if (o.stateName === sState ){
+                    if (o.stepIndicator !== 0){
+                        return o.stepIndicator;
+                    }else{
+                        //just return an empty object if the stepIndicator of a state == 0
+                        return {};
+                    }
                 }
             });
-            console.clear();
-            console.log(oPageConfiguration);
-            if (angular.isDefined(oPageConfiguration)) {
-                if (attr in oPageConfiguration) {
-                    if (!oPageConfiguration.isAbstract) {
-                        service.stepIndicator = oPageConfiguration.stepIndicator;
 
+            //if oPageConfiguration isnt an empty object then lets get the stepIndicator of sState
+            //by default stepIndicator is 0
+            if (angular.isDefined(oPageConfiguration) && !_.isEmpty(oPageConfiguration)  ) {
+                // console.log('defined');
+                if (attr in oPageConfiguration) {
+                    // console.log('blah');
+                    if (!oPageConfiguration.isAbstract) {
+                        // console.log('daga');
+                        service.stepIndicator = oPageConfiguration.stepIndicator;
+                        // console.log(service.stepIndicator);
                     }
                 }
             } else {
@@ -146,55 +155,9 @@
 
         }
 
-        function setNextPageName(stateName) {
-//            console.clear();
-//            console.info('stateName = '+stateName);
-            var attr = 'nextPageName';
-            var oPageConfiguration = _.find(ROUTES, {stateName: stateName});
-            if (angular.isDefined(oPageConfiguration)) {
-                if (attr in oPageConfiguration) {
-                    if (!oPageConfiguration.isAbstract) {
-//                    console.info(oPageConfiguration.nextPageName);
-                        service.nextPageName = oPageConfiguration.nextPageName;
-                    }
-                }
-            } else {
-                console.error('state: ' + stateName + ' has missing ' + attr + ' attribute. Check your ROUTES constant variable');
-
-            }
 
 
-        }
 
-        function setPreviousPageName(stateName) {
-//            console.clear();
-//            console.info('stateName = '+stateName);
-
-            var oPageConfiguration = _.find(ROUTES, {stateName: stateName});
-//            console.log(oPageConfiguration);
-            if (!oPageConfiguration.isAbstract) {
-                if ('previousPageName' in oPageConfiguration && oPageConfiguration.previousPageName !== '') {
-//                    console.info(oPageConfiguration.previousPageName);
-                    service.previousPageName = oPageConfiguration.previousPageName;
-                }
-                else {
-                    //no previous page. maybe we're in the beginning of the app!
-                    service.previousPageName = '';
-                }
-            }
-//            if ('previousPageName' in oPageConfiguration) {
-//                if (oPageConfiguration.previousPageName !== '' && !oPageConfiguration.isAbstract) {
-//                    console.info(oPageConfiguration.previousPageName);
-//                    service.previousPageName  = oPageConfiguration.previousPageName;
-//                }else{
-//                    //no previous page. maybe we're in the beginning of the app!
-//                    service.previousPageName = '';
-//                }
-//            }else{
-//                //no previous page. maybe we're in the beginning of the app!
-//                service.previousPageName = '';
-//            }
-        }
 
     }
 
