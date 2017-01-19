@@ -1,754 +1,654 @@
 {
   "FUND_LIST_BY_CLASS": [
-    [
-      {
-        "id": 0,
-        "fundNameFR": "FR Hunter",
-        "fundNameEN": "Hunter",
-        "portMgmtEN": "Chloe",
-        "portMgmtFR": "FR Chloe",
-        "currencyEN": "Ethan",
-        "currencyFR": "FR Ethan",
-        "assetClassEN": "Max",
-        "assetClassFR": "FR Max",
-        "platformEN": "Ava",
-        "platformFR": "FR Ava"
-      }
-    ],
-    [
-      {
-        "id": 1,
-        "fundNameFR": "FR Mia",
-        "fundNameEN": "Mia",
-        "portMgmtEN": "Hannah",
-        "portMgmtFR": "FR Hannah",
-        "currencyEN": "Hunter",
-        "currencyFR": "FR Hunter",
-        "assetClassEN": "Samuel",
-        "assetClassFR": "FR Samuel",
-        "platformEN": "Maya",
-        "platformFR": "FR Maya"
-      }
-    ],
-    [
-      {
-        "id": 2,
-        "fundNameFR": "FR Ella",
-        "fundNameEN": "Ella",
-        "portMgmtEN": "Lily",
-        "portMgmtFR": "FR Lily",
-        "currencyEN": "Riley",
-        "currencyFR": "FR Riley",
-        "assetClassEN": "Andrew",
-        "assetClassFR": "FR Andrew",
-        "platformEN": "Elizabeth",
-        "platformFR": "FR Elizabeth"
-      }
-    ],
-    [
-      {
-        "id": 3,
-        "fundNameFR": "FR Isabella",
-        "fundNameEN": "Isabella",
-        "portMgmtEN": "Gavin",
-        "portMgmtFR": "FR Gavin",
-        "currencyEN": "Nathan",
-        "currencyFR": "FR Nathan",
-        "assetClassEN": "Benjamin",
-        "assetClassFR": "FR Benjamin",
-        "platformEN": "Sophie",
-        "platformFR": "FR Sophie"
-      }
-    ],
-    [
-      {
-        "id": 4,
-        "fundNameFR": "FR Eli",
-        "fundNameEN": "Eli",
-        "portMgmtEN": "Ethan",
-        "portMgmtFR": "FR Ethan",
-        "currencyEN": "Aubrey",
-        "currencyFR": "FR Aubrey",
-        "assetClassEN": "Daniel",
-        "assetClassFR": "FR Daniel",
-        "platformEN": "Jayden",
-        "platformFR": "FR Jayden"
-      }
-    ],
-    [
-      {
-        "id": 5,
-        "fundNameFR": "FR Dylan",
-        "fundNameEN": "Dylan",
-        "portMgmtEN": "Lyla",
-        "portMgmtFR": "FR Lyla",
-        "currencyEN": "Hannah",
-        "currencyFR": "FR Hannah",
-        "assetClassEN": "Landon",
-        "assetClassFR": "FR Landon",
-        "platformEN": "Sophia",
-        "platformFR": "FR Sophia"
-      }
-    ],
-    [
-      {
-        "id": 6,
-        "fundNameFR": "FR Ava",
-        "fundNameEN": "Ava",
-        "portMgmtEN": "Mason",
-        "portMgmtFR": "FR Mason",
-        "currencyEN": "Grayson",
-        "currencyFR": "FR Grayson",
-        "assetClassEN": "Natalie",
-        "assetClassFR": "FR Natalie",
-        "platformEN": "Brooklyn",
-        "platformFR": "FR Brooklyn"
-      }
-    ],
-    [
-      {
-        "id": 7,
-        "fundNameFR": "FR Brooklyn",
-        "fundNameEN": "Brooklyn",
-        "portMgmtEN": "Andrew",
-        "portMgmtFR": "FR Andrew",
-        "currencyEN": "Avery",
-        "currencyFR": "FR Avery",
-        "assetClassEN": "Kylie",
-        "assetClassFR": "FR Kylie",
-        "platformEN": "Samuel",
-        "platformFR": "FR Samuel"
-      }
-    ],
-    [
-      {
-        "id": 8,
-        "fundNameFR": "FR Brayden",
-        "fundNameEN": "Brayden",
-        "portMgmtEN": "Gavin",
-        "portMgmtFR": "FR Gavin",
-        "currencyEN": "Elijah",
-        "currencyFR": "FR Elijah",
-        "assetClassEN": "Benjamin",
-        "assetClassFR": "FR Benjamin",
-        "platformEN": "Emma",
-        "platformFR": "FR Emma"
-      }
-    ],
-    [
-      {
-        "id": 9,
-        "fundNameFR": "FR Samuel",
-        "fundNameEN": "Samuel",
-        "portMgmtEN": "Jack",
-        "portMgmtFR": "FR Jack",
-        "currencyEN": "Zachary",
-        "currencyFR": "FR Zachary",
-        "assetClassEN": "Hunter",
-        "assetClassFR": "FR Hunter",
-        "platformEN": "Charlie",
-        "platformFR": "FR Charlie"
-      }
-    ],
-    [
-      {
-        "id": 10,
-        "fundNameFR": "FR Peyton",
-        "fundNameEN": "Peyton",
-        "portMgmtEN": "Ellie",
-        "portMgmtFR": "FR Ellie",
-        "currencyEN": "Matthew",
-        "currencyFR": "FR Matthew",
-        "assetClassEN": "Landon",
-        "assetClassFR": "FR Landon",
-        "platformEN": "James",
-        "platformFR": "FR James"
-      }
-    ],
-    [
-      {
-        "id": 11,
-        "fundNameFR": "FR Samuel",
-        "fundNameEN": "Samuel",
-        "portMgmtEN": "Aaliyah",
-        "portMgmtFR": "FR Aaliyah",
-        "currencyEN": "Connor",
-        "currencyFR": "FR Connor",
-        "assetClassEN": "Luke",
-        "assetClassFR": "FR Luke",
-        "platformEN": "Michael",
-        "platformFR": "FR Michael"
-      }
-    ],
-    [
-      {
-        "id": 12,
-        "fundNameFR": "FR Madison",
-        "fundNameEN": "Madison",
-        "portMgmtEN": "Henry",
-        "portMgmtFR": "FR Henry",
-        "currencyEN": "Addison",
-        "currencyFR": "FR Addison",
-        "assetClassEN": "Hailey",
-        "assetClassFR": "FR Hailey",
-        "platformEN": "Riley",
-        "platformFR": "FR Riley"
-      }
-    ],
-    [
-      {
-        "id": 13,
-        "fundNameFR": "FR Owen",
-        "fundNameEN": "Owen",
-        "portMgmtEN": "Arianna",
-        "portMgmtFR": "FR Arianna",
-        "currencyEN": "Tyler",
-        "currencyFR": "FR Tyler",
-        "assetClassEN": "Ava",
-        "assetClassFR": "FR Ava",
-        "platformEN": "Audrey",
-        "platformFR": "FR Audrey"
-      }
-    ],
-    [
-      {
-        "id": 14,
-        "fundNameFR": "FR Lyla",
-        "fundNameEN": "Lyla",
-        "portMgmtEN": "Ava",
-        "portMgmtFR": "FR Ava",
-        "currencyEN": "Isaac",
-        "currencyFR": "FR Isaac",
-        "assetClassEN": "Makayla",
-        "assetClassFR": "FR Makayla",
-        "platformEN": "Max",
-        "platformFR": "FR Max"
-      }
-    ],
-    [
-      {
-        "id": 15,
-        "fundNameFR": "FR Isabelle",
-        "fundNameEN": "Isabelle",
-        "portMgmtEN": "James",
-        "portMgmtFR": "FR James",
-        "currencyEN": "Harper",
-        "currencyFR": "FR Harper",
-        "assetClassEN": "Nicholas",
-        "assetClassFR": "FR Nicholas",
-        "platformEN": "Daniel",
-        "platformFR": "FR Daniel"
-      }
-    ],
-    [
-      {
-        "id": 16,
-        "fundNameFR": "FR Zachary",
-        "fundNameEN": "Zachary",
-        "portMgmtEN": "Carter",
-        "portMgmtFR": "FR Carter",
-        "currencyEN": "Chloe",
-        "currencyFR": "FR Chloe",
-        "assetClassEN": "Daniel",
-        "assetClassFR": "FR Daniel",
-        "platformEN": "Lucas",
-        "platformFR": "FR Lucas"
-      }
-    ],
-    [
-      {
-        "id": 17,
-        "fundNameFR": "FR Lucy",
-        "fundNameEN": "Lucy",
-        "portMgmtEN": "Nicholas",
-        "portMgmtFR": "FR Nicholas",
-        "currencyEN": "Claire",
-        "currencyFR": "FR Claire",
-        "assetClassEN": "Zoe",
-        "assetClassFR": "FR Zoe",
-        "platformEN": "Maya",
-        "platformFR": "FR Maya"
-      }
-    ],
-    [
-      {
-        "id": 18,
-        "fundNameFR": "FR Samuel",
-        "fundNameEN": "Samuel",
-        "portMgmtEN": "Isabelle",
-        "portMgmtFR": "FR Isabelle",
-        "currencyEN": "Isabella",
-        "currencyFR": "FR Isabella",
-        "assetClassEN": "Madison",
-        "assetClassFR": "FR Madison",
-        "platformEN": "Cameron",
-        "platformFR": "FR Cameron"
-      }
-    ],
-    [
-      {
-        "id": 19,
-        "fundNameFR": "FR Harper",
-        "fundNameEN": "Harper",
-        "portMgmtEN": "Andrew",
-        "portMgmtFR": "FR Andrew",
-        "currencyEN": "Mia",
-        "currencyFR": "FR Mia",
-        "assetClassEN": "Chloe",
-        "assetClassFR": "FR Chloe",
-        "platformEN": "Olivia",
-        "platformFR": "FR Olivia"
-      }
-    ],
-    [
-      {
-        "id": 20,
-        "fundNameFR": "FR Zachary",
-        "fundNameEN": "Zachary",
-        "portMgmtEN": "Evan",
-        "portMgmtFR": "FR Evan",
-        "currencyEN": "Owen",
-        "currencyFR": "FR Owen",
-        "assetClassEN": "Hannah",
-        "assetClassFR": "FR Hannah",
-        "platformEN": "Maya",
-        "platformFR": "FR Maya"
-      }
-    ],
-    [
-      {
-        "id": 21,
-        "fundNameFR": "FR Evelyn",
-        "fundNameEN": "Evelyn",
-        "portMgmtEN": "Jack",
-        "portMgmtFR": "FR Jack",
-        "currencyEN": "Dylan",
-        "currencyFR": "FR Dylan",
-        "assetClassEN": "Elizabeth",
-        "assetClassFR": "FR Elizabeth",
-        "platformEN": "Olivia",
-        "platformFR": "FR Olivia"
-      }
-    ],
-    [
-      {
-        "id": 22,
-        "fundNameFR": "FR Charlie",
-        "fundNameEN": "Charlie",
-        "portMgmtEN": "Charlotte",
-        "portMgmtFR": "FR Charlotte",
-        "currencyEN": "Sophia",
-        "currencyFR": "FR Sophia",
-        "assetClassEN": "James",
-        "assetClassFR": "FR James",
-        "platformEN": "Kaylee",
-        "platformFR": "FR Kaylee"
-      }
-    ],
-    [
-      {
-        "id": 23,
-        "fundNameFR": "FR Lucas",
-        "fundNameEN": "Lucas",
-        "portMgmtEN": "Gabriel",
-        "portMgmtFR": "FR Gabriel",
-        "currencyEN": "Harper",
-        "currencyFR": "FR Harper",
-        "assetClassEN": "Isabelle",
-        "assetClassFR": "FR Isabelle",
-        "platformEN": "Chloe",
-        "platformFR": "FR Chloe"
-      }
-    ],
-    [
-      {
-        "id": 24,
-        "fundNameFR": "FR Liam",
-        "fundNameEN": "Liam",
-        "portMgmtEN": "Lucy",
-        "portMgmtFR": "FR Lucy",
-        "currencyEN": "Mackenzie",
-        "currencyFR": "FR Mackenzie",
-        "assetClassEN": "Riley",
-        "assetClassFR": "FR Riley",
-        "platformEN": "Harper",
-        "platformFR": "FR Harper"
-      }
-    ],
-    [
-      {
-        "id": 25,
-        "fundNameFR": "FR Audrey",
-        "fundNameEN": "Audrey",
-        "portMgmtEN": "Aubrey",
-        "portMgmtFR": "FR Aubrey",
-        "currencyEN": "Amelia",
-        "currencyFR": "FR Amelia",
-        "assetClassEN": "Ryan",
-        "assetClassFR": "FR Ryan",
-        "platformEN": "Benjamin",
-        "platformFR": "FR Benjamin"
-      }
-    ],
-    [
-      {
-        "id": 26,
-        "fundNameFR": "FR Ava",
-        "fundNameEN": "Ava",
-        "portMgmtEN": "Lillian",
-        "portMgmtFR": "FR Lillian",
-        "currencyEN": "Natalie",
-        "currencyFR": "FR Natalie",
-        "assetClassEN": "Ella",
-        "assetClassFR": "FR Ella",
-        "platformEN": "Lucy",
-        "platformFR": "FR Lucy"
-      }
-    ],
-    [
-      {
-        "id": 27,
-        "fundNameFR": "FR Ryan",
-        "fundNameEN": "Ryan",
-        "portMgmtEN": "Claire",
-        "portMgmtFR": "FR Claire",
-        "currencyEN": "Eli",
-        "currencyFR": "FR Eli",
-        "assetClassEN": "Joshua",
-        "assetClassFR": "FR Joshua",
-        "platformEN": "Owen",
-        "platformFR": "FR Owen"
-      }
-    ],
-    [
-      {
-        "id": 28,
-        "fundNameFR": "FR Owen",
-        "fundNameEN": "Owen",
-        "portMgmtEN": "Nathan",
-        "portMgmtFR": "FR Nathan",
-        "currencyEN": "Andrew",
-        "currencyFR": "FR Andrew",
-        "assetClassEN": "William",
-        "assetClassFR": "FR William",
-        "platformEN": "David",
-        "platformFR": "FR David"
-      }
-    ],
-    [
-      {
-        "id": 29,
-        "fundNameFR": "FR Liam",
-        "fundNameEN": "Liam",
-        "portMgmtEN": "Peyton",
-        "portMgmtFR": "FR Peyton",
-        "currencyEN": "Matthew",
-        "currencyFR": "FR Matthew",
-        "assetClassEN": "Chloe",
-        "assetClassFR": "FR Chloe",
-        "platformEN": "Carter",
-        "platformFR": "FR Carter"
-      }
-    ],
-    [
-      {
-        "id": 30,
-        "fundNameFR": "FR Sophie",
-        "fundNameEN": "Sophie",
-        "portMgmtEN": "Lucas",
-        "portMgmtFR": "FR Lucas",
-        "currencyEN": "Arianna",
-        "currencyFR": "FR Arianna",
-        "assetClassEN": "Emily",
-        "assetClassFR": "FR Emily",
-        "platformEN": "Landon",
-        "platformFR": "FR Landon"
-      }
-    ],
-    [
-      {
-        "id": 31,
-        "fundNameFR": "FR James",
-        "fundNameEN": "James",
-        "portMgmtEN": "Nathan",
-        "portMgmtFR": "FR Nathan",
-        "currencyEN": "Carter",
-        "currencyFR": "FR Carter",
-        "assetClassEN": "Lily",
-        "assetClassFR": "FR Lily",
-        "platformEN": "Maya",
-        "platformFR": "FR Maya"
-      }
-    ],
-    [
-      {
-        "id": 32,
-        "fundNameFR": "FR Isabelle",
-        "fundNameEN": "Isabelle",
-        "portMgmtEN": "Henry",
-        "portMgmtFR": "FR Henry",
-        "currencyEN": "Henry",
-        "currencyFR": "FR Henry",
-        "assetClassEN": "Hailey",
-        "assetClassFR": "FR Hailey",
-        "platformEN": "Evelyn",
-        "platformFR": "FR Evelyn"
-      }
-    ],
-    [
-      {
-        "id": 33,
-        "fundNameFR": "FR Leah",
-        "fundNameEN": "Leah",
-        "portMgmtEN": "Dylan",
-        "portMgmtFR": "FR Dylan",
-        "currencyEN": "Ellie",
-        "currencyFR": "FR Ellie",
-        "assetClassEN": "Brayden",
-        "assetClassFR": "FR Brayden",
-        "platformEN": "Mia",
-        "platformFR": "FR Mia"
-      }
-    ],
-    [
-      {
-        "id": 34,
-        "fundNameFR": "FR Alexander",
-        "fundNameEN": "Alexander",
-        "portMgmtEN": "Liam",
-        "portMgmtFR": "FR Liam",
-        "currencyEN": "William",
-        "currencyFR": "FR William",
-        "assetClassEN": "Brayden",
-        "assetClassFR": "FR Brayden",
-        "platformEN": "Madelyn",
-        "platformFR": "FR Madelyn"
-      }
-    ],
-    [
-      {
-        "id": 35,
-        "fundNameFR": "FR Zachary",
-        "fundNameEN": "Zachary",
-        "portMgmtEN": "Amelia",
-        "portMgmtFR": "FR Amelia",
-        "currencyEN": "Evan",
-        "currencyFR": "FR Evan",
-        "assetClassEN": "Kylie",
-        "assetClassFR": "FR Kylie",
-        "platformEN": "Henry",
-        "platformFR": "FR Henry"
-      }
-    ],
-    [
-      {
-        "id": 36,
-        "fundNameFR": "FR Kylie",
-        "fundNameEN": "Kylie",
-        "portMgmtEN": "Lillian",
-        "portMgmtFR": "FR Lillian",
-        "currencyEN": "Harper",
-        "currencyFR": "FR Harper",
-        "assetClassEN": "Michael",
-        "assetClassFR": "FR Michael",
-        "platformEN": "David",
-        "platformFR": "FR David"
-      }
-    ],
-    [
-      {
-        "id": 37,
-        "fundNameFR": "FR Natalie",
-        "fundNameEN": "Natalie",
-        "portMgmtEN": "Noah",
-        "portMgmtFR": "FR Noah",
-        "currencyEN": "Hailey",
-        "currencyFR": "FR Hailey",
-        "assetClassEN": "Hunter",
-        "assetClassFR": "FR Hunter",
-        "platformEN": "Noah",
-        "platformFR": "FR Noah"
-      }
-    ],
-    [
-      {
-        "id": 38,
-        "fundNameFR": "FR Alexander",
-        "fundNameEN": "Alexander",
-        "portMgmtEN": "Ethan",
-        "portMgmtFR": "FR Ethan",
-        "currencyEN": "Brooklyn",
-        "currencyFR": "FR Brooklyn",
-        "assetClassEN": "Sophie",
-        "assetClassFR": "FR Sophie",
-        "platformEN": "Landon",
-        "platformFR": "FR Landon"
-      }
-    ],
-    [
-      {
-        "id": 39,
-        "fundNameFR": "FR Sophia",
-        "fundNameEN": "Sophia",
-        "portMgmtEN": "Addison",
-        "portMgmtFR": "FR Addison",
-        "currencyEN": "Ella",
-        "currencyFR": "FR Ella",
-        "assetClassEN": "Alexander",
-        "assetClassFR": "FR Alexander",
-        "platformEN": "Tyler",
-        "platformFR": "FR Tyler"
-      }
-    ],
-    [
-      {
-        "id": 40,
-        "fundNameFR": "FR Logan",
-        "fundNameEN": "Logan",
-        "portMgmtEN": "Jacob",
-        "portMgmtFR": "FR Jacob",
-        "currencyEN": "Ellie",
-        "currencyFR": "FR Ellie",
-        "assetClassEN": "Eli",
-        "assetClassFR": "FR Eli",
-        "platformEN": "Ryan",
-        "platformFR": "FR Ryan"
-      }
-    ],
-    [
-      {
-        "id": 41,
-        "fundNameFR": "FR Michael",
-        "fundNameEN": "Michael",
-        "portMgmtEN": "David",
-        "portMgmtFR": "FR David",
-        "currencyEN": "Oliver",
-        "currencyFR": "FR Oliver",
-        "assetClassEN": "Cameron",
-        "assetClassFR": "FR Cameron",
-        "platformEN": "Emily",
-        "platformFR": "FR Emily"
-      }
-    ],
-    [
-      {
-        "id": 42,
-        "fundNameFR": "FR Ryan",
-        "fundNameEN": "Ryan",
-        "portMgmtEN": "Eli",
-        "portMgmtFR": "FR Eli",
-        "currencyEN": "Lucy",
-        "currencyFR": "FR Lucy",
-        "assetClassEN": "Lucas",
-        "assetClassFR": "FR Lucas",
-        "platformEN": "Alexander",
-        "platformFR": "FR Alexander"
-      }
-    ],
-    [
-      {
-        "id": 43,
-        "fundNameFR": "FR Zoe",
-        "fundNameEN": "Zoe",
-        "portMgmtEN": "Elizabeth",
-        "portMgmtFR": "FR Elizabeth",
-        "currencyEN": "Tyler",
-        "currencyFR": "FR Tyler",
-        "assetClassEN": "Jayden",
-        "assetClassFR": "FR Jayden",
-        "platformEN": "Grayson",
-        "platformFR": "FR Grayson"
-      }
-    ],
-    [
-      {
-        "id": 44,
-        "fundNameFR": "FR Eli",
-        "fundNameEN": "Eli",
-        "portMgmtEN": "Aubrey",
-        "portMgmtFR": "FR Aubrey",
-        "currencyEN": "Nathan",
-        "currencyFR": "FR Nathan",
-        "assetClassEN": "Aubrey",
-        "assetClassFR": "FR Aubrey",
-        "platformEN": "Mackenzie",
-        "platformFR": "FR Mackenzie"
-      }
-    ],
-    [
-      {
-        "id": 45,
-        "fundNameFR": "FR Hunter",
-        "fundNameEN": "Hunter",
-        "portMgmtEN": "Avery",
-        "portMgmtFR": "FR Avery",
-        "currencyEN": "Emma",
-        "currencyFR": "FR Emma",
-        "assetClassEN": "Connor",
-        "assetClassFR": "FR Connor",
-        "platformEN": "Henry",
-        "platformFR": "FR Henry"
-      }
-    ],
-    [
-      {
-        "id": 46,
-        "fundNameFR": "FR Riley",
-        "fundNameEN": "Riley",
-        "portMgmtEN": "Jack",
-        "portMgmtFR": "FR Jack",
-        "currencyEN": "Ryan",
-        "currencyFR": "FR Ryan",
-        "assetClassEN": "Chloe",
-        "assetClassFR": "FR Chloe",
-        "platformEN": "Natalie",
-        "platformFR": "FR Natalie"
-      }
-    ],
-    [
-      {
-        "id": 47,
-        "fundNameFR": "FR Natalie",
-        "fundNameEN": "Natalie",
-        "portMgmtEN": "Jayden",
-        "portMgmtFR": "FR Jayden",
-        "currencyEN": "Harper",
-        "currencyFR": "FR Harper",
-        "assetClassEN": "Kaylee",
-        "assetClassFR": "FR Kaylee",
-        "platformEN": "Carter",
-        "platformFR": "FR Carter"
-      }
-    ],
-    [
-      {
-        "id": 48,
-        "fundNameFR": "FR Kylie",
-        "fundNameEN": "Kylie",
-        "portMgmtEN": "Avery",
-        "portMgmtFR": "FR Avery",
-        "currencyEN": "Olivia",
-        "currencyFR": "FR Olivia",
-        "assetClassEN": "Isabella",
-        "assetClassFR": "FR Isabella",
-        "platformEN": "Tyler",
-        "platformFR": "FR Tyler"
-      }
-    ],
-    [
-      {
-        "id": 49,
-        "fundNameFR": "FR Charlie",
-        "fundNameEN": "Charlie",
-        "portMgmtEN": "Ryan",
-        "portMgmtFR": "FR Ryan",
-        "currencyEN": "Grayson",
-        "currencyFR": "FR Grayson",
-        "assetClassEN": "Joseph",
-        "assetClassFR": "FR Joseph",
-        "platformEN": "Max",
-        "platformFR": "FR Max"
-      }
-    ]
+    {
+      "id": 0,
+      "fundNameFR": "FR Leah",
+      "fundNameEN": "Leah",
+      "portMgmtEN": "Chloe",
+      "portMgmtFR": "FR Chloe",
+      "currencyEN": "Matthew",
+      "currencyFR": "FR Matthew",
+      "assetClassEN": "Alexander",
+      "assetClassFR": "FR Alexander",
+      "platformEN": "Logan",
+      "platformFR": "FR Logan"
+    },
+    {
+      "id": 1,
+      "fundNameFR": "FR Jack",
+      "fundNameEN": "Jack",
+      "portMgmtEN": "Luke",
+      "portMgmtFR": "FR Luke",
+      "currencyEN": "Sarah",
+      "currencyFR": "FR Sarah",
+      "assetClassEN": "Emma",
+      "assetClassFR": "FR Emma",
+      "platformEN": "Amelia",
+      "platformFR": "FR Amelia"
+    },
+    {
+      "id": 2,
+      "fundNameFR": "FR Isaac",
+      "fundNameEN": "Isaac",
+      "portMgmtEN": "Jacob",
+      "portMgmtFR": "FR Jacob",
+      "currencyEN": "Peyton",
+      "currencyFR": "FR Peyton",
+      "assetClassEN": "Michael",
+      "assetClassFR": "FR Michael",
+      "platformEN": "Anna",
+      "platformFR": "FR Anna"
+    },
+    {
+      "id": 3,
+      "fundNameFR": "FR Joshua",
+      "fundNameEN": "Joshua",
+      "portMgmtEN": "Sarah",
+      "portMgmtFR": "FR Sarah",
+      "currencyEN": "Joseph",
+      "currencyFR": "FR Joseph",
+      "assetClassEN": "Gabriella",
+      "assetClassFR": "FR Gabriella",
+      "platformEN": "Zachary",
+      "platformFR": "FR Zachary"
+    },
+    {
+      "id": 4,
+      "fundNameFR": "FR Mackenzie",
+      "fundNameEN": "Mackenzie",
+      "portMgmtEN": "Brooklyn",
+      "portMgmtFR": "FR Brooklyn",
+      "currencyEN": "Emma",
+      "currencyFR": "FR Emma",
+      "assetClassEN": "James",
+      "assetClassFR": "FR James",
+      "platformEN": "Jack",
+      "platformFR": "FR Jack"
+    },
+    {
+      "id": 5,
+      "fundNameFR": "FR David",
+      "fundNameEN": "David",
+      "portMgmtEN": "Madison",
+      "portMgmtFR": "FR Madison",
+      "currencyEN": "Elizabeth",
+      "currencyFR": "FR Elizabeth",
+      "assetClassEN": "Owen",
+      "assetClassFR": "FR Owen",
+      "platformEN": "Hannah",
+      "platformFR": "FR Hannah"
+    },
+    {
+      "id": 6,
+      "fundNameFR": "FR Nicholas",
+      "fundNameEN": "Nicholas",
+      "portMgmtEN": "Addison",
+      "portMgmtFR": "FR Addison",
+      "currencyEN": "Brayden",
+      "currencyFR": "FR Brayden",
+      "assetClassEN": "Noah",
+      "assetClassFR": "FR Noah",
+      "platformEN": "Lucy",
+      "platformFR": "FR Lucy"
+    },
+    {
+      "id": 7,
+      "fundNameFR": "FR Audrey",
+      "fundNameEN": "Audrey",
+      "portMgmtEN": "Lyla",
+      "portMgmtFR": "FR Lyla",
+      "currencyEN": "Elijah",
+      "currencyFR": "FR Elijah",
+      "assetClassEN": "Daniel",
+      "assetClassFR": "FR Daniel",
+      "platformEN": "Daniel",
+      "platformFR": "FR Daniel"
+    },
+    {
+      "id": 8,
+      "fundNameFR": "FR Makayla",
+      "fundNameEN": "Makayla",
+      "portMgmtEN": "Kylie",
+      "portMgmtFR": "FR Kylie",
+      "currencyEN": "Lyla",
+      "currencyFR": "FR Lyla",
+      "assetClassEN": "Sophia",
+      "assetClassFR": "FR Sophia",
+      "platformEN": "Dylan",
+      "platformFR": "FR Dylan"
+    },
+    {
+      "id": 9,
+      "fundNameFR": "FR Audrey",
+      "fundNameEN": "Audrey",
+      "portMgmtEN": "Lucas",
+      "portMgmtFR": "FR Lucas",
+      "currencyEN": "Ellie",
+      "currencyFR": "FR Ellie",
+      "assetClassEN": "Wyatt",
+      "assetClassFR": "FR Wyatt",
+      "platformEN": "James",
+      "platformFR": "FR James"
+    },
+    {
+      "id": 10,
+      "fundNameFR": "FR Claire",
+      "fundNameEN": "Claire",
+      "portMgmtEN": "Sophie",
+      "portMgmtFR": "FR Sophie",
+      "currencyEN": "Andrew",
+      "currencyFR": "FR Andrew",
+      "assetClassEN": "Joseph",
+      "assetClassFR": "FR Joseph",
+      "platformEN": "Kaylee",
+      "platformFR": "FR Kaylee"
+    },
+    {
+      "id": 11,
+      "fundNameFR": "FR Aaliyah",
+      "fundNameEN": "Aaliyah",
+      "portMgmtEN": "Landon",
+      "portMgmtFR": "FR Landon",
+      "currencyEN": "Addison",
+      "currencyFR": "FR Addison",
+      "assetClassEN": "Evelyn",
+      "assetClassFR": "FR Evelyn",
+      "platformEN": "Isaac",
+      "platformFR": "FR Isaac"
+    },
+    {
+      "id": 12,
+      "fundNameFR": "FR Arianna",
+      "fundNameEN": "Arianna",
+      "portMgmtEN": "Alexander",
+      "portMgmtFR": "FR Alexander",
+      "currencyEN": "Anna",
+      "currencyFR": "FR Anna",
+      "assetClassEN": "Jayden",
+      "assetClassFR": "FR Jayden",
+      "platformEN": "Ava",
+      "platformFR": "FR Ava"
+    },
+    {
+      "id": 13,
+      "fundNameFR": "FR Ava",
+      "fundNameEN": "Ava",
+      "portMgmtEN": "Kaitlyn",
+      "portMgmtFR": "FR Kaitlyn",
+      "currencyEN": "Logan",
+      "currencyFR": "FR Logan",
+      "assetClassEN": "Elizabeth",
+      "assetClassFR": "FR Elizabeth",
+      "platformEN": "Lillian",
+      "platformFR": "FR Lillian"
+    },
+    {
+      "id": 14,
+      "fundNameFR": "FR Sarah",
+      "fundNameEN": "Sarah",
+      "portMgmtEN": "Eli",
+      "portMgmtFR": "FR Eli",
+      "currencyEN": "Harper",
+      "currencyFR": "FR Harper",
+      "assetClassEN": "Maya",
+      "assetClassFR": "FR Maya",
+      "platformEN": "Luke",
+      "platformFR": "FR Luke"
+    },
+    {
+      "id": 15,
+      "fundNameFR": "FR Anna",
+      "fundNameEN": "Anna",
+      "portMgmtEN": "Abigail",
+      "portMgmtFR": "FR Abigail",
+      "currencyEN": "Claire",
+      "currencyFR": "FR Claire",
+      "assetClassEN": "Gavin",
+      "assetClassFR": "FR Gavin",
+      "platformEN": "Ava",
+      "platformFR": "FR Ava"
+    },
+    {
+      "id": 16,
+      "fundNameFR": "FR Jackson",
+      "fundNameEN": "Jackson",
+      "portMgmtEN": "Gavin",
+      "portMgmtFR": "FR Gavin",
+      "currencyEN": "Hunter",
+      "currencyFR": "FR Hunter",
+      "assetClassEN": "Gabriel",
+      "assetClassFR": "FR Gabriel",
+      "platformEN": "Caleb",
+      "platformFR": "FR Caleb"
+    },
+    {
+      "id": 17,
+      "fundNameFR": "FR Noah",
+      "fundNameEN": "Noah",
+      "portMgmtEN": "Ava",
+      "portMgmtFR": "FR Ava",
+      "currencyEN": "Emma",
+      "currencyFR": "FR Emma",
+      "assetClassEN": "Connor",
+      "assetClassFR": "FR Connor",
+      "platformEN": "Jack",
+      "platformFR": "FR Jack"
+    },
+    {
+      "id": 18,
+      "fundNameFR": "FR Anna",
+      "fundNameEN": "Anna",
+      "portMgmtEN": "Isabelle",
+      "portMgmtFR": "FR Isabelle",
+      "currencyEN": "Liam",
+      "currencyFR": "FR Liam",
+      "assetClassEN": "Ethan",
+      "assetClassFR": "FR Ethan",
+      "platformEN": "Logan",
+      "platformFR": "FR Logan"
+    },
+    {
+      "id": 19,
+      "fundNameFR": "FR Benjamin",
+      "fundNameEN": "Benjamin",
+      "portMgmtEN": "Tyler",
+      "portMgmtFR": "FR Tyler",
+      "currencyEN": "Dylan",
+      "currencyFR": "FR Dylan",
+      "assetClassEN": "Aaliyah",
+      "assetClassFR": "FR Aaliyah",
+      "platformEN": "Amelia",
+      "platformFR": "FR Amelia"
+    },
+    {
+      "id": 20,
+      "fundNameFR": "FR Evelyn",
+      "fundNameEN": "Evelyn",
+      "portMgmtEN": "Anna",
+      "portMgmtFR": "FR Anna",
+      "currencyEN": "Isabella",
+      "currencyFR": "FR Isabella",
+      "assetClassEN": "Ellie",
+      "assetClassFR": "FR Ellie",
+      "platformEN": "Harper",
+      "platformFR": "FR Harper"
+    },
+    {
+      "id": 21,
+      "fundNameFR": "FR Madelyn",
+      "fundNameEN": "Madelyn",
+      "portMgmtEN": "Madison",
+      "portMgmtFR": "FR Madison",
+      "currencyEN": "Madison",
+      "currencyFR": "FR Madison",
+      "assetClassEN": "Henry",
+      "assetClassFR": "FR Henry",
+      "platformEN": "Owen",
+      "platformFR": "FR Owen"
+    },
+    {
+      "id": 22,
+      "fundNameFR": "FR Isabelle",
+      "fundNameEN": "Isabelle",
+      "portMgmtEN": "Olivia",
+      "portMgmtFR": "FR Olivia",
+      "currencyEN": "Kylie",
+      "currencyFR": "FR Kylie",
+      "assetClassEN": "Makayla",
+      "assetClassFR": "FR Makayla",
+      "platformEN": "Sarah",
+      "platformFR": "FR Sarah"
+    },
+    {
+      "id": 23,
+      "fundNameFR": "FR Tyler",
+      "fundNameEN": "Tyler",
+      "portMgmtEN": "Peyton",
+      "portMgmtFR": "FR Peyton",
+      "currencyEN": "Evan",
+      "currencyFR": "FR Evan",
+      "assetClassEN": "Amelia",
+      "assetClassFR": "FR Amelia",
+      "platformEN": "Avery",
+      "platformFR": "FR Avery"
+    },
+    {
+      "id": 24,
+      "fundNameFR": "FR Charlotte",
+      "fundNameEN": "Charlotte",
+      "portMgmtEN": "David",
+      "portMgmtFR": "FR David",
+      "currencyEN": "Sarah",
+      "currencyFR": "FR Sarah",
+      "assetClassEN": "Ella",
+      "assetClassFR": "FR Ella",
+      "platformEN": "Charlie",
+      "platformFR": "FR Charlie"
+    },
+    {
+      "id": 25,
+      "fundNameFR": "FR Liam",
+      "fundNameEN": "Liam",
+      "portMgmtEN": "Ava",
+      "portMgmtFR": "FR Ava",
+      "currencyEN": "Avery",
+      "currencyFR": "FR Avery",
+      "assetClassEN": "Joseph",
+      "assetClassFR": "FR Joseph",
+      "platformEN": "Ellie",
+      "platformFR": "FR Ellie"
+    },
+    {
+      "id": 26,
+      "fundNameFR": "FR Amelia",
+      "fundNameEN": "Amelia",
+      "portMgmtEN": "Anna",
+      "portMgmtFR": "FR Anna",
+      "currencyEN": "Max",
+      "currencyFR": "FR Max",
+      "assetClassEN": "Mia",
+      "assetClassFR": "FR Mia",
+      "platformEN": "Sophia",
+      "platformFR": "FR Sophia"
+    },
+    {
+      "id": 27,
+      "fundNameFR": "FR Isaac",
+      "fundNameEN": "Isaac",
+      "portMgmtEN": "Grace",
+      "portMgmtFR": "FR Grace",
+      "currencyEN": "Caleb",
+      "currencyFR": "FR Caleb",
+      "assetClassEN": "Wyatt",
+      "assetClassFR": "FR Wyatt",
+      "platformEN": "Anna",
+      "platformFR": "FR Anna"
+    },
+    {
+      "id": 28,
+      "fundNameFR": "FR Ava",
+      "fundNameEN": "Ava",
+      "portMgmtEN": "Connor",
+      "portMgmtFR": "FR Connor",
+      "currencyEN": "Aaliyah",
+      "currencyFR": "FR Aaliyah",
+      "assetClassEN": "Natalie",
+      "assetClassFR": "FR Natalie",
+      "platformEN": "Luke",
+      "platformFR": "FR Luke"
+    },
+    {
+      "id": 29,
+      "fundNameFR": "FR Zachary",
+      "fundNameEN": "Zachary",
+      "portMgmtEN": "Emma",
+      "portMgmtFR": "FR Emma",
+      "currencyEN": "Tyler",
+      "currencyFR": "FR Tyler",
+      "assetClassEN": "Kylie",
+      "assetClassFR": "FR Kylie",
+      "platformEN": "Jack",
+      "platformFR": "FR Jack"
+    },
+    {
+      "id": 30,
+      "fundNameFR": "FR Kaylee",
+      "fundNameEN": "Kaylee",
+      "portMgmtEN": "Brooklyn",
+      "portMgmtFR": "FR Brooklyn",
+      "currencyEN": "Elijah",
+      "currencyFR": "FR Elijah",
+      "assetClassEN": "Emma",
+      "assetClassFR": "FR Emma",
+      "platformEN": "Sophie",
+      "platformFR": "FR Sophie"
+    },
+    {
+      "id": 31,
+      "fundNameFR": "FR Aaliyah",
+      "fundNameEN": "Aaliyah",
+      "portMgmtEN": "Aubrey",
+      "portMgmtFR": "FR Aubrey",
+      "currencyEN": "Liam",
+      "currencyFR": "FR Liam",
+      "assetClassEN": "Brayden",
+      "assetClassFR": "FR Brayden",
+      "platformEN": "Oliver",
+      "platformFR": "FR Oliver"
+    },
+    {
+      "id": 32,
+      "fundNameFR": "FR Gavin",
+      "fundNameEN": "Gavin",
+      "portMgmtEN": "Dylan",
+      "portMgmtFR": "FR Dylan",
+      "currencyEN": "Mia",
+      "currencyFR": "FR Mia",
+      "assetClassEN": "Luke",
+      "assetClassFR": "FR Luke",
+      "platformEN": "Peyton",
+      "platformFR": "FR Peyton"
+    },
+    {
+      "id": 33,
+      "fundNameFR": "FR Hannah",
+      "fundNameEN": "Hannah",
+      "portMgmtEN": "Zachary",
+      "portMgmtFR": "FR Zachary",
+      "currencyEN": "Hannah",
+      "currencyFR": "FR Hannah",
+      "assetClassEN": "Caleb",
+      "assetClassFR": "FR Caleb",
+      "platformEN": "Hannah",
+      "platformFR": "FR Hannah"
+    },
+    {
+      "id": 34,
+      "fundNameFR": "FR William",
+      "fundNameEN": "William",
+      "portMgmtEN": "Mia",
+      "portMgmtFR": "FR Mia",
+      "currencyEN": "Benjamin",
+      "currencyFR": "FR Benjamin",
+      "assetClassEN": "Riley",
+      "assetClassFR": "FR Riley",
+      "platformEN": "Nicholas",
+      "platformFR": "FR Nicholas"
+    },
+    {
+      "id": 35,
+      "fundNameFR": "FR Anna",
+      "fundNameEN": "Anna",
+      "portMgmtEN": "Jack",
+      "portMgmtFR": "FR Jack",
+      "currencyEN": "Kaylee",
+      "currencyFR": "FR Kaylee",
+      "assetClassEN": "James",
+      "assetClassFR": "FR James",
+      "platformEN": "Kylie",
+      "platformFR": "FR Kylie"
+    },
+    {
+      "id": 36,
+      "fundNameFR": "FR Nathan",
+      "fundNameEN": "Nathan",
+      "portMgmtEN": "Brooklyn",
+      "portMgmtFR": "FR Brooklyn",
+      "currencyEN": "Aubrey",
+      "currencyFR": "FR Aubrey",
+      "assetClassEN": "Nathan",
+      "assetClassFR": "FR Nathan",
+      "platformEN": "Chloe",
+      "platformFR": "FR Chloe"
+    },
+    {
+      "id": 37,
+      "fundNameFR": "FR Hannah",
+      "fundNameEN": "Hannah",
+      "portMgmtEN": "Aaliyah",
+      "portMgmtFR": "FR Aaliyah",
+      "currencyEN": "Chloe",
+      "currencyFR": "FR Chloe",
+      "assetClassEN": "Evelyn",
+      "assetClassFR": "FR Evelyn",
+      "platformEN": "Evan",
+      "platformFR": "FR Evan"
+    },
+    {
+      "id": 38,
+      "fundNameFR": "FR Jackson",
+      "fundNameEN": "Jackson",
+      "portMgmtEN": "Matthew",
+      "portMgmtFR": "FR Matthew",
+      "currencyEN": "Liam",
+      "currencyFR": "FR Liam",
+      "assetClassEN": "Joseph",
+      "assetClassFR": "FR Joseph",
+      "platformEN": "Oliver",
+      "platformFR": "FR Oliver"
+    },
+    {
+      "id": 39,
+      "fundNameFR": "FR Audrey",
+      "fundNameEN": "Audrey",
+      "portMgmtEN": "Peyton",
+      "portMgmtFR": "FR Peyton",
+      "currencyEN": "Dylan",
+      "currencyFR": "FR Dylan",
+      "assetClassEN": "Elizabeth",
+      "assetClassFR": "FR Elizabeth",
+      "platformEN": "Gavin",
+      "platformFR": "FR Gavin"
+    },
+    {
+      "id": 40,
+      "fundNameFR": "FR Liam",
+      "fundNameEN": "Liam",
+      "portMgmtEN": "Audrey",
+      "portMgmtFR": "FR Audrey",
+      "currencyEN": "Landon",
+      "currencyFR": "FR Landon",
+      "assetClassEN": "Isaac",
+      "assetClassFR": "FR Isaac",
+      "platformEN": "Mackenzie",
+      "platformFR": "FR Mackenzie"
+    },
+    {
+      "id": 41,
+      "fundNameFR": "FR Lillian",
+      "fundNameEN": "Lillian",
+      "portMgmtEN": "Anna",
+      "portMgmtFR": "FR Anna",
+      "currencyEN": "Claire",
+      "currencyFR": "FR Claire",
+      "assetClassEN": "Kaylee",
+      "assetClassFR": "FR Kaylee",
+      "platformEN": "Lillian",
+      "platformFR": "FR Lillian"
+    },
+    {
+      "id": 42,
+      "fundNameFR": "FR Madelyn",
+      "fundNameEN": "Madelyn",
+      "portMgmtEN": "Grace",
+      "portMgmtFR": "FR Grace",
+      "currencyEN": "Ella",
+      "currencyFR": "FR Ella",
+      "assetClassEN": "Samuel",
+      "assetClassFR": "FR Samuel",
+      "platformEN": "Wyatt",
+      "platformFR": "FR Wyatt"
+    },
+    {
+      "id": 43,
+      "fundNameFR": "FR Claire",
+      "fundNameEN": "Claire",
+      "portMgmtEN": "Noah",
+      "portMgmtFR": "FR Noah",
+      "currencyEN": "Jackson",
+      "currencyFR": "FR Jackson",
+      "assetClassEN": "Elizabeth",
+      "assetClassFR": "FR Elizabeth",
+      "platformEN": "Ethan",
+      "platformFR": "FR Ethan"
+    },
+    {
+      "id": 44,
+      "fundNameFR": "FR Samuel",
+      "fundNameEN": "Samuel",
+      "portMgmtEN": "Madison",
+      "portMgmtFR": "FR Madison",
+      "currencyEN": "Olivia",
+      "currencyFR": "FR Olivia",
+      "assetClassEN": "William",
+      "assetClassFR": "FR William",
+      "platformEN": "Lyla",
+      "platformFR": "FR Lyla"
+    },
+    {
+      "id": 45,
+      "fundNameFR": "FR Aiden",
+      "fundNameEN": "Aiden",
+      "portMgmtEN": "William",
+      "portMgmtFR": "FR William",
+      "currencyEN": "Ellie",
+      "currencyFR": "FR Ellie",
+      "assetClassEN": "Owen",
+      "assetClassFR": "FR Owen",
+      "platformEN": "Brayden",
+      "platformFR": "FR Brayden"
+    },
+    {
+      "id": 46,
+      "fundNameFR": "FR Amelia",
+      "fundNameEN": "Amelia",
+      "portMgmtEN": "Elijah",
+      "portMgmtFR": "FR Elijah",
+      "currencyEN": "Emma",
+      "currencyFR": "FR Emma",
+      "assetClassEN": "Madison",
+      "assetClassFR": "FR Madison",
+      "platformEN": "Samuel",
+      "platformFR": "FR Samuel"
+    },
+    {
+      "id": 47,
+      "fundNameFR": "FR Lillian",
+      "fundNameEN": "Lillian",
+      "portMgmtEN": "Ella",
+      "portMgmtFR": "FR Ella",
+      "currencyEN": "Gavin",
+      "currencyFR": "FR Gavin",
+      "assetClassEN": "Andrew",
+      "assetClassFR": "FR Andrew",
+      "platformEN": "Kylie",
+      "platformFR": "FR Kylie"
+    },
+    {
+      "id": 48,
+      "fundNameFR": "FR Alexander",
+      "fundNameEN": "Alexander",
+      "portMgmtEN": "Matthew",
+      "portMgmtFR": "FR Matthew",
+      "currencyEN": "Elijah",
+      "currencyFR": "FR Elijah",
+      "assetClassEN": "Grace",
+      "assetClassFR": "FR Grace",
+      "platformEN": "Hannah",
+      "platformFR": "FR Hannah"
+    },
+    {
+      "id": 49,
+      "fundNameFR": "FR Evelyn",
+      "fundNameEN": "Evelyn",
+      "portMgmtEN": "Wyatt",
+      "portMgmtFR": "FR Wyatt",
+      "currencyEN": "Brooklyn",
+      "currencyFR": "FR Brooklyn",
+      "assetClassEN": "Liam",
+      "assetClassFR": "FR Liam",
+      "platformEN": "Abigail",
+      "platformFR": "FR Abigail"
+    }
   ]
 }
