@@ -78,8 +78,37 @@
       "pageName": "profileSearch",
       "nextPageName": "main.evolution.fee.investmentOverview",
       "previousPageName": "main.evolution.fee.profileSearch",
-      "stepIndicator": 0
+      "stepIndicator": 1
     },
+    {
+      "stateName": "main.evolution.fee.investmentOverview",
+      "isAbstract": false,
+      "pageName": "investmentOverview",
+
+      "stepIndicator": 2
+    },
+    {
+      "stateName": "main.evolution.fee.serviceFees",
+      "isAbstract": false,
+      "pageName": "investmentOverview",
+
+      "stepIndicator": 3
+    },
+    {
+      "stateName": "main.evolution.fee.summary",
+      "isAbstract": false,
+      "pageName": "investmentOverview",
+
+      "stepIndicator": 4
+    },
+    {
+      "stateName": "main.evolution.fee.reports",
+      "isAbstract": false,
+      "pageName": "investmentOverview",
+
+      "stepIndicator": 5
+    },
+
     {
       "stateName": "main",
       "isAbstract": true,
