@@ -47,7 +47,7 @@
             });
 
             //used to generate mock data
-            service.data = repeater(50, assetClassMixTemplate);
+            service.data = repeater(50, PROFILE_GROUPS);
         }
 
 
@@ -312,26 +312,26 @@
 
 
 /*
+ "PROFILE_GROUPS": [
  {
- "PROFILE_GROUPS" : [
+ "id": 0,
+ "profileSummaries": [
  {
- "id": 1,
- "profileSummary": {
- "id": 1,
+ "id": 0,
  "profileName": "",
  "clientName": "",
  "modificationDate": "date",
- "logs": false,
- "pdf": false,
+ "logs": true,
+ "pdf": true,
  "status": "",
  "fundsReceived": true,
  "cafReceived": true,
  "createdBy": "",
  "creationDate": "date"
  }
- }
  ]
  }
+ ]
 
 
  {
