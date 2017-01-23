@@ -20,16 +20,14 @@
     ];
 
     /* @ngInject */
-    function testCtrl(
-        notificationService,
-        testService,
-        waitForResourcesService,
-        mockService
-    ) {
-        waitForResourcesService.stopWaiting();
+    function testCtrl(notificationService, testService, waitForResourcesService,mockService) {
+
         var vm = this;
         vm.testService = testService;
         vm.mockService = mockService;
+
+        //stop the testSERvice stuff
+        waitForResourcesService.stopWaiting();
 
         notificationService.addMessage({msg:"testNotification", type:1});
         notificationService.addMessage({msg:"<h2 translate>testNotification2</h2>", type:1});
@@ -38,6 +36,7 @@
         testService.getData('/tests/1').then(
             function(data){
                 //handle success event
+                console.log(data);
                 //console.log('data successfully retrieved: ', data);
             },
             function(error){
@@ -46,26 +45,26 @@
             }
         );
 
-        testService.getData('/tests/2').then(
-            function(data){
-                //handle success event
-                //typically a call to notificationService
-            },
-            function(error){
-                //handle error event
-                //typically a call to notificationService
-            }
-        );
-        testService.getData('/tests/3').then(
-            function(data){
-                //handle success event
-                //console.log('data successfully retrieved: ', data);
-            },
-            function(error){
-                //handle error event
-                //typically a call to notificationService
-            }
-        );
+        // testService.getData('/tests/2').then(
+        //     function(data){
+        //         //handle success event
+        //         //typically a call to notificationService
+        //     },
+        //     function(error){
+        //         //handle error event
+        //         //typically a call to notificationService
+        //     }
+        // );
+        // testService.getData('/tests/3').then(
+        //     function(data){
+        //         //handle success event
+        //         //console.log('data successfully retrieved: ', data);
+        //     },
+        //     function(error){
+        //         //handle error event
+        //         //typically a call to notificationService
+        //     }
+        // );
 
 
     }

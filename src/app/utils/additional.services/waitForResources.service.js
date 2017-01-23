@@ -32,6 +32,7 @@
             resourceCounter++;
             var currentResourceCount = resourceCounter;
             loadingService.setIsLoading(true);
+
             if (pendingPromise) {
                 //pendingPromise.resolve();
             }
