@@ -177,10 +177,26 @@
                 // console.log('calling languageSwitcher');
                 languageSwitcherService.switchLanguages(toState.name);
                 loadingService.loading = true;
-                console.log('fromState: ', fromState);
-                console.log('toState: ', toState);
-                console.log('toParams: ', toParams);
-                console.log('fromParams: ', fromParams);
+                // console.log('fromState: ', fromState);
+                // console.log('toState: ', toState);
+                // console.log('toParams: ', toParams);
+                // console.log('fromParams: ', fromParams);
+
+
+                //for the FEe Prop Exit & Restart Links
+                // we may not need this
+                if (fromState.name === 'main.evolution.fundCustomization'){
+                    pageStateResolver.setExitLink('main.evolution.fundCustomization');
+                    pageStateResolver.setRestartLink('main.evolution.fee.contactInfo');
+                }
+
+                if (fromState.name === 'main.evolution.selectClientProfile'){
+                    pageStateResolver.setExitLink('main.evolution.selectClientProfile');
+                    pageStateResolver.setRestartLink('main.evolution.fee.profileSearch');
+                }
+                //end of for the fee header exit
+
+
                 if (fromParams.hasOwnProperty('locale') && fromParams.locale !== toParams.locale && (toState.url === fromState.url || fromState.url !== "^")) {
                     //event.preventDefault();
 
