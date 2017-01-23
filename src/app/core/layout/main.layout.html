@@ -1,14 +1,24 @@
 <!--<ci-header></ci-header>-->
 <!--<banner></banner>-->
+<style>
+    #fee {
+        border: 1px solid blue;
+    }
+    #content{
+        border: 1px solid green;
+    }
+</style>
 <div id="header" ui-view="header"></div>
 <div id="" ng-class="Main.pageStateResolver.activePageName" role="main"
-     style="border:1px solid red;"
+     style="border:1px solid red; padding: 10px;"
      aria-label="{{ 'aria.main-label' | translate }}">
     <!--
         <ci-loader loading="Main.pageStateResolver.pageLoading">
         -->
+
     <ci-notifications></ci-notifications>
     <div id="content" ui-view="content"></div>
+
     <!--
     </ci-loader>
     -->
