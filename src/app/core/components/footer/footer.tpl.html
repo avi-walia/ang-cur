@@ -17,6 +17,7 @@
 
     <a ng-if="$ctrl.nextState" ui-sref="{{$ctrl.nextState}}">{{$ctrl.nextLabel}}</a>
 
+    <!-- you cannot submit if you have these roles: UNLICENSED ASSISTANT, CORPORATE or INSURANCE ONLY  -->
     <a ng-if="$ctrl.submit" href="javascript:alert('submit');">Submit</a>
 </footer>
 Next state is =

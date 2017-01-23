@@ -1,0 +1,6 @@
+Fee Footer
+<a href="javascript:void(0)" ng-click="$ctrl.reset()">Reset</a> |
+<a ng-if="$ctrl.previousState" ui-sref="{{$ctrl.previousState}}">Back | </a> 
+<a ng-if="$ctrl.nextState" ui-sref="{{$ctrl.nextState}}">Next</a> =
+
+<a href="javascript:void(0)" ng-if="$ctrl.nextState" ng-click="$ctrl.next();">Next with Modal validation</a>

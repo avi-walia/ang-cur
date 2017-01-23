@@ -1,0 +1,8 @@
+<h3 style="color: red">Fee Proposal </h3>
+<!-- link for Exit is dynamic depending on how you got to the Fee Proposal -->
+<a ng-if="$ctrl.exitLink" ui-sref="{{$ctrl.exitLink}}">Exit</a>
+| 
+
+<!-- link here depends if you are single or family group -->
+<a ng-if="($ctrl.state !== 'profileSearch' && $ctrl.state !== 'contactInfo') && $ctrl.restartLink"
+   ui-sref="{{$ctrl.restartLink}}">Restart</a>
