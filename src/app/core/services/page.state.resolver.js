@@ -106,11 +106,14 @@
          */
         function setActivePageName(sState) {
             var oPageConfiguration = _.find(ROUTES, {stateName: sState});
-            if ('pageName' in oPageConfiguration) {
-                if (!oPageConfiguration.isAbstract) {
-                    service.activePageName = oPageConfiguration.pageName;
+            if (angular.isDefined(oPageConfiguration)){
+                if ('pageName' in oPageConfiguration) {
+                    if (!oPageConfiguration.isAbstract) {
+                        service.activePageName = oPageConfiguration.pageName;
+                    }
                 }
             }
+
         }
 
 
