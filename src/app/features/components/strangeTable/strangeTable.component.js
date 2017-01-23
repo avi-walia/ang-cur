@@ -10,18 +10,19 @@
             bindings: {
                 //moreData: '<',
                 //moreData2: '<'
-                data: '='
+                data: '<',
+                widths: '<'
             }
         });
 
 
     /* @ngInject */
 
-    strangeTableCtrl.$inject = ['removeDiacriticsService'];
+    strangeTableCtrl.$inject = ['removeDiacriticsService', '$timeout'];
 
     /* @ngInject */
     function strangeTableCtrl(
-        removeDiacriticsService
+        removeDiacriticsService, $timeout
     ) {
         var vm = this;
         vm.sortable = {};
@@ -68,7 +69,21 @@
             vm.data.sort(compare);
         }
 
+        vm.expandSubGroup = [];
+        vm.expandOrCollapse = function(expandIndex) {
+            if (expandIndex < vm.expandSubGroup.length) {
+                console.log('expandIndex: ', expandIndex);
+                vm.expandSubGroup[expandIndex] = !vm.expandSubGroup[expandIndex];
+            }
+        }
 
+        vm.$onChanges = function() {
+            vm.expandSubGroup = [];
+            _.forEach(vm.data, function (val, key) {
+                vm.expandSubGroup.push(false);
+            });
+            console.log('expandSubGroup: ', vm.expandSubGroup);
+        };
 
 
 
