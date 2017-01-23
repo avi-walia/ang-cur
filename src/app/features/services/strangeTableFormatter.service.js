@@ -5,7 +5,7 @@
         .module('evolution.features.test')
         .service('strangeTableFormatterService', strangeTableFormatterService);
 
-    testService.$inject = [
+    strangeTableFormatterService.$inject = [
         'strangeTableFormatterService'
     ];
 
