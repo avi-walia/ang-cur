@@ -66,7 +66,6 @@
                     .state('main.evolution.selectClientProfile', {
                         url: '/select-client-profile',
                         views: {
-
                             'content@main': {
                                 // template: '<test></test>'
                                 template: '<select-client-profile></select-client-profile>'
@@ -76,7 +75,6 @@
                     .state('main.evolution.clientAccountInfo', {
                         url: '/client-account-info',
                         views: {
-
                             'content@main': {
                                 // template: '<test></test>'
                                 template: '<client-account-info></client-account-info>'
@@ -86,7 +84,6 @@
                     .state('main.evolution.ipq', {
                         url: '/ipq',
                         views: {
-
                             'content@main': {
                                 // template: '<test></test>'
                                 template: '<ipq></ipq>'
@@ -96,7 +93,6 @@
                     .state('main.evolution.portfolioSelection', {
                         url: '/portfolio-selection',
                         views: {
-
                             'content@main': {
                                 // template: '<test></test>'
                                 template: '<portfolio-selection></portfolio-selection>'
@@ -106,7 +102,6 @@
                     .state('main.evolution.fundCustomization', {
                         url: '/fund-customization',
                         views: {
-
                             'content@main': {
                                 // template: '<test></test>'
                                 template: '<fund-customization></fund-customization>'
