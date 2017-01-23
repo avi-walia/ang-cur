@@ -9,10 +9,7 @@
     /* @ngInject */
     function selectClientProfileCtrl($scope) {
         var vm = this;
-        vm.addAlert = addAlert;
-        vm.closeAlert = closeAlert;
-        
-
+       
 
     }
 })();
