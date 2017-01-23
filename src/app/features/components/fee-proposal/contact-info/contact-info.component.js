@@ -15,6 +15,7 @@
     /* @ngInject */
     function contactInfoCtrl($scope) {
         var vm = this;
+
         this.functionName = functionName;
 
         ////////////////

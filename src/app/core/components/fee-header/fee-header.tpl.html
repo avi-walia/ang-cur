@@ -1,3 +1,12 @@
+<style>
+    .active{
+        color: red;
+    }
+    #step-indicator ul li{
+        display: inline;
+    }
+</style>
+
 <h3 style="color: red">Fee Proposal </h3>
 <!-- link for Exit is dynamic depending on how you got to the Fee Proposal -->
 <a ng-if="$ctrl.exitLink" ui-sref="{{$ctrl.exitLink}}">Exit</a>
@@ -6,3 +15,27 @@
 <!-- link here depends if you are single or family group -->
 <a ng-if="($ctrl.state !== 'profileSearch' && $ctrl.state !== 'contactInfo') && $ctrl.restartLink"
    ui-sref="{{$ctrl.restartLink}}">Restart</a>
+
+<!-- STEP INDICATOR -->
+{{$ctrl.pageStateResolver.stepIndicator}}
+<div ng-if="$ctrl.stepIndicator" id="step-indicator">
+    <ul>
+        <!--{ active: $ctrl.isActive }-->
+        <li ng-class="{ active: $ctrl.pageStateResolver.stepIndicator === 1}">
+            1
+        </li>
+        <li ng-class="{ active: $ctrl.pageStateResolver.stepIndicator ===  2 }">2
+
+        </li>
+        <li ng-class="{ active: $ctrl.pageStateResolver.stepIndicator === 3}">3
+
+        </li>
+        <li ng-class="{ active: $ctrl.pageStateResolver.stepIndicator === 4}">4
+
+        </li>
+        <li ng-class="{ active: $ctrl.pageStateResolver.stepIndicator === 5}">5
+
+        </li>
+
+    </ul>
+</div>
