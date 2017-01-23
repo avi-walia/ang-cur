@@ -4,9 +4,9 @@
     //---------------- CORE ---------------- //
     angular.module('evolution.core.cache', []);
     angular.module('evolution.core.server', ['evolution.core.cache']);
-    angular.module('evolution.core.main', ['evolution.core.server']);
+    angular.module('evolution.core.main', ['evolution.core.server', 'ui.bootstrap']);
     //---------------- FEATURES ---------------- //
-    angular.module('evolution.features.selectClientProfile', ['evolution.utils']);
+    angular.module('evolution.features.selectClientProfile', ['evolution.utils', 'ui.bootstrap']);
     angular.module('evolution.features.clientAccountInfo', ['evolution.utils']);
     angular.module('evolution.features.ipq', ['evolution.utils']);
     angular.module('evolution.features.portfolioSelection', ['evolution.utils']);
