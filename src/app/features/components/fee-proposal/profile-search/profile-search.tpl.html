@@ -1,1 +1,34 @@
-profile search
+<fee-header></fee-header>
+<h3>1. Profile Search / Add Screen</h3>
+<form name="$ctrl.feeProfileSearch">
+    <div class="form-group">
+        <label for="dealerRepCode">Dealer Rep/Code</label>
+        <!--    <input type="text" class="form-control" id="dealerRepCode" placeholder="">-->
+        <select id="dealerRepCode" class="form-control"
+                name="dealerRepCode"
+                ng-model="$ctrl.feeProposalModel.dealerRepCode"
+        >
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+        Need to find a way to display default values if i have already entered one
+    </div>
+
+
+    <div class="form-group">
+        <label for="familyGroupName">Family Group Name</label>
+        <input type="text" class="form-control" id="familyGroupName" placeholder=""
+               ng-model="$ctrl.feeProposalModel.familyGroupName"
+               name="familyGroupName">
+    </div>
+
+
+    <!--  <button type="submit" class="btn btn-default">Submit</button>-->
+</form>
+
+<p>show grid here</p>
+
+<fee-footer next-state="'main.evolution.fee.contactInfo'"></fee-footer>

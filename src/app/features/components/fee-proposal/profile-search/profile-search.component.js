@@ -10,17 +10,25 @@
 
         });
 
-    profileSearchCtrl.$inject = ['$scope'];
+    profileSearchCtrl.$inject = ['$state', 'feeProposalModel'];
 
     /* @ngInject */
-    function profileSearchCtrl($scope) {
+    function profileSearchCtrl($state, feeProposalModel) {
         var vm = this;
-        this.functionName = functionName;
+        vm.checkDealerRep = checkDealerRep;
+        vm.feeProposalModel = feeProposalModel;
+        vm.feeProposalModel.dealerRepCode = feeProposalModel.dealerRepCode;
+
+
+
+//        vm.profileRepCode = 'repCode';
+//        console.log(vm.feeProfileSearch);
 
         ////////////////
 
-        function functionName() {
-
+        function checkDealerRep() {
+            console.log(vm.feeProfileSearch);
+            console.log(vm.feeProposalModel);
         }
     }
 
