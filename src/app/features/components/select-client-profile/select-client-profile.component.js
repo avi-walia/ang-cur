@@ -9,7 +9,7 @@
     /* @ngInject */
     function selectClientProfileCtrl($scope) {
         var vm = this;
-       
+
 
     }
 })();
