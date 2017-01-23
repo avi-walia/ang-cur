@@ -7,6 +7,7 @@
     function englishTranslations($translateProvider) {
         $translateProvider.translations('en', {
             TITLE: '<h1>test title</h1>',
+            searchPlaceHolder: 'Please enter words atleast 2 characters',
             pages: {
                 strangeTableTest: {
                     title: "strangeTableTest"

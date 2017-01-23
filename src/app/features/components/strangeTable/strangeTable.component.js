@@ -17,52 +17,65 @@
 
     /* @ngInject */
 
-    strangeTableCtrl.$inject = ['$timeout'];
+    strangeTableCtrl.$inject = ['removeDiacriticsService'];
 
     /* @ngInject */
     function strangeTableCtrl(
-        $timeout
+        removeDiacriticsService
     ) {
         var vm = this;
         vm.sortable = {};
         vm.changeOrder = changeOrder;
         vm.orderBy = 'id';
         vm.isAscending = true;
+        vm.searchInput = "";
+        vm.search = search;
 
-
-        $timeout(function(){
-
-            console.log('data: ', vm.data);
-        },1000);
-
-        /*
-        _.forEach(vm.data[0], function(val, key) {
-
-
-        });
-        */
 
         function compare(a,b) {
-            var x = 1;
-            if (vm.isAscending) {
-                x = -1;
+            if (!vm.isAscending) {
+                var x = b.profileSummary[vm.orderBy];
+                b = a.profileSummary[vm.orderBy];
+                a = x;
+            } else {
+                a = a.profileSummary[vm.orderBy];
+                b = b.profileSummary[vm.orderBy];
             }
-            if (a[vm.orderBy] < b[vm.orderBy])
-                return -1 * x;
-            if (a[vm.orderBy] > b[vm.orderBy])
-                return x;
-            return 0;
+
+            if (vm.orderBy === 'creationDate' || vm.orderBy === 'modificationDate') {
+                a = (new Date(a)).getTime();
+                b = (new Date(b)).getTime();
+            }
+
+            if (a < b)
+                return -1;
+            if (a > b)
+                return 1;
+
+            return 0
         }
 
         function changeOrder(order) {
             console.log('new order: ', order);
-            if (vm.orderBy !== order) {
+            if (vm.orderBy === order) {
+                //if user is sorting on the same column, sort in reverse order
                 vm.isAscending = !vm.isAscending
+            } else {
+                //sort by ascending order when sort column is changed
+                vm.isAscending = true;
             }
             vm.orderBy = order;
             vm.data.sort(compare);
+        }
 
-            console.log('sorted data: ', vm.data);
+
+
+
+
+        //SEARCH STUFF******************************************************************************************************************************************************************************************************************************************************************************
+
+
+        function search() {
 
         }
     }

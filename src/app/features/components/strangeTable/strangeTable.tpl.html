@@ -1,3 +1,5 @@
+
+<input ng-model="$ctrl.searchInput" placeholder="{{'searchPlaceHolder' | translate}}" />
 <table>
     <tr>
         <th ng-repeat="(key, value) in $ctrl.data[0].profileSummary track by $index">
@@ -5,7 +7,7 @@
         </th>
     </tr>
     <tr ng-repeat="profileGroup in $ctrl.data track by $index">
-        <td ng-repeat="prop in ::profileGroup.profileSummary track by $index">
+        <td ng-repeat="(key, prop) in profileGroup.profileSummary track by $index" class="{{key}}">
             {{prop}}
         </td>
     </tr>

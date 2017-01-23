@@ -5,6 +5,7 @@
     function frenchTranslations($translateProvider) {
         $translateProvider.translations('fr', {
             TITLE: '<h1>FR test title</h1>',
+            searchPlaceHolder: 'FR Please enter words atleast 2 characters',
             appTitle: "FR Evolution",
             pages: {
                 strangeTableTest: {

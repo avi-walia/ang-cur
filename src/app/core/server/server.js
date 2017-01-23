@@ -180,7 +180,7 @@
         function getLocalStorage(sPath, bIsUnlocalized) {
             return fetch(GET, sPath, false, 'localStorage', bIsUnlocalized);
         }
-
+/*
         function getNoStorage(sPath, bIsUnlocalized) {
             //return fetch(GET, sPath, false, 'noStorage', bIsUnlocalized);
             //these $timeouts were added to test asynchronous loading, remove before pushing to prod
@@ -198,6 +198,10 @@
                     },800);
                 });
             return deferred.promise;
+        }
+*/
+        function getNoStorage(sPath, bIsUnlocalized) {
+            return fetch(GET, sPath, false, 'noStorage', bIsUnlocalized);
         }
 
         /**

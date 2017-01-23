@@ -12,7 +12,7 @@
     ];
 
     /* @ngInject */
-    function testService(languageSwitcherService, server, waitForResourcesService) {
+    function testService(languageSwitcherService, server, waitForResourcesService, strangeTableFormatterService) {
         var service = this;
         service.data = {};
         service.callCount = 0;
@@ -21,7 +21,9 @@
 
         function getData(url) {
             var ret = server.getNoStorage(url, false).then(function(data){
+                strangeTableFormatterService.formatSearchKeys(data);
                 service.data = data.data;
+
                 //languageSwitcherService.localizationObjects.push({unLocalized: data.unLocalizedData, callBack: translateData, key: "testService.data"});
                 languageSwitcherService.addLocalizationObject({unLocalized: data.unLocalizedData, callBack: translateData, key: "testService_data"})
                 return service.data;
@@ -33,6 +35,7 @@
 
         function translateData(translatedData) {
             //service.data = translatedData;
+            strangeTableFormatterService.formatSearchKeys(data);
             _.assign(service.data, translatedData);
         }
 
