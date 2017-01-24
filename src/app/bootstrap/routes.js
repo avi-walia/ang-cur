@@ -164,75 +164,61 @@
 
                     /****** FEE PROPOSAL ROUTES STARTS HERE **/
                     .state('main.evolution.fee', {
+                        url: '/fee',
                         abstract: true,
                         views: {
-
-                            'content@main': {}
+                            'content@main': {
+                                controller: 'LayoutCtrl as LayoutCtrl',
+                                templateUrl: 'app/core/fee-proposal-layout/layout.tpl.html'
+                            }
                         }
                     })
                     .state('main.evolution.fee.profileSearch', {
-                        url: '/fee/profile-search',
+                        url: '/profile-search',
                         views: {
-
-                            'content@main': {
+                            'content2@main.evolution.fee': {
                                 template: '<profile-search display-toolbar="false"></profile-search>'
                             }
                         }
                     })
                     .state('main.evolution.fee.contactInfo', {
-                        url: '/fee/contact-info',
+                        url: '/contact-info',
                         views: {
-
-                            'content@main': {
-
+                            'content2@main.evolution.fee': {
                                 template: '<contact-info></contact-info>'
                             }
                         }
                     })
                     .state('main.evolution.fee.investmentOverview', {
-                        url: '/fee/investment-overview',
+                        url: '/investment-overview',
                         views: {
-
-                            'content@main': {
-
+                            'content2@main.evolution.fee': {
                                 template: '<investment-overview></investment-overview>'
                             }
                         }
                     })
                     .state('main.evolution.fee.serviceFees', {
-                        url: '/fee/service-fees',
+                        url: '/service-fees',
                         views: {
-
-                            'content@main': {
-
+                            'content2@main.evolution.fee': {
                                 template: '<service-fees></service-fees>'
                             }
                         }
                     })
                     .state('main.evolution.fee.summary', {
-                        url: '/fee/summary',
+                        url: '/summary',
                         views: {
-
-                            'content@main': {
-
+                            'content2@main.evolution.fee': {
                                 template: '<fee-summary></fee-summary>'
                             }
                         }
                     })
                     .state('main.evolution.fee.reports', {
-                        url: '/fee/reports',
+                        url: '/reports',
                         views: {
-//                            'header@main': {
-//                                template: '<fee-header></fee-header>'
-//                            },
-                            'content@main': {
-
+                            'content2@main.evolution.fee': {
                                 template: '<fee-reports></fee-reports>'
                             }
-//                            ,
-//                            'footer@main': {
-//                                template: '<fee-footer></fee-footer>'
-//                            }
                         }
                     })
                     /*** END OF FEE PROPOSAL ROUTES ***/
@@ -251,7 +237,7 @@
                         url: '/abstract',
                         abstract: true,
                         views: {
-                            "content@main": {
+                            'content@main': {
                                 controller: 'test3Ctrl as Test',
                                 //templateUrl: 'app/core/layout/main.layout.html'
                                 templateUrl: 'app/features/components/test3/test3.tpl.html'
