@@ -1,8 +1,46 @@
-.clientName, .profileName, .modificationDate, .logs, .pdf, .status, .fundsReceived, .cafReceived, .createdBy, .creationDate {
-  width: 100px;
-}
+.main_evolution_strangeTableTest {
+  .searchBar{
+    width:50%;
+  }
+  .id, .clientName, .profileName, .modificationDate, .logs, .pdf, .status, .fundsReceived, .cafReceived, .createdBy, .creationDate {
+    display:inline;
+    float:left;
+    border: 1px solid black;
+    background-color: #fff1f1;
+    padding: 2px;
+  }
 
-.id {
-  width: 70px;
-  text-align: right;
+  .id {
+    width: 50px;
+  }
+  .clientName, .profileName, .createdBy {
+    width: 100px;
+  }
+  .modificationDate, .creationDate {
+    width:250px;
+  }
+  .fundsReceived, .cafReceived {
+    width: 120px;
+  }
+  .logs, .pdf, .status {
+    width: 65px;
+  }
+
+  .newRow {
+    clear:both;
+  }
+
+  .expandContract {
+    padding: 0px;
+  }
+  .subGroup{
+    /* added some color to help identify what is a sub group*/
+    .id, .clientName, .profileName, .modificationDate, .logs, .pdf, .status, .fundsReceived, .cafReceived, .createdBy, .creationDate {
+      background-color: #f1fff1;
+    }
+    .id {
+      /* existing design indents sub groups */
+      padding-left: 19px;
+    }
+  }
 }

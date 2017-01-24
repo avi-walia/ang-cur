@@ -2,11 +2,11 @@
     'use strict';
 
     angular
-        .module('evolution.features.test')
+        .module('evolution.features.strangeTableTest')
         .service('strangeTableFormatterService', strangeTableFormatterService);
 
     strangeTableFormatterService.$inject = [
-        'strangeTableFormatterService'
+        'removeDiacriticsService'
     ];
 
     /* @ngInject */

@@ -20,6 +20,13 @@
     ) {
         var vm = this;
         vm.data = {};
+        vm.config = {
+            searchColumns: [
+                'profileName',
+                'clientName'
+            ],
+            hiddenColumns: ['id']
+        };
         strangeTableTestService.getData('/getProfileGroups').then(
             function(data){
                 vm.data = data;

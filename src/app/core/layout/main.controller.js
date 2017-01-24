@@ -8,21 +8,27 @@
     MainCtrl.$inject = [
         '$window',
         'detectMobile',
-        'pageStateResolver'
+        'pageStateResolver',
+        '$state',
+        'parseService'
     ];
 
     function MainCtrl(
         $window,
         detectMobile,
-        pageStateResolver
+        pageStateResolver,
+        $state,
+        parseService
     ) {
 
         var vm = this;
+        vm.currentState = parseService.stripDots($state.current.name);
 
         vm.print = print;
 
         vm.pageStateResolver = pageStateResolver;
         vm.detectMobile = detectMobile;
+
 
 
         function print() {

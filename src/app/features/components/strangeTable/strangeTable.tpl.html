@@ -1,5 +1,11 @@
 
-<input ng-model="$ctrl.searchInput" placeholder="{{'searchPlaceHolder' | translate}}" />
+<input
+    class="searchBar"
+    ng-model="$ctrl.searchInput"
+    placeholder="{{'searchPlaceHolder' | translate}}"
+    ng-change="$ctrl.search($ctrl.searchInput)"
+/>
+<!--
 
 <table ng-repeat="(key, profileGroup) in $ctrl.data track by $index">
     <tr ng-if="$first">
@@ -19,3 +25,28 @@
         <td ng-repeat="(key, prop) in profileSummary track by $index" class="{{key}}">{{prop}}</td>
     </tr>
 </table>
+-->
+
+<div ng-repeat="(key, profileGroup) in $ctrl.filteredData track by $index">
+    <!-- used to generate table headers, that are clickable and facilitate sorting -->
+    <div ng-if="$first" class="newRow">
+        <div ng-repeat="(key, value) in $ctrl.filteredData[0].profileSummaries[0] track by $index" ng-class="key">
+            <button ng-click="$ctrl.changeOrder(key)">{{key}}</button>
+        </div>
+    </div>
+    <!-- used to generate group headers -->
+    <div class="newRow">
+        <div class="groupHeader" ng-repeat="(key, prop) in profileGroup.profileSummaries[profileGroup.groupHeading] track by $index" ng-class="key">
+            <button ng-if="$first && profileGroup.profileSummaries.length > 1" class="expandContract" ng-click="$ctrl.expandOrCollapse($parent.$parent.$index)">
+                +
+            </button>
+            {{prop}}
+        </div>
+    </div>
+    <!-- used to generate subrows of a group -->
+
+    <div class="newRow subGroup" ng-if="!$first" ng-repeat="(key, profileSummary) in profileGroup.profileSummaries track by $index" >
+        <div class="groupRow" ng-repeat="(key, prop) in profileSummary track by $index" ng-class="key">{{prop}}</div>
+    </div>
+
+</div>
