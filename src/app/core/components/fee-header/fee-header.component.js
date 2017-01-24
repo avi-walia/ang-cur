@@ -9,25 +9,29 @@
     });
 
     /* @ngInject */
-    feeHeaderCtrl.$inject = ['$state', 'pageStateResolver'];
+    feeHeaderCtrl.$inject = ['pageConfigService', 'feeHeaderService'];
 
     /* @ngInject */
-    function feeHeaderCtrl($state, pageStateResolver) {
+    function feeHeaderCtrl(pageConfigService, feeHeaderService) {
         var vm = this;
-        vm.pageStateResolver = pageStateResolver;
-        //        vm.exit = exit;
-        // var tmpArr = $state.current.name.split('.');
-        var tmp = _.split($state.current.name, '.');
-        vm.state = tmp[tmp.length - 1];
-        //        console.info('state = ' + vm.state);
+        vm.steps = [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        ];
 
+        vm.pageConfigService = pageConfigService;
+        vm.feeHeaderService = feeHeaderService;//we will have to store exitLink & restartLink in session or local storage if fee proposal is launched in it's own tab/window
+        console.log('$ctrl.feeHeaderService: ', vm.feeHeaderService);
 
         //for the FEe Prop Exit & Restart Links
         // we may not need this
-        vm.exitLink = vm.pageStateResolver.exitLink;
-        //        console.log('vm.exitLink = ' + vm.exitLink); 
-        vm.restartLink = vm.pageStateResolver.restartLink;
-        if (angular.isUndefined(vm.exitLink)) {
+        //vm.exitLink = vm.feeHeaderService.exitLink;
+        //vm.restartLink = vm.pageStateResolver.restartLink;
+        if (vm.feeHeaderService.exitLink === "") {
             console.error("You mustve refreshed because vm.exitLink shouldnt be " + vm.exitLink);
             return;
         }

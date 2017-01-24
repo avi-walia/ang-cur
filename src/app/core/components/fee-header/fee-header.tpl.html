@@ -9,33 +9,22 @@
 
 <h3 style="color: red">Fee Proposal </h3>
 <!-- link for Exit is dynamic depending on how you got to the Fee Proposal -->
-<a ng-if="$ctrl.exitLink" ui-sref="{{$ctrl.exitLink}}">Exit</a>
-| 
+<a ng-if="$ctrl.exitLink" ui-sref="{{$ctrl.feeHeaderService.exitLink}}">Exit</a>
+|
 
 <!-- link here depends if you are single or family group -->
-<a ng-if="($ctrl.state !== 'profileSearch' && $ctrl.state !== 'contactInfo') && $ctrl.restartLink"
-   ui-sref="{{$ctrl.restartLink}}">Restart</a>
+<a ng-if="($ctrl.pageConfigService.pageConfig.stateName !== 'main.evolution.fee.profileSearch' && ($ctrl.pageConfigService.pageConfig.stateName !== 'main.evolution.fee.contactInfo' || $ctrl.feeHeaderService.restartLink !== 'main.evolution.fee.contactInfo')) && $ctrl.feeHeaderService.restartLink"
+   ui-sref="{{$ctrl.feeHeaderService.restartLink}}">Restart</a>
+
+
+
 
 <!-- STEP INDICATOR -->
-<!--{{$ctrl.pageStateResolver.stepIndicator}}-->
-<div ng-if="$ctrl.stepIndicator" id="step-indicator">
+<div id="step-indicator">
     <ul>
-        <!--{ active: $ctrl.isActive }-->
-        <li ng-class="{ active: $ctrl.pageStateResolver.stepIndicator === 1}">
-            1
+        <li ng-repeat="(key, step) in ::$ctrl.steps track by $index" ng-class="{ active: $ctrl.pageConfigService.pageConfig.stepIndicator === step-1}">
+            {{::step}}
         </li>
-        <li ng-class="{ active: $ctrl.pageStateResolver.stepIndicator ===  2 }">2
-
-        </li>
-        <li ng-class="{ active: $ctrl.pageStateResolver.stepIndicator === 3}">3
-
-        </li>
-        <li ng-class="{ active: $ctrl.pageStateResolver.stepIndicator === 4}">4
-
-        </li>
-        <li ng-class="{ active: $ctrl.pageStateResolver.stepIndicator === 5}">5
-
-        </li>
-
     </ul>
+
 </div>

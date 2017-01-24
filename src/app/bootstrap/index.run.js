@@ -13,6 +13,8 @@
         'loadingService',
         'notificationService',
         'pageStateResolver',
+        'pageConfigService',
+        'feeHeaderService',
         'mockService'
     ];
 
@@ -27,6 +29,8 @@
         loadingService,
         notificationService,
         pageStateResolver,
+        pageConfigService,
+        feeHeaderService,
         mockService
     ) {
         $rootScope.locale = null;
@@ -109,7 +113,7 @@
 */
         // an object that holds the requested page configuration
         //@todo: add this one to the Registry
-        $rootScope.oRequestedPageConfig = {};
+        //$rootScope.oRequestedPageConfig = {};
 
         // Set dynamically loaded default values for 'currency', 'calendar'
         // and other angular components from /assets/locales/angular-locale_*.js
@@ -140,7 +144,8 @@
                 pageStateResolver.getPageConfigFromState(toState.name, function (oPageConfig) {
                     // console.log('oPageConfig: ', oPageConfig);
                     if ('pageName' in oPageConfig) {
-                        $rootScope.oRequestedPageConfig = oPageConfig;
+                        $rootScope.pageName = oPageConfig.pageName;
+                        pageConfigService.pageConfig = oPageConfig
                     }
                 });
 
@@ -150,9 +155,7 @@
                  * dynamic CSS class on main layout,
                  */
                 pageStateResolver.setActivePageName(toState.name);
-
-                //for the wizard
-                pageStateResolver.setStepIndicator(toState.name);
+                
 
                 // pageStateResolver.setPreviousPageName(toState.name);
                 // pageStateResolver.setNextPageName(toState.name);
@@ -186,13 +189,13 @@
                 //for the FEe Prop Exit & Restart Links
                 // we may not need this
                 if (fromState.name === 'main.evolution.fundCustomization'){
-                    pageStateResolver.setExitLink('main.evolution.fundCustomization');
-                    pageStateResolver.setRestartLink('main.evolution.fee.contactInfo');
+                    feeHeaderService.exitLink = 'main.evolution.fundCustomization';
+                    feeHeaderService.restartLink = 'main.evolution.fee.contactInfo';
                 }
 
                 if (fromState.name === 'main.evolution.selectClientProfile'){
-                    pageStateResolver.setExitLink('main.evolution.selectClientProfile');
-                    pageStateResolver.setRestartLink('main.evolution.fee.profileSearch');
+                    feeHeaderService.exitLink = 'main.evolution.selectClientProfile';
+                    feeHeaderService.restartLink = 'main.evolution.fee.profileSearch';
                 }
                 //end of for the fee header exit
 

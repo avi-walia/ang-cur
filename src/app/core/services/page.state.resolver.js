@@ -15,9 +15,6 @@
         var service = this;
 
         service.activePageName = '';
-        service.stepIndicator = 0;
-        service.exitLink = '';
-        service.restartLink = '';
         service.pageLoading = false;
 
         service.getPageConfigFromState = getPageConfigurationObjectFromStateName;
@@ -25,9 +22,6 @@
         service.resolve = pageToStateMapper;
         service.check = stateToPageMapper;
 
-        service.setStepIndicator = setStepIndicator;
-        service.setExitLink = setExitLink;
-        service.setRestartLink = setRestartLink;
 
         /**
          * Given a state will give you the entire page configuration.
@@ -122,60 +116,6 @@
             }
 
         }
-
-        function setStepIndicator(sState) {
-            var attr = 'stepIndicator';
-            // console.clear();
-            // var oPageConfiguration = _.find(ROUTES, { stepIndicator: sState});
-            var oPageConfiguration = _.find(ROUTES, function(o){
-                // console.log(o);
-                if (o.stateName === sState ){
-                    if (o.stepIndicator !== 0){
-                        return o.stepIndicator;
-                    }else{
-                        //just return an empty object if the stepIndicator of a state == 0
-                        return {};
-                    }
-                }
-            });
-
-            //if oPageConfiguration isnt an empty object then lets get the stepIndicator of sState
-            //by default stepIndicator is 0
-            if (angular.isDefined(oPageConfiguration) && !_.isEmpty(oPageConfiguration)  ) {
-                // console.log('defined');
-                if (attr in oPageConfiguration) {
-                    // console.log('blah');
-                    if (!oPageConfiguration.isAbstract) {
-                        // console.log('daga');
-                        service.stepIndicator = oPageConfiguration.stepIndicator;
-                        // console.log(service.stepIndicator);
-                    }
-                }
-            } else {
-                console.error('state: ' + sState + ' has missing ' + attr + ' attribute. Check your ROUTES constant variable');
-
-            }
-
-        }
-
-
-        //for the FEe Prop Exit & Restart Links
-        // we may not need this
-
-        /**
-         * Sets the exit link in the fee footer for the Fee Proposal
-         */
-        function setExitLink(exitLink){
-            service.exitLink = exitLink;
-        }
-
-        /**
-         * Sets the Restart Link in the Fee Prop footer
-         */
-        function setRestartLink(restartLink){
-            service.restartLink = restartLink;
-        }
-        //end of Fee Prop Exit & Restart Links
 
     }
 

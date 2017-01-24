@@ -4,8 +4,6 @@
         .component('feeFooter', {
             controller: feeFooterCtrl,
             bindings: {
-                nextState: '=?',
-                previousState: '=?',
                 submit: '<?',
                 split: '<?',
                 reset: '<?',
@@ -17,13 +15,15 @@
         });
 
     /* @ngInject */
-    feeFooterCtrl.$inject = ['$uibModal', '$state', 'feeProposalModel'];
+    feeFooterCtrl.$inject = ['$uibModal', '$state', 'feeProposalModel', 'pageConfigService'];
     /* @ngInject */
 
-    function feeFooterCtrl($uibModal, $state, feeProposalModel) {
+    function feeFooterCtrl($uibModal, $state, feeProposalModel, pageConfigService) {
         var vm = this;
         vm.modal = modal;
         vm.next = next;
+        vm.pageConfig = pageConfigService.pageConfig;
+
         //display modal when we hit next
         function modal(msg) {
             var modalInstance = $uibModal.open({

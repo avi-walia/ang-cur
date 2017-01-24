@@ -68,22 +68,24 @@
       "stateName": "main.evolution.fee.profileSearch",
       "isAbstract": false,
       "pageName": "profileSearch",
-      "nextPageName": "main.evolution.fee.contactInfo",
-      "previousPageName": "",
+      "nextStateName": "main.evolution.fee.contactInfo",
+      "previousStateName": "",
       "stepIndicator": 0
     },
     {
       "stateName": "main.evolution.fee.contactInfo",
       "isAbstract": false,
-      "pageName": "profileSearch",
-      "nextPageName": "main.evolution.fee.investmentOverview",
-      "previousPageName": "main.evolution.fee.profileSearch",
+      "pageName": "contactInfo",
+      "nextStateName": "main.evolution.fee.investmentOverview",
+      "previousStateName": "main.evolution.fee.profileSearch",
       "stepIndicator": 1
     },
     {
       "stateName": "main.evolution.fee.investmentOverview",
       "isAbstract": false,
       "pageName": "investmentOverview",
+      "nextStateName": "main.evolution.fee.serviceFees",
+      "previousStateName": "main.evolution.fee.contactInfo",
 
       "stepIndicator": 2
     },
@@ -91,6 +93,8 @@
       "stateName": "main.evolution.fee.serviceFees",
       "isAbstract": false,
       "pageName": "investmentOverview",
+      "nextStateName": "main.evolution.fee.summary",
+      "previousStateName": "main.evolution.fee.investmentOverview",
 
       "stepIndicator": 3
     },
@@ -98,13 +102,16 @@
       "stateName": "main.evolution.fee.summary",
       "isAbstract": false,
       "pageName": "investmentOverview",
-
+      "nextStateName": "main.evolution.fee.reports",
+      "previousStateName": "main.evolution.fee.serviceFees",
       "stepIndicator": 4
     },
     {
       "stateName": "main.evolution.fee.reports",
       "isAbstract": false,
       "pageName": "investmentOverview",
+      "nextStateName": "",
+      "previousStateName": "main.evolution.fee.summary",
 
       "stepIndicator": 5
     },
@@ -122,7 +129,8 @@
     {
       "stateName": "main.evolution.test",
       "isAbstract": false,
-      "pageName": "test"
+      "pageName": "test",
+      "stepIndicator": 0
     },
     {
       "stateName": "main.evolution.abstract",
