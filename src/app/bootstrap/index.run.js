@@ -145,7 +145,7 @@
                     // console.log('oPageConfig: ', oPageConfig);
                     if ('pageName' in oPageConfig) {
                         $rootScope.pageName = oPageConfig.pageName;
-                        pageConfigService.pageConfig = oPageConfig
+                        pageConfigService.pageConfig = oPageConfig;
                     }
                 });
 

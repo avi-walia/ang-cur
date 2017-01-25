@@ -17,7 +17,10 @@
         console.log('feeProposalModel');
 //        service.dealerRepCode = 2; //default value
         service.familyGroupName = 'John & James';
-        
+
+        /**
+         * This model may not be needed.
+         */
     }
 
 })();

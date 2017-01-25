@@ -13,7 +13,9 @@
 |
 
 <!-- link here depends if you are single or family group -->
-<a ng-if="($ctrl.pageConfigService.pageConfig.stateName !== 'main.evolution.fee.profileSearch' && ($ctrl.pageConfigService.pageConfig.stateName !== 'main.evolution.fee.contactInfo' || $ctrl.feeHeaderService.restartLink !== 'main.evolution.fee.contactInfo')) && $ctrl.feeHeaderService.restartLink"
+<a ng-if="($ctrl.pageConfigService.pageConfig.stateName !== 'main.evolution.fee.profileSearch' &&
+($ctrl.pageConfigService.pageConfig.stateName !== 'main.evolution.fee.contactInfo' ||
+$ctrl.feeHeaderService.restartLink !== 'main.evolution.fee.contactInfo')) && $ctrl.feeHeaderService.restartLink"
    ui-sref="{{$ctrl.feeHeaderService.restartLink}}">Restart</a>
 
 
@@ -22,7 +24,8 @@
 <!-- STEP INDICATOR -->
 <div id="step-indicator">
     <ul>
-        <li ng-repeat="(key, step) in ::$ctrl.steps track by $index" ng-class="{ active: $ctrl.pageConfigService.pageConfig.stepIndicator === step-1}">
+        <li ng-repeat="(key, step) in ::$ctrl.steps track by $index"
+            ng-class="{ active: $ctrl.pageConfigService.pageConfig.stepIndicator === step-1}">
             {{::step}}
         </li>
     </ul>
