@@ -26,6 +26,18 @@
             testNotification2: "FR 2nd test msg",
             errors: {
                 noData: "No Data Error Msg"
+            },
+            strangeTable: {
+                profileName: 'FR Profile Name',
+                clientName: 'FR Client Name',
+                modificationDate: 'FR Modification Date',
+                logs: 'FR Logs',
+                pdf: 'FR PDF',
+                status: 'FR Status',
+                fundsReceived: 'FR Funds Received',
+                cafReceived: 'FR CAF Received',
+                createdBy: 'FR Created By',
+                creationDate: 'FR Creation Date'
             }
         });
     }

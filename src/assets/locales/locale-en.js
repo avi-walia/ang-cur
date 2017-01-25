@@ -29,6 +29,21 @@
             testNotification2: "2nd test msg",
             errors: {
                 noData: "No Data Error Msg"
+            },
+            strangeTable: {
+                profileName: 'Profile Name',
+                clientName: 'Client Name',
+                modificationDate: 'Modification Date',
+                logs: 'Logs',
+                pdf: 'PDF',
+                status: 'Status',
+                fundsReceived: 'Funds Received',
+                cafReceived: 'CAF Received',
+                createdBy: 'Created By',
+                creationDate: 'Creation Date',
+                add: 'Add to group',
+                remove: 'Remove',
+                addRemove: 'Add/remove profile'
             }
         });
     }

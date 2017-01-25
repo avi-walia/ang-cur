@@ -20,6 +20,7 @@
     ) {
         var vm = this;
         vm.data = {};
+        vm.updateSelected = updateSelected;
         vm.config = {
             searchColumns: [
                 'profileName',
@@ -36,6 +37,11 @@
                 //typically a call to notificationService
             }
         );
+
+        function updateSelected(selectedProfileIds) {
+            console.log('parent data: ', vm.data);
+            console.log('selectedProfileIds: ', selectedProfileIds);
+        }
     }
 
 })();

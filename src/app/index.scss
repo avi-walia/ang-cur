@@ -1,29 +1,69 @@
-.main_evolution_strangeTableTest {
-  .searchBar{
-    width:50%;
+
+.strangeTableStyles {//this is a page name
+  $headingColor: #fff1f1;
+  .strangeTableScrollableContainer {
+    display:inline-block;
+    height:300px;margin:0 auto;
+    overflow: scroll;
   }
-  .id, .clientName, .profileName, .modificationDate, .logs, .pdf, .status, .fundsReceived, .cafReceived, .createdBy, .creationDate {
+
+  .addRemove {
+    width:125px;
     display:inline;
     float:left;
     border: 1px solid black;
-    background-color: #fff1f1;
+    background-color: $headingColor;
+    padding: 2px;
+  }
+
+  .tableSorter {
+    border:none;
+    max-width:90%;
+    max-height:90%;
+    background-color: $headingColor;
+  }
+
+  .searchBar{
+    width:50%;
+  }
+
+  .addRemoveHeading, .addRemoveRow {
+    width: 105px;
+    overflow:hidden;
+  }
+  .addRemoveHeading, .addRemoveRow {
+    button {
+      text-align: right;
+      border:none !important;
+      height: 20px;
+    }
+  }
+
+  .id, .clientName, .profileName, .modificationDate, .logs, .pdf, .status, .fundsReceived, .cafReceived, .createdBy, .creationDate, .addRemoveHeading, .addRemoveRow {
+    display:inline;
+    float:left;
+    border: 1px solid black;
+    background-color: $headingColor;
     padding: 2px;
   }
 
   .id {
     width: 50px;
   }
-  .clientName, .profileName, .createdBy {
-    width: 100px;
+  .profileName {
+    width: 85px;
+  }
+  .clientName, .createdBy, .status {
+    width: 80px;
   }
   .modificationDate, .creationDate {
-    width:250px;
+    width:230px;
   }
   .fundsReceived, .cafReceived {
-    width: 120px;
+    width: 50px;
   }
-  .logs, .pdf, .status {
-    width: 65px;
+  .logs, .pdf{
+    width: 50px;
   }
 
   .newRow {
@@ -35,7 +75,7 @@
   }
   .subGroup{
     /* added some color to help identify what is a sub group*/
-    .id, .clientName, .profileName, .modificationDate, .logs, .pdf, .status, .fundsReceived, .cafReceived, .createdBy, .creationDate {
+    .id, .clientName, .profileName, .modificationDate, .logs, .pdf, .status, .fundsReceived, .cafReceived, .createdBy, .creationDate, .addRemoveRow {
       background-color: #f1fff1;
     }
     .id {
