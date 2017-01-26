@@ -31,6 +31,7 @@
                 noData: "No Data Error Msg"
             },
             strangeTable: {
+                id: 'id',
                 profileName: 'Profile Name',
                 clientName: 'Client Name',
                 modificationDate: 'Modification Date',
@@ -43,7 +44,8 @@
                 creationDate: 'Creation Date',
                 add: 'Add to group',
                 remove: 'Remove',
-                addRemove: 'Add/remove profile'
+                addRemove: 'Add/remove profile',
+                allocation: 'Allocation'
             }
         });
     }

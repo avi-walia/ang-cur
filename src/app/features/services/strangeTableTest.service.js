@@ -22,6 +22,7 @@
 
         function getData(url) {
             var ret = server.getNoStorage(url, false).then(function(data){
+                format(data.data);
                 service.data = data.data;
                 //service.data = strangeTableFormatterService.formatSearchKeys(data.data, ['profileName','clientName']);
                 //console.log('formatted Data: ', service.data);
@@ -33,9 +34,16 @@
             waitForResourcesService.startWaiting();
             return ret;
         }
+        function format(profileGroups) {
+            _.forEach(profileGroups, function(profileGroup) {
+                profileGroup.subGroups = profileGroup.profileSummaries;
+                delete profileGroup.profileSummaries;
+            });
+        }
 
         function translateData(translatedData) {
             //service.data = translatedData;
+            format(translatedData);
             _.assign(service.data, translatedData);
         }
     }

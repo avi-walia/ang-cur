@@ -10,60 +10,83 @@
     </div>
     <!--
 
-    <table ng-repeat="(key, profileGroup) in $ctrl.data track by $index">
+    <table ng-repeat="(key, objectGroup) in $ctrl.data track by $index">
         <tr ng-if="$first">
-            <th ng-repeat="(key, value) in $ctrl.data[0].profileSummaries[0] track by $index">
+            <th ng-repeat="(key, value) in $ctrl.data[0].subGroups[0] track by $index">
                 <button ng-click="$ctrl.changeOrder(key)">{{key}}</button>
             </th>
         </tr>
         <tr>
-            <td ng-repeat="(key, prop) in profileGroup.profileSummaries[0] track by $index" class="{{key}}">
+            <td ng-repeat="(key, prop) in objectGroup.subGroups[0] track by $index" class="{{key}}">
                 <button ng-if="$first" ng-click="$ctrl.expandOrCollapse($parent.$parent.$index)">
                     +
                 </button>
                 {{prop}}
             </td>
         </tr>
-        <tr ng-if="!$first && $ctrl.expandSubGroup[$parent.$index]" ng-repeat="(key, profileSummary) in profileGroup.profileSummaries track by $index" class="{{key}}">
-            <td ng-repeat="(key, prop) in profileSummary track by $index" class="{{key}}">{{prop}}</td>
+        <tr ng-if="!$first && $ctrl.expandSubGroup[$parent.$index]" ng-repeat="(key, subGroup) in objectGroup.subGroups track by $index" class="{{key}}">
+            <td ng-repeat="(key, prop) in subGroup track by $index" class="{{key}}">{{prop}}</td>
         </tr>
     </table>
     -->
     <!-- used to generate table headers, that are clickable and facilitate sorting -->
     <div>
-        <div style="display:table;" class="newRow tableWidth ">
-            <div class="headerRow headerRow" ng-repeat="(key, value) in $ctrl.filteredData[0].groupHeading track by $index" ng-if="::key !== 'id' && key !== 'isSelected'" ng-class="key">
+        <div class="newRow tableWidth ">
+            <div class="headerRow" ng-repeat="(key, value) in $ctrl.filteredData[0].groupHeading track by $index" ng-if="::($ctrl.hideKey(key) && key != 'isSelected' && key != 'allocation')" ng-class="key">
                 <button class="tableSorter " ng-click="$ctrl.changeOrder(key)">{{"strangeTable." + key | translate}}</button>
             </div>
-            <div class="addRemove headerRow" translate>
+            <div ng-if="::!$ctrl.updateSelected" class="addRemove headerRow" translate>
                 strangeTable.addRemove
+            </div>
+
+            <div ng-if="::$ctrl.updateSelected" class="addRemove headerRow" translate>
+                strangeTable.allocation
             </div>
         </div>
     </div>
     <div class="strangeTableScrollableContainer tableWidth">
-        <div ng-repeat="(key, profileGroup) in $ctrl.filteredData track by $index">
-
+        <div ng-repeat="(key, objectGroup) in $ctrl.filteredData track by $index">
             <!-- used to generate group headers -->
             <div class="newRow">
-                <div class="groupHeader tableRow" ng-repeat="(key, prop) in profileGroup.groupHeading track by $index" ng-if="::key !== 'id' && key !== 'isSelected'" ng-class="key">
-					<button ng-if="key === 'profileName' && profileGroup.profileSummaries.length" class="expandContract" ng-click="$ctrl.expandOrCollapse($parent.$parent.$parent.$index)">
-                        +
+                <div class="tableRow" ng-repeat="(key, prop) in objectGroup.groupHeading track by $index" ng-if="::($ctrl.hideKey(key) && key != 'isSelected' && key != 'allocation')" ng-class="key">
+					<button ng-if="key === $ctrl.config.expandColumn && objectGroup.subGroups.length" class="expandContract" ng-click="$ctrl.expandOrCollapse($parent.$parent.$parent.$index)">
+                        <span  ng-if="!objectGroup.expandSubGroup">
+                            +
+                        </span>
+                        <span  ng-if="objectGroup.expandSubGroup">
+                            -
+                        </span>
                     </button>
                     {{prop}}
                 </div>
-                <div class="addRemoveHeading tableRow addRemoveRow" >
-                    <button ng-click="$ctrl.toggleSelect(profileGroup.groupHeading)" translate>{{!profileGroup.groupHeading.isSelected ? 'strangeTable.add' : 'strangeTable.remove'}}</button>
+                <div ng-if="::$ctrl.updateSelected" class="addRemoveHeading tableRow addRemoveRow" >
+
+                    <button ng-if="::!$ctrl.config.numericAdd" ng-click="$ctrl.toggleSelect(objectGroup.groupHeading)" translate>{{!objectGroup.groupHeading.isSelected ? 'strangeTable.add' : 'strangeTable.remove'}}</button>
+                    <input ng-if="::$ctrl.config.numericAdd" ng-model="objectGroup.groupHeading.allocation" ng-change="$ctrl.toggleSelect(objectGroup.groupHeading)" />
                 </div>
             </div>
             <!-- used to generate subrows of a group -->
 
-            <div style="display:table-row;" class="newRow subGroup" ng-if="profileGroup.expandSubGroup" ng-repeat="(key, profileSummary) in profileGroup.profileSummaries track by $index" >
-                <div class="groupRow tableRow" ng-repeat="(key, prop) in profileSummary track by $index" ng-if="::key !== 'id' && key !== 'isSelected'" ng-class="key">{{prop}}</div>
-                <div class="addRemoveRow tableRow">
-                    <button ng-click="$ctrl.toggleSelect(profileSummary)" translate>{{!profileSummary.isSelected ? 'strangeTable.add' : 'strangeTable.remove'}}</button>
+            <div class="newRow subGroup" ng-if="objectGroup.expandSubGroup" ng-repeat="(key, subGroup) in objectGroup.subGroups track by $index" >
+                <div class="tableRow" ng-repeat="(key, prop) in subGroup track by $index" ng-if="::($ctrl.hideKey(key) && key != 'isSelected' && key != 'allocation')" ng-class="{'{{key}}' : true, indented:key==='profileName'}">{{prop}}</div>
+                <div ng-if="::$ctrl.updateSelected" class="addRemoveRow tableRow">
+                    <button ng-if="::!$ctrl.config.numericAdd" ng-click="$ctrl.toggleSelect(subGroup)" translate>{{!subGroup.isSelected ? 'strangeTable.add' : 'strangeTable.remove'}}</button>
+                    <input ng-if="::$ctrl.config.numericAdd" ng-model="subGroup.allocation"  ng-change="$ctrl.toggleSelect(subGroup)" />
                 </div>
             </div>
-
         </div>
     </div>
+</div>
+<div class="numSelected">
+    {{$ctrl.selectedItems.length}}
+</div>
+<div ng-if="::$ctrl.config.showOrHideColumns">
+    <button ng-click="$ctrl.showList()">View Columns</button>
+</div>
+<div ng-if="$ctrl.viewColumnChoices">
+    <ul>
+        <li ng-repeat="(key, value) in $ctrl.filteredData[0].groupHeading track by $index" ng-if="::key !== 'id'">
+            <button ng-click="$ctrl.showOrHideColumns(key)">{{key}}</button>
+        </li>
+    </ul>
 </div>

@@ -13,18 +13,19 @@
                 data: '<',
                 widths: '<',
                 config: '<',
-                updateSelected: '&?'
+                updateSelected: '&?',
+                getGroupHeader: '<'
             }
         });
 
 
     /* @ngInject */
 
-    strangeTableCtrl.$inject = ['removeDiacriticsService', '$timeout'];
+    strangeTableCtrl.$inject = ['removeDiacriticsService', '$timeout', '$scope'];
 
     /* @ngInject */
     function strangeTableCtrl(
-        removeDiacriticsService, $timeout
+        removeDiacriticsService, $timeout, $scope
     ) {
         var vm = this;
         vm.sortable = {};
@@ -37,6 +38,11 @@
         vm.toggleSelect = toggleSelect;
         vm.showSelected = false;
         vm.filterSelected = filterSelected;
+        vm.hideKey = hideKey;
+        vm.viewColumnChoices = false;
+        vm.showList = showList;
+        vm.showOrHideColumns = showOrHideColumns;
+        vm.selectedItems = [];
         var tokenizedSearchInput = [];
 
         /*
@@ -47,17 +53,15 @@
             archived
             canceled
          */
-
-
         function compare(a,b) {
             //existing sort order only sorts on group level, it does not sort the historical records
             if (!vm.isAscending) {
-                var x = b.profileSummaries[0][vm.orderBy];
-                b = a.profileSummaries[0][vm.orderBy];
+                var x = b.subGroups[0][vm.orderBy];
+                b = a.subGroups[0][vm.orderBy];
                 a = x;
             } else {
-                a = a.profileSummaries[0][vm.orderBy];
-                b = b.profileSummaries[0][vm.orderBy];
+                a = a.subGroups[0][vm.orderBy];
+                b = b.subGroups[0][vm.orderBy];
             }
 
             if (vm.orderBy === 'creationDate' || vm.orderBy === 'modificationDate') {
@@ -72,6 +76,7 @@
 
             return 0
         }
+
         function compareSubgroups(a,b) {
             //existing sort order only sorts on group level, it does not sort the historical records
             if (!vm.isAscending) {
@@ -106,78 +111,26 @@
             }
             vm.orderBy = order;
             vm.filteredData.sort(compare);
-            _.forEach(vm.filteredData, function(profileGroups, key) {
-                vm.filteredData[key].profileSummaries.sort(compareSubgroups);
+            _.forEach(vm.filteredData, function(objectGroups, key) {
+                objectGroups.subGroups.sort(compareSubgroups);
             });
         }
 
-        vm.expandSubGroup = [];
         vm.expandOrCollapse = function(expandIndex) {
-            if (expandIndex < vm.expandSubGroup.length) {
-                if (vm.expandSubGroup[expandIndex]) {
-                    vm.expandSubGroup[expandIndex] = false;
-                } else {
-                    vm.expandSubGroup[expandIndex] = true;
-                }
-            }
             vm.filteredData[expandIndex].expandSubGroup = !vm.filteredData[expandIndex].expandSubGroup
         }
 
-        function mapStatus(status) {
-            if (status === 'active') {
-                return 5;
-            } else if (status === 'submitted') {
-                return 4;
-            } else if (status === 'inProgress') {
-                return 3;
-            } else if (status === 'inActive') {
-                return 2;
-            } else if (status === 'archived') {
-                return 1;
-            } else {//cancelled
-                return 0;
-            }
-        }
 
-        function getGroupHeader(profileGroup) {
-            var tempProfileIndexWithHighestStatus = 0;
-            _.forEach(profileGroup.profileSummaries, function(profile, key) {
-                if(key > 0) {
-                    if (mapStatus(profile.status) > mapStatus(profileGroup.profileSummaries[tempProfileIndexWithHighestStatus].status)) {
-                        tempProfileIndexWithHighestStatus = key;
-                    }
-                }
-            });
-            profileGroup.groupHeading = profileGroup.profileSummaries[tempProfileIndexWithHighestStatus];
-            profileGroup.profileSummaries.splice(tempProfileIndexWithHighestStatus, 1);
-        }
+
 
         vm.$onChanges = function() {
-            //vm.expandSubGroup = [];
-            _.forEach(vm.data, function (profileGroup, key) {
-                //profileGroup.groupHeading = null;
-                /*
-                var tempProfileIndexWithHighestStatus = 0;
-                _.forEach(profileGroup.profileSummaries, function(profile, key) {
-                    if(key > 0) {
-                        if (mapStatus(profile.status) > mapStatus(val.profileSummaries[tempProfileIndexWithHighestStatus].status)) {
-                            tempProfileIndexWithHighestStatus = key;
-                        }
-                    }
-                });
-                */
-                var tempProfileIndexWithHighestStatus = getGroupHeader(profileGroup);
-                //profileGroup.groupHeading = tempProfileIndexWithHighestStatus;
-                //profileGroup.groupHeading = profileGroup.profileSummaries[tempProfileIndexWithHighestStatus];
-                //profileGroup.profileSummaries.splice(tempProfileIndexWithHighestStatus, 1);
-                profileGroup.expandSubGroup = false;
-                //use this for prod
-                //vm.expandSubGroup.push(false);
-                //using this to test sorting
-                //vm.expandSubGroup.push(true);
+            console.log('vm.data: ', vm.data);
+            _.forEach(vm.data, function (objectGroup, key) {
+                vm.getGroupHeader(objectGroup);
+                objectGroup.expandSubGroup = false;
             });
 
-
+            //vm.config.hiddenColumns.push("isSelected");
             vm.filteredData = vm.data;
         };
 
@@ -242,11 +195,11 @@
                     if (temp.length > 0) {
                         vm.filteredData.push(value);
                     }
-                    /*filters all profiles, not just the ones that act as a group folder heading
-                    var temp = _.filter(value.profileSummaries, filter);
+                    /*filters all objects, not just the ones that act as a group folder heading
+                    var temp = _.filter(value.subGroups, filter);
                     vm.filteredData.push(value);
                     var x = vm.filteredData.length -1;
-                    vm.filteredData[x].profileSummaries = temp;
+                    vm.filteredData[x].subGroups = temp;
                     */
                 });
             } else {
@@ -254,75 +207,66 @@
             }
         }
 
-        function toggleSelect(profile) {
-            profile.isSelected = !profile.isSelected;
+        function toggleSelect(obj) {
+            if (vm.config.numericAdd) {
+                obj.isSelected = parseFloat(obj.allocation) > 0;
+            } else {
+                obj.isSelected = !obj.isSelected;
+                if (obj.isSelected) {
+                    vm.selectedItems.push(obj);
+                } else {
+                    var index = vm.selectedItems.indexOf(obj);
+                    if (index >= 0) {
+                        vm.selectedItems.splice(index, 1);
+                    }
+                }
+                vm.updateSelected({selectedItems: vm.selectedItems});
+            }
         }
 
         function filterSelected(showSelected) {
             vm.showSelected = showSelected;
             if (showSelected === true) {
                 vm.filteredData = [];
-                _.forEach(vm.data, function (profileGroup, key) {
-                    var tempProfileGroup = null;
-                    var selectedSubProfileIndexes = [];
-                    _.forEach(profileGroup.profileSummaries, function (profileSummary, key) {
-                        if (profileSummary.id === 10) {
-                            console.log('profileSummary: ', profileSummary);
-                        }
-                        if (profileSummary.isSelected) {
-                            selectedSubProfileIndexes.push(key);
+                _.forEach(vm.data, function (objGroup, key) {
+                    var tempObjectGroup = null;
+                    var selectedSubGroupIndexes = [];
+                    _.forEach(objGroup.subGroups, function (subGroup, key) {
+                        if (subGroup.isSelected) {
+                            selectedSubGroupIndexes.push(key);
                         }
                     });
-                    /*
-                    if (profileGroup.groupHeading.isSelected || selectedSubProfileIndexes.length > 0) {
-                        tempProfileGroup = angular.copy(profileGroup);
-                        tempProfileGroup.profileSummaries = [];
-                        _.forEach(selectedSubProfileIndexes, function(profileIndex, key){
-                            tempProfileGroup.profileSummaries.push(profileGroup.profileSummaries[profileIndex]);
-                        });
-                    }
-                    */
-                    if (profileGroup.groupHeading.isSelected && selectedSubProfileIndexes.length > 0) {
-                        /*
-                        tempProfileGroup = angular.copy(profileGroup);
-                        tempProfileGroup.profileSummaries = [];
-                        _.forEach(selectedSubProfileIndexes, function(profileIndex, key){
-                            tempProfileGroup.profileSummaries.push(profileGroup.profileSummaries[profileIndex]);
-                        });
-                        */
-                        tempProfileGroup = {
-                            id: profileGroup.id,
-                            groupHeading: angular.copy(profileGroup.groupHeading),
-                            profileSummaries: [],
-                            expandSubGroup: profileGroup.expandSubGroup
+                    if (objGroup.groupHeading.isSelected && selectedSubGroupIndexes.length > 0) {
+                        tempObjectGroup = {
+                            id: objGroup.id,
+                            groupHeading: angular.copy(objGroup.groupHeading),
+                            subGroups: [],
+                            expandSubGroup: objGroup.expandSubGroup
                         };
-                        console.log('profileGroup.profileSummaries: ', profileGroup.profileSummaries);
-                        _.forEach(selectedSubProfileIndexes, function(profileIndex, key){
-                            console.log('profileIndex: ', profileIndex);
-                            tempProfileGroup.profileSummaries.push(profileGroup.profileSummaries[profileIndex]);
+                        _.forEach(selectedSubGroupIndexes, function(subGroupIndex, key){
+                            tempObjectGroup.subGroups.push(objGroup.subGroups[subGroupIndex]);
                         });
-                        console.log('tempProfileGroup: ', tempProfileGroup);
-                    } else if (profileGroup.groupHeading.isSelected) {
-                        tempProfileGroup = {
-                            id: profileGroup.id,
-                            groupHeading: angular.copy(profileGroup.groupHeading),
-                            profileSummaries: [],
-                            expandSubGroup: profileGroup.expandSubGroup
+                    } else if (objGroup.groupHeading.isSelected) {
+                        tempObjectGroup = {
+                            id: objGroup.id,
+                            groupHeading: angular.copy(objGroup.groupHeading),
+                            subGroups: [],
+                            expandSubGroup: objGroup.expandSubGroup
                         };
-                    } else if (selectedSubProfileIndexes.length > 0) {
-                        tempProfileGroup = {
-                            id: profileGroup.id,
+                    } else if (selectedSubGroupIndexes.length > 0) {
+                        tempObjectGroup = {
+                            id: objGroup.id,
                             groupHeading: {},
-                            profileSummaries: [],
-                            expandSubGroup: profileGroup.expandSubGroup
+                            subGroups: [],
+                            expandSubGroup: objGroup.expandSubGroup
                         }
-                        _.forEach(selectedSubProfileIndexes, function(profileIndex, key) {
-                           tempProfileGroup.profileSummaries.push(profileIndex);
+                        _.forEach(selectedSubGroupIndexes, function(subGroupIndex, key) {
+                            tempObjectGroup.subGroups.push(objGroup.subGroups[subGroupIndex]);
                         });
-                        getGroupHeader(tempProfileGroup);
+                        vm.getGroupHeader(tempObjectGroup);
                     }
-                    if (tempProfileGroup) {
-                        vm.filteredData.push(tempProfileGroup);
+                    if (tempObjectGroup) {
+                        vm.filteredData.push(tempObjectGroup);
                     }
                 });
             } else {
@@ -331,6 +275,39 @@
 
         }
 
+        function showList() {
+            vm.viewColumnChoices = !vm.viewColumnChoices;
+        }
+
+        function hideKey(key) {
+            return vm.config.hiddenColumns.indexOf(key) < 0;
+        }
+
+        /*
+            Needs the $timeout to be able to use the $scope.apply
+            Needs to use $scope.apply for smooth removal/addition of column
+         */
+        function showOrHideColumns(column) {
+            $timeout(function() {
+                console.log('column: ', column);
+                var index = vm.config.hiddenColumns.indexOf(column);
+                if (index >= 0) {
+                    vm.config.hiddenColumns.splice(index, 1);
+                } else {
+                    vm.config.hiddenColumns.push(column);
+                }
+                var temp = vm.filteredData;
+                $scope.$apply(function () {
+                    vm.filteredData = [];
+                });
+                vm.filteredData = temp;
+            });
+        }
+        /*
+        $timeout(function() {
+            showOrHideColumns('id');
+        },4000);
+        */
     }
 
 })();
