@@ -1,4 +1,4 @@
-<div class="strangeTableStyles">
+<div ng-if="$ctrl.data.length" class="strangeTableStyles">
     <input
         class="searchBar"
         ng-model="$ctrl.searchInput"
@@ -78,7 +78,7 @@
     </div>
 </div>
 <div class="numSelected">
-    {{$ctrl.selectedItems.length}}
+    {{$ctrl.selectedItems.length}} {{'profilesAdded' | translate}}
 </div>
 <div ng-if="::$ctrl.config.showOrHideColumns">
     <button ng-click="$ctrl.showList()">View Columns</button>

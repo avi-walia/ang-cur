@@ -16,9 +16,10 @@
         var service = this;
         service.data = {};
         service.callCount = 0;
-        service.getData = getData;
+        service.updateProfileList = updateProfileList;
         service.getGroupHeader = getGroupHeader;
         service.updateSelected = updateSelected;
+        service.dealerRepCode = "";
         service.configStrangeTable = {
             searchColumns: [
                 'profileName',
@@ -36,8 +37,8 @@
         }
 
 
-        function getData(url) {
-            var ret = server.getNoStorage(url, false).then(function(data){
+        function updateProfileList(dealerRepCode) {
+            var ret = server.getNoStorage('/getProfileGroups/' + dealerRepCode, false).then(function(data){
                 format(data.data);
                 service.data = data.data;
                 languageSwitcherService.addLocalizationObject({unLocalized: data.unLocalizedData, callBack: translateData, key: "strangeTableTestService_data"})

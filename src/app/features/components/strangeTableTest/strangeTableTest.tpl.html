@@ -1,5 +1,15 @@
-<select>
-    <option>1</option>
-    <option>2</option>
-</select>
+{{::'nameTheGroup'| translate}}
+<div>
+    {{::'groupName'| translate}}
+    <input ng-model="$ctrl.strangeTableTestService.familyGroupName" />
+</div>
+
+{{::'addProfilesToTheGroup'| translate}}
+<div>
+    {{::'dealerRepCode'| translate}}
+    <select ng-model="$ctrl.strangeTableTestService.dealerRepCode" ng-change="$ctrl.strangeTableTestService.updateProfileList($ctrl.strangeTableTestService.dealerRepCode)">
+        <option ng-repeat="value in $ctrl.initDataService.dealerRepCodes track by $index">{{value}}</option>
+    </select>
+</div>
+{{::'searchProfileClientName' | translate}}
 <strange-table get-Group-Header="$ctrl.strangeTableTestService.getGroupHeader" update-selected="$ctrl.strangeTableTestService.updateSelected(selectedItems)" data="$ctrl.strangeTableTestService.data" config="$ctrl.strangeTableTestService.configStrangeTable"></strange-table>

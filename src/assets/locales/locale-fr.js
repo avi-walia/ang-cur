@@ -6,7 +6,13 @@
         $translateProvider.translations('fr', {
             TITLE: '<h1>FR test title</h1>',
             searchPlaceHolder: 'FR Please enter words atleast 2 characters',
-            appTitle: "FR Evolution",
+            searchProfileClientName: 'FR Search by profile/client name',
+            dealerRepCode: 'FR Dealer/rep code',
+            addProfilesToTheGroup: 'FR Add profiles to the group',
+            groupName: 'FR Group name',
+            nameTheGroup: 'FR Name the group',
+            profilesAdded: 'FR profile(s) added',
+
             pages: {
                 strangeTableTest: {
                     title: "FR strangeTableTest"
@@ -37,7 +43,12 @@
                 fundsReceived: 'FR Funds Received',
                 cafReceived: 'FR CAF Received',
                 createdBy: 'FR Created By',
-                creationDate: 'FR Creation Date'
+                creationDate: 'FR Creation Date',
+                add: 'FR Add to group',
+                remove: 'FR Remove',
+                addRemove: 'FR Add/remove profile',
+                allocation: 'FR Allocation',
+                showOnlySelected: 'FR Show only selected profiles'
             }
         });
     }

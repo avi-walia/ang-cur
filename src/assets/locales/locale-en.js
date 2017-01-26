@@ -8,6 +8,13 @@
         $translateProvider.translations('en', {
             TITLE: '<h1>test title</h1>',
             searchPlaceHolder: 'Please enter words atleast 2 characters',
+            searchProfileClientName: 'Search by profile/client name',
+            dealerRepCode: 'Dealer/rep code',
+            addProfilesToTheGroup: 'Add profiles to the group',
+            groupName: 'Group name',
+            nameTheGroup: 'Name the group',
+            profilesAdded: 'profile(s) added',
+
             pages: {
                 strangeTableTest: {
                     title: "strangeTableTest"

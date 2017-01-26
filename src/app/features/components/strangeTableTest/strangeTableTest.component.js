@@ -12,25 +12,21 @@
 
     /* @ngInject */
 
-    strangeTableTestCtrl.$inject = ['strangeTableTestService'];
+    strangeTableTestCtrl.$inject = ['strangeTableTestService', 'initDataService'];
 
     /* @ngInject */
     function strangeTableTestCtrl(
-        strangeTableTestService
+        strangeTableTestService,
+        initDataService
     ) {
         var vm = this;
         vm.data = {};
         vm.strangeTableTestService = strangeTableTestService;
+        vm.initDataService = initDataService;
+        initDataService.getData().then(function(data) {
 
-        strangeTableTestService.getData('/getProfileGroups').then(
-            function(data){
-                vm.data = data;
-            },
-            function(error){
-                //handle error event
-                //typically a call to notificationService
-            }
-        );
+            console.log('received data1123: ', initDataService.dealerRepCodes);
+        });
 
 
 

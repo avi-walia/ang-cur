@@ -124,7 +124,6 @@
 
 
         vm.$onChanges = function() {
-            console.log('vm.data: ', vm.data);
             _.forEach(vm.data, function (objectGroup, key) {
                 vm.getGroupHeader(objectGroup);
                 objectGroup.expandSubGroup = false;
@@ -289,7 +288,6 @@
          */
         function showOrHideColumns(column) {
             $timeout(function() {
-                console.log('column: ', column);
                 var index = vm.config.hiddenColumns.indexOf(column);
                 if (index >= 0) {
                     vm.config.hiddenColumns.splice(index, 1);

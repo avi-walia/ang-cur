@@ -8,10 +8,10 @@
         .module('evolution.utils')
         .service('mockService', mockService);
 
-    mockService.$inject = ['$httpBackend', 'FUND_LIST_BY_CLASS', 'ASSET_CLASS_MIX', 'ADVISOR', 'PROFILE_GROUPS', 'TESTS'];
+    mockService.$inject = ['$httpBackend', 'FUND_LIST_BY_CLASS', 'ASSET_CLASS_MIX', 'ADVISOR', 'PROFILE_GROUPS', 'TESTS', 'INIT_DATA'];
 
     /* @ngInject */
-    function mockService($httpBackend, FUND_LIST_BY_CLASS, ASSET_CLASS_MIX, ADVISOR, PROFILE_GROUPS, TESTS) {
+    function mockService($httpBackend, FUND_LIST_BY_CLASS, ASSET_CLASS_MIX, ADVISOR, PROFILE_GROUPS, TESTS, INIT_DATA) {
         var service = this;
         service.init = init;
         service.data = {};
@@ -35,7 +35,38 @@
                     mockData = TESTS[id];
                 } else if(urlParams[0] === 'getProfileGroups') {
                     if (id) {
-                        mockData = PROFILE_GROUPS[id];
+                        if (id === "9721-0033") {
+                            mockData = [];
+                            for(var x = 26; x < 39; x++) {
+                                mockData.push(PROFILE_GROUPS[x]);
+                            }
+                        } else if (id === "9721-0034") {
+                            mockData = [];
+                            for(var x = 16; x < 25; x++) {
+                                mockData.push(PROFILE_GROUPS[x]);
+                            }
+                            console.log('mockData2: ', mockData);
+                        } else if (id === "9721-0035") {
+                            mockData = [];
+                            for(var x = 12; x < 15; x++) {
+                                mockData.push(PROFILE_GROUPS[x]);
+                            }
+                        } else if (id === "9721-0036") {
+                            mockData = [];
+                            for(var x = 10; x < 11; x++) {
+                                mockData.push(PROFILE_GROUPS[x]);
+                            }
+                        } else if (id === "9721-0037") {
+                            mockData = [];
+                            for(var x = 4; x < 10; x++) {
+                                mockData.push(PROFILE_GROUPS[x]);
+                            }
+                        } else if (id === "9721-0038") {
+                            mockData = [];
+                            for(var x = 0; x < 3; x++) {
+                                mockData.push(PROFILE_GROUPS[x]);
+                            }
+                        }
                     } else {
                         mockData = PROFILE_GROUPS;
                     }
@@ -46,9 +77,9 @@
                 } else if(urlParams[0] === 'getAssetClassMix') {
                     mockData = ASSET_CLASS_MIX[id];
                 } else if(urlParams[0] === 'getInitData') {
-                    
+                    mockData = INIT_DATA;
                 }
-
+                console.log('mockData: ', mockData);
                 //var mockData = mockBackend[urlParams[0]][urlParams[1]];
 
                 return [200, mockData, {/*headers*/}];
