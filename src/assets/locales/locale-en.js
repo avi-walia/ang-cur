@@ -45,7 +45,8 @@
                 add: 'Add to group',
                 remove: 'Remove',
                 addRemove: 'Add/remove profile',
-                allocation: 'Allocation'
+                allocation: 'Allocation',
+                showOnlySelected: 'Show only selected profiles'
             }
         });
     }

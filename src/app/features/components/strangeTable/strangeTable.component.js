@@ -212,16 +212,16 @@
                 obj.isSelected = parseFloat(obj.allocation) > 0;
             } else {
                 obj.isSelected = !obj.isSelected;
-                if (obj.isSelected) {
-                    vm.selectedItems.push(obj);
-                } else {
-                    var index = vm.selectedItems.indexOf(obj);
-                    if (index >= 0) {
-                        vm.selectedItems.splice(index, 1);
-                    }
-                }
-                vm.updateSelected({selectedItems: vm.selectedItems});
             }
+            if (obj.isSelected) {
+                vm.selectedItems.push(obj);
+            } else {
+                var index = vm.selectedItems.indexOf(obj);
+                if (index >= 0) {
+                    vm.selectedItems.splice(index, 1);
+                }
+            }
+            vm.updateSelected({selectedItems: vm.selectedItems});
         }
 
         function filterSelected(showSelected) {

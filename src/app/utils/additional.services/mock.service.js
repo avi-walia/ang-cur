@@ -45,6 +45,8 @@
                     mockData = ADVISOR;
                 } else if(urlParams[0] === 'getAssetClassMix') {
                     mockData = ASSET_CLASS_MIX[id];
+                } else if(urlParams[0] === 'getInitData') {
+                    
                 }
 
                 //var mockData = mockBackend[urlParams[0]][urlParams[1]];

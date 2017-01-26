@@ -6,7 +6,7 @@
         ng-change="$ctrl.search($ctrl.searchInput)"
     />
     <div ng-if="::$ctrl.updateSelected">
-        <input ng-model="$ctrl.showSelected" ng-click="$ctrl.filterSelected($ctrl.showSelected)" type="checkbox" /> Show only selected profiles
+        <input ng-model="$ctrl.showSelected" ng-click="$ctrl.filterSelected($ctrl.showSelected)" type="checkbox" /> {{::'strangeTable.showOnlySelected' | translate}}
     </div>
     <!--
 
@@ -32,7 +32,7 @@
     <!-- used to generate table headers, that are clickable and facilitate sorting -->
     <div>
         <div class="newRow tableWidth ">
-            <div class="headerRow" ng-repeat="(key, value) in $ctrl.filteredData[0].groupHeading track by $index" ng-if="::($ctrl.hideKey(key) && key != 'isSelected' && key != 'allocation')" ng-class="key">
+            <div class="headerRow" ng-repeat="(key, value) in $ctrl.data[0].groupHeading track by $index" ng-if="::($ctrl.hideKey(key) && key != 'isSelected' && key != 'allocation')" ng-class="key">
                 <button class="tableSorter " ng-click="$ctrl.changeOrder(key)">{{"strangeTable." + key | translate}}</button>
             </div>
             <div ng-if="::!$ctrl.updateSelected" class="addRemove headerRow" translate>
@@ -44,7 +44,7 @@
             </div>
         </div>
     </div>
-    <div class="strangeTableScrollableContainer tableWidth">
+    <div ng-if="!$ctrl.showSelected || $ctrl.filteredData.length > 0" class="strangeTableScrollableContainer tableWidth">
         <div ng-repeat="(key, objectGroup) in $ctrl.filteredData track by $index">
             <!-- used to generate group headers -->
             <div class="newRow">

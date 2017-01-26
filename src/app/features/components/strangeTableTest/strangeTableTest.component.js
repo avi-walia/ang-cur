@@ -20,46 +20,7 @@
     ) {
         var vm = this;
         vm.data = {};
-        vm.updateSelected = updateSelected;
-        vm.config = {
-            searchColumns: [
-                'profileName',
-                'clientName'
-            ],
-            hiddenColumns: ['id'],
-            showOrHideColumns: false,
-            numericAdd: true,
-            expandColumn: 'profileName'
-        };
-        function mapStatus(status) {
-            if (status === 'active') {
-                return 5;
-            } else if (status === 'submitted') {
-                return 4;
-            } else if (status === 'inProgress') {
-                return 3;
-            } else if (status === 'inActive') {
-                return 2;
-            } else if (status === 'archived') {
-                return 1;
-            } else {//cancelled
-                return 0;
-            }
-        }
-        vm.getGroupHeader = function(profileGroup) {
-            var tempProfileIndexWithHighestStatus = 0;
-            _.forEach(profileGroup.subGroups, function(profile, key) {
-                if(key > 0) {
-                    if (mapStatus(profile.status) > mapStatus(profileGroup.subGroups[tempProfileIndexWithHighestStatus].status)) {
-                        tempProfileIndexWithHighestStatus = key;
-                    }
-                }
-            });
-            profileGroup.groupHeading = profileGroup.subGroups[tempProfileIndexWithHighestStatus];
-            profileGroup.subGroups.splice(tempProfileIndexWithHighestStatus, 1);
-        }
-
-
+        vm.strangeTableTestService = strangeTableTestService;
 
         strangeTableTestService.getData('/getProfileGroups').then(
             function(data){
@@ -71,15 +32,8 @@
             }
         );
 
-        function updateSelected(selectedItems) {
-            console.log('parent data: ', vm.data);
-            console.log('selectedProfileIds: ', selectedItems);
-        }
-        /*
-        vm.test = function() {
-            $templateCache.put('second.html', '<b>Second</b> template');
-        }
-        */
+
+
 
 
 
