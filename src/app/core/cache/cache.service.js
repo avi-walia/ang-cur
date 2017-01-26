@@ -5,7 +5,7 @@
  */
 (function () {
     'use strict';
-    var STORAGE_PREFIX = 'advLocator';
+    var STORAGE_PREFIX = 'evolution';
     angular
         .module('evolution.core.cache')
         .factory('dataCacheSessionStorage', dataCacheSessionStorage)
