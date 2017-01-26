@@ -6,6 +6,7 @@
       "pageName": "selectClientProfile",
       "nextStateName": "main.evolution.clientAccountInfo",
       "previousStateName": "",
+      "createTemplate": false,
       "stepIndicator": 0
     },
     {
@@ -14,6 +15,7 @@
       "pageName": "clientAccountInfo",
       "nextStateName": "main.evolution.ipq",
       "previousStateName": "main.evolution.selectClientProfile",
+      "createTemplate": false,
       "stepIndicator": 1
     },
     {
@@ -22,6 +24,7 @@
       "pageName": "ipq",
       "nextStateName": "main.evolution.portfolioSelection",
       "previousStateName": "main.evolution.clientAccountInfo",
+      "createTemplate": true,
       "stepIndicator": 2
     },
     {
@@ -30,6 +33,7 @@
       "pageName": "portfolioSelection",
       "nextStateName": "main.evolution.fundCustomization",
       "previousStateName": "main.evolution.ipq",
+      "createTemplate": true,
       "stepIndicator": 3
     },
     {
@@ -38,6 +42,7 @@
       "pageName": "fundCustomization",
       "nextStateName": "main.evolution.advisorInfo",
       "previousStateName": "main.evolution.portfolioSelection",
+      "createTemplate": true,
       "stepIndicator": 4
     },
     {
@@ -46,36 +51,41 @@
       "pageName": "advisorInfo",
       "nextStateName": "main.evolution.profileSummary",
       "previousStateName": "main.evolution.fundCustomization",
+      "createTemplate": true,
       "stepIndicator": 5
     },
     {
       "stateName": "main.evolution.profileSummary",
       "isAbstract": false,
-      "pageName": "ipq",
+      "pageName": "profileSummary",
       "nextStateName": "main.evolution.reports",
       "previousStateName": "main.evolution.advisorInfo",
+      "createTemplate": false,
       "stepIndicator": 6
     },
     {
       "stateName": "main.evolution.reports",
       "isAbstract": false,
-      "pageName": "ipq",
+      "pageName": "reports",
       "nextStateName": "",
       "previousStateName": "main.evolution.profileSummary",
+      "createTemplate": false,
       "stepIndicator": 7
     },
     {
       "stateName": "main.evolution.split",
       "isAbstract": false,
-      "pageName": "ipq",
+      "pageName": "split",
       "nextStateName": "",
       "previousStateName": "",
+      "createTemplate": false,
       "stepIndicator": 4
     },
     {
       "stateName": "main.evolution.help",
       "isAbstract": false,
       "pageName": "help",
+      "createTemplate": false,
       "stepIndicator": 0
     },
     {
@@ -84,6 +94,7 @@
       "pageName": "profileSearch",
       "nextStateName": "main.evolution.fee.contactInfo",
       "previousStateName": "",
+      "createTemplate": false,
       "stepIndicator": 0
     },
     {
@@ -92,6 +103,7 @@
       "pageName": "profileSearch",
       "nextStateName": "main.evolution.fee.investmentOverview",
       "previousStateName": "main.evolution.fee.profileSearch",
+      "createTemplate": false,
       "stepIndicator": 1
     },
     {
@@ -100,6 +112,7 @@
       "pageName": "investmentOverview",
       "nextStateName": "main.evolution.fee.summary",
       "previousStateName": "main.evolution.fee.contactInfo",
+      "createTemplate": false,
       "stepIndicator": 2
     },
     {
@@ -108,6 +121,7 @@
       "pageName": "summary",
       "nextStateName": "main.evolution.fee.reports",
       "previousStateName": "main.evolution.fee.investmentOverview",
+      "createTemplate": false,
       "stepIndicator": 3
     },
     {
@@ -116,6 +130,7 @@
       "pageName": "investmentOverview",
       "nextStateName": "",
       "previousStateName": "main.evolution.fee.summary",
+      "createTemplate": false,
       "stepIndicator": 4
     },
 
