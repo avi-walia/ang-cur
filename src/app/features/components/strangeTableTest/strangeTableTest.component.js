@@ -12,26 +12,21 @@
 
     /* @ngInject */
 
-    strangeTableTestCtrl.$inject = ['strangeTableTestService', 'initDataService'];
+    strangeTableTestCtrl.$inject = ['strangeTableTestService', 'initDataService', 'feeProposalService', 'mockService'];
 
     /* @ngInject */
     function strangeTableTestCtrl(
         strangeTableTestService,
-        initDataService
+        initDataService,
+        feeProposalService,
+        mockService
     ) {
         var vm = this;
+        vm.mock = mockService.data;
         vm.data = {};
         vm.strangeTableTestService = strangeTableTestService;
         vm.initDataService = initDataService;
-        initDataService.getData().then(function(data) {
-
-            console.log('received data1123: ', initDataService.dealerRepCodes);
-        });
-
-
-
-
-
+        initDataService.getData();
 
         /*Testing pdf download as blob
         cannot save blob pdfs with a meaningful name.

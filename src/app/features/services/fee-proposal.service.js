@@ -6,11 +6,13 @@
         .service('feeProposalService', feeProposalService);
 
     feeProposalService.$inject = [
+        'server'
     ];
 
     /* @ngInject */
-    function feeProposalService() {
+    function feeProposalService(server) {
         var service = this;
+        service.setProfileSearch = setProfileSearch;
         service.data = {
             /*
                 partialProfiles is an array of partialProfileObjects
@@ -18,8 +20,6 @@
                 profileId
                 assetMix & funds
                 investmentOverview object
-                array of dealerServiceFee objects
-                example of a partial profile
              */
             partialProfiles: [],
             familyGroupName: "",
@@ -33,12 +33,45 @@
             postalCode:"",
             phone: "",
             fax: "",
-            Email: "",
+            email: "",
+            dealerRepCode:"",
 
             //investment overview
             linkedCIAssets: 0,
             totalFamilyGroupAmount: 0
         };
+
+        function getProfileSearch() {
+            return {
+                familyGroupName: service.data.familyGroupName,
+                dealderRepCode: service.data.dealerRepCode,
+                partialProfiles: service.data.partialProfiles
+            }
+        }
+
+        function setProfileSearch(newProfileSearch) {
+            service.data.familyGroupName = newProfileSearch.familyGroupName;
+            service.data.dealerRepCode = newProfileSearch.dealerRepCode;
+            var tempPartialProfiles = [];
+            var errorCount = 0;
+            //the profileSearch page only has a summary of the profile(the bare minimum profile info needed to populate the table)
+            //we need to query the server for the assetMix & funds
+            try {
+                _.forEach(newProfileSearch.partialProfiles, function (partialProfileData) {
+                    server.getNoStorage('/getProfileDetail/' + partialProfileData.id).then(
+                        function (fullProfile) {
+                            tempPartialProfiles.push(partialProfile(fullProfile.data, partialProfileData.profileName));
+                            service.data.partialProfiles = tempPartialProfiles;
+                        },
+                        function (error) {
+                            throw error;
+                        }
+                    );
+                });
+            } catch(error) {
+                console.log('error happened retrieving portfolio details, do something: ', error);
+            }
+        }
 
         function getInvestmentOverview() {
             var subsetPartialProfile = [];
@@ -112,6 +145,7 @@
         }
 
         /*
+        The loadedProfile from the server will not contain profileName as that was loaded in the getProfileGroups call
         partialProfiles is an array of partialProfileObjects
         partialProfile only contains the following:
             profileId
@@ -120,15 +154,15 @@
         array of dealerServiceFee objects
         example of a partial profile
         */
-        function partialProfile(loadedProfile) {
+        function partialProfile(loadedProfile, profileName) {
             return {
                 profileId: loadedProfile.profileId,
-                profileName: loadedProfile.profileName,
-                assetMix: loadedProfile.assetMix,
+                profileName: profileName,
+                assetMix: loadedProfile.porfolio.assetMix,
                 managedMarketValue: valueByClass(),
                 separatelyManagedMarketValue: valueByClass(),
                 totalIPGroupInvestmentAmount: 0,
-                managedServiceFees: serviceFees(),
+                managedServiceFees: valueByClass(),
                 separatelyManagedAccounts: [],
                 separatelyManagedServiceFees: valueByClass()
             }

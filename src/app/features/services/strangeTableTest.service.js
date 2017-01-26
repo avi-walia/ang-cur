@@ -8,11 +8,12 @@
     strangeTableTestService.$inject = [
         'languageSwitcherService',
         'server',
-        'waitForResourcesService'
+        'waitForResourcesService',
+        'feeProposalService'
     ];
 
     /* @ngInject */
-    function strangeTableTestService(languageSwitcherService, server, waitForResourcesService) {
+    function strangeTableTestService(languageSwitcherService, server, waitForResourcesService, feeProposalService) {
         var service = this;
         service.data = {};
         service.callCount = 0;
@@ -20,6 +21,9 @@
         service.getGroupHeader = getGroupHeader;
         service.updateSelected = updateSelected;
         service.dealerRepCode = "";
+        service.familyGroupName = "";
+        service.updateFeeProposal = updateFeeProposal;
+        var selectedItems = [];
         service.configStrangeTable = {
             searchColumns: [
                 'profileName',
@@ -31,9 +35,19 @@
             expandColumn: 'profileName'
         };
 
-        function updateSelected(selectedItems) {
+        function updateFeeProposal() {
+            return feeProposalService.setProfileSearch({
+                dealerRepCode: service.dealerRepCode,
+                familyGroupName: service.familyGroupName,
+                partialProfiles: selectedItems
+            });
+        }
+
+        function updateSelected(newSelectedItems) {
             console.log('parent data: ', service.data);
-            console.log('selectedProfileIds: ', selectedItems);
+            console.log('selectedProfileIds: ', newSelectedItems);
+            selectedItems = newSelectedItems;
+            console.log('selectedItem: ', selectedItems);
         }
 
 

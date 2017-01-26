@@ -8,10 +8,10 @@
         .module('evolution.utils')
         .service('mockService', mockService);
 
-    mockService.$inject = ['$httpBackend', 'FUND_LIST_BY_CLASS', 'ASSET_CLASS_MIX', 'ADVISOR', 'PROFILE_GROUPS', 'TESTS', 'INIT_DATA'];
+    mockService.$inject = ['$httpBackend', 'FUND_LIST_BY_CLASS', 'ASSET_CLASS_MIX', 'ADVISOR', 'PROFILE_GROUPS', 'TESTS', 'INIT_DATA', 'PROFILE_DETAIL'];
 
     /* @ngInject */
-    function mockService($httpBackend, FUND_LIST_BY_CLASS, ASSET_CLASS_MIX, ADVISOR, PROFILE_GROUPS, TESTS, INIT_DATA) {
+    function mockService($httpBackend, FUND_LIST_BY_CLASS, ASSET_CLASS_MIX, ADVISOR, PROFILE_GROUPS, TESTS, INIT_DATA, PROFILE_DETAIL) {
         var service = this;
         service.init = init;
         service.data = {};
@@ -78,15 +78,18 @@
                     mockData = ASSET_CLASS_MIX[id];
                 } else if(urlParams[0] === 'getInitData') {
                     mockData = INIT_DATA;
+                } else if(urlParams[0] === 'getProfileDetail') {
+                    console.log('profile details requested');
+                    mockData = PROFILE_DETAIL[0];
                 }
-                console.log('mockData: ', mockData);
+                
                 //var mockData = mockBackend[urlParams[0]][urlParams[1]];
 
                 return [200, mockData, {/*headers*/}];
             });
 
             //used to generate mock data
-            service.data = repeater(50, PROFILE_GROUPS);
+            //service.data = repeater(50, PROFILE_DETAIL);
         }
 
 
@@ -272,7 +275,11 @@
             _.forEach(obj, function(val, key) {
                 if (_.isArray(val)) {
                     //dataMocker(obj[key], max, index);
-                    obj[key] = repeater(7, angular.copy(val[0]));
+                    if (key === 'ipqAnswers' || key === 'clients' || key === 'accounts' || key === 'signingOfficers' || key === 'assetMix' || key === 'assetSubClasses' || key === 'funds') {
+                        obj[key] = repeater(2, angular.copy(val[0]));
+                    } else {
+                        obj[key] = repeater(7, angular.copy(val[0]));
+                    }
                 } else if (typeof val === 'object') {
                    dataMocker(obj[key], max, index);
                 } else if (typeof key === "string" && !Number.isInteger(key)) {
@@ -429,5 +436,97 @@
  "postalCode": "",
  "chosenDealerName": 1
  }
+ }
+
+
+
+ "PROFILE_DETAIL": {
+ "profileId": 1,
+ "ipqAnswers": [
+ {
+ "clientId": 1,
+ "answers": [
+ {
+ "questionId": 1,
+ "answerId": 1
+ }
+ ]
+ }
+ ],
+ "clients": [
+ {
+ "priority": 0,
+ "type": 1,
+ "address1": "",
+ "address2": "",
+ "city": "",
+ "province": 4,
+ "postalCode": "",
+ "phone": "",
+ "fax": "",
+ "email": "",
+ "accounts": [
+ {
+ "isNewMoney": true,
+ "accountNumber": 12345678,
+ "type": 1,
+ "name": "",
+ "value": 12,
+ "marginalTaxRate": 1.2345
+ }
+ ],
+ "title": "",
+ "firstName": "",
+ "middleName": "",
+ "lastName": "",
+ "dateOfBirder": "date",
+ "sin": 123456789,
+ "taxRate": 1.23,
+ "signingOfficers": [
+ ""
+ ]
+ }
+ ],
+ "porfolio": {
+ "portfolioId": 1,
+ "assetMix": [
+ {
+ "assetClassId": 1,
+ "assetClassNameEN": "",
+ "assetClassNameFR": "",
+ "percentage": 1.2,
+ "assetSubClasses": [
+ {
+ "subClassId": 1,
+ "subClassNameEN": "",
+ "subClassNameFR": "",
+ "funds": [
+ {
+ "fundId": 1,
+ "fundNameEN": "",
+ "fundNameFR": "",
+ "percentage": 1.2
+ }
+ ]
+ }
+ ]
+ }
+ ]
+ },
+ "reports": [0,1,2],
+ "includeIncomeWedgeStrategy": true,
+ "includeTaxEfficientCashFlow": true,
+ "dealerName": "",
+ "dealerRepCode": "",
+ "advisorName": "",
+ "address1": "",
+ "address2": "",
+ "city": "",
+ "province": "",
+ "postalCode": "",
+ "businessPhone": "",
+ "fax": "",
+ "email": "",
+ "specialInstructions": ""
  }
  */
