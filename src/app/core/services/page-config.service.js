@@ -1,8 +1,6 @@
 (function () {
     'use strict';
 
-
-
     angular
         .module('evolution.core.main')
         .service('pageConfigService', pageConfigService);

@@ -20,8 +20,6 @@
                 var url = $state.href('main.evolution.fee.profileSearch');
                 $window.open(url, '_blank');
             });
-
-
         }
 
 

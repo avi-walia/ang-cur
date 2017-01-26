@@ -16,11 +16,8 @@
     function profileSearchCtrl(dataCacheLocalStorage) {
         var vm = this;
 
-
+        //lets check if there is funds in local storage because we need it for Fee Proposal
         checkIfFundsExist();
-
-//        vm.profileRepCode = 'repCode';
-//        console.log(vm.feeProfileSearch);
 
         ////////////////
 

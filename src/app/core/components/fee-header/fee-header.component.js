@@ -18,7 +18,7 @@
 
         vm.pageConfigService = pageConfigService;
         vm.feeHeaderService = feeHeaderService;//we will have to store exitLink & restartLink in session or local storage if fee proposal is launched in it's own tab/window
-        console.log('$ctrl.feeHeaderService: ', vm.feeHeaderService);
+        // console.log('$ctrl.feeHeaderService: ', vm.feeHeaderService);
 
         //for the FEe Prop Exit & Restart Links
         // we may not need this

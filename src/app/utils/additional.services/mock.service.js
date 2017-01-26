@@ -22,7 +22,7 @@
             $httpBackend.whenGET(/evolutionws\/.*/).respond(function (method, url, data, headers) {
                 var mockData = {};
 
-                console.log(url);
+                // console.log(url);
 
 
                 //data = angular.fromJson(data); //only used for post params. Not sure about query params.
