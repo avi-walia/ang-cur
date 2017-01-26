@@ -16,32 +16,16 @@
     angular.module('evolution.features.reports', ['evolution.utils']);
     angular.module('evolution.features.splitProfile', ['evolution.utils']);
     angular.module('evolution.features.help', ['evolution.utils']);
+
     angular.module('evolution.features.fee.profileSearch', ['evolution.utils']);
     angular.module('evolution.features.fee.contactInfo', ['evolution.utils']);
     angular.module('evolution.features.fee.investmentOverview', ['evolution.utils']);
-    angular.module('evolution.features.fee.serviceFees', ['evolution.utils']);
+    // angular.module('evolution.features.fee.serviceFees', ['evolution.utils']);
     angular.module('evolution.features.fee.summary', ['evolution.utils']);
     angular.module('evolution.features.fee.reports', ['evolution.utils']);
+
+
     angular.module('evolution.features.searchByName', ['evolution.utils']);
-
-    angular.module('evolution.features.selectClientProfile', ['evolution.utils']);
-    angular.module('evolution.features.clientAccountInfo', ['evolution.utils']);
-    angular.module('evolution.features.ipq', ['evolution.utils']);
-    angular.module('evolution.features.portfolioSelection', ['evolution.utils']);
-    angular.module('evolution.features.fundCustomization', ['evolution.utils']);
-    angular.module('evolution.features.advisorInfo', ['evolution.utils']);
-    angular.module('evolution.features.profileSummary', ['evolution.utils']);
-    angular.module('evolution.features.reports', ['evolution.utils']);
-    angular.module('evolution.features.splitProfile', ['evolution.utils']);
-    angular.module('evolution.features.help', ['evolution.utils']);
-
-    angular.module('evolution.features.fee.profileSearch', ['evolution.utils']);
-    angular.module('evolution.features.fee.contactInfo', ['evolution.utils']);
-    angular.module('evolution.features.fee.investmentOverview', ['evolution.utils']);
-    angular.module('evolution.features.fee.serviceFees', ['evolution.utils']);
-    angular.module('evolution.features.fee.summary', ['evolution.utils']);
-    angular.module('evolution.features.fee.reports', ['evolution.utils']);
-
     angular.module('evolution.features.test', ['evolution.utils']);
     angular.module('evolution.features.test2', ['evolution.utils']);
     angular.module('evolution.features.test3', ['evolution.utils']);
@@ -76,14 +60,11 @@
         'evolution.features.fee.profileSearch',
         'evolution.features.fee.contactInfo',
         'evolution.features.fee.investmentOverview',
-        'evolution.features.fee.serviceFees',
         'evolution.features.fee.summary',
         'evolution.features.fee.reports',
         'evolution.features.searchByName',
-        'evolution.features.fee.profileSearch',
-        'evolution.features.fee.contactInfo',
-        'evolution.features.fee.investmentOverview',
-        'evolution.features.fee.serviceFees',
+
+
 
         'evolution.features.test',
         'evolution.features.test2',

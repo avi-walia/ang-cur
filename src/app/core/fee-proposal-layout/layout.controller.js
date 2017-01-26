@@ -12,14 +12,7 @@
         var vm = this;
         vm.title = 'LayoutCtrl';
 
-        activate();
 
-        ////////////////
-
-        function activate() {
-            console.log('Layout controller');
-            console.log('This should be displayed');
-        }
     }
 
 })();

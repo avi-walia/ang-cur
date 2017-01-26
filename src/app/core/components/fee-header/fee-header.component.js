@@ -14,7 +14,7 @@
     /* @ngInject */
     function feeHeaderCtrl(pageConfigService, feeHeaderService) {
         var vm = this;
-        vm.steps = [1, 2, 3, 4, 5, 6];
+        vm.steps = [1, 2, 3, 4, 5];
 
         vm.pageConfigService = pageConfigService;
         vm.feeHeaderService = feeHeaderService;//we will have to store exitLink & restartLink in session or local storage if fee proposal is launched in it's own tab/window
