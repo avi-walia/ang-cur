@@ -10,25 +10,24 @@
 
         });
 
-    profileSearchCtrl.$inject = ['feeProposalModel'];
+    profileSearchCtrl.$inject = ['dataCacheLocalStorage'];
 
     /* @ngInject */
-    function profileSearchCtrl(feeProposalModel) {
+    function profileSearchCtrl(dataCacheLocalStorage) {
         var vm = this;
-        vm.checkDealerRep = checkDealerRep;
-        vm.feeProposalModel = feeProposalModel;
-        vm.feeProposalModel.dealerRepCode = feeProposalModel.dealerRepCode;
 
 
+        checkIfFundsExist();
 
 //        vm.profileRepCode = 'repCode';
 //        console.log(vm.feeProfileSearch);
 
         ////////////////
 
-        function checkDealerRep() {
+        function checkIfFundsExist() {
             // console.log(vm.feeProfileSearch);
-            console.log(vm.feeProposalModel);
+            var data = dataCacheLocalStorage.get('fundList');
+            console.log(data);
         }
     }
 

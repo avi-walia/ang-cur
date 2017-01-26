@@ -12,19 +12,20 @@
         vm.goToFeeProposal = goToFeeProposal;
 
         function goToFeeProposal() {
-
             //lets grab all funds
             getFunds().then(function (data) {
                 console.log(data);
                 dataCacheLocalStorage.put('fundList', data);
+
+                var url = $state.href('main.evolution.fee.profileSearch');
+                $window.open(url, '_blank');
             });
-            var url = $state.href('main.evolution.fee.profileSearch');
-            $window.open(url, '_blank');
+
 
         }
 
-        function getFunds() {
 
+        function getFunds() {
             return selectClientProfileService.getData('/getAllFundList')
                 .then(function (data) {
                     return data;
@@ -32,7 +33,6 @@
                     console.error('Error: selectClientProfileService getData call');
                     return;
                 });
-
         }
 
 
