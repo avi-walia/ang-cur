@@ -21,6 +21,7 @@
             //Note will need to setup a version of this for each webservice call
             $httpBackend.whenGET(/evolutionws\/.*/).respond(function (method, url, data, headers) {
                 var mockData = {};
+
                 console.log(url);
 
 
@@ -29,6 +30,12 @@
                 var urlParams = url.split('/');
                 urlParams.shift();//get rid of the first element in the array as it is just the web service endpoint
                 var id = urlParams[1];
+
+                if (angular.isUndefined(id)){
+                    console.warn('id is undefined. Setting default value to 0');
+                    id = 0;
+
+                }
                 //urlParams[0] holds the name of the webservice we are trying to call
                 //urlParams[>= 1] holds route params passed to our service
                 if (urlParams[0] === 'tests') {
@@ -39,16 +46,25 @@
                 else if (urlParams[0] === 'getProfileGroups') {
                     mockData = PROFILE_GROUPS[id];
                 } else if (urlParams[0] === 'getFundListByClass') {
+
                     mockData = FUND_LIST_BY_CLASS[id];
                 } else if (urlParams[0] === 'getAdvisor') {
                     mockData = ADVISOR;
                 } else if (urlParams[0] === 'getAssetClassMix') {
                     mockData = ASSET_CLASS_MIX[id];
+                } else if (urlParams[0] === 'getAllFundList'){
+                    //
+                    mockData = FUND_LIST_BY_CLASS;
+                    // console.log(fundsArray);
                 }
-                console.log(mockData);
+
+                // console.log(mockData);
                 //var mockData = mockBackend[urlPaarams[0]][urlParams[1]];
 
-                return [200, mockData, {/*headers*/}];
+
+                    return [200, mockData, {/*headers*/}];
+
+
             });
 
             //used to generate mock data
