@@ -7,6 +7,10 @@
       "nextStateName": "main.evolution.clientAccountInfo",
       "previousStateName": "",
       "createTemplate": false,
+      "split": false,
+      "preview": false,
+      "disclaimer": false,
+      "reset": false,
       "stepIndicator": 0
     },
     {
@@ -16,6 +20,10 @@
       "nextStateName": "main.evolution.ipq",
       "previousStateName": "main.evolution.selectClientProfile",
       "createTemplate": false,
+      "split": false,
+      "preview": false,
+      "disclaimer": false,
+      "reset": true,
       "stepIndicator": 1
     },
     {
@@ -25,6 +33,10 @@
       "nextStateName": "main.evolution.portfolioSelection",
       "previousStateName": "main.evolution.clientAccountInfo",
       "createTemplate": true,
+      "split": false,
+      "preview": false,
+      "disclaimer": false,
+      "reset": true,
       "stepIndicator": 2
     },
     {
@@ -34,6 +46,10 @@
       "nextStateName": "main.evolution.fundCustomization",
       "previousStateName": "main.evolution.ipq",
       "createTemplate": true,
+      "split": true,
+      "preview": false,
+      "disclaimer": false,
+      "reset": false,
       "stepIndicator": 3
     },
     {
@@ -43,6 +59,10 @@
       "nextStateName": "main.evolution.advisorInfo",
       "previousStateName": "main.evolution.portfolioSelection",
       "createTemplate": true,
+      "split": false,
+      "preview": false,
+      "disclaimer": false,
+      "reset": true,
       "stepIndicator": 4
     },
     {
@@ -52,6 +72,10 @@
       "nextStateName": "main.evolution.profileSummary",
       "previousStateName": "main.evolution.fundCustomization",
       "createTemplate": true,
+      "split": false,
+      "preview": false,
+      "disclaimer": false,
+      "reset": true,
       "stepIndicator": 5
     },
     {
@@ -61,6 +85,10 @@
       "nextStateName": "main.evolution.reports",
       "previousStateName": "main.evolution.advisorInfo",
       "createTemplate": false,
+      "split": false,
+      "preview": false,
+      "disclaimer": false,
+      "reset": false,
       "stepIndicator": 6
     },
     {
@@ -70,6 +98,10 @@
       "nextStateName": "",
       "previousStateName": "main.evolution.profileSummary",
       "createTemplate": false,
+      "split": false,
+      "preview": true,
+      "disclaimer": true,
+      "reset": false,
       "stepIndicator": 7
     },
     {
@@ -79,6 +111,10 @@
       "nextStateName": "",
       "previousStateName": "",
       "createTemplate": false,
+      "split": false,
+      "preview": false,
+      "disclaimer": false,
+      "reset": false,
       "stepIndicator": 4
     },
     {
@@ -86,6 +122,10 @@
       "isAbstract": false,
       "pageName": "help",
       "createTemplate": false,
+      "split": false,
+      "preview": false,
+      "disclaimer": false,
+      "reset": false,
       "stepIndicator": 0
     },
     {
@@ -95,6 +135,10 @@
       "nextStateName": "main.evolution.fee.contactInfo",
       "previousStateName": "",
       "createTemplate": false,
+      "split": false,
+      "preview": false,
+      "disclaimer": false,
+      "reset": true,
       "stepIndicator": 0
     },
     {
@@ -104,6 +148,10 @@
       "nextStateName": "main.evolution.fee.investmentOverview",
       "previousStateName": "main.evolution.fee.profileSearch",
       "createTemplate": false,
+      "split": false,
+      "preview": false,
+      "disclaimer": false,
+      "reset": true,
       "stepIndicator": 1
     },
     {
@@ -113,6 +161,10 @@
       "nextStateName": "main.evolution.fee.summary",
       "previousStateName": "main.evolution.fee.contactInfo",
       "createTemplate": false,
+      "split": false,
+      "preview": false,
+      "disclaimer": false,
+      "reset": true,
       "stepIndicator": 2
     },
     {
@@ -122,6 +174,10 @@
       "nextStateName": "main.evolution.fee.reports",
       "previousStateName": "main.evolution.fee.investmentOverview",
       "createTemplate": false,
+      "split": false,
+      "preview": false,
+      "disclaimer": false,
+      "reset": false,
       "stepIndicator": 3
     },
     {
@@ -131,6 +187,10 @@
       "nextStateName": "",
       "previousStateName": "main.evolution.fee.summary",
       "createTemplate": false,
+      "split": false,
+      "preview": false,
+      "disclaimer": false,
+      "reset": false,
       "stepIndicator": 4
     },
 
