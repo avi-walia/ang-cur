@@ -1,10 +1,17 @@
 
 .strangeTableStyles {//this is a page name
-  $headingColor: #fff1f1;
+  $headingColor: blue;//#fff1f1;
+  $rowHeight: 26px;
+  div {
+  overflow:hidden;
+  }
   .strangeTableScrollableContainer {
     display:inline-block;
     height:300px;margin:0 auto;
     overflow: scroll;
+  }
+  .tableWidth {
+	width:1113px;
   }
 
   .addRemove {
@@ -17,6 +24,7 @@
   }
 
   .tableSorter {
+    text-align: left;
     border:none;
     max-width:90%;
     max-height:90%;
@@ -26,19 +34,15 @@
   .searchBar{
     width:50%;
   }
-
-  .addRemoveHeading, .addRemoveRow {
-    width: 105px;
-    overflow:hidden;
-  }
-  .addRemoveHeading, .addRemoveRow {
-    button {
-      text-align: right;
-      border:none !important;
-      height: 20px;
-    }
-  }
-
+	.addRemoveRow {
+		width:111px;
+		button {
+		width:100%;
+		  text-align: right;
+		  border:none;
+		  height: $rowHeight;
+		}
+	}
   .id, .clientName, .profileName, .modificationDate, .logs, .pdf, .status, .fundsReceived, .cafReceived, .createdBy, .creationDate, .addRemoveHeading, .addRemoveRow {
     display:inline;
     float:left;
@@ -69,14 +73,21 @@
   .newRow {
     clear:both;
   }
+  .headerRow {
+	height:48px;
+  }
+    .tableRow {
+	height:$rowHeight;
+  }
 
   .expandContract {
     padding: 0px;
+	height:$rowHeight;
   }
   .subGroup{
     /* added some color to help identify what is a sub group*/
     .id, .clientName, .profileName, .modificationDate, .logs, .pdf, .status, .fundsReceived, .cafReceived, .createdBy, .creationDate, .addRemoveRow {
-      background-color: #f1fff1;
+      background-color: red;//#f1fff1;
     }
     .id {
       /* existing design indents sub groups */
