@@ -2,34 +2,44 @@
   "FUND_LIST_BY_CLASS": [
     {
       "id": 0,
-      "fundNameFR": "FR Leah",
-      "fundNameEN": "Leah",
-      "portMgmtEN": "Chloe",
-      "portMgmtFR": "FR Chloe",
-      "currencyEN": "Matthew",
-      "currencyFR": "FR Matthew",
-      "assetClassEN": "Alexander",
-      "assetClassFR": "FR Alexander",
-      "platformEN": "Logan",
-      "platformFR": "FR Logan"
+      "fundNameFR": "FR Black Creek global Balanced corporate class",
+      "fundNameEN": "Black Creek global Balanced corporate class",
+      "portMgmtEN": "Black Creek Inv Mgmt Inc",
+      "portMgmtFR": "FR Black Creek Inv Mgmt Inc",
+      "currencyEN": "USD",
+      "currencyFR": "FR CDN",
+      "assetClassEN": "Global Balanced",
+      "assetClassFR": "FR Global Balanced",
+      "platformEN": "Corporate Class",
+      "platformFR": "FR Corporate Class",
+      "fees":{
+        "classE": 0.5,
+        "classI": 1.65,
+        "classF": 1.05
+      }
     },
     {
       "id": 1,
-      "fundNameFR": "FR Jack",
-      "fundNameEN": "Jack",
+      "fundNameFR": "FR CI G5|20i 2036 Q1 Fund LL ",
+      "fundNameEN": "CI G5|20i 2036 Q1 Fund LL ",
       "portMgmtEN": "Luke",
       "portMgmtFR": "FR Luke",
-      "currencyEN": "Sarah",
-      "currencyFR": "FR Sarah",
-      "assetClassEN": "Emma",
-      "assetClassFR": "FR Emma",
+      "currencyEN": "CDN",
+      "currencyFR": "FR CDN",
+      "assetClassEN": "Tactical Balanced",
+      "assetClassFR": "FR Tactical Balanced",
       "platformEN": "Amelia",
-      "platformFR": "FR Amelia"
+      "platformFR": "FR Amelia",
+      "fees":{
+        "classE": 0.75,
+        "classI": 0.35,
+        "classF": 0.85
+      }
     },
     {
       "id": 2,
-      "fundNameFR": "FR Isaac",
-      "fundNameEN": "Isaac",
+      "fundNameFR": "FR Trident Global Opportunities Fund O",
+      "fundNameEN": "Trident Global Opportunities Fund O",
       "portMgmtEN": "Jacob",
       "portMgmtFR": "FR Jacob",
       "currencyEN": "Peyton",
@@ -37,12 +47,17 @@
       "assetClassEN": "Michael",
       "assetClassFR": "FR Michael",
       "platformEN": "Anna",
-      "platformFR": "FR Anna"
+      "platformFR": "FR Anna",
+      "fees":{
+        "classE":1.6,
+        "classI": 0.66,
+        "classF": 0.36
+      }
     },
     {
       "id": 3,
-      "fundNameFR": "FR Joshua",
-      "fundNameEN": "Joshua",
+      "fundNameFR": "FR Synergy Global Corporate Class",
+      "fundNameEN": "Synergy Global Corporate Class",
       "portMgmtEN": "Sarah",
       "portMgmtFR": "FR Sarah",
       "currencyEN": "Joseph",
@@ -50,12 +65,17 @@
       "assetClassEN": "Gabriella",
       "assetClassFR": "FR Gabriella",
       "platformEN": "Zachary",
-      "platformFR": "FR Zachary"
+      "platformFR": "FR Zachary",
+      "fees":{
+        "classE": 1.45,
+        "classI": 1.35,
+        "classF": 1.22
+      }
     },
     {
       "id": 4,
-      "fundNameFR": "FR Mackenzie",
-      "fundNameEN": "Mackenzie",
+      "fundNameFR": "FR Cambridge Asset Alloc Corp Cls DSC",
+      "fundNameEN": "Cambridge Asset Alloc Corp Cls DSC",
       "portMgmtEN": "Brooklyn",
       "portMgmtFR": "FR Brooklyn",
       "currencyEN": "Emma",
@@ -63,12 +83,17 @@
       "assetClassEN": "James",
       "assetClassFR": "FR James",
       "platformEN": "Jack",
-      "platformFR": "FR Jack"
+      "platformFR": "FR Jack",
+      "fees":{
+        "classE": 1.75,
+        "classI": 0.05,
+        "classF": 0.35
+      }
     },
     {
       "id": 5,
-      "fundNameFR": "FR David",
-      "fundNameEN": "David",
+      "fundNameFR": "FR Signature Income & Growth Fund",
+      "fundNameEN": "Signature Income & Growth Fund",
       "portMgmtEN": "Madison",
       "portMgmtFR": "FR Madison",
       "currencyEN": "Elizabeth",
@@ -76,7 +101,12 @@
       "assetClassEN": "Owen",
       "assetClassFR": "FR Owen",
       "platformEN": "Hannah",
-      "platformFR": "FR Hannah"
+      "platformFR": "FR Hannah",
+      "fees":{
+        "classE": 0.45,
+        "classI": 1.35,
+        "classF": 1.85
+      }
     },
     {
       "id": 6,
@@ -210,8 +240,8 @@
     },
     {
       "id": 16,
-      "fundNameFR": "FR Jackson",
-      "fundNameEN": "Jackson",
+      "fundNameFR": "FR Synergy Global Corporate Class OT8son",
+      "fundNameEN": "Synergy Global Corporate Class OT8son",
       "portMgmtEN": "Gavin",
       "portMgmtFR": "FR Gavin",
       "currencyEN": "Hunter",
