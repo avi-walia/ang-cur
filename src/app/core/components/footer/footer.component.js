@@ -13,28 +13,21 @@
         .module('evolution.core.main')
         .component('ciFooter', {
             controller: footerCtrl,
-            bindings: {
-                nextState: '=?',
-                previousState: '=?',
-                submit: '<?',
-                split: '<?',
-                reset: '<?',
-                createTemplate: '<?', //aka Clone!!!
-                save: '<?',
-                preview: '<?' //used in Reports screen only!
-            },
+
             templateUrl:'app/core/components/footer/footer.tpl.html'
         });
 
 
     /* @ngInject */
 
-    footerCtrl.$inject = ['$state', 'pageStateResolver'];
+    footerCtrl.$inject = ['$state', 'pageConfigService'];
     /* @ngInject */
-    function footerCtrl($state, pageStateResolver) {
+    function footerCtrl($state, pageConfigService) {
         var vm = this;
         vm.nextLabel = '';
-        vm.pageStateResolver = pageStateResolver;
+        // vm.test = "TEst";
+        // vm.next = next;
+        vm.pageConfig = pageConfigService.pageConfig;
         // console.log(vm.nextState);
         // console.log($state);
         if ($state.current.name === 'main.evolution.selectClientProfile'){
@@ -42,6 +35,12 @@
         }else{
             vm.nextLabel = 'Next';
         }
+
+        //only display Create Template button if we are in : IPQ, Portfolio Selection, Fund Cust, Advisor Info
+        // vm.displayCreateTemplate =
+        // var createTemplate = ['ipq', ]
+
+
     }
 
 })();
