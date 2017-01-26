@@ -10,10 +10,10 @@
 
         });
 
-    profileSearchCtrl.$inject = ['$state', 'feeProposalModel'];
+    profileSearchCtrl.$inject = ['feeProposalModel'];
 
     /* @ngInject */
-    function profileSearchCtrl($state, feeProposalModel) {
+    function profileSearchCtrl(feeProposalModel) {
         var vm = this;
         vm.checkDealerRep = checkDealerRep;
         vm.feeProposalModel = feeProposalModel;
@@ -27,7 +27,7 @@
         ////////////////
 
         function checkDealerRep() {
-            console.log(vm.feeProfileSearch);
+            // console.log(vm.feeProfileSearch);
             console.log(vm.feeProposalModel);
         }
     }
