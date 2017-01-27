@@ -188,13 +188,13 @@
 
                 //for the FEe Prop Exit & Restart Links
                 // we may not need this
-                if (fromState.name === 'main.evolution.fundCustomization'){
-                    feeHeaderService.exitLink = 'main.evolution.fundCustomization';
+                if (fromState.name === 'main.evolution.app.fundCustomization'){
+                    feeHeaderService.exitLink = 'main.evolution.app.fundCustomization';
                     feeHeaderService.restartLink = 'main.evolution.fee.contactInfo';
                 }
 
-                if (fromState.name === 'main.evolution.selectClientProfile'){
-                    feeHeaderService.exitLink = 'main.evolution.selectClientProfile';
+                if (fromState.name === 'main.evolution.app.selectClientProfile'){
+                    feeHeaderService.exitLink = 'main.evolution.app.selectClientProfile';
                     feeHeaderService.restartLink = 'main.evolution.fee.profileSearch';
                 }
                 //end of for the fee header exit

@@ -29,7 +29,7 @@
         vm.pageConfig = pageConfigService.pageConfig;
         // console.log(vm.nextState);
         // console.log($state);
-        if ($state.current.name === 'main.evolution.selectClientProfile'){
+        if ($state.current.name === 'main.evolution.app.selectClientProfile'){
             vm.nextLabel = 'Open Profile';
         }else{
             vm.nextLabel = 'Next';

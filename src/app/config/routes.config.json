@@ -1,10 +1,10 @@
 {
   "ROUTES": [
     {
-      "stateName": "main.evolution.selectClientProfile",
+      "stateName": "main.evolution.app.selectClientProfile",
       "isAbstract": false,
       "pageName": "selectClientProfile",
-      "nextStateName": "main.evolution.clientAccountInfo",
+      "nextStateName": "main.evolution.app.clientAccountInfo",
       "previousStateName": "",
       "createTemplate": false,
       "split": false,
@@ -16,11 +16,11 @@
       "stepIndicator": 0
     },
     {
-      "stateName": "main.evolution.clientAccountInfo",
+      "stateName": "main.evolution.app.clientAccountInfo",
       "isAbstract": false,
       "pageName": "clientAccountInfo",
-      "nextStateName": "main.evolution.ipq",
-      "previousStateName": "main.evolution.selectClientProfile",
+      "nextStateName": "main.evolution.app.ipq",
+      "previousStateName": "main.evolution.app.selectClientProfile",
       "createTemplate": false,
       "split": false,
       "preview": false,
@@ -31,11 +31,11 @@
       "stepIndicator": 1
     },
     {
-      "stateName": "main.evolution.ipq",
+      "stateName": "main.evolution.app.ipq",
       "isAbstract": false,
       "pageName": "ipq",
-      "nextStateName": "main.evolution.portfolioSelection",
-      "previousStateName": "main.evolution.clientAccountInfo",
+      "nextStateName": "main.evolution.app.portfolioSelection",
+      "previousStateName": "main.evolution.app.clientAccountInfo",
       "createTemplate": true,
       "split": false,
       "preview": false,
@@ -46,11 +46,11 @@
       "stepIndicator": 2
     },
     {
-      "stateName": "main.evolution.portfolioSelection",
+      "stateName": "main.evolution.app.portfolioSelection",
       "isAbstract": false,
       "pageName": "portfolioSelection",
-      "nextStateName": "main.evolution.fundCustomization",
-      "previousStateName": "main.evolution.ipq",
+      "nextStateName": "main.evolution.app.fundCustomization",
+      "previousStateName": "main.evolution.app.ipq",
       "createTemplate": true,
       "split": true,
       "preview": false,
@@ -61,11 +61,11 @@
       "stepIndicator": 3
     },
     {
-      "stateName": "main.evolution.fundCustomization",
+      "stateName": "main.evolution.app.fundCustomization",
       "isAbstract": false,
       "pageName": "fundCustomization",
-      "nextStateName": "main.evolution.advisorInfo",
-      "previousStateName": "main.evolution.portfolioSelection",
+      "nextStateName": "main.evolution.app.advisorInfo",
+      "previousStateName": "main.evolution.app.portfolioSelection",
       "createTemplate": true,
       "split": false,
       "preview": false,
@@ -76,11 +76,11 @@
       "stepIndicator": 4
     },
     {
-      "stateName": "main.evolution.advisorInfo",
+      "stateName": "main.evolution.app.advisorInfo",
       "isAbstract": false,
       "pageName": "advisorInfo",
-      "nextStateName": "main.evolution.profileSummary",
-      "previousStateName": "main.evolution.fundCustomization",
+      "nextStateName": "main.evolution.app.profileSummary",
+      "previousStateName": "main.evolution.app.fundCustomization",
       "createTemplate": true,
       "split": false,
       "preview": false,
@@ -91,11 +91,11 @@
       "stepIndicator": 5
     },
     {
-      "stateName": "main.evolution.profileSummary",
+      "stateName": "main.evolution.app.profileSummary",
       "isAbstract": false,
       "pageName": "profileSummary",
-      "nextStateName": "main.evolution.reports",
-      "previousStateName": "main.evolution.advisorInfo",
+      "nextStateName": "main.evolution.app.reports",
+      "previousStateName": "main.evolution.app.advisorInfo",
       "createTemplate": false,
       "split": false,
       "preview": false,
@@ -106,11 +106,11 @@
       "stepIndicator": 6
     },
     {
-      "stateName": "main.evolution.reports",
+      "stateName": "main.evolution.app.reports",
       "isAbstract": false,
       "pageName": "reports",
       "nextStateName": "",
-      "previousStateName": "main.evolution.profileSummary",
+      "previousStateName": "main.evolution.app.profileSummary",
       "createTemplate": false,
       "split": false,
       "preview": true,
@@ -121,7 +121,7 @@
       "stepIndicator": 7
     },
     {
-      "stateName": "main.evolution.split",
+      "stateName": "main.evolution.app.split",
       "isAbstract": false,
       "pageName": "split",
       "nextStateName": "",
@@ -136,7 +136,7 @@
       "stepIndicator": 4
     },
     {
-      "stateName": "main.evolution.help",
+      "stateName": "main.evolution.app.help",
       "isAbstract": false,
       "pageName": "help",
       "createTemplate": false,

@@ -31,7 +31,7 @@
                         // if (!(deviceDetector.browser === 'ie' && deviceDetector.browser_version <= '9.0')  ) {
                         // @todo: check if back btn functionality apply
                         //$state.go('main.advisorLocator.portfolio');
-                        $state.go('main.evolution.selectClientProfile');
+                        $state.go('main.evolution.app.selectClientProfile');
 //                             $state.go('main.evolution.fee.profileSearch');
                         // }
                         // $state.go('main.evolution.fee.profileSearch');
@@ -55,94 +55,104 @@
                         url: '/evolution',
                         abstract: true,
                         views: {
-
                             'content': {}
+                        }
+                    })
+
+                    .state('main.evolution.app', {
+                        url: '/app',
+                        abstract: true,
+                        views: {
+                            'content@main': {
+                                controller: 'EvoLayoutCrl as EvoLayoutCrl',
+                                templateUrl: 'app/core/evo-layout/evo-layout.tpl.html'
+                            }
                         }
                     })
 
                     /************Search by Name ****************/
 
                     //You can create profile & open existing profile in this state
-                    .state('main.evolution.selectClientProfile', {
+                    .state('main.evolution.app.selectClientProfile', {
                         url: '/select-client-profile',
                         views: {
-                            'content@main': {
+                            'content2@main.evolution.app': {
                                 // template: '<test></test>'
                                 template: '<select-client-profile></select-client-profile>'
                             }
                         }
                     })
-                    .state('main.evolution.clientAccountInfo', {
+                    .state('main.evolution.app.clientAccountInfo', {
                         url: '/client-account-info',
                         views: {
-                            'content@main': {
+                            'content2@main.evolution.app': {
                                 // template: '<test></test>'
                                 template: '<client-account-info></client-account-info>'
                             }
                         }
                     })
-                    .state('main.evolution.ipq', {
+                    .state('main.evolution.app.ipq', {
                         url: '/ipq',
                         views: {
-                            'content@main': {
+                            'content2@main.evolution.app': {
                                 // template: '<test></test>'
                                 template: '<ipq></ipq>'
                             }
                         }
                     })
-                    .state('main.evolution.portfolioSelection', {
+                    .state('main.evolution.app.portfolioSelection', {
                         url: '/portfolio-selection',
                         views: {
-                            'content@main': {
+                            'content2@main.evolution.app': {
                                 // template: '<test></test>'
                                 template: '<portfolio-selection></portfolio-selection>'
                             }
                         }
                     })
-                    .state('main.evolution.fundCustomization', {
+                    .state('main.evolution.app.fundCustomization', {
                         url: '/fund-customization',
                         views: {
-                            'content@main': {
+                            'content2@main.evolution.app': {
                                 // template: '<test></test>'
                                 template: '<fund-customization></fund-customization>'
                             }
                         }
                     })
-                    .state('main.evolution.advisorInfo', {
+                    .state('main.evolution.app.advisorInfo', {
                         url: '/advisor-info',
                         views: {
 
-                            'content@main': {
+                            'content2@main.evolution.app': {
                                 // template: '<test></test>'
                                 template: '<advisor-info></advisor-info>'
                             }
                         }
                     })
-                    .state('main.evolution.profileSummary', {
+                    .state('main.evolution.app.profileSummary', {
                         url: '/profile-summary',
                         views: {
 
-                            'content@main': {
+                            'content2@main.evolution.app': {
                                 // template: '<test></test>'
                                 template: '<profile-summary></profile-summary>'
                             }
                         }
                     })
-                    .state('main.evolution.reports', {
+                    .state('main.evolution.app.reports', {
                         url: '/reports',
                         views: {
 
-                            'content@main': {
+                            'content2@main.evolution.app': {
                                 // template: '<test></test>'
                                 template: '<reports></reports>'
                             }
                         }
                     })
-                    .state('main.evolution.split', {
+                    .state('main.evolution.app.split', {
                         url: '/split-profile',
                         views: {
 
-                            'content@main': {
+                            'content2@main.evolution.app': {
                                 // template: '<test></test>'
                                 template: '<split-profile></split-profile>'
                             }
@@ -150,11 +160,11 @@
                         }
                     })
 
-                    .state('main.evolution.help', {
+                    .state('main.evolution.app.help', {
                         url: '/help',
                         views: {
 
-                            'content@main': {
+                            'content2@main.evolution.app': {
                                 // template: '<test></test>'
                                 template: '<help></help>'
                             }
@@ -177,7 +187,7 @@
                         url: '/profile-search',
                         views: {
                             'content2@main.evolution.fee': {
-                                template: '<profile-search display-toolbar="false"></profile-search>'
+                                template: '<profile-search></profile-search>'
                             }
                         }
                     })
