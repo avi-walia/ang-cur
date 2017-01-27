@@ -6,24 +6,25 @@
         .service('strangeTableTestService', strangeTableTestService);
 
     strangeTableTestService.$inject = [
+        'feeProposalService',
         'languageSwitcherService',
         'server',
-        'waitForResourcesService',
-        'feeProposalService'
+        '$state',
+        'waitForResourcesService'
     ];
 
     /* @ngInject */
-    function strangeTableTestService(languageSwitcherService, server, waitForResourcesService, feeProposalService) {
+    function strangeTableTestService(
+        feeProposalService,
+        languageSwitcherService,
+        server,
+        $state,
+        waitForResourcesService
+    ) {
         var service = this;
-        service.data = {};
-        service.callCount = 0;
-        service.updateProfileList = updateProfileList;
-        service.getGroupHeader = getGroupHeader;
-        service.updateSelected = updateSelected;
-        service.dealerRepCode = '';
-        service.familyGroupName = '';
-        service.updateFeeProposal = updateFeeProposal;
-        var selectedItems = [];
+        service.data = [];
+        //this is the object that is loaded from and saved to the feeProposalService. Shoul contain dealerRepCode, familyGroupName, and partialProfiles array.
+        service.familyGroupInfo = {};
         service.configStrangeTable = {
             searchColumns: [
                 'profileName',
@@ -34,21 +35,67 @@
             numericAdd: false,
             expandColumn: 'profileName'
         };
+        service.resetFlag = false;
+        var backupProfileList = [];
 
-        function updateFeeProposal() {
-            return feeProposalService.setProfileSearch({
-                dealerRepCode: service.dealerRepCode,
-                familyGroupName: service.familyGroupName,
-                partialProfiles: selectedItems
-            });
+        service.updateProfileList = updateProfileList;
+        service.getGroupHeader = getGroupHeader;
+        service.updateSelected = updateSelected;
+        service.updateFeeProposal = updateFeeProposal;
+        service.reset = reset;
+        service.next = next;
+        service.init = init;
+        var initialized = false;
+
+
+        function init() {
+            //add some logic so that it only does this once
+            feeProposalService.init();
+
+            service.familyGroupInfo = feeProposalService.getProfileSearch();
+            if (service.familyGroupInfo.dealerRepCode) {
+                if (service.familyGroupInfo.currentList.length > 0) {
+                    console.log('existing: ', service.data);
+                    console.log('new: ',service.familyGroupInfo.currentList);
+                    service.data = service.familyGroupInfo.currentList;
+                } else {
+                    updateProfileList(service.familyGroupInfo.dealerRepCode);
+                }
+            } else {
+                service.data = [];
+            }
         }
 
-        function updateSelected(newSelectedItems) {
-            selectedItems = newSelectedItems;
+        function reset() {
+
+            //service.familyGroupInfo = feeProposalService.getProfileSearch();
+            init();
+            service.resetFlag = !service.resetFlag;
+        }
+
+        function next() {
+            feeProposalService.setProfileSearch(service.familyGroupInfo);
+        }
+
+        function updateFeeProposal() {
+            /*
+            return feeProposalService.setProfileSearch({
+                familyGroupName: service.familyGroupName,
+                dealerRepCode: service.dealerRepCode,
+                partialProfiles: selectedItems
+            });
+            */
+            feeProposalService.setProfileSearch(service.familyGroupInfo);
+        }
+
+        function updateSelected(selectedItems, currentList) {
+            service.familyGroupInfo.partialProfiles = selectedItems;
+            service.familyGroupInfo.currentList = currentList;
         }
 
 
         function updateProfileList(dealerRepCode) {
+            service.familyGroupInfo.dealerRepCode = dealerRepCode;
             var ret = server.getNoStorage('/getProfileGroups/' + dealerRepCode, false).then(function(data){
                 format(data.data);
                 service.data = data.data;

@@ -6,67 +6,93 @@
         .service('feeProposalService', feeProposalService);
 
     feeProposalService.$inject = [
-        'server'
+        '$q',
+        'server',
+        'waitForResourcesService'
     ];
 
     /* @ngInject */
-    function feeProposalService(server) {
+    function feeProposalService(
+        $q,
+        server,
+        waitForResourcesService
+    ) {
         var service = this;
-        service.setProfileSearch = setProfileSearch;
-        service.data = {
-            /*
-                partialProfiles is an array of partialProfileObjects
-                partialProfile only contains the following:
-                profileId
-                assetMix & funds
-                investmentOverview object
-             */
-            partialProfiles: [],
-            familyGroupName: '',
-            //contact info
-            firstName:'',
-            middleName:'',
-            lastName:'',
-            address: '',
-            city: '',
-            province: '',//required
-            postalCode:'',
-            phone: '',
-            fax: '',
-            email: '',
-            dealerRepCode:'',
 
-            //investment overview
-            linkedCIAssets: 0,
-            totalFamilyGroupAmount: 0
+        service.setProfileSearch = setProfileSearch;
+        service.getProfileSearch = getProfileSearch;
+        service.init = init;
+
+        var currentListOfDisplayedProfiles = [];
+
+        function init() {
+            currentListOfDisplayedProfiles = [];
+            service.data = {
+                /*
+                 partialProfiles is an array of partialProfileObjects
+                 partialProfile only contains the following:
+                 profileId
+                 assetMix & funds
+                 investmentOverview object
+                 */
+                partialProfiles: [],
+                familyGroupName: '',
+                //contact info
+                firstName: '',
+                middleName: '',
+                lastName: '',
+                address: '',
+                city: '',
+                province: '',//required
+                postalCode: '',
+                phone: '',
+                fax: '',
+                email: '',
+                dealerRepCode: '',
+
+                //investment overview
+                linkedCIAssets: 0,
+                totalFamilyGroupAmount: 0
+            };
         };
 
         function getProfileSearch() {
+            console.log('why: ', angular.copy(currentListOfDisplayedProfiles));
             return {
                 familyGroupName: service.data.familyGroupName,
-                dealderRepCode: service.data.dealerRepCode,
-                partialProfiles: service.data.partialProfiles
+                dealerRepCode: service.data.dealerRepCode,
+                partialProfiles: service.data.partialProfiles,
+                currentList: angular.copy(currentListOfDisplayedProfiles)
             }
         }
 
         function setProfileSearch(newProfileSearch) {
+            console.log('currentListOfDisplayedProfiles: ', currentListOfDisplayedProfiles);
+            console.log('new: ', angular.copy(newProfileSearch.currentList));
             service.data.familyGroupName = newProfileSearch.familyGroupName;
             service.data.dealerRepCode = newProfileSearch.dealerRepCode;
             var tempPartialProfiles = [];
             var errorCount = 0;
+            var pendingPromises = [];
             //the profileSearch page only has a summary of the profile(the bare minimum profile info needed to populate the table)
             //we need to query the server for the assetMix & funds
             try {
                 _.forEach(newProfileSearch.partialProfiles, function (partialProfileData) {
-                    server.getNoStorage('/getProfileDetail/' + partialProfileData.id).then(
+                    var ret = server.getNoStorage('/getProfileDetail/' + partialProfileData.id).then(
                         function (fullProfile) {
                             tempPartialProfiles.push(partialProfile(fullProfile.data, partialProfileData.profileName));
-                            service.data.partialProfiles = tempPartialProfiles;
                         },
                         function (error) {
                             throw error;
                         }
                     );
+                    pendingPromises.push(ret);
+                    waitForResourcesService.pendingResources.push(ret);
+                    waitForResourcesService.startWaiting();
+                });
+                $q.all(pendingPromises).then(function(){
+                    service.data.partialProfiles = tempPartialProfiles;
+                    currentListOfDisplayedProfiles = angular.copy(newProfileSearch.currentList);
                 });
             } catch(error) {
                 console.log('error happened retrieving portfolio details, do something: ', error);

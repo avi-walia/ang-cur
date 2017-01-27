@@ -3,18 +3,18 @@
 {{::'nameTheGroup'| translate}}
 <div>
     {{::'groupName'| translate}}
-    <input ng-model="$ctrl.strangeTableTestService.familyGroupName" />
+    <input ng-model="$ctrl.strangeTableTestService.familyGroupInfo.familyGroupName" />
 </div>
 
 {{::'addProfilesToTheGroup'| translate}}
 <div>
     {{::'dealerRepCode'| translate}}
-    <select ng-model="$ctrl.strangeTableTestService.dealerRepCode" ng-change="$ctrl.strangeTableTestService.updateProfileList($ctrl.strangeTableTestService.dealerRepCode)">
+    <select ng-model="$ctrl.strangeTableTestService.familyGroupInfo.dealerRepCode" ng-change="$ctrl.strangeTableTestService.updateProfileList($ctrl.strangeTableTestService.familyGroupInfo.dealerRepCode)">
         <option ng-repeat="value in $ctrl.initDataService.dealerRepCodes track by $index">{{value}}</option>
     </select>
 </div>
 {{::'searchProfileClientName' | translate}}
-<strange-table get-Group-Header="$ctrl.strangeTableTestService.getGroupHeader" update-selected="$ctrl.strangeTableTestService.updateSelected(selectedItems)" data="$ctrl.strangeTableTestService.data" config="$ctrl.strangeTableTestService.configStrangeTable"></strange-table>
+<strange-table reset-flag="$ctrl.strangeTableTestService.resetFlag" selected-items="$ctrl.strangeTableTestService.familyGroupInfo.partialProfiles" get-Group-Header="$ctrl.strangeTableTestService.getGroupHeader" update-selected="$ctrl.strangeTableTestService.updateSelected(selectedItems, currentList)" data="$ctrl.strangeTableTestService.data" config="$ctrl.strangeTableTestService.configStrangeTable"></strange-table>
 
 <button ng-click="$ctrl.strangeTableTestService.reset()">Reset</button>
 <button ng-click="$ctrl.strangeTableTestService.next()">Next</button>

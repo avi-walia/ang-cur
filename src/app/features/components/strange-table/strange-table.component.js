@@ -21,28 +21,32 @@
 
     /* @ngInject */
 
-    strangeTableCtrl.$inject = ['removeDiacriticsService', '$timeout', '$scope'];
+    strangeTableCtrl.$inject = ['$scope', '$timeout', 'removeDiacriticsService'];
 
     /* @ngInject */
     function strangeTableCtrl(
-        removeDiacriticsService, $timeout, $scope
+        $scope,
+        $timeout,
+        removeDiacriticsService
     ) {
         var vm = this;
-        vm.sortable = {};
-        vm.changeOrder = changeOrder;
-        vm.orderBy = 'id';
-        vm.isAscending = true;
-        vm.searchInput = '';
-        vm.search = search;
         vm.filteredData = [];
-        vm.toggleSelect = toggleSelect;
+        vm.isAscending = true;
+        vm.orderBy = 'id';
+        vm.searchInput = '';
+        vm.selectedItems = [];
         vm.showSelected = false;
+        vm.sortable = {};
+        vm.viewColumnChoices = false;
+
+        vm.changeOrder = changeOrder;
         vm.filterSelected = filterSelected;
         vm.hideKey = hideKey;
-        vm.viewColumnChoices = false;
+        vm.search = search;
         vm.showList = showList;
         vm.showOrHideColumns = showOrHideColumns;
-        vm.selectedItems = [];
+        vm.toggleSelect = toggleSelect;
+
         var tokenizedSearchInput = [];
 
         /*
@@ -120,19 +124,46 @@
             vm.filteredData[expandIndex].expandSubGroup = !vm.filteredData[expandIndex].expandSubGroup
         }
 
+        function reset() {
+            vm.isAscending = true;
+            vm.orderBy = 'id';
+            vm.searchInput = '';
+            vm.showSelected = false;
+            vm.selectedItems = [];
+        }
 
-
-
-        vm.$onChanges = function() {
+        //The bindings should only be changing when the user changes the dealer rep code or resets. Therefore, reset everything when the bindings change
+        vm.$onChanges = function(obj) {
+            console.log('obj: ', obj);
             _.forEach(vm.data, function (objectGroup, key) {
-                vm.getGroupHeader(objectGroup);
-                objectGroup.expandSubGroup = false;
+                _.forEach(objectGroup, function (subGroup, key) {
+                    //console.log('subGroup: ', objectGroup);
+                });
             });
+            if (obj.hasOwnProperty('data')) {
+                reset();
+                console.log('selectedItems: ', vm.selectedItems.length);
+                _.forEach(vm.data, function (objectGroup, key) {
+                    if (!objectGroup.hasOwnProperty('groupHeading')) {
+                        vm.getGroupHeader(objectGroup);
+                        objectGroup.expandSubGroup = false;
+                    } else {
+                        if (objectGroup.groupHeading.isSelected) {
+                            console.log('hi');
+                            vm.selectedItems.push(objectGroup.groupHeading);
+                        }
+                    }
+                    _.forEach(objectGroup.subGroups, function(subGroup) {
+                        if (subGroup.isSelected) {
+                            console.log('bye');
+                            vm.selectedItems.push(subGroup);
+                        }
+                    });
+                });
+                vm.filteredData = vm.data;
+            }
 
-            vm.filteredData = vm.data;
         };
-
-
 
         //SEARCH STUFF******************************************************************************************************************************************************************************************************************************************************************************
         //search results should contain atleast one search term
@@ -219,7 +250,10 @@
                     vm.selectedItems.splice(index, 1);
                 }
             }
-            vm.updateSelected({selectedItems: vm.selectedItems});
+            vm.updateSelected({
+                selectedItems: vm.selectedItems,
+                currentList: vm.data
+            });
         }
 
         function filterSelected(showSelected) {

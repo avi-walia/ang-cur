@@ -6,19 +6,18 @@
         .module('evolution.features.strangeTableTest')
         .component('strangeTableTest', {
             controller: strangeTableTestCtrl,
-            templateUrl:'app/features/components/strange-table-test/strange-table-test.tpl.html',
+            templateUrl:'app/features/components/strange-table-test/strange-table-test.tpl.html'
         });
 
 
     /* @ngInject */
 
-    strangeTableTestCtrl.$inject = ['strangeTableTestService', 'initDataService', 'feeProposalService', 'mockService'];
+    strangeTableTestCtrl.$inject = ['strangeTableTestService', 'initDataService', 'mockService'];
 
     /* @ngInject */
     function strangeTableTestCtrl(
         strangeTableTestService,
         initDataService,
-        feeProposalService,
         mockService
     ) {
         var vm = this;
@@ -26,6 +25,9 @@
         vm.data = {};
         vm.strangeTableTestService = strangeTableTestService;
         vm.initDataService = initDataService;
+
+
+        vm.strangeTableTestService.init();
         initDataService.getData();
     }
 
