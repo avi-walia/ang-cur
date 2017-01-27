@@ -14,23 +14,26 @@
 
     /* @ngInject */
 
-    headerCtrl.$inject = ['$state', 'pageStateResolver'];
+    headerCtrl.$inject = ['$state', 'pageStateResolver','pageConfigService'];
     /* @ngInject */
-    function headerCtrl($state, pageStateResolver) {
+    function headerCtrl($state, pageStateResolver, pageConfigService) {
         var vm = this;
         vm.isActive = true;
+        console.log($state.current);
+        vm.currentState = $state.current.name;
         vm.displayOpenExistingPro = false; //flag used if we want to display Create/open profile link in navigation
         vm.isEcissUser = false;
         vm.pageStateResolver = pageStateResolver;
+        vm.pageConfigService = pageConfigService;
 
         // var tmpArr = $state.current.name.split('.');
-        var tmp = _.split($state.current.name, '.');
-        // console.log(tmp[tmp.length-1]);
-        vm.state = tmp[tmp.length-1];
+        // var tmp = _.split($state.current.name, '.');
+        // // console.log(tmp[tmp.length-1]);
+        // vm.state = tmp[tmp.length-1];
 
-        if (vm.state !== 'selectClientProfile'){
-            vm.displayOpenExistingPro = true;
-        }
+        // if (vm.state !== 'selectClientProfile'){
+        //     vm.displayOpenExistingPro = true;
+        // }
 
         //need to find a way to determine if user is eciss
         //assuming it is until we get API call

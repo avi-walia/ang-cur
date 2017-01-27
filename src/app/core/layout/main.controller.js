@@ -6,14 +6,10 @@
 
 
     MainCtrl.$inject = [
-        '$state',
         'pageStateResolver'
     ];
 
-    function MainCtrl(
-        $state,
-        pageStateResolver
-    ) {
+    function MainCtrl(pageStateResolver) {
 
         var vm = this;
         vm.pageStateResolver = pageStateResolver;

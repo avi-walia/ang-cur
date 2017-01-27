@@ -13,7 +13,6 @@
         .module('evolution.core.main')
         .component('ciFooter', {
             controller: footerCtrl,
-
             templateUrl:'app/core/components/footer/footer.tpl.html'
         });
 

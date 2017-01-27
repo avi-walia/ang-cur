@@ -1,11 +1,12 @@
 (function () {
     'use strict';
-    angular.module('evolution.core.main').component('feeHeader', {
-        controller: feeHeaderCtrl,
-        templateUrl: 'app/core/components/fee-header/fee-header.tpl.html',
-        bindings: {
-            stepIndicator: '<?'
-        }
+    angular.module('evolution.core.main')
+        .component('feeHeader', {
+            controller: feeHeaderCtrl,
+            templateUrl: 'app/core/components/fee-header/fee-header.tpl.html',
+            bindings: {
+                stepIndicator: '<?'
+            }
     });
 
     /* @ngInject */
