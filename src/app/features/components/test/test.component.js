@@ -30,6 +30,8 @@
         var vm = this;
         vm.testService = testService;
         vm.mockService = mockService;
+		vm.linkText = 'testPDF';
+		vm.fileName = 'test.pdf';
 
         notificationService.addMessage({msg:"testNotification", type:1});
         notificationService.addMessage({msg:"<h2 translate>testNotification2</h2>", type:1});

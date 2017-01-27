@@ -3,10 +3,17 @@
 
     angular.module('evolution')
         .config(interceptors)
-        .config(translations);
+        .config(translations)
+		.config(hrefSanitization);//remove this if we are fine with using buttons and window.open to open pdfs instead of ng-href
 
     interceptors.$inject = ['$httpProvider'];
     translations.$inject = ['$translateProvider'];
+	hrefSanitization.$inject = ['$compileProvider'];
+	
+	
+    function hrefSanitization($compileProvider) {
+        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|blob):/);
+	}
 
     /* @ngInject */
     function interceptors($httpProvider) {

@@ -1,0 +1,15 @@
+
+
+<a ng-href="{{$ctrl.dataURL}}" target="_blank">
+	<span ng-if="!$ctrl.imgURL">
+		{{$ctrl.linkText | translate}}
+	</span>
+	<img ng-src="$ctrl.imgURL" alt="{{$ctrl.linkText | translate}}" />
+</a>
+
+<button ng-click="$ctrl.test()" >
+	<span ng-if="!$ctrl.imgURL">
+		{{$ctrl.linkText | translate}}
+	</span>
+	<img ng-src="$ctrl.imgURL" alt="{{$ctrl.linkText | translate}}" />
+</button>

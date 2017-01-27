@@ -6,6 +6,7 @@
         $translateProvider.translations('fr', {
             TITLE: '<h1>FR test title</h1>',
             appTitle: "FR Evolution",
+			testPDF: 'FR test pdf link',
             pages: {
                 test: {
                     title: "FR test test"

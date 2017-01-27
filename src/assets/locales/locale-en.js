@@ -7,6 +7,7 @@
     function englishTranslations($translateProvider) {
         $translateProvider.translations('en', {
             TITLE: '<h1>test title</h1>',
+			testPDF: 'test pdf link',
             pages: {
                 test: {
                     title: "FR test"
