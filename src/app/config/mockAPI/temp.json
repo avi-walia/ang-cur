@@ -1,0 +1,118 @@
+[
+  {
+    "id": 271675,
+    "profileSummaries": [
+      {
+        "id": 234009,
+        "profileName": "Tremblay",
+        "clientName": "Ray Tremblay",
+        "fundsReceived": true,
+        "cafReceived": true,
+        "pdf": true,
+        "logs": true,
+        "createdBy": "UPMA_ADV::9917A2084",
+        "creationDate": "2014-11-28T12:06:17.893000Z",
+        "modificationDate": "2015-07-30T10:44:53.337000Z",
+        "status": "ACTIVE"
+      }
+    ]
+  },
+  {
+    "id": 272630,
+    "profileSummaries": [
+      {
+        "id": 239782,
+        "profileName": "Gustafson",
+        "clientName": "Paul Gustafson",
+        "fundsReceived": false,
+        "cafReceived": false,
+        "pdf": false,
+        "logs": true,
+        "createdBy": "UPMA_ADV::9917A2084",
+        "creationDate": "2015-02-04T15:33:25.513000Z",
+        "modificationDate": "2015-11-26T16:31:13.760000Z",
+        "status": "ARCHIVED"
+      },
+      {
+        "id": 277124,
+        "profileName": "Gustafson",
+        "clientName": "Paul Gustafson",
+        "fundsReceived": false,
+        "cafReceived": false,
+        "pdf": false,
+        "logs": true,
+        "createdBy": "UPMA_ADV::9917A2084",
+        "creationDate": "2015-12-04T14:10:25.117000Z",
+        "modificationDate": "2015-12-04T14:30:54.550000Z",
+        "status": "ARCHIVED"
+      },
+      {
+        "id": 277130,
+        "profileName": "Gustafson",
+        "clientName": "Paul Gustafson",
+        "fundsReceived": true,
+        "cafReceived": true,
+        "pdf": true,
+        "logs": true,
+        "createdBy": "UPMA_ADV::9917A2084",
+        "creationDate": "2015-12-04T14:33:51.900000Z",
+        "modificationDate": "2015-12-17T14:58:36.013000Z",
+        "status": "ACTIVE"
+      }
+    ]
+  },
+  {
+    "id": 272918,
+    "profileSummaries": [
+      {
+        "id": 241730,
+        "profileName": "Dziendzielowski",
+        "clientName": "Donald Dziendzielowski",
+        "fundsReceived": true,
+        "cafReceived": true,
+        "pdf": true,
+        "logs": true,
+        "createdBy": "UPMA_ADV::9917A2084",
+        "creationDate": "2015-02-19T15:40:48.307000Z",
+        "modificationDate": "2015-03-23T13:26:37.413000Z",
+        "status": "ACTIVE"
+      }
+    ]
+  },
+  {
+    "id": 274973,
+    "profileSummaries": [
+      {
+        "id": 259069,
+        "profileName": "Shaw",
+        "clientName": "James Shaw",
+        "fundsReceived": true,
+        "cafReceived": true,
+        "pdf": true,
+        "logs": true,
+        "createdBy": "UPMA_ADV::9917A2084",
+        "creationDate": "2015-06-24T12:19:16.003000Z",
+        "modificationDate": "2015-10-27T14:29:24.863000Z",
+        "status": "ACTIVE"
+      }
+    ]
+  },
+  {
+    "id": 280320,
+    "profileSummaries": [
+      {
+        "id": 292240,
+        "profileName": "Joanne and Robert Ferguson",
+        "clientName": "Joanne Ferguson",
+        "fundsReceived": true,
+        "cafReceived": true,
+        "pdf": true,
+        "logs": true,
+        "createdBy": "UPMA_ADV::9917A2084",
+        "creationDate": "2016-04-20T16:07:09.607000Z",
+        "modificationDate": "2016-04-27T09:45:22.193000Z",
+        "status": "ACTIVE"
+      }
+    ]
+  }
+]

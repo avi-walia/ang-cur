@@ -65,8 +65,17 @@
         function format(profileGroups) {
             _.forEach(profileGroups, function(profileGroup) {
                 profileGroup.subGroups = profileGroup.profileSummaries;
+                profileGroup.createdBy = stripPrefix(profileGroup.createdBy);
+                profileGroup.modifiedBy = stripPrefix(profileGroup.modifiedBy);
                 delete profileGroup.profileSummaries;
             });
+        }
+        function stripPrefix(str) {
+            var prefix = "UPMA_ADV::";
+            if (str.substring(0, prefix.length) === prefix) {
+                str = str.substring(prefix.length, str.length);
+            }
+            return str;
         }
 
         function translateData(translatedData) {
