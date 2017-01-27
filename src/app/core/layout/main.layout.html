@@ -1,16 +1,24 @@
-<!-- REMOVED HEADER FOR NOW -->
-<!--<ci-header></ci-header>-->
-<!--<banner></banner>-->
-<div id="" ng-class="Main.currentState" role="main" aria-label="{{ 'aria.main-label' | translate }}">
-<!--
-    <ci-loader loading="Main.pageStateResolver.pageLoading">
-    -->
-        <ci-notifications></ci-notifications>
-        <div id="content" ui-view="content"></div>
+<style>
+    #fee {
+        border: 1px solid blue;
+    }
+    #content{
+        border: 1px solid green;
+    }
+</style>
+
+<div id="main_layout" ng-class="Main.pageStateResolver.activePageName" role="main"
+     style="border:1px solid red; padding: 10px;"
+     aria-label="{{ 'aria.main-label' | translate }}">
+    <!--
+        <ci-loader loading="Main.pageStateResolver.pageLoading">
+        -->
+
+    <ci-notifications></ci-notifications>
+    <div id="content" ui-view="content"></div>
     <!--
     </ci-loader>
     -->
 </div>
-<!-- REMOVED FOOTER FOR NOW -->
-<!--<ci-footer></ci-footer>-->
+
 <loading></loading>

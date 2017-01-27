@@ -5,7 +5,7 @@
  */
 (function () {
     'use strict';
-    var STORAGE_PREFIX = 'advLocator';
+    var STORAGE_PREFIX = 'evolution';
     angular
         .module('evolution.core.cache')
         .factory('dataCacheSessionStorage', dataCacheSessionStorage)
@@ -51,6 +51,7 @@
                 dataCache.put(path, data);
             }
         }
+
         function get(path) {
             var data = dataCache.get(path);
             if (data && data.hasOwnProperty('expiryTime') && data.expiryTime > (new Date()).getTime()) {
@@ -62,12 +63,15 @@
             //no expiry flag was set, return the data
             return data;
         }
+
         function remove2(key) {
             dataCache.remove(key);
         }
+
         function removeAll2() {
             dataCache.removeAll();
         }
+
         function destroy() {
             dataCache.destroy();
         }

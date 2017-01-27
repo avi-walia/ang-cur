@@ -44,8 +44,8 @@
       "portMgmtFR": "FR Jacob",
       "currencyEN": "Peyton",
       "currencyFR": "FR Peyton",
-      "assetClassEN": "Michael",
-      "assetClassFR": "FR Michael",
+      "assetClassEN": "Global equity",
+      "assetClassFR": "FR Global equity",
       "platformEN": "Anna",
       "platformFR": "FR Anna",
       "fees":{
@@ -62,8 +62,8 @@
       "portMgmtFR": "FR Sarah",
       "currencyEN": "Joseph",
       "currencyFR": "FR Joseph",
-      "assetClassEN": "Gabriella",
-      "assetClassFR": "FR Gabriella",
+      "assetClassEN": "Global equity",
+      "assetClassFR": "FR Global equity",
       "platformEN": "Zachary",
       "platformFR": "FR Zachary",
       "fees":{
@@ -80,8 +80,8 @@
       "portMgmtFR": "FR Brooklyn",
       "currencyEN": "Emma",
       "currencyFR": "FR Emma",
-      "assetClassEN": "James",
-      "assetClassFR": "FR James",
+      "assetClassEN": "Asset Alloc",
+      "assetClassFR": "FR Asset Alloc",
       "platformEN": "Jack",
       "platformFR": "FR Jack",
       "fees":{
@@ -98,8 +98,8 @@
       "portMgmtFR": "FR Madison",
       "currencyEN": "Elizabeth",
       "currencyFR": "FR Elizabeth",
-      "assetClassEN": "Owen",
-      "assetClassFR": "FR Owen",
+      "assetClassEN": "Canadian Balanced",
+      "assetClassFR": "FR CAnadian Balanced",
       "platformEN": "Hannah",
       "platformFR": "FR Hannah",
       "fees":{

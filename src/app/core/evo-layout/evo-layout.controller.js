@@ -2,14 +2,12 @@
     'use strict';
 
     angular.module('evolution.core.main')
-        .controller('MainCtrl', MainCtrl);
+        .controller('EvoLayoutCrl', EvoLayoutCrl);
 
 
-    MainCtrl.$inject = [
-        'pageStateResolver'
-    ];
+    EvoLayoutCrl.$inject = ['pageStateResolver'];
 
-    function MainCtrl(pageStateResolver) {
+    function EvoLayoutCrl(pageStateResolver) {
 
         var vm = this;
         vm.pageStateResolver = pageStateResolver;

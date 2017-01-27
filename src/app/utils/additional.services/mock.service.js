@@ -1,6 +1,3 @@
-
-
-
 (function () {
     'use strict';
 
@@ -10,6 +7,7 @@
 
     mockService.$inject = ['$httpBackend', 'FUND_LIST_BY_CLASS', 'ASSET_CLASS_MIX', 'ADVISOR', 'PROFILE_GROUPS', 'TESTS', 'INIT_DATA', 'PROFILE_DETAIL'];
 
+
     /* @ngInject */
     function mockService($httpBackend, FUND_LIST_BY_CLASS, ASSET_CLASS_MIX, ADVISOR, PROFILE_GROUPS, TESTS, INIT_DATA, PROFILE_DETAIL) {
         var service = this;
@@ -17,18 +15,28 @@
         service.data = {};
 
         function init() {
+            console.info('mock service init..');
             $httpBackend.whenGET(/(app|styles|scripts|assets|fonts).*/).passThrough();
 
             //Note will need to setup a version of this for each webservice call
             $httpBackend.whenGET(/evolutionws\/.*/).respond(function (method, url, data, headers) {
                 var mockData = {};
+
+                // console.log(url);
+
+
                 //data = angular.fromJson(data); //only used for post params. Not sure about query params.
                 //var message = angular.fromJson(data);
                 var urlParams = url.split('/');
                 urlParams.shift();//get rid of the first element in the array as it is just the web service endpoint
-                var id = null;
-                if(urlParams.length > 0)
-                    id = urlParams[1];
+
+                var id = urlParams[1];
+
+                if (angular.isUndefined(id)){
+                    console.warn('id is undefined. Setting default value to 0');
+                    id = 0;
+
+                }
                 //urlParams[0] holds the name of the webservice we are trying to call
                 //urlParams[>= 1] holds route params passed to our service
                 if (urlParams[0] === 'tests') {
@@ -72,17 +80,21 @@
                     }
                 } else if(urlParams[0] === 'getFundListByClass') {
                     mockData = FUND_LIST_BY_CLASS[id];
-                } else if(urlParams[0] === 'getAdvisor') {
+                } else if (urlParams[0] === 'getAdvisor') {
                     mockData = ADVISOR;
-                } else if(urlParams[0] === 'getAssetClassMix') {
+                } else if (urlParams[0] === 'getAssetClassMix') {
                     mockData = ASSET_CLASS_MIX[id];
                 } else if(urlParams[0] === 'getInitData') {
                     mockData = INIT_DATA;
                 } else if(urlParams[0] === 'getProfileDetail') {
                     console.log('profile details requested');
                     mockData = PROFILE_DETAIL[0];
+                } else if (urlParams[0] === 'getAllFundList'){
+                    //
+                    mockData = FUND_LIST_BY_CLASS;
+                    // console.log(fundsArray);
                 }
-                
+
                 //var mockData = mockBackend[urlParams[0]][urlParams[1]];
 
                 return [200, mockData, {/*headers*/}];
@@ -90,14 +102,12 @@
 
             //used to generate mock data
             //service.data = repeater(50, PROFILE_DETAIL);
+
+
+            //used to generate mock data
+            //this takes forever!!!
+            //service.data = repeater(1, PROFILE_GROUPS);
         }
-
-
-
-
-
-
-
 
 
 
@@ -203,6 +213,7 @@
             'Hunter',
             'David'
         ];
+
         function randomName() {
 
             return names[Math.floor(Math.random() * names.length)];
@@ -219,7 +230,7 @@
             return rndDate.toUTCString();
         }
 
-        var profileGroupTemplate =  {
+        var profileGroupTemplate = {
             'id': 1,
             'profileSummary': {
                 'id': 1,
@@ -236,7 +247,7 @@
             }
         };
 
-        var fundListTemplate =  {
+        var fundListTemplate = {
             'id': 1,
             'fundNameFR': '',
             'fundNameEN': '',
@@ -267,12 +278,11 @@
                     'percentage': 1.10
                 }
             ]
-        }
-
+        };
 
 
         function dataMocker(obj, max, index) {
-            _.forEach(obj, function(val, key) {
+            _.forEach(obj, function (val, key) {
                 if (_.isArray(val)) {
                     //dataMocker(obj[key], max, index);
                     if (key === 'ipqAnswers' || key === 'clients' || key === 'accounts' || key === 'signingOfficers' || key === 'assetMix' || key === 'assetSubClasses' || key === 'funds') {
@@ -281,7 +291,7 @@
                         obj[key] = repeater(7, angular.copy(val[0]));
                     }
                 } else if (typeof val === 'object') {
-                   dataMocker(obj[key], max, index);
+                    dataMocker(obj[key], max, index);
                 } else if (typeof key === 'string' && !Number.isInteger(key)) {
                     var local = key.substring(key.length - 2, key.length);
                     var root = key.substring(0, key.length - 2);
@@ -304,7 +314,7 @@
                             if (Number.isInteger(val)) {
                                 if (key === 'id') {
                                     obj[key] = index;
-                                }else {
+                                } else {
                                     obj[key] = Math.floor(Math.random() * max) + 1;
                                 }
                             } else {
@@ -317,26 +327,26 @@
                             obj[key] = randomName();
                         }
                     }
-               } else {
-                   if (val === 'date') {
-                       obj[key] = randomDate();
-                   } else if (typeof val === 'number') {
-                       if (Number.isInteger(val)) {
-                           if (key === 'id') {
-                               obj[key] = index;
-                           }else {
-                               obj[key] = Math.floor(Math.random() * max) + 1;
-                           }
-                       } else {
-                           obj[key] = Math.floor(Math.random() * 101) / 100;
-                       }
-                   } else if (typeof val === 'boolean') {
-                       obj[key] = Math.random() > 0.5;
+                } else {
+                    if (val === 'date') {
+                        obj[key] = randomDate();
+                    } else if (typeof val === 'number') {
+                        if (Number.isInteger(val)) {
+                            if (key === 'id') {
+                                obj[key] = index;
+                            } else {
+                                obj[key] = Math.floor(Math.random() * max) + 1;
+                            }
+                        } else {
+                            obj[key] = Math.floor(Math.random() * 101) / 100;
+                        }
+                    } else if (typeof val === 'boolean') {
+                        obj[key] = Math.random() > 0.5;
 
-                   } else {
-                       obj[key] = randomName();
-                   }
-               }
+                    } else {
+                        obj[key] = randomName();
+                    }
+                }
             });
             return obj;
         }
@@ -345,7 +355,7 @@
 
         function repeater(num, obj) {
             var ret = [];
-            for(var i = 0; i < num; i++) {
+            for (var i = 0; i < num; i++) {
                 ret.push(dataMocker(angular.copy(obj), num, i));
 
             }
@@ -356,24 +366,23 @@
 })();
 
 
-
 /*
- "PROFILE_GROUPS": [
+ 'PROFILE_GROUPS': [
  {
- "id": 0,
- "profileSummaries": [
+ 'id': 0,
+ 'profileSummaries': [
  {
- "id": 0,
- "profileName": "",
- "clientName": "",
- "modificationDate": "date",
- "logs": true,
- "pdf": true,
- "status": "",
- "fundsReceived": true,
- "cafReceived": true,
- "createdBy": "",
- "creationDate": "date"
+ 'id': 0,
+ 'profileName': '',
+ 'clientName': '',
+ 'modificationDate': 'date',
+ 'logs': true,
+ 'pdf': true,
+ 'status': '',
+ 'fundsReceived': true,
+ 'cafReceived': true,
+ 'createdBy': '',
+ 'creationDate': 'date'
  }
  ]
  }
@@ -381,40 +390,40 @@
 
 
  {
- "FUND_LIST_BY_CLASS": [
+ 'FUND_LIST_BY_CLASS': [
  {
- "fundNameFR": "",
- "fundNameEN": "",
- "portMgmtEN": "",
- "portMgmtFR": "",
- "currencyEN": "",
- "currencyFR": "",
- "assetClassEN": "",
- "assetClassFR": "",
- "platformEN": "",
- "platformFR": ""
+ 'fundNameFR': '',
+ 'fundNameEN': '',
+ 'portMgmtEN': '',
+ 'portMgmtFR': '',
+ 'currencyEN': '',
+ 'currencyFR': '',
+ 'assetClassEN': '',
+ 'assetClassFR': '',
+ 'platformEN': '',
+ 'platformFR': ''
  }
  ]
  }
 
 
  {
- "ASSET_CLASS_MIX": [
+ 'ASSET_CLASS_MIX': [
  {
- "id": 1,
- "profileName": "",
- "assetClassMix": [
+ 'id': 1,
+ 'profileName': '',
+ 'assetClassMix': [
  {
- "assetClassNameEN": "",
- "assetClassNameFR": "",
- "percentage": 1.12
+ 'assetClassNameEN': '',
+ 'assetClassNameFR': '',
+ 'percentage': 1.12
  }
  ],
- "assetFundMix": [
+ 'assetFundMix': [
  {
- "assetFundNameEN": "",
- "assetFundNameFR": "",
- "percentage": 1.10
+ 'assetFundNameEN': '',
+ 'assetFundNameFR': '',
+ 'percentage': 1.10
  }
  ]
  }
@@ -423,18 +432,18 @@
 
 
  {
- "ADVISOR": {
- "dealerNameEN": [],
- "dealerNameFR": [],
- "fullName": "",
- "street": "",
- "province": 1,
- "email": "",
- "phone": "",
- "fax": "",
- "city": "",
- "postalCode": "",
- "chosenDealerName": 1
+ 'ADVISOR': {
+ 'dealerNameEN': [],
+ 'dealerNameFR': [],
+ 'fullName': '',
+ 'street': '',
+ 'province': 1,
+ 'email': '',
+ 'phone': '',
+ 'fax': '',
+ 'city': '',
+ 'postalCode': '',
+ 'chosenDealerName': 1
  }
  }
 

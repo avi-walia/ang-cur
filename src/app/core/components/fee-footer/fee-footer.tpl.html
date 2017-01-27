@@ -1,0 +1,6 @@
+Fee Footer<br />
+<!--{{$ctrl.pageConfig}}-->
+<a ng-click="$ctrl.reset()">Reset</a> |
+<a ng-if="$ctrl.pageConfig.previousStateName" ui-sref="{{$ctrl.pageConfig.previousStateName}}">Back | </a>
+<a ng-if="$ctrl.pageConfig.nextStateName" ui-sref="{{$ctrl.pageConfig.nextStateName}}">Next</a> =
+<a ng-if="$ctrl.pageConfig.nextStateName" ng-click="$ctrl.next();">Next with Modal validation</a>

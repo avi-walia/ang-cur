@@ -1,1 +1,33 @@
-investment overview
+<h2>Some group name</h2>
+<h3>2. investment overview</h3>
+
+<pre>{{$ctrl.mockService.data.length | json}}</pre>
+<form class="form-horizontal">
+    <fieldset>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Linked CI Assets</label>
+            <div class="col-md-4">
+                <input id="textinput" name="textinput" type="text" placeholder="" class="form-control input-md">
+
+            </div>
+
+            <span id="totalGrpAmnt">Total group amount</span>
+            <div class="col-md-4">
+               {{$ctrl.totalGroupAmount | currency:undefined:0}}
+            </div>
+        </div>
+
+        <div class="profiles" ng-repeat="profile in $ctrl.profiles">
+            {{profile.profileName}}
+
+
+        </div>
+
+
+    </fieldset>
+</form>
+
+
+<fee-footer></fee-footer>

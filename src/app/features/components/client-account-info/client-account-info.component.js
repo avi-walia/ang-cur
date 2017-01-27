@@ -16,7 +16,7 @@
     function clientAccountInfoCtrl($scope) {
         var vm = this;
         this.functionName = functionName;
-        console.log('client-account-info');
+        // console.log('client-account-info');
         ////////////////
 
         function functionName() {

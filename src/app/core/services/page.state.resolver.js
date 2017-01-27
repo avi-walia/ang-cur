@@ -6,25 +6,22 @@
         .service('pageStateResolver', pageStateResolver);
 
     pageStateResolver.$inject = [
-        'i18nService',
-        'ROUTES'
+        'ROUTES',
+        'i18nService'
     ];
 
     /* @ngInject */
-    function pageStateResolver(
-        i18nService,
-        ROUTES
-    ) {
+    function pageStateResolver(ROUTES, i18nService) {
         var service = this;
 
         service.activePageName = '';
-
         service.pageLoading = false;
 
         service.getPageConfigFromState = getPageConfigurationObjectFromStateName;
         service.setActivePageName = setActivePageName;
         service.resolve = pageToStateMapper;
         service.check = stateToPageMapper;
+
 
         /**
          * Given a state will give you the entire page configuration.
@@ -105,17 +102,20 @@
          * @param sState string, a state name
          */
         function setActivePageName(sState) {
+            var attr = 'pageName';
             var oPageConfiguration = _.find(ROUTES, {stateName: sState});
-            if (angular.isDefined(oPageConfiguration)){
-                if ('pageName' in oPageConfiguration) {
+            if (angular.isDefined(oPageConfiguration)) {
+                if (attr in oPageConfiguration) {
                     if (!oPageConfiguration.isAbstract) {
                         service.activePageName = oPageConfiguration.pageName;
                     }
                 }
+            } else {
+                console.error('state: ' + sState + ' has missing ' + attr + ' attribute. Check your ROUTES constant variable');
+
             }
 
         }
-
 
     }
 

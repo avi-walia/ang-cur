@@ -4,13 +4,13 @@
     //---------------- CORE ---------------- //
     angular.module('evolution.core.cache', []);
     angular.module('evolution.core.server', ['evolution.core.cache']);
-    angular.module('evolution.core.main', ['evolution.core.server']);
+    angular.module('evolution.core.main', ['evolution.core.server', 'ui.bootstrap']);
     //---------------- FEATURES ---------------- //
-    angular.module('evolution.features.searchByName', ['evolution.utils']);
 
     angular.module('evolution.features.strangeTableTest', ['evolution.utils']);
 
-    angular.module('evolution.features.selectClientProfile', ['evolution.utils']);
+    angular.module('evolution.features.selectClientProfile', ['evolution.utils', 'ui.bootstrap']);
+
     angular.module('evolution.features.clientAccountInfo', ['evolution.utils']);
     angular.module('evolution.features.ipq', ['evolution.utils']);
     angular.module('evolution.features.portfolioSelection', ['evolution.utils']);
@@ -24,10 +24,12 @@
     angular.module('evolution.features.fee.profileSearch', ['evolution.utils']);
     angular.module('evolution.features.fee.contactInfo', ['evolution.utils']);
     angular.module('evolution.features.fee.investmentOverview', ['evolution.utils']);
-    angular.module('evolution.features.fee.serviceFees', ['evolution.utils']);
+    // angular.module('evolution.features.fee.serviceFees', ['evolution.utils']);
     angular.module('evolution.features.fee.summary', ['evolution.utils']);
     angular.module('evolution.features.fee.reports', ['evolution.utils']);
 
+
+    angular.module('evolution.features.searchByName', ['evolution.utils']);
     angular.module('evolution.features.test', ['evolution.utils']);
     angular.module('evolution.features.test2', ['evolution.utils']);
     angular.module('evolution.features.test3', ['evolution.utils']);
@@ -49,14 +51,27 @@
         'ngSanitize',
         'ngAria',
         'evolution.core.main',
-        'evolution.features.searchByName',
+        'evolution.features.selectClientProfile',
+        'evolution.features.clientAccountInfo',
+        'evolution.features.ipq',
+        'evolution.features.portfolioSelection',
+        'evolution.features.fundCustomization',
+        'evolution.features.advisorInfo',
+        'evolution.features.profileSummary',
+        'evolution.features.reports',
+        'evolution.features.splitProfile',
+        'evolution.features.help',
         'evolution.features.fee.profileSearch',
         'evolution.features.fee.contactInfo',
         'evolution.features.fee.investmentOverview',
-        'evolution.features.fee.serviceFees',
+
         'angulartics',
         'angulartics.google.analytics',
         'angular-md5',
+
+        'evolution.features.fee.summary',
+        'evolution.features.fee.reports',
+        'evolution.features.searchByName',
 
 
 

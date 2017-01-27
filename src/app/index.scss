@@ -1,4 +1,3 @@
-
 .strangeTableStyles {//this is a page name
   $headingColor: #fff1f1;
   $rowHeight: 26px;
@@ -95,3 +94,5 @@
     }
   }
 }
+@import "node_modules/normalize-scss/sass/normalize/import-now";
+@import "node_modules/zen-grids/sass/zen-grids";

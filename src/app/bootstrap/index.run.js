@@ -13,6 +13,8 @@
         'loadingService',
         'notificationService',
         'pageStateResolver',
+        'pageConfigService',
+        'feeHeaderService',
         'mockService'
     ];
 
@@ -27,6 +29,8 @@
         loadingService,
         notificationService,
         pageStateResolver,
+        pageConfigService,
+        feeHeaderService,
         mockService
     ) {
         $rootScope.locale = null;
@@ -109,7 +113,7 @@
 */
         // an object that holds the requested page configuration
         //@todo: add this one to the Registry
-        $rootScope.oRequestedPageConfig = {};
+        //$rootScope.oRequestedPageConfig = {};
 
         // Set dynamically loaded default values for 'currency', 'calendar'
         // and other angular components from /assets/locales/angular-locale_*.js
@@ -138,9 +142,10 @@
 
                 //Check routes.config.json for configurating oPageConfig objects
                 pageStateResolver.getPageConfigFromState(toState.name, function (oPageConfig) {
-                    console.log('oPageConfig: ', oPageConfig);
+                    // console.log('oPageConfig: ', oPageConfig);
                     if ('pageName' in oPageConfig) {
-                        $rootScope.oRequestedPageConfig = oPageConfig;
+                        $rootScope.pageName = oPageConfig.pageName;
+                        pageConfigService.pageConfig = oPageConfig;
                     }
                 });
 
@@ -150,17 +155,10 @@
                  * dynamic CSS class on main layout,
                  */
                 pageStateResolver.setActivePageName(toState.name);
+                
 
-
-                // DELETE Notifications on every route change,
-                // BUT "login|portfolio"
-                // Or first step of registration, password resetting, or web id retrieval if coming from a later step.
-                // OR same route
-                //if (!NotificationService.isEmpty())
-                //{
-                //    console.info('*** About to delete Notifications !!!');
-                //    NotificationService.delete();
-                //}
+                // pageStateResolver.setPreviousPageName(toState.name);
+                // pageStateResolver.setNextPageName(toState.name);
 
                 if (toState.resolve) {
                     pageStateResolver.pageLoading = false;
@@ -179,14 +177,30 @@
 
         $rootScope.$on('$stateChangeStart',
             function (event, toState, toParams, fromState, fromParams) {
-                console.log('calling languageSwitcher');
+                // console.log('calling languageSwitcher');
                 languageSwitcherService.switchLanguages(toState.name);
                 loadingService.loading = true;
-                console.log('fromState: ', fromState);
-                console.log('toState: ', toState);
-                console.log('toParams: ', toParams);
-                console.log('fromParams: ', fromParams);
-                if (fromParams.hasOwnProperty('locale') && fromParams.locale !== toParams.locale && (toState.url === fromState.url || fromState.url !== '^')) {
+                // console.log('fromState: ', fromState);
+                // console.log('toState: ', toState);
+                // console.log('toParams: ', toParams);
+                // console.log('fromParams: ', fromParams);
+
+
+                //for the FEe Prop Exit & Restart Links
+                // we may not need this
+                if (fromState.name === 'main.evolution.app.fundCustomization'){
+                    feeHeaderService.exitLink = 'main.evolution.app.fundCustomization';
+                    feeHeaderService.restartLink = 'main.evolution.fee.contactInfo';
+                }
+
+                if (fromState.name === 'main.evolution.app.selectClientProfile'){
+                    feeHeaderService.exitLink = 'main.evolution.app.selectClientProfile';
+                    feeHeaderService.restartLink = 'main.evolution.fee.profileSearch';
+                }
+                //end of for the fee header exit
+
+
+                if (fromParams.hasOwnProperty('locale') && fromParams.locale !== toParams.locale && (toState.url === fromState.url || fromState.url !== "^")) {
                     //event.preventDefault();
 
                 }
