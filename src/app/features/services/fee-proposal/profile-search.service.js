@@ -2,10 +2,10 @@
     'use strict';
 
     angular
-        .module('evolution.features.strangeTableTest')
-        .service('strangeTableTestService', strangeTableTestService);
+        .module('evolution.features.fee.profileSearch')
+        .service('profileSearchService', profileSearchService);
 
-    strangeTableTestService.$inject = [
+    profileSearchService.$inject = [
         'feeProposalService',
         'languageSwitcherService',
         'server',
@@ -14,7 +14,7 @@
     ];
 
     /* @ngInject */
-    function strangeTableTestService(
+    function profileSearchService(
         feeProposalService,
         languageSwitcherService,
         server,
@@ -46,11 +46,11 @@
         service.next = next;
         service.init = init;
         var initialized = false;
-
+        var x = false;
 
         function init() {
             //add some logic so that it only does this once
-            feeProposalService.init();
+                feeProposalService.init();
 
             service.familyGroupInfo = feeProposalService.getProfileSearch();
             if (service.familyGroupInfo.dealerRepCode) {
@@ -99,7 +99,7 @@
             var ret = server.getNoStorage('/getProfileGroups/' + dealerRepCode, false).then(function(data){
                 format(data.data);
                 service.data = data.data;
-                languageSwitcherService.addLocalizationObject({unLocalized: data.unLocalizedData, callBack: translateData, key: 'strangeTableTestService_data'})
+                languageSwitcherService.addLocalizationObject({unLocalized: data.unLocalizedData, callBack: translateData, key: 'profileSearchService_data'})
                 return service.data;
             });
             waitForResourcesService.pendingResources.push(ret);

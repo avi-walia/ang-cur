@@ -101,10 +101,6 @@
             });
 
             //used to generate mock data
-            //service.data = repeater(50, PROFILE_DETAIL);
-
-
-            //used to generate mock data
             //this takes forever!!!
             //service.data = repeater(1, PROFILE_GROUPS);
         }

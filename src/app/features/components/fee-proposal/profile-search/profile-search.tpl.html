@@ -1,9 +1,28 @@
 <h3>Profile Search / Add Screen</h3>
+{{::'nameTheGroup'| translate}}
+<div>
+    {{::'groupName'| translate}}
+    <input ng-model="$ctrl.profileSearchService.familyGroupInfo.familyGroupName" />
+</div>
+
+{{::'addProfilesToTheGroup'| translate}}
+<div>
+    {{::'dealerRepCode'| translate}}
+    <select ng-model="$ctrl.profileSearchService.familyGroupInfo.dealerRepCode" ng-change="$ctrl.profileSearchService.updateProfileList($ctrl.profileSearchService.familyGroupInfo.dealerRepCode)">
+        <option ng-repeat="value in $ctrl.initDataService.dealerRepCodes track by $index">{{value}}</option>
+    </select>
+</div>
+{{::'searchProfileClientName' | translate}}
+<strange-table reset-flag="$ctrl.profileSearchService.resetFlag" selected-items="$ctrl.profileSearchService.familyGroupInfo.partialProfiles" get-Group-Header="$ctrl.profileSearchService.getGroupHeader" update-selected="$ctrl.profileSearchService.updateSelected(selectedItems, currentList)" data="$ctrl.profileSearchService.data" config="$ctrl.profileSearchService.configStrangeTable"></strange-table>
+
+<button ng-click="$ctrl.profileSearchService.reset()">Reset</button>
+<button ng-click="$ctrl.profileSearchService.next()">Next</button>
+
+<!--
 
 <form name="$ctrl.feeProfileSearch">
     <div class="form-group">
         <label for="dealerRepCode">Dealer Rep/Code</label>
-        <!--    <input type="text" class="form-control" id="dealerRepCode" placeholder="">-->
         <select id="dealerRepCode" class="form-control"
                 name="dealerRepCode"
                 ng-model="$ctrl.feeProposalModel.dealerRepCode"
@@ -25,10 +44,9 @@
                name="familyGroupName">
     </div>
 
-
-    <!--  <button type="submit" class="btn btn-default">Submit</button>-->
 </form>
 
 <p>show grid here</p>
+-->
 
 <fee-footer></fee-footer>

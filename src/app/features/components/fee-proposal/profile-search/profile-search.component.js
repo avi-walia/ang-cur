@@ -10,12 +10,25 @@
 
         });
 
-    profileSearchCtrl.$inject = ['dataCacheLocalStorage'];
+    profileSearchCtrl.$inject = ['dataCacheLocalStorage', 'profileSearchService', 'initDataService', 'mockService'];
 
     /* @ngInject */
-    function profileSearchCtrl(dataCacheLocalStorage) {
+    function profileSearchCtrl(
+        dataCacheLocalStorage,
+        profileSearchService,
+        initDataService,
+        mockService
+    ) {
         var vm = this;
+        vm.mock = mockService.data;
+        vm.data = {};
+        vm.profileSearchService = profileSearchService;
+        vm.initDataService = initDataService;
 
+
+        vm.profileSearchService.init();
+        initDataService.getData();
+        /*
         //lets check if there is funds in local storage because we need it for Fee Proposal
         checkIfFundsExist();
 
@@ -26,6 +39,7 @@
             var data = dataCacheLocalStorage.get('fundList');
             console.log(data);
         }
+        */
     }
 
 })();
