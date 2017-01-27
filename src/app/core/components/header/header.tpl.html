@@ -1,27 +1,19 @@
 <style>
-    .active{
+    .active {
         color: red;
     }
-    #step-indicator ul li{
+
+    #step-indicator ul li {
         display: inline;
     }
 </style>
 
 <header id="header" class="header nav-down" role="banner">
-   <!--state =  {{$ctrl.state}}-->
-    <div ng-if="$ctrl.displayOpenExistingPro">
-        <a ui-sref="main.evolution.selectClientProfile">Create/Open existing profile</a>
-        <p>  <!-- display Profile Name here -->
-            Profile name =
-            {{$ctrl.profileName}}
-        </p>
-    </div>
 
-
-  
+    <a ui-sref="main.evolution.selectClientProfile">Create/Open existing profile</a>
 
     <div id="ecissFlag">
-       <input type="checkbox" ng-checked="$ctrl.isEcissUser" disabled>Eciss
+        <input type="checkbox" ng-checked="$ctrl.isEcissUser" disabled>Eciss
     </div>
 
     <div id="languageSwitcher">
@@ -31,30 +23,31 @@
     <div id="help">
         <a ui-sref="main.evolution.help">Help </a>
     </div>
+current state =
+{{$ctrl.currentState}}
 
-
-    <div ng-if="$ctrl.stepIndicator" id="step-indicator">
+    <div id="step-indicator" ng-if="$ctrl.currentState !== 'main.evolution.selectClientProfile' ">
         <ul>
             <!--{ active: $ctrl.isActive }-->
-            <li ng-class="{ active: $ctrl.pageStateResolver.stepIndicator === 1}">
+            <li ng-class="{ active: $ctrl.pageConfigService.stepIndicator === 1}">
                 1
             </li>
-            <li ng-class="{ active: $ctrl.pageStateResolver.stepIndicator ===  2 }">2
+            <li ng-class="{ active: $ctrl.pageConfigService.stepIndicator ===  2 }">2
 
             </li>
-            <li ng-class="{ active: $ctrl.pageStateResolver.stepIndicator === 3}">3
+            <li ng-class="{ active: $ctrl.pageConfigService.stepIndicator === 3}">3
 
             </li>
-            <li ng-class="{ active: $ctrl.pageStateResolver.stepIndicator === 4}">4
+            <li ng-class="{ active: $ctrl.pageConfigService.stepIndicator === 4}">4
 
             </li>
-            <li ng-class="{ active: $ctrl.pageStateResolver.stepIndicator === 5}">5
+            <li ng-class="{ active: $ctrl.pageConfigService.stepIndicator === 5}">5
 
             </li>
-            <li ng-class="{ active: $ctrl.pageStateResolver.stepIndicator === 6}">6
+            <li ng-class="{ active: $ctrl.pageConfigService.stepIndicator === 6}">6
 
             </li>
-            <li ng-class="{ active: $ctrl.pageStateResolver.stepIndicator === 7}">7
+            <li ng-class="{ active: $ctrl.pageConfigService.stepIndicator === 7}">7
 
             </li>
         </ul>
