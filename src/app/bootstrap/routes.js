@@ -31,8 +31,8 @@
                         // if (!(deviceDetector.browser === 'ie' && deviceDetector.browser_version <= '9.0')  ) {
                             // @todo: check if back btn functionality apply
                             //$state.go('main.advisorLocator.portfolio');
-                            $state.go('main.evolution.fee.profileSearch');
-                            // $state.go('main.evolution.abstract.test4');
+                            // $state.go('main.evolution.fee.profileSearch');
+                            $state.go('main.evolution.test');
                         // }
                     }]);
 
