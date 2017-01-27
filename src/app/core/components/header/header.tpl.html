@@ -10,7 +10,7 @@
 
 <header id="header" class="header nav-down" role="banner">
 
-    <a ui-sref="main.evolution.selectClientProfile">Create/Open existing profile</a>
+    <a ui-sref="main.evolution.app.selectClientProfile">Create/Open existing profile</a>
 
     <div id="ecissFlag">
         <input type="checkbox" ng-checked="$ctrl.isEcissUser" disabled>Eciss
@@ -21,35 +21,19 @@
     </div>
 
     <div id="help">
-        <a ui-sref="main.evolution.help">Help </a>
+        <a ui-sref="main.evolution.app.help">Help </a>
     </div>
-current state =
-{{$ctrl.currentState}}
 
-    <div id="step-indicator" ng-if="$ctrl.currentState !== 'main.evolution.selectClientProfile' ">
+
+
+    <!-- STEP INDICATOR -->
+    <div id="step-indicator" ng-if="$ctrl.pageConfigService.pageConfig.stepIndicator !== 0 ">
         <ul>
-            <!--{ active: $ctrl.isActive }-->
-            <li ng-class="{ active: $ctrl.pageConfigService.stepIndicator === 1}">
-                1
-            </li>
-            <li ng-class="{ active: $ctrl.pageConfigService.stepIndicator ===  2 }">2
-
-            </li>
-            <li ng-class="{ active: $ctrl.pageConfigService.stepIndicator === 3}">3
-
-            </li>
-            <li ng-class="{ active: $ctrl.pageConfigService.stepIndicator === 4}">4
-
-            </li>
-            <li ng-class="{ active: $ctrl.pageConfigService.stepIndicator === 5}">5
-
-            </li>
-            <li ng-class="{ active: $ctrl.pageConfigService.stepIndicator === 6}">6
-
-            </li>
-            <li ng-class="{ active: $ctrl.pageConfigService.stepIndicator === 7}">7
-
+            <li ng-repeat="(key, step) in ::$ctrl.steps track by $index"
+                ng-class="{ active: $ctrl.pageConfigService.pageConfig.stepIndicator === step}">
+                {{::step}}
             </li>
         </ul>
+
     </div>
 </header>
