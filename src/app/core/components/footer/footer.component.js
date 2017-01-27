@@ -24,20 +24,15 @@
     function footerCtrl($state, pageConfigService) {
         var vm = this;
         vm.nextLabel = '';
-        // vm.test = "TEst";
-        // vm.next = next;
+
         vm.pageConfig = pageConfigService.pageConfig;
-        // console.log(vm.nextState);
-        // console.log($state);
+
         if ($state.current.name === 'main.evolution.app.selectClientProfile'){
             vm.nextLabel = 'Open Profile';
         }else{
             vm.nextLabel = 'Next';
         }
 
-        //only display Create Template button if we are in : IPQ, Portfolio Selection, Fund Cust, Advisor Info
-        // vm.displayCreateTemplate =
-        // var createTemplate = ['ipq', ]
 
 
     }
