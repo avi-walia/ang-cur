@@ -14,7 +14,7 @@
 
     dataCacheSessionStorage.$inject = ['APP_NAME', 'CacheFactory'];
     dataCacheLocalStorage.$inject = ['APP_NAME', 'CacheFactory', 'EXPIRY_TIME'];//EXPIRY_TIME is how long an item can be stored in localstorage before it expires.
-    notificationsCacheService.$inject = ['APP_NAME', 'CacheFactory', ];//should session storage also have an expiration time?
+    notificationsCacheService.$inject = ['APP_NAME', 'CacheFactory'];//should session storage also have an expiration time?
 
     /* @ngInject */
     function dataCacheSessionStorage(APP_NAME, CacheFactory){

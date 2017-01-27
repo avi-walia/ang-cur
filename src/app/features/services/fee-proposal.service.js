@@ -22,19 +22,19 @@
                 investmentOverview object
              */
             partialProfiles: [],
-            familyGroupName: "",
+            familyGroupName: '',
             //contact info
-            firstName:"",
-            middleName:"",
-            lastName:"",
-            address: "",
-            city: "",
-            province: "",//required
-            postalCode:"",
-            phone: "",
-            fax: "",
-            email: "",
-            dealerRepCode:"",
+            firstName:'',
+            middleName:'',
+            lastName:'',
+            address: '',
+            city: '',
+            province: '',//required
+            postalCode:'',
+            phone: '',
+            fax: '',
+            email: '',
+            dealerRepCode:'',
 
             //investment overview
             linkedCIAssets: 0,
@@ -170,16 +170,16 @@
 
         function separatelyManagedAccount() {
             return {
-                accountType: "",
-                fundClass: "",//should be one of the string keys in the valueByClass object, ie. "classI", "classE", "classF", and possibly more in the future
+                accountType: '',
+                fundClass: '',//should be one of the string keys in the valueByClass object, ie. "classI", "classE", "classF", and possibly more in the future
                 amount: 0,
                 separatelyManagedFunds: []
             }
         }
         function separatelyManagedFund() {
             return {
-                fundName: "",
-                assetClass: "",
+                fundName: '',
+                assetClass: '',
                 allocation:0
             }
         }

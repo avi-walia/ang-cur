@@ -15,3 +15,6 @@
 </div>
 {{::'searchProfileClientName' | translate}}
 <strange-table get-Group-Header="$ctrl.strangeTableTestService.getGroupHeader" update-selected="$ctrl.strangeTableTestService.updateSelected(selectedItems)" data="$ctrl.strangeTableTestService.data" config="$ctrl.strangeTableTestService.configStrangeTable"></strange-table>
+
+<button ng-click="$ctrl.strangeTableTestService.reset()">Reset</button>
+<button ng-click="$ctrl.strangeTableTestService.next()">Next</button>

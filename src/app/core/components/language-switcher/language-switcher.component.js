@@ -4,7 +4,7 @@
     angular
         .module('evolution.core.main')
         .component('languageSwitcher', {
-            templateUrl: 'app/core/components/languageSwitcher/languageSwitcher.html',
+            templateUrl: 'app/core/components/language-switcher/language-switcher.html',
             controller: LangSwitcherCtrl
         });
 

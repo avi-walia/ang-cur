@@ -22,7 +22,7 @@
 
                 //_.assignIn(service, [data.data]);
                 Object.assign(service, data.data);
-                languageSwitcherService.addLocalizationObject({unLocalized: data.unLocalizedData, callBack: translateData, key: "strangeTableTestService_data"})
+                languageSwitcherService.addLocalizationObject({unLocalized: data.unLocalizedData, callBack: translateData, key: 'strangeTableTestService_data'})
                 return service.data;
             });
 

@@ -20,8 +20,8 @@
         service.updateProfileList = updateProfileList;
         service.getGroupHeader = getGroupHeader;
         service.updateSelected = updateSelected;
-        service.dealerRepCode = "";
-        service.familyGroupName = "";
+        service.dealerRepCode = '';
+        service.familyGroupName = '';
         service.updateFeeProposal = updateFeeProposal;
         var selectedItems = [];
         service.configStrangeTable = {
@@ -44,10 +44,7 @@
         }
 
         function updateSelected(newSelectedItems) {
-            console.log('parent data: ', service.data);
-            console.log('selectedProfileIds: ', newSelectedItems);
             selectedItems = newSelectedItems;
-            console.log('selectedItem: ', selectedItems);
         }
 
 
@@ -55,7 +52,7 @@
             var ret = server.getNoStorage('/getProfileGroups/' + dealerRepCode, false).then(function(data){
                 format(data.data);
                 service.data = data.data;
-                languageSwitcherService.addLocalizationObject({unLocalized: data.unLocalizedData, callBack: translateData, key: "strangeTableTestService_data"})
+                languageSwitcherService.addLocalizationObject({unLocalized: data.unLocalizedData, callBack: translateData, key: 'strangeTableTestService_data'})
                 return service.data;
             });
             waitForResourcesService.pendingResources.push(ret);
@@ -65,13 +62,14 @@
         function format(profileGroups) {
             _.forEach(profileGroups, function(profileGroup) {
                 profileGroup.subGroups = profileGroup.profileSummaries;
-                profileGroup.createdBy = stripPrefix(profileGroup.createdBy);
-                profileGroup.modifiedBy = stripPrefix(profileGroup.modifiedBy);
                 delete profileGroup.profileSummaries;
+                _.forEach(profileGroup.subGroups, function(profileSummary) {
+                    profileSummary.createdBy = stripPrefix(profileSummary.createdBy);
+                });
             });
         }
         function stripPrefix(str) {
-            var prefix = "UPMA_ADV::";
+            var prefix = 'UPMA_ADV::';
             if (str.substring(0, prefix.length) === prefix) {
                 str = str.substring(prefix.length, str.length);
             }

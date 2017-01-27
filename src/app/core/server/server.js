@@ -226,8 +226,8 @@
             /*
             _.forEach(MOCK_API, function(mockPath, index) {
                 if (sPath.length >= mockPath.length) {
-                    console.log("sPath: ", sPath.substring(0, mockPath.length));
-                    console.log("mockPath: ", mockPath);
+                    console.log('sPath: ', sPath.substring(0, mockPath.length));
+                    console.log('mockPath: ', mockPath);
                 }
                 if (sPath.length >= mockPath.length && sPath.substring(0, mockPath.length) === mockPath) {
                     endpoint = 'http://localhost:3003';

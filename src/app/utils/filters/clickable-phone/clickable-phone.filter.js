@@ -17,8 +17,8 @@
 
             if (phone && detectMobile.isMobile) {
                 //the text that separates the extension from the base number starts with either an e(ex./ext.) or an x(x.)
-                var e = phone.indexOf("e");
-                var x = phone.indexOf("x");
+                var e = phone.indexOf('e');
+                var x = phone.indexOf('x');
                 var basePhone = phone;
                 //use whichever extension indicator that is closest to the beginning of the phone number.
                 //the extension separator begins with x.
@@ -34,7 +34,7 @@
                 }
                 //remove all non-numeric characters from the phone number
                 basePhone = basePhone.replace(/[^0-9]/g,'');
-                return $sce.trustAsHtml("<a class='clickablePhone' aria-label='" + basePhone + "' title='" + phoneFilter(phone) + "' href='tel:" + basePhone + "'>" + phoneFilter(phone) + "</a>");
+                return $sce.trustAsHtml('<a class="clickablePhone" aria-label="' + basePhone + '" title="' + phoneFilter(phone) + '" href="tel:"' + basePhone + '">' + phoneFilter(phone) + '</a>');
             }
             return phone;
         };

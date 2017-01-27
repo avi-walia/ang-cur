@@ -35,33 +35,33 @@
                     mockData = TESTS[id];
                 } else if(urlParams[0] === 'getProfileGroups') {
                     if (id) {
-                        if (id === "9721-0033") {
+                        if (id === '9721-0033') {
                             mockData = [];
                             for(var x = 26; x < 39; x++) {
                                 mockData.push(PROFILE_GROUPS[x]);
                             }
-                        } else if (id === "9721-0034") {
+                        } else if (id === '9721-0034') {
                             mockData = [];
                             for(var x = 16; x < 25; x++) {
                                 mockData.push(PROFILE_GROUPS[x]);
                             }
                             console.log('mockData2: ', mockData);
-                        } else if (id === "9721-0035") {
+                        } else if (id === '9721-0035') {
                             mockData = [];
                             for(var x = 12; x < 15; x++) {
                                 mockData.push(PROFILE_GROUPS[x]);
                             }
-                        } else if (id === "9721-0036") {
+                        } else if (id === '9721-0036') {
                             mockData = [];
                             for(var x = 10; x < 11; x++) {
                                 mockData.push(PROFILE_GROUPS[x]);
                             }
-                        } else if (id === "9721-0037") {
+                        } else if (id === '9721-0037') {
                             mockData = [];
                             for(var x = 4; x < 10; x++) {
                                 mockData.push(PROFILE_GROUPS[x]);
                             }
-                        } else if (id === "9721-0038") {
+                        } else if (id === '9721-0038') {
                             mockData = [];
                             for(var x = 0; x < 3; x++) {
                                 mockData.push(PROFILE_GROUPS[x]);
@@ -102,106 +102,106 @@
 
 
         var names = [
-            "Sophia",
-            "Emma",
-            "Olivia",
-            "Isabella",
-            "Ava",
-            "Lily",
-            "Zoe",
-            "Chloe",
-            "Mia",
-            "Madison",
-            "Emily",
-            "Ella",
-            "Madelyn",
-            "Abigail",
-            "Aubrey",
-            "Addison",
-            "Avery",
-            "Layla",
-            "Hailey",
-            "Amelia",
-            "Hannah",
-            "Charlotte",
-            "Kaitlyn",
-            "Harper",
-            "Kaylee",
-            "Sophie",
-            "Mackenzie",
-            "Peyton",
-            "Riley",
-            "Grace",
-            "Brooklyn",
-            "Sarah",
-            "Aaliyah",
-            "Anna",
-            "Arianna",
-            "Ellie",
-            "Natalie",
-            "Isabelle",
-            "Lillian",
-            "Evelyn",
-            "Elizabeth",
-            "Lyla",
-            "Lucy",
-            "Claire",
-            "Makayla",
-            "Kylie",
-            "Audrey",
-            "Maya",
-            "Leah",
-            "Gabriella",
-            "Aiden",
-            "Jackson",
-            "Ethan",
-            "Liam",
-            "Mason",
-            "Noah",
-            "Lucas",
-            "Jacob",
-            "Jayden",
-            "Jack",
-            "Logan",
-            "Ryan",
-            "Caleb",
-            "Benjamin",
-            "William",
-            "Michael",
-            "Alexander",
-            "Elijah",
-            "Matthew",
-            "Dylan",
-            "James",
-            "Owen",
-            "Connor",
-            "Brayden",
-            "Carter",
-            "Landon",
-            "Joshua",
-            "Luke",
-            "Daniel",
-            "Gabriel",
-            "Nicholas",
-            "Nathan",
-            "Oliver",
-            "Henry",
-            "Andrew",
-            "Gavin",
-            "Cameron",
-            "Eli",
-            "Max",
-            "Isaac",
-            "Evan",
-            "Samuel",
-            "Grayson",
-            "Tyler",
-            "Zachary",
-            "Wyatt",
-            "Joseph",
-            "Charlie",
-            "Hunter",
-            "David"
+            'Sophia',
+            'Emma',
+            'Olivia',
+            'Isabella',
+            'Ava',
+            'Lily',
+            'Zoe',
+            'Chloe',
+            'Mia',
+            'Madison',
+            'Emily',
+            'Ella',
+            'Madelyn',
+            'Abigail',
+            'Aubrey',
+            'Addison',
+            'Avery',
+            'Layla',
+            'Hailey',
+            'Amelia',
+            'Hannah',
+            'Charlotte',
+            'Kaitlyn',
+            'Harper',
+            'Kaylee',
+            'Sophie',
+            'Mackenzie',
+            'Peyton',
+            'Riley',
+            'Grace',
+            'Brooklyn',
+            'Sarah',
+            'Aaliyah',
+            'Anna',
+            'Arianna',
+            'Ellie',
+            'Natalie',
+            'Isabelle',
+            'Lillian',
+            'Evelyn',
+            'Elizabeth',
+            'Lyla',
+            'Lucy',
+            'Claire',
+            'Makayla',
+            'Kylie',
+            'Audrey',
+            'Maya',
+            'Leah',
+            'Gabriella',
+            'Aiden',
+            'Jackson',
+            'Ethan',
+            'Liam',
+            'Mason',
+            'Noah',
+            'Lucas',
+            'Jacob',
+            'Jayden',
+            'Jack',
+            'Logan',
+            'Ryan',
+            'Caleb',
+            'Benjamin',
+            'William',
+            'Michael',
+            'Alexander',
+            'Elijah',
+            'Matthew',
+            'Dylan',
+            'James',
+            'Owen',
+            'Connor',
+            'Brayden',
+            'Carter',
+            'Landon',
+            'Joshua',
+            'Luke',
+            'Daniel',
+            'Gabriel',
+            'Nicholas',
+            'Nathan',
+            'Oliver',
+            'Henry',
+            'Andrew',
+            'Gavin',
+            'Cameron',
+            'Eli',
+            'Max',
+            'Isaac',
+            'Evan',
+            'Samuel',
+            'Grayson',
+            'Tyler',
+            'Zachary',
+            'Wyatt',
+            'Joseph',
+            'Charlie',
+            'Hunter',
+            'David'
         ];
         function randomName() {
 
@@ -220,51 +220,51 @@
         }
 
         var profileGroupTemplate =  {
-            "id": 1,
-            "profileSummary": {
-                "id": 1,
-                "profileName": "",
-                "clientName": "",
-                "modificationDate": "date",
-                "logs": false,
-                "pdf": false,
-                "status": "",
-                "fundsReceived": true,
-                "cafReceived": true,
-                "createdBy": "",
-                "creationDate": "date"
+            'id': 1,
+            'profileSummary': {
+                'id': 1,
+                'profileName': '',
+                'clientName': '',
+                'modificationDate': 'date',
+                'logs': false,
+                'pdf': false,
+                'status': '',
+                'fundsReceived': true,
+                'cafReceived': true,
+                'createdBy': '',
+                'creationDate': 'date'
             }
         };
 
         var fundListTemplate =  {
-            "id": 1,
-            "fundNameFR": "",
-            "fundNameEN": "",
-            "portMgmtEN": "",
-            "portMgmtFR": "",
-            "currencyEN": "",
-            "currencyFR": "",
-            "assetClassEN": "",
-            "assetClassFR": "",
-            "platformEN": "",
-            "platformFR": ""
+            'id': 1,
+            'fundNameFR': '',
+            'fundNameEN': '',
+            'portMgmtEN': '',
+            'portMgmtFR': '',
+            'currencyEN': '',
+            'currencyFR': '',
+            'assetClassEN': '',
+            'assetClassFR': '',
+            'platformEN': '',
+            'platformFR': ''
         };
 
         var assetClassMixTemplate = {
-            "id": 1,
-            "profileName": "",
-            "assetClassMix": [
+            'id': 1,
+            'profileName': '',
+            'assetClassMix': [
                 {
-                    "assetClassNameEN": "",
-                    "assetClassNameFR": "",
-                    "percentage": 1.12
+                    'assetClassNameEN': '',
+                    'assetClassNameFR': '',
+                    'percentage': 1.12
                 }
             ],
-            "assetFundMix": [
+            'assetFundMix': [
                 {
-                    "assetFundNameEN": "",
-                    "assetFundNameFR": "",
-                    "percentage": 1.10
+                    'assetFundNameEN': '',
+                    'assetFundNameFR': '',
+                    'percentage': 1.10
                 }
             ]
         }
@@ -282,25 +282,25 @@
                     }
                 } else if (typeof val === 'object') {
                    dataMocker(obj[key], max, index);
-                } else if (typeof key === "string" && !Number.isInteger(key)) {
+                } else if (typeof key === 'string' && !Number.isInteger(key)) {
                     var local = key.substring(key.length - 2, key.length);
                     var root = key.substring(0, key.length - 2);
-                    if (local === "EN") {
-                        if (obj[root + "FR"] !== "") {
-                            obj[key] = obj[root + "FR"].substring(3, obj[root + "FR"].length);
+                    if (local === 'EN') {
+                        if (obj[root + 'FR'] !== '') {
+                            obj[key] = obj[root + 'FR'].substring(3, obj[root + 'FR'].length);
                         } else {
                             obj[key] = randomName();
                         }
-                    } else if (local === "FR") {
-                        if (obj[root + "EN"] !== "") {
-                            obj[key] = "FR " + obj[root + "EN"];
+                    } else if (local === 'FR') {
+                        if (obj[root + 'EN'] !== '') {
+                            obj[key] = 'FR ' + obj[root + 'EN'];
                         } else {
-                            obj[key] = "FR " + randomName();
+                            obj[key] = 'FR ' + randomName();
                         }
                     } else {
-                        if (val === "date") {
+                        if (val === 'date') {
                             obj[key] = randomDate();
-                        } else if (typeof val === "number") {
+                        } else if (typeof val === 'number') {
                             if (Number.isInteger(val)) {
                                 if (key === 'id') {
                                     obj[key] = index;
@@ -310,7 +310,7 @@
                             } else {
                                 obj[key] = Math.floor(Math.random() * 101) / 100;
                             }
-                        } else if (typeof val === "boolean") {
+                        } else if (typeof val === 'boolean') {
                             obj[key] = Math.random() > 0.5;
 
                         } else {
@@ -318,9 +318,9 @@
                         }
                     }
                } else {
-                   if (val === "date") {
+                   if (val === 'date') {
                        obj[key] = randomDate();
-                   } else if (typeof val === "number") {
+                   } else if (typeof val === 'number') {
                        if (Number.isInteger(val)) {
                            if (key === 'id') {
                                obj[key] = index;
@@ -330,7 +330,7 @@
                        } else {
                            obj[key] = Math.floor(Math.random() * 101) / 100;
                        }
-                   } else if (typeof val === "boolean") {
+                   } else if (typeof val === 'boolean') {
                        obj[key] = Math.random() > 0.5;
 
                    } else {

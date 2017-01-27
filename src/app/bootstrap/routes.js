@@ -161,7 +161,7 @@
                         url: '/abstract',
                         abstract: true,
                         views: {
-                            "content@main": {
+                            'content@main': {
                                 controller: 'test3Ctrl as Test',
                                 //templateUrl: 'app/core/layout/main.layout.html'
                                 templateUrl: 'app/features/components/test3/test3.tpl.html'

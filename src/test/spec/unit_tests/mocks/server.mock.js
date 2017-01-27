@@ -1,5 +1,0 @@
-var serverMockConstructor = function() {
-    return {
-
-    };
-}

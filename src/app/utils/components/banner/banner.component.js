@@ -43,7 +43,7 @@
             vm.showErrors = true;
             vm.errorText = '';
             _.forEach(vm.errors, function(errorKey) {
-                vm.errorText += $translate.instant(errorKey) + "<br/>";
+                vm.errorText += $translate.instant(errorKey) + '<br/>';
             });
         }
         $scope.$on('$destroy', function() {

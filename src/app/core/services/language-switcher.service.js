@@ -75,14 +75,14 @@
             }
             newStateName = parseService.stripDots(newStateName);
             /*
-                If the state name contains more 2 "_" then it is a substate of an abstract state.
+                If the state name contains more 2 '_' then it is a substate of an abstract state.
                 Translation callbacks for substate's parents will also need to be triggered.
                 Currently I have no way of isolating just parents, so sibling state's callbacks will also be triggered.
              */
-            var stateParts = newStateName.split("_");
+            var stateParts = newStateName.split('_');
             if (stateParts.length > 3 ) {
                 delete stateParts[stateParts.length-1];
-                newStateName = stateParts.join("_");
+                newStateName = stateParts.join('_');
                 newStateName = newStateName.substring(0, newStateName.length - 1);
                 var newStateLength = newStateName.length;
                 _.forEach(service.localizationObjects, function(value, key) {

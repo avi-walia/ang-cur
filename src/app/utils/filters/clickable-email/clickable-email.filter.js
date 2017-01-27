@@ -13,14 +13,9 @@
     //this filter is used to determine if a valid email was provided and format it to be clickable if it is.
     function clickableEmailFilter($sce, $translate) {
         return function (email) {
-            /*
-            if (validateEmail(email)) {
-                return $sce.trustAsHtml("<a href='mailto:" + email + "' target='_top'>" + email + "</a>");
-            }
-            */
             var emailText = $translate.instant('email');
             if (email) {
-                return $sce.trustAsHtml("<a class='clickableEmail' aria-label='" + email + " " + emailText + "' title='" + email + "' href='mailto:" + email + "'>" + email + "</a>");
+                return $sce.trustAsHtml('<a class="clickableEmail" aria-label="' + email + ' ' + emailText + '" title="' + email + '" href="mailto:' + email + '">' + email + '</a>');
             }
             return email;
         };

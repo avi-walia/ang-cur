@@ -13,7 +13,7 @@
     function clickableFaxFilter($sce) {
         return function (fax) {
             if (fax) {
-                return $sce.trustAsHtml("<a aria-label='fax:" + fax + "' title='fax:" + fax + "' href='fax:" + fax + "'>" + fax + "</a>");
+                return $sce.trustAsHtml('<a aria-label="fax:' + fax + '" title="fax:' + fax + '" href="fax:' + fax + '">' + fax + '</a>');
             }
             return fax;
         };

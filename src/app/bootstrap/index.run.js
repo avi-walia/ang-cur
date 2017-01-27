@@ -37,7 +37,7 @@
 
         var lastSt = 0;
         var scrollDebounce = 250;//250ms
-        var headerClasses = "";
+        var headerClasses = '';
 
         mockService.init();
 
@@ -54,7 +54,7 @@
         }, scrollDebounce);
 
         function hasScrolled() {
-            if (headerClasses === "") {
+            if (headerClasses === '') {
                 headerClasses = document.getElementById('header').className;
             }
             //var st = window.scrollTop();
@@ -69,12 +69,12 @@
             // This is necessary so you never see what is "behind" the navbar.
             if (st > lastScrollTop && st > navbarHeight){
                 // Scroll Down
-                document.getElementById('header').className = headerClasses.replace("nav-down", "nav-up");
+                document.getElementById('header').className = headerClasses.replace('nav-down', 'nav-up');
             } else {
                 // Scroll Up
                 //if((st - lastScrollTop) < delta) {
                     //document.getElementById('header').removeClass('nav-up').addClass('nav-down');
-                    document.getElementById('header').className = headerClasses.replace("nav-up", "nav-down");
+                    document.getElementById('header').className = headerClasses.replace('nav-up', 'nav-down');
                 //}
             }
 
@@ -186,7 +186,7 @@
                 console.log('toState: ', toState);
                 console.log('toParams: ', toParams);
                 console.log('fromParams: ', fromParams);
-                if (fromParams.hasOwnProperty('locale') && fromParams.locale !== toParams.locale && (toState.url === fromState.url || fromState.url !== "^")) {
+                if (fromParams.hasOwnProperty('locale') && fromParams.locale !== toParams.locale && (toState.url === fromState.url || fromState.url !== '^')) {
                     //event.preventDefault();
 
                 }

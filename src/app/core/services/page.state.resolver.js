@@ -100,7 +100,7 @@
 
         /**
          * Sets
-         * "activePageName", the active page name.
+         * 'activePageName', the active page name.
          *
          * @param sState string, a state name
          */

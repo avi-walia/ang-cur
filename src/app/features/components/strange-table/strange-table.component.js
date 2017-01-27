@@ -6,7 +6,7 @@
         .module('evolution.features.strangeTableTest')
         .component('strangeTable', {
             controller: strangeTableCtrl,
-            templateUrl:'app/features/components/strangeTable/strangeTable.tpl.html',
+            templateUrl:'app/features/components/strange-table/strange-table.tpl.html',
             bindings: {
                 //moreData: '<',
                 //moreData2: '<'
@@ -32,7 +32,7 @@
         vm.changeOrder = changeOrder;
         vm.orderBy = 'id';
         vm.isAscending = true;
-        vm.searchInput = "";
+        vm.searchInput = '';
         vm.search = search;
         vm.filteredData = [];
         vm.toggleSelect = toggleSelect;
@@ -129,7 +129,6 @@
                 objectGroup.expandSubGroup = false;
             });
 
-            //vm.config.hiddenColumns.push("isSelected");
             vm.filteredData = vm.data;
         };
 

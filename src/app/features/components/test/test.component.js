@@ -31,8 +31,8 @@
         vm.testService = testService;
         vm.mockService = mockService;
 
-        notificationService.addMessage({msg:"testNotification", type:1});
-        notificationService.addMessage({msg:"<h2 translate>testNotification2</h2>", type:1});
+        notificationService.addMessage({msg:'testNotification', type:1});
+        notificationService.addMessage({msg:'<h2 translate>testNotification2</h2>', type:1});
 
 
         testService.getData('/tests/1').then(
