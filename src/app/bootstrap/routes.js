@@ -70,8 +70,6 @@
                         }
                     })
 
-                    /************Search by Name ****************/
-
                     //You can create profile & open existing profile in this state
                     .state('main.evolution.app.selectClientProfile', {
                         url: '/select-client-profile',
