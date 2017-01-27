@@ -1,3 +1,46 @@
 <footer class="footer region region-footer" role="contentinfo">
-    footer
+    <!-- HELP -->
+    <!--<a target="_blank" ui-sref="main.evolution.help">Help</a>-->
+
+    <!-- RESET -->
+        <!-- hide the Reset in Portfolio Selection -->
+    <a ng-if="$ctrl.pageConfig.reset" ng-click="$ctrl.reset()">Reset</a>
+
+
+    <!-- SPLIT -->
+    <p>
+        <a ng-if="$ctrl.pageConfig.split" ui-sref="main.evolution.app.split">Split</a>
+    </p>
+
+    <!-- CREATE TEMPLATE -->
+    <a ng-if="$ctrl.pageConfig.createTemplate" href="javascript:void(0)" ng-click="">Create Template</a>
+
+    <!-- DISCLAIMER -->
+    <span ng-if="$ctrl.pageConfig.disclaimer" >
+        <input type="checkbox" name="disclaimer" ng-click="">
+        Disclaimer (must be acknowledged to proceed)
+    </span><br />
+
+    <!-- PREVIEW -->
+    <a ng-if="$ctrl.pageConfig.preview" href="javascript:void(0)" ng-click="">
+        Preview selected forms</a><br />
+
+    <!-- SAVE -->
+    <a  ng-if="$ctrl.pageConfig.save" href="javascript:void(0)" ng-click="">Save</a>
+
+    <!-- BACK -->
+    <a ng-if="$ctrl.pageConfig.previousStateName" ui-sref="{{$ctrl.pageConfig.previousStateName}}">Back</a>
+
+
+    <!-- NEXT -->
+    <!--<a ng-if="$ctrl.nextState" ui-sref="{{$ctrl.nextState}}">{{$ctrl.nextLabel}}</a>-->
+    <a href="javascript:void(0)" ng-if="$ctrl.pageConfig.nextStateName"
+       ui-sref="{{$ctrl.pageConfig.nextStateName}}">{{$ctrl.nextLabel}}</a>
+
+    <!-- SUBMIT -->
+    <!-- you cannot submit if you have these roles: UNLICENSED ASSISTANT, CORPORATE or INSURANCE ONLY  -->
+    <a ng-if="$ctrl.pageConfig.submit" href="javascript:alert('submit');">Submit</a>
 </footer>
+<!--s-->
+
+

@@ -10,17 +10,21 @@
 
         });
 
-    contactInfoCtrl.$inject = ['$scope'];
+    contactInfoCtrl.$inject = ['dataCacheLocalStorage'];
 
     /* @ngInject */
-    function contactInfoCtrl($scope) {
+    function contactInfoCtrl(dataCacheLocalStorage) {
         var vm = this;
-        this.functionName = functionName;
+
+        //lets check if there is funds in local storage because we need it for Fee Proposal
+        checkIfFundsExist();
 
         ////////////////
 
-        function functionName() {
-
+        function checkIfFundsExist() {
+            // console.log(vm.feeProfileSearch);
+            var data = dataCacheLocalStorage.get('fundList');
+            console.log(data);
         }
     }
 

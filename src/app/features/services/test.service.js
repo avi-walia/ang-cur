@@ -23,8 +23,9 @@
             var ret = server.getNoStorage(url, false).then(function(data){
                 service.data = data.data;
                 // service.data = format(data.data)
-                //languageSwitcherService.localizationObjects.push({unLocalized: data.unLocalizedData, callBack: translateData, key: "testService.data"});
-                languageSwitcherService.addLocalizationObject({unLocalized: data.unLocalizedData, callBack: translateData, key: "testService_data"});
+                //languageSwitcherService.localizationObjects.push({unLocalized: data.unLocalizedData, callBack: translateData, key: 'testService.data'});
+                languageSwitcherService.addLocalizationObject({unLocalized: data.unLocalizedData,
+                    callBack: translateData, key: 'testService_data'});
                 return service.data;
             });
             waitForResourcesService.pendingResources.push(ret);

@@ -16,7 +16,7 @@
     function ipqCtrl($scope) {
         var vm = this;
         this.functionName = functionName;
-        console.log('ipq');
+        // console.log('ipq');
         ////////////////
 
         function functionName() {

@@ -1,6 +1,39 @@
-<header id="header" class="header nav-down" role="banner">
-    <div class="container">
+<style>
+    .active {
+        color: red;
+    }
 
-        header
+    #step-indicator ul li {
+        display: inline;
+    }
+</style>
+
+<header id="header" class="header nav-down" role="banner">
+
+    <a ui-sref="main.evolution.app.selectClientProfile">Create/Open existing profile</a>
+
+    <div id="ecissFlag">
+        <input type="checkbox" ng-checked="$ctrl.isEcissUser" disabled>Eciss
+    </div>
+
+    <div id="languageSwitcher">
+        <language-switcher></language-switcher>
+    </div>
+
+    <div id="help">
+        <a ui-sref="main.evolution.app.help">Help </a>
+    </div>
+
+
+
+    <!-- STEP INDICATOR -->
+    <div id="step-indicator" ng-if="$ctrl.pageConfigService.pageConfig.stepIndicator !== 0 ">
+        <ul>
+            <li ng-repeat="(key, step) in ::$ctrl.steps track by $index"
+                ng-class="{ active: $ctrl.pageConfigService.pageConfig.stepIndicator === step}">
+                {{::step}}
+            </li>
+        </ul>
+
     </div>
 </header>

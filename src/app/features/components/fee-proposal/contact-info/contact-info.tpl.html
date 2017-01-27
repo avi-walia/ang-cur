@@ -1,1 +1,60 @@
-Contact info
+<h3>1. Contact info</h3>
+<h4>My Group Name</h4>
+<h5>Advisor Information</h5>
+
+<form class="form-horizontal" name="$ctrl.contactForm">
+    <fieldset>
+        <!-- Form Name -->
+        <legend>Form Name</legend>
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="fullName">Full Name</label>
+            <div class="col-md-4">
+                <input id="fullName" name="fullName" type="text" placeholder="placeholder" class="form-control input-md"
+                       ng-model="$ctrl.feeProposalModel.fullName"
+                > </div>
+        </div>
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="dealerName">Dealer Name</label>
+            <div class="col-md-4">
+                <input id="dealerName" name="dealerName" value="Assante Financial Management" disabled type="text" placeholder="Assante Financial Management" class="form-control input-md"
+                       ng-model="$ctrl.feeProposalModel.dealerName"> </div>
+        </div>
+        <!-- Select Basic -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="selectbasic">Dealer Rep Code</label>
+            <div class="col-md-4">
+                <select disabled id="selectbasic"
+                        ng-model="$ctrl.feeProposalModel.dealerRepCode" name="selectbasic" class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+            </div>
+        </div>
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="email">Email</label>
+            <div class="col-md-4">
+                <input id="email" name="email" type="text" placeholder="" class="form-control input-md"
+                       ng-model="$ctrl.feeProposalModel.email"> </div>
+        </div>
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="phone">Phone</label>
+            <div class="col-md-4">
+                <input id="phone" name="phone" type="text" placeholder="" class="form-control input-md"
+                       ng-model="$ctrl.feeProposalModel.phone"> </div>
+        </div>
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="fax">Fax</label>
+            <div class="col-md-4">
+                <input id="fax" name="fax" type="text" placeholder="" class="form-control input-md"
+                       ng-model="$ctrl.feeProposalModel.fax"> </div>
+        </div>
+    </fieldset>
+</form>
+
+
+<fee-footer></fee-footer>

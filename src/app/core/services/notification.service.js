@@ -28,7 +28,7 @@
 
         function updateMessageKey(msgKey) {
             service.messageKey = parseService.stripDots(msgKey);
-            console.log('service.messageKey: ', service.messageKey);
+            // console.log('service.messageKey: ', service.messageKey);
         }
 
 
