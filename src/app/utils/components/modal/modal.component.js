@@ -21,7 +21,7 @@
     /* @ngInject */
     function modalCtrl() {
         var vm = this;
-        vm.ok = ok
+        vm.ok = ok;
         vm.cancel = cancel;
         vm.msg = '';
           
@@ -34,11 +34,11 @@
         function ok() {
            vm.close();
             
-        };
+        }
 
         function cancel() {
             vm.dismiss();
-        };
+        }
         
     }
 
