@@ -6,47 +6,27 @@
         .module('evolution.core.main')
         .component('ciHeader', {
             controller: headerCtrl,
-            templateUrl:'app/core/components/header/header.tpl.html',
-            bindings: {
-                stepIndicator: '<?'
-            }
+            templateUrl:'app/core/components/header/header.tpl.html'
+
         });
 
     /* @ngInject */
 
-    headerCtrl.$inject = ['$state', 'pageStateResolver','pageConfigService'];
+    headerCtrl.$inject = ['pageStateResolver','pageConfigService'];
     /* @ngInject */
-    function headerCtrl($state, pageStateResolver, pageConfigService) {
+    function headerCtrl(pageStateResolver, pageConfigService) {
         var vm = this;
-        vm.isActive = true;
-        console.log($state.current);
-        vm.currentState = $state.current.name;
-        vm.displayOpenExistingPro = false; //flag used if we want to display Create/open profile link in navigation
-        vm.isEcissUser = false;
+        vm.steps = [1, 2, 3, 4, 5, 6, 7];
+        // vm.isActive = true;
+                
         vm.pageStateResolver = pageStateResolver;
         vm.pageConfigService = pageConfigService;
 
-        // var tmpArr = $state.current.name.split('.');
-        // var tmp = _.split($state.current.name, '.');
-        // // console.log(tmp[tmp.length-1]);
-        // vm.state = tmp[tmp.length-1];
 
-        // if (vm.state !== 'selectClientProfile'){
-        //     vm.displayOpenExistingPro = true;
-        // }
-
-        //need to find a way to determine if user is eciss
-        //assuming it is until we get API call
+        //temporary variables until we get API working
         vm.isEcissUser = true;
+        vm.profileName = 'Best profile ever!';
 
-        vm.profileName = "Best profile ever!";
-
-        // console.log($state.current.name);
-        // console.log(vm.pageStateResolver.stepIndicator);
-        // console.log(vm.pageStateResolver.stepIndicator);
-        //
-        //
-        // console.log(vm.pageStateResolver.activePageName);
 
 
     }
