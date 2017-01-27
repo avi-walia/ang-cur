@@ -17,34 +17,47 @@
 
         });
 
-    postForBlobCtrl.$inject = [server];
+    postForBlobCtrl.$inject = ['server'];
 
     /* @ngInject */
     function postForBlobCtrl(server) {
         var vm = this;
-		vm.loaded = false;
+		vm.openBlob = openBlob;
+		vm.isLaded = false;
         if (!vm.fileName) {
 			vm.fileName = "";
 		}
 		vm.dataURL = "";
 		
+		//Technically this is used to update the component when the bindings change, however, these bindings should only change once(when they are first assigned).
+		//This is used to determine when the bindings are finally resolved, because bindings start as undefined.
 		vm.$onChanges = function() {
-			if (!$ctrl.payload) {
-				$ctrl.payload = {};
+			//initiallize optional bindings
+			if (!vm.payload) {
+				vm.payload = {};
 			}
-			if (!$ctrl.linkText) {
-				$ctrl.linkText = "";
+			if (!vm.linkText) {
+				vm.linkText = "";
 			}
-			server.postNoStorage(vm.postURL, true, $ctrl.payload).then(
-				function(pdfBlob) {
-					vm.dataURL = URL.createObjectURL(pdfBlob);
-					window.open(vm.dataURL);
-					vm.loaded = true;
+			if (!vm.imgURL){
+				vm.imgURL = "";
+			}
+			//make a post request for the blob(can be any type of file, but for Evolution it's only PDFs)
+			server.postNoStorage(vm.postURL, true, vm.payload).then(
+				function(fileBlob) {
+					//convert blob to a url and show the button/link to access it.
+					vm.dataURL = URL.createObjectURL(fileBlob);
+					vm.isLoaded = true;
 				},
 				function(error ){
 					//encountered an error retrieving pdf, handle it.
 				}
 			);
+		}
+		
+		function openBlob() {
+			window.open(vm.dataURL);
+			
 			/* below is used to demo this directive with a built in pdf blob(created from a base64 encoded pdf)
 			vm.dataURL = URL.createObjectURL(b64toBlob(base64Pdf, 'application/pdf'));
 			window.open(vm.dataURL);
