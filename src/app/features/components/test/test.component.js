@@ -27,6 +27,7 @@
         vm.mockService = mockService;
 		vm.linkText = 'testPDF';
 		vm.fileName = 'test.pdf';
+        vm.url = '/mockPDF';
 
         //stop the testSERvice stuff
         waitForResourcesService.stopWaiting();

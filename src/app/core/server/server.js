@@ -162,7 +162,7 @@
                 }
                 requests = activeRequests.post;
                 var postRequest = function() {
-                    // console.log('making post');
+                    console.log('making post', sPath);
                     return $http.post(sPath, data, {timeout: SERVER_TIMEOUT})//15 seconds, timeout is measured in milliseconds.
                         .then(success, failure);
                 };
@@ -212,6 +212,7 @@
         }
 
         function fetch(method, sPath, bRemoveCache, sStorageType, bIsUnlocalized, data) {
+
             if (!data) {
                 data = {};
             }
@@ -300,6 +301,8 @@
         }
 
         function postNoStorage(sPath, bIsUnlocalized, data) {
+
+            console.log('sPath1123: ', sPath);
             return fetch(POST, sPath, false, 'noStorage', bIsUnlocalized, data);
         }
 /*
