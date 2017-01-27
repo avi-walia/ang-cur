@@ -46,7 +46,7 @@
 			server.postNoStorage(vm.postURL, true, vm.payload).then(
 				function(fileBlob) {
 					//convert blob to a url and show the button/link to access it.
-					vm.dataURL = URL.createObjectURL(fileBlob);
+					vm.dataURL = URL.createObjectURL(fileBlob.data);
 					vm.isLoaded = true;
 				},
 				function(error ){
