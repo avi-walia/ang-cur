@@ -30,11 +30,12 @@ module.exports = function(options) {
     //var proxyOptions = url.parse('http://dev.assanteservices.com/aiolws');
     //var proxyOptions = url.parse('https://assantedev.corporate.ciglobe.net/locatorws');
 
-    var proxyOptions = url.parse('http://localhost:3003');
-    //var proxyOptions = url.parse('https://uat.assanteservices.com/aiolws');
+    //var proxyOptions = url.parse('http://localhost:3003');
+
+    var proxyOptions = url.parse('http://evoweb-dev.corporate.ciglobe.net/api/v1');
 
     // Which route browserSync should forward to the gateway, this is the route for the backend api
-    proxyOptions.route = '/evolutionws';
+    proxyOptions.route = '/api';
     /*
     because of the above line, the below two urls do the same thing:
      http://localhost:3000/api/advisors

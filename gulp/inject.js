@@ -15,7 +15,7 @@ module.exports = function(options) {
 
     var injectScripts = gulp.src([
       options.src + '/app/**/*.js',
-      options.src + '/environment-configs/environment.config.local.js',
+      options.src + '/environment-configs/environment.config.dev.js',
       options.src + '/assets/locales/locale-en.js',
       options.src + '/assets/locales/locale-fr.js',
       '!' + options.src + '/app/**/*.spec.js',

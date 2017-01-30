@@ -75,8 +75,8 @@ module.exports = function (options) {
             .pipe(assets = $.useref.assets())
             .pipe($.rev())
             .pipe(jsFilter)
-            .pipe($.stripDebug()) // remove any debug/console
-            .pipe($.stripNgLog()) // remove any $log
+            //.pipe($.stripDebug()) // remove any debug/console
+            //.pipe($.stripNgLog()) // remove any $log
             .pipe($.ngAnnotate())
             .pipe($.uglify({preserveComments: $.uglifySaveLicense})).on('error', options.errorHandler('Uglify'))
             .pipe(jsFilter.restore())
@@ -213,7 +213,7 @@ module.exports = function (options) {
     gulp.task('config', function () {
         var pkg = JSON.parse(fs.readFileSync('./package.json'));
 
-        gulp.src(['./src/app/config/app.config.json', './src/app/config/routes.config.json'])
+        gulp.src(['./src/app/config/app.config.json', './src/app/config/routes.config.json', './src/app/config/mockAPI/*.json'])
             .pipe(jsonMerge('config.json'))
             .pipe(gulpNgConfig(options.app, {
                 createModule: false,
@@ -394,7 +394,7 @@ module.exports = function (options) {
             .pipe(gulp.dest(options.src + "/environment-configs"));
     });
 
-    gulp.task('build', ['compileMock_API_Routes'], function() {
+    gulp.task('build', function() {
         build();
     });
     gulp.task('build:dev', function() {

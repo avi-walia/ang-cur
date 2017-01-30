@@ -43,7 +43,7 @@
         function init() {
             if (!initialized) {
                 initialized = true;
-                var ret = server.getNoStorage('/getInitData', false).then(function(data) {
+                var ret = server.getNoStorage('/init', false).then(function(data) {
                     dataCacheSessionStorage.put('initData', data.data);
                     service.data = data.data;
                     console.log('data.data: ', data.data);

@@ -17,19 +17,25 @@
         function init() {
             console.info('mock service init..');
             $httpBackend.whenGET(/(app|styles|scripts|assets|fonts).*/).passThrough();
+            $httpBackend.whenGET(/app\/core\/layout\/main\.layout\.html/).passThrough();
+
+            $httpBackend.whenGET(/.*\/v1\/profile_groups\/.*/).passThrough();
+            $httpBackend.whenGET(/.*\/v1\/init/).passThrough();
 
             //Note will need to setup a version of this for each webservice call
-            $httpBackend.whenGET(/evolutionws\/.*/).respond(function (method, url, data, headers) {
+            $httpBackend.whenGET(/\/v1\/.*/).respond(function (method, url, data, headers) {
                 var mockData = {};
 
-                // console.log(url);
+                console.log('whenGet: ', url);
 
 
                 //data = angular.fromJson(data); //only used for post params. Not sure about query params.
                 //var message = angular.fromJson(data);
                 var urlParams = url.split('/');
+                console.log('urlParams: ', urlParams);
+                urlParams.shift();
+                urlParams.shift();
                 urlParams.shift();//get rid of the first element in the array as it is just the web service endpoint
-
                 var id = urlParams[1];
 
                 if (angular.isUndefined(id)){
@@ -41,7 +47,7 @@
                 //urlParams[>= 1] holds route params passed to our service
                 if (urlParams[0] === 'tests') {
                     mockData = TESTS[id];
-                } else if(urlParams[0] === 'getProfileGroups') {
+                } else if(urlParams[0] === 'profile_groups') {
                     if (id) {
                         if (id === '9721-0033') {
                             mockData = [];
@@ -85,6 +91,7 @@
                 } else if (urlParams[0] === 'getAssetClassMix') {
                     mockData = ASSET_CLASS_MIX[id];
                 } else if(urlParams[0] === 'getInitData') {
+                    console.log('returning mock: ', INIT_DATA);
                     mockData = INIT_DATA;
                 } else if(urlParams[0] === 'getProfileDetail') {
                     console.log('profile details requested');

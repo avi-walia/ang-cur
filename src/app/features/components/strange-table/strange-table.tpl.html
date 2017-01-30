@@ -49,15 +49,15 @@
             <!-- used to generate group headers -->
             <div class="newRow">
                 <div class="tableRow" ng-repeat="(key, prop) in objectGroup.groupHeading track by $index" ng-if="::($ctrl.hideKey(key) && key != 'isSelected' && key != 'allocation')" ng-class="key">
-					<button ng-if="key === $ctrl.config.expandColumn && objectGroup.subGroups.length" class="expandContract" ng-click="$ctrl.expandOrCollapse($parent.$parent.$parent.$index)">
-                        <span  ng-if="!objectGroup.expandSubGroup">
+					<button  ng-if="key === $ctrl.config.expandColumn && objectGroup.subGroups.length" class="expandContract leftInline" ng-click="$ctrl.expandOrCollapse($parent.$parent.$parent.$index)">
+                        <span ng-if="!objectGroup.expandSubGroup">
                             +
                         </span>
-                        <span  ng-if="objectGroup.expandSubGroup">
+                        <span ng-if="objectGroup.expandSubGroup">
                             -
                         </span>
                     </button>
-                    {{prop}}
+                    <div class="leftInlign">{{prop}}</div>
                 </div>
                 <div ng-if="::$ctrl.updateSelected" class="addRemoveHeading tableRow addRemoveRow" >
 
@@ -67,7 +67,7 @@
             </div>
             <!-- used to generate subrows of a group -->
 
-            <div class="newRow subGroup" ng-if="objectGroup.expandSubGroup" ng-repeat="(key, subGroup) in objectGroup.subGroups track by $index" >
+            <div class="newRow subGroup indented" ng-if="objectGroup.expandSubGroup" ng-repeat="(key, subGroup) in objectGroup.subGroups track by $index" >
                 <div class="tableRow" ng-repeat="(key, prop) in subGroup track by $index" ng-if="::($ctrl.hideKey(key) && key != 'isSelected' && key != 'allocation')" ng-class="{'{{key}}' : true, indented:key==='profileName'}">{{prop}}</div>
                 <div ng-if="::$ctrl.updateSelected" class="addRemoveRow tableRow">
                     <button ng-if="::!$ctrl.config.numericAdd" ng-click="$ctrl.toggleSelect(subGroup)" translate>{{!subGroup.isSelected ? 'strangeTable.add' : 'strangeTable.remove'}}</button>

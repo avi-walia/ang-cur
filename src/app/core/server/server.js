@@ -11,14 +11,12 @@
         '$http',
         '$q',
         '$rootScope',
-        '$timeout',
         'dataCacheLocalStorage',
         'dataCacheSessionStorage',
         'ENDPOINT_URI',
         'GET',
         'i18nService',
         'md5',
-        'MOCK_API',
         'POST',
         'SERVER_TIMEOUT'
     ];
@@ -28,14 +26,12 @@
         $http,
         $q,
         $rootScope,
-        $timeout,
         dataCacheLocalStorage,
         dataCacheSessionStorage,
         ENDPOINT_URI,
         GET,
         i18nService,
         md5,
-        MOCK_API,
         POST,
         SERVER_TIMEOUT
     ) {
@@ -145,6 +141,7 @@
                 requests = activeRequests.get;
 
                 var getRequest = function() {
+                    console.log('server spath: ', sPath);
                     return $http.get(sPath, {timeout: SERVER_TIMEOUT})//15 seconds, timeout is measured in milliseconds.
                         .then(success, failure);
                 };
@@ -211,6 +208,8 @@
          * @param bIsUnlocalized boolean Specifies if the request is locallized(requires translation)
          */
         function getSessionStorage(sPath, bIsUnlocalized) {
+
+            console.log('getsessionstorage spath: ', sPath);
             return fetch(GET, sPath, false, 'sessionStorage', bIsUnlocalized);
         }
 
@@ -220,24 +219,6 @@
             }
             var endpoint = ENDPOINT_URI;
 
-            /*************************************************************************************************************************************************************************************************************************
-             * REMOVE BELOW IF BLOCK BEFORE DEPLOYING TO PRODUCTION
-             **************************************************************************************************************************************************************************************************************************/
-            /*
-            _.forEach(MOCK_API, function(mockPath, index) {
-                if (sPath.length >= mockPath.length) {
-                    console.log('sPath: ', sPath.substring(0, mockPath.length));
-                    console.log('mockPath: ', mockPath);
-                }
-                if (sPath.length >= mockPath.length && sPath.substring(0, mockPath.length) === mockPath) {
-                    endpoint = 'http://localhost:3003';
-                    return false;//the sPath matches a MOCK_API path, use the fake endpoint and break out of the forEach
-                }
-            });
-            */
-            /*************************************************************************************************************************************************************************************************************************
-             * END OF REMOVE BLOCK
-             **************************************************************************************************************************************************************************************************************************/
 
             sPath = endpoint + sPath;
             var deferred = $q.defer();

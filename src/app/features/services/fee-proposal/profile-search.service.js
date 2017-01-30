@@ -83,7 +83,7 @@
 		function validate(form) {
 		    var enoughProfiles = service.familyGroupInfo.partialProfiles.length > 1;
             if (!enoughProfiles) {
-                service.errors.push('profilesInFamilyGroupErrors.tooFew');
+                service.errors = ['profilesInFamilyGroupErrors.tooFew'];
             } else {
                 service.errors = [];
             }
@@ -107,7 +107,9 @@
 
         function updateProfileList(dealerRepCode) {
             service.familyGroupInfo.dealerRepCode = dealerRepCode;
-            var ret = server.getNoStorage('/getProfileGroups/' + dealerRepCode, true).then(function(data){
+
+            console.log('/profile_groups/' + dealerRepCode);
+            var ret = server.getNoStorage('/profile_groups/' + dealerRepCode, true).then(function(data){
                 format(data.data);
                 service.data = data.data;
                 //languageSwitcherService.addLocalizationObject({unLocalized: data.unLocalizedData, callBack: translateData, key: 'profileSearchService_data'})

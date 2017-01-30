@@ -135,7 +135,6 @@
 
         //The bindings should only be changing when the user changes the dealer rep code or resets. Therefore, reset everything when the bindings change
         vm.$onChanges = function(obj) {
-            console.log('obj: ', obj);
             _.forEach(vm.data, function (objectGroup, key) {
                 _.forEach(objectGroup, function (subGroup, key) {
                     //console.log('subGroup: ', objectGroup);
