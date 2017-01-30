@@ -90,7 +90,7 @@
                     mockData = ADVISOR;
                 } else if (urlParams[0] === 'getAssetClassMix') {
                     mockData = ASSET_CLASS_MIX[id];
-                } else if(urlParams[0] === 'getInitData') {
+                } else if(urlParams[0] === 'init') {
                     console.log('returning mock: ', INIT_DATA);
                     mockData = INIT_DATA;
                 } else if(urlParams[0] === 'getProfileDetail') {
