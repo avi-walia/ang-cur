@@ -17,10 +17,10 @@
 
         });
 
-    postForBlobCtrl.$inject = ['server'];
+    postForBlobCtrl.$inject = ['server', '$window'];
 
     /* @ngInject */
-    function postForBlobCtrl(server) {
+    function postForBlobCtrl(server, $window) {
         var vm = this;
 		vm.openBlob = openBlob;
 		vm.isLoaded = false;
@@ -59,10 +59,11 @@
 					}
 				);
 			}
-		}
+		};
 		
 		function openBlob() {
-			window.open(vm.dataURL);
+			console.log(vm.dataURL);
+			$window.open(vm.dataURL);
 			
 			/* below is used to demo this directive with a built in pdf blob(created from a base64 encoded pdf)
 			vm.dataURL = URL.createObjectURL(b64toBlob(base64Pdf, 'application/pdf'));
