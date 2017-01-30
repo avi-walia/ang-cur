@@ -28,6 +28,7 @@
         vm.$onInit = function () {
 
             vm.msg = vm.resolve.dynamicMsg;
+            vm.title = vm.resolve.title;
 
         };
 

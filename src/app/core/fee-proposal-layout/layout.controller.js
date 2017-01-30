@@ -5,12 +5,11 @@
         .module('evolution.core.main')
         .controller('LayoutCtrl', LayoutCtrl);
 
-    LayoutCtrl.$inject = ['$state'];
+    LayoutCtrl.$inject = [];
 
     /* @ngInject */
-    function LayoutCtrl($state) {
+    function LayoutCtrl() {
         var vm = this;
-        vm.title = 'LayoutCtrl';
 
 
     }

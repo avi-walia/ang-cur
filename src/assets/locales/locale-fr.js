@@ -6,6 +6,16 @@
         $translateProvider.translations('fr', {
             TITLE: '<h1>FR test title</h1>',
             appTitle: "FR Evolution",
+			previousPage: 'FR Previous',
+			nextPage: 'FR Next',
+			reset: 'FR Reset',
+			cancel: 'FR Cancel',
+			ok: 'FR OK',
+			createTemplate: 'Create Template',
+			preview: 'preview',
+			save: 'save',
+			warningTitle: 'FR Warning',
+			feeProposal: 'FR Fee Proposal ',
             pages: {
                 test: {
                     title: "FR test test"

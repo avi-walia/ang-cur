@@ -7,6 +7,16 @@
     function englishTranslations($translateProvider) {
         $translateProvider.translations('en', {
             TITLE: '<h1>test title</h1>',
+			previousPage: 'Previous',
+			nextPage: 'Next',
+			reset: 'Reset',
+			cancel: 'Cancel',
+			ok: 'OK',
+			createTemplate: 'Create Template',
+			preview: 'preview',
+			save: 'save',
+			warningTitle: 'Warning',
+			feeProposal: 'Fee Proposal ',
             pages: {
                 test: {
                     title: "FR test"

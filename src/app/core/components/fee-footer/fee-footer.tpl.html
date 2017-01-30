@@ -1,6 +1,16 @@
 Fee Footer<br />
 <!--{{$ctrl.pageConfig}}-->
-<a ng-click="$ctrl.reset()">Reset</a> |
-<a ng-if="$ctrl.pageConfig.previousStateName" ui-sref="{{$ctrl.pageConfig.previousStateName}}">Back | </a>
-<a ng-if="$ctrl.pageConfig.nextStateName" ui-sref="{{$ctrl.pageConfig.nextStateName}}">Next</a> =
-<a ng-if="$ctrl.pageConfig.nextStateName" ng-click="$ctrl.next();">Next with Modal validation</a>
+<!--
+<a ng-if="$ctrl.pageConfigService.pageConfig.previousStateName" ng-href="{{$ctrl.$state.href($ctrl.pageConfigService.pageConfig.previousStateName)}}" translate>previousPage</a><br>
+<a ng-if="$ctrl.pageConfigService.pageConfig.nextStateName" ng-href="{{$ctrl.$state.href($ctrl.pageConfigService.pageConfig.nextStateName)}}" translate>nextPage</a>
+-->
+<button ng-if="$ctrl.pageConfigService.pageConfig.reset" ng-click="$ctrl.reset()" translate>reset</button ><br>
+<button  ng-if="$ctrl.pageConfigService.pageConfig.createTemplate" ng-click="$ctrl.createTemplate()" translate>createTemplate</button ><br>
+<button  ng-if="$ctrl.pageConfigService.pageConfig.preview" ng-click="$ctrl.preview()" translate>preview</button ><br>
+<button  ng-if="$ctrl.pageConfigService.pageConfig.save" ng-click="$ctrl.save()" translate>save</button ><br>
+<button  ng-if="$ctrl.pageConfigService.pageConfig.previousStateName" ng-click="$ctrl.next()" translate>previousPage</button ><br>
+<button  ng-if="$ctrl.pageConfigService.pageConfig.nextStateName" ng-click="$ctrl.previous()" translate>nextPage</button >
+<!--
+<br>
+<a ng-if="$ctrl.pageConfigService.pageConfig.nextStateName && $ctrl.validate" ng-click="$ctrl.next();">Next with Modal validation</a>
+-->
