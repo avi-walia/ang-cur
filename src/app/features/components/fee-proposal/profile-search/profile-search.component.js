@@ -16,8 +16,7 @@
 		'RESET_EVENT',
 		'NEXT_EVENT',
 		'profileSearchService',
-		'initDataService',
-		'mockService'
+		'initDataService'
 	];
 
     /* @ngInject */
@@ -27,16 +26,14 @@
 		RESET_EVENT,
 		NEXT_EVENT,
 		profileSearchService,
-		initDataService,
-		mockService
+		initDataService
+
 	) {
         var vm = this;
 		var eventWatchers = [];
         vm.profileSearchService = profileSearchService;
         vm.initDataService = initDataService;
-
-
-        vm.profileSearchService.init();
+		vm.profileSearchService.init();
         initDataService.getData();
         /*
         //lets check if there is funds in local storage because we need it for Fee Proposal
@@ -53,8 +50,7 @@
 		
 		eventWatchers.push(
 			$rootScope.$on(NEXT_EVENT, function(event, nextState) {
-				console.log('familyGroupInfoForm: ', angular.element(document.getElementById("familyGroupInfoForm")));
-				vm.profileSearchService.next(nextState);
+				vm.profileSearchService.next(nextState, vm.familyGroupInfoForm);
 			})
 		);
 		eventWatchers.push(

@@ -22,7 +22,9 @@
         waitForResourcesService
     ) {
         var service = this;
+        service.showValidationErrors = false;
         service.data = [];
+        service.errors = [];
         //this is the object that is loaded from and saved to the feeProposalService. Shoul contain dealerRepCode, familyGroupName, and partialProfiles array.
         service.familyGroupInfo = {};
         service.configStrangeTable = {
@@ -41,7 +43,6 @@
         service.updateProfileList = updateProfileList;
         service.getGroupHeader = getGroupHeader;
         service.updateSelected = updateSelected;
-        service.updateFeeProposal = updateFeeProposal;
         service.reset = reset;
         service.next = next;
         service.init = init;
@@ -49,20 +50,21 @@
         var x = false;
 
         function init() {
-            //add some logic so that it only does this once
-                feeProposalService.init();
-
+            feeProposalService.init();
+            service.showValidationErrors = false;
             service.familyGroupInfo = feeProposalService.getProfileSearch();
             if (service.familyGroupInfo.dealerRepCode) {
+                //if the currentlist of selected & non-selected profiles exist, use it
                 if (service.familyGroupInfo.currentList.length > 0) {
-                    console.log('existing: ', service.data);
-                    console.log('new: ',service.familyGroupInfo.currentList);
                     service.data = service.familyGroupInfo.currentList;
                 } else {
+                    //the user has not selected any profiles yet, load the default list of profiles.
                     updateProfileList(service.familyGroupInfo.dealerRepCode);
                 }
             } else {
                 service.data = [];
+                //currently refreshing will clear error messages. We do not persist these anywhere.
+                service.errors = [];
             }
         }
 
@@ -78,25 +80,23 @@
 		return true if all fields are filled in.
 		return false otherwise.
 		*/
-		function validate() {
-			return service.familyGroupInfo.partialProfiles.length > 1;
+		function validate(form) {
+		    var enoughProfiles = service.familyGroupInfo.partialProfiles.length > 1;
+            if (!enoughProfiles) {
+                service.errors.push('profilesInFamilyGroupErrors.tooFew');
+            } else {
+                service.errors = [];
+            }
+			return (form.$valid && _.isArray(service.familyGroupInfo.partialProfiles) && enoughProfiles);
 		}
 
-        function next(nextState) {
-			validate();
-            feeProposalService.setProfileSearch(service.familyGroupInfo);
-			$state.go(nextState);
-        }
-
-        function updateFeeProposal() {
-            /*
-            return feeProposalService.setProfileSearch({
-                familyGroupName: service.familyGroupName,
-                dealerRepCode: service.dealerRepCode,
-                partialProfiles: selectedItems
-            });
-            */
-            feeProposalService.setProfileSearch(service.familyGroupInfo);
+        function next(nextState, form) {
+            if (validate(form)) {
+                feeProposalService.setProfileSearch(service.familyGroupInfo);
+                $state.go(nextState);
+            } else {
+                service.showValidationErrors = true;
+            }
         }
 
         function updateSelected(selectedItems, currentList) {
@@ -107,10 +107,10 @@
 
         function updateProfileList(dealerRepCode) {
             service.familyGroupInfo.dealerRepCode = dealerRepCode;
-            var ret = server.getNoStorage('/getProfileGroups/' + dealerRepCode, false).then(function(data){
+            var ret = server.getNoStorage('/getProfileGroups/' + dealerRepCode, true).then(function(data){
                 format(data.data);
                 service.data = data.data;
-                languageSwitcherService.addLocalizationObject({unLocalized: data.unLocalizedData, callBack: translateData, key: 'profileSearchService_data'})
+                //languageSwitcherService.addLocalizationObject({unLocalized: data.unLocalizedData, callBack: translateData, key: 'profileSearchService_data'})
                 return service.data;
             });
             waitForResourcesService.pendingResources.push(ret);
@@ -133,12 +133,12 @@
             }
             return str;
         }
-
+        /*
         function translateData(translatedData) {
             //service.data = translatedData;
             format(translatedData);
             _.assign(service.data, translatedData);
-        }
+        }*/
         function mapStatus(status) {
             if (status === 'active') {
                 return 5;

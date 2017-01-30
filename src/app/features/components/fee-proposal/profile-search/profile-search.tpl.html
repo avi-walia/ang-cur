@@ -1,6 +1,6 @@
 <h3>Profile Search / Add Screen</h3>
 {{::'nameTheGroup'| translate}}
-<form id="familyGroupInfoForm" name="familyGroupInfoForm">
+<form id="$ctrl.familyGroupInfoForm" name="$ctrl.familyGroupInfoForm">
 <div>
     {{::'groupName'| translate}}
 	 <!-- ng-maxlenght=8 is an arbitrary number, will need to check with backend on what the actual limit is -->
@@ -12,22 +12,24 @@
 		ng-model="$ctrl.profileSearchService.familyGroupInfo.familyGroupName"
 	/>
 	<!-- show an error if username is too long -->
-    <p ng-show="familyGroupInfoForm.familyGroupName.$error.maxlength" translate>familyGroupNameErrors.tooLong</p>
+    <p class="validationError" ng-show="$ctrl.familyGroupInfoForm.familyGroupName.$touched && $ctrl.familyGroupInfoForm.familyGroupName.$error.maxlength" translate>familyGroupNameErrors.tooLong</p>
     <!-- show an error if this isn't filled in -->
-    <p ng-show="familyGroupInfoForm.familyGroupName.$touched && familyGroupInfoForm.familyGroupName.$error.required" translate>familyGroupNameErrors.required</p>
-
+    <p class="validationError" ng-show="($ctrl.familyGroupInfoForm.familyGroupName.$touched || $ctrl.profileSearchService.showValidationErrors)  && $ctrl.familyGroupInfoForm.familyGroupName.$error.required" translate>familyGroupNameErrors.required</p>
 </div>
 
 {{::'addProfilesToTheGroup'| translate}}
 <div>
     {{::'dealerRepCode'| translate}}
-    <select ng-model="$ctrl.profileSearchService.familyGroupInfo.dealerRepCode" ng-change="$ctrl.profileSearchService.updateProfileList($ctrl.profileSearchService.familyGroupInfo.dealerRepCode)">
+    <select name="dealerRepCode" required ng-model="$ctrl.profileSearchService.familyGroupInfo.dealerRepCode" ng-change="$ctrl.profileSearchService.updateProfileList($ctrl.profileSearchService.familyGroupInfo.dealerRepCode)">
         <option ng-repeat="value in $ctrl.initDataService.dealerRepCodes track by $index">{{value}}</option>
     </select>
 </div>
+    <!-- show an error if this isn't filled in -->
+    <p class="validationError" ng-show="($ctrl.familyGroupInfoForm.dealerRepCode.$touched || $ctrl.profileSearchService.showValidationErrors) && $ctrl.familyGroupInfoForm.dealerRepCode.$error.required" translate>dealerRepCodeErrors.required</p>
 </form>
 {{::'searchProfileClientName' | translate}}
-<strange-table reset-flag="$ctrl.profileSearchService.resetFlag" selected-items="$ctrl.profileSearchService.familyGroupInfo.partialProfiles" get-Group-Header="$ctrl.profileSearchService.getGroupHeader" update-selected="$ctrl.profileSearchService.updateSelected(selectedItems, currentList)" data="$ctrl.profileSearchService.data" config="$ctrl.profileSearchService.configStrangeTable"></strange-table>
+<strange-table errors="$ctrl.profileSearchService.errors" reset-flag="$ctrl.profileSearchService.resetFlag" selected-items="$ctrl.profileSearchService.familyGroupInfo.partialProfiles" get-Group-Header="$ctrl.profileSearchService.getGroupHeader" update-selected="$ctrl.profileSearchService.updateSelected(selectedItems, currentList)" data="$ctrl.profileSearchService.data" config="$ctrl.profileSearchService.configStrangeTable"></strange-table>
+
 <!--
 <button ng-click="$ctrl.profileSearchService.reset()">Reset</button>
 <button ng-click="$ctrl.profileSearchService.next()">Next</button>

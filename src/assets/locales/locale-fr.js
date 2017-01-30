@@ -30,6 +30,10 @@
 			dealerRepCodeErrors: {
 				required: 'FR The dealer rep code is required.'
 			},
+            profilesInFamilyGroupErrors: {
+                tooFew: 'FR There must be atleast 2 profiles in your family group.'
+            },
+            linkToFeeProposal: 'FR Family group fee proposal',
             pages: {
                 strangeTableTest: {
                     title: "FR strangeTableTest"

@@ -41,6 +41,7 @@
                 //console.log('data successfully retrieved: ', data);
             },
             function(error){
+                console.log('error: ', error);
                 //handle error event
                 //typically a call to notificationService
             }

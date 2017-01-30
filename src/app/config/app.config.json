@@ -13,5 +13,7 @@
   "PREVIOUS_EVENT": "footerPrevious",
   "SAVE_EVENT": "footerSave",
   "CREATE_TEMPLATE_EVENT": "footerCreateTemplate",
-  "PREVIEW_EVENT": "footerPreview"
+  "PREVIEW_EVENT": "footerPreview",
+  "GO_TO_FEE_PROPOSAL": "goToFeeProposal",
+  "FEE_PROPOSAL_STORAGE_KEY": "FEE_PROPOSAL_STORAGE_KEY"
 }

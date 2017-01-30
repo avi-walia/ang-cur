@@ -8,56 +8,68 @@
     feeProposalService.$inject = [
         '$q',
         'server',
-        'waitForResourcesService'
+        'waitForResourcesService',
+        'dataCacheSessionStorage',
+        'GO_TO_FEE_PROPOSAL'
     ];
 
     /* @ngInject */
     function feeProposalService(
         $q,
         server,
-        waitForResourcesService
+        waitForResourcesService,
+        dataCacheSessionStorage,
+        GO_TO_FEE_PROPOSAL
     ) {
         var service = this;
-
+        service.data = {};
         service.setProfileSearch = setProfileSearch;
         service.getProfileSearch = getProfileSearch;
         service.init = init;
-
         var currentListOfDisplayedProfiles = [];
 
         function init() {
-            currentListOfDisplayedProfiles = [];
-            service.data = {
-                /*
-                 partialProfiles is an array of partialProfileObjects
-                 partialProfile only contains the following:
-                 profileId
-                 assetMix & funds
-                 investmentOverview object
-                 */
-                partialProfiles: [],
-                familyGroupName: '',
-                //contact info
-                firstName: '',
-                middleName: '',
-                lastName: '',
-                address: '',
-                city: '',
-                province: '',//required
-                postalCode: '',
-                phone: '',
-                fax: '',
-                email: '',
-                dealerRepCode: '',
+            var keys = dataCacheSessionStorage.keys();
+            //if the session storage key GO_TO_FEE_PROPOSAL is true, then we are loading the fee proposal tool for the first time.
+            //if there are no caches for the fee proposal data model, then initialize it anew.
+            //The cache allows each tab to create and maintain independent fee proposal data models accross different tabs and refreshes.
+            if (dataCacheSessionStorage.get(GO_TO_FEE_PROPOSAL) || (keys.indexOf('FEE_PROPOSAL_STORAGE_KEY') < 0 && keys.indexOf('FEE_PROPOSAL_STORAGE_KEY' + 'currentListOfDisplayedProfiles') < 0)) {
+                dataCacheSessionStorage.remove(GO_TO_FEE_PROPOSAL);
+                currentListOfDisplayedProfiles = [];
+                service.data = {
+                    /*
+                     partialProfiles is an array of partialProfileObjects
+                     partialProfile only contains the following:
+                     profileId
+                     assetMix & funds
+                     investmentOverview object
+                     */
+                    partialProfiles: [],
+                    familyGroupName: '',
+                    //contact info
+                    firstName: '',
+                    middleName: '',
+                    lastName: '',
+                    address: '',
+                    city: '',
+                    province: '',//required
+                    postalCode: '',
+                    phone: '',
+                    fax: '',
+                    email: '',
+                    dealerRepCode: '',
 
-                //investment overview
-                linkedCIAssets: 0,
-                totalFamilyGroupAmount: 0
-            };
+                    //investment overview
+                    linkedCIAssets: 0,
+                    totalFamilyGroupAmount: 0
+                };
+            } else {
+                service.data = dataCacheSessionStorage.get('FEE_PROPOSAL_STORAGE_KEY', service.data);
+                currentListOfDisplayedProfiles = dataCacheSessionStorage.get('FEE_PROPOSAL_STORAGE_KEY' + 'currentListOfDisplayedProfiles', currentListOfDisplayedProfiles);
+            }
         };
 
         function getProfileSearch() {
-            console.log('why: ', angular.copy(currentListOfDisplayedProfiles));
             return {
                 familyGroupName: service.data.familyGroupName,
                 dealerRepCode: service.data.dealerRepCode,
@@ -67,8 +79,6 @@
         }
 
         function setProfileSearch(newProfileSearch) {
-            console.log('currentListOfDisplayedProfiles: ', currentListOfDisplayedProfiles);
-            console.log('new: ', angular.copy(newProfileSearch.currentList));
             service.data.familyGroupName = newProfileSearch.familyGroupName;
             service.data.dealerRepCode = newProfileSearch.dealerRepCode;
             var tempPartialProfiles = [];
@@ -93,6 +103,8 @@
                 $q.all(pendingPromises).then(function(){
                     service.data.partialProfiles = tempPartialProfiles;
                     currentListOfDisplayedProfiles = angular.copy(newProfileSearch.currentList);
+                    dataCacheSessionStorage.put('FEE_PROPOSAL_STORAGE_KEY', service.data);
+                    dataCacheSessionStorage.put('FEE_PROPOSAL_STORAGE_KEY' + 'currentListOfDisplayedProfiles', currentListOfDisplayedProfiles);
                 });
             } catch(error) {
                 console.log('error happened retrieving portfolio details, do something: ', error);

@@ -14,7 +14,8 @@
                 widths: '<',
                 config: '<',
                 updateSelected: '&?',
-                getGroupHeader: '<'
+                getGroupHeader: '<',
+                errors: '<?'
             }
         });
 
