@@ -89,7 +89,7 @@
         */
 
         function fetchFromServer(method, sPath, deferred, sStorageType, bIsUnlocalized, data) {
-            console.log('method: ', method);
+            // console.log('method: ', method);
             //currently only support methods get and post.
             var requests = activeRequests[method];
             var pathKey = sPath;
@@ -116,7 +116,7 @@
 
 
             function failure(error) {
-                console.log('server error: ', error);
+                console.error('server error: ', error);
                 //remove request from array of unresolved requests.
                 removeFromActiveRequests(pathKey, requests);
                 //if the server is capable of returning different errors, do not emit an event and reject with error object instead of 'noData'
@@ -129,7 +129,8 @@
                 var index = indexOfActiveRequests(sPath, requests);
                 if (index < 0) {
 
-                    activeRequests[method].push({path: sPath.substring(ENDPOINT_URI.length, sPath), request: makeRequest()});
+                    activeRequests[method].push({path: sPath.substring(ENDPOINT_URI.length, sPath),
+                        request: makeRequest()});
                 } else {
                     return requests[index].request;
                 }
@@ -137,7 +138,7 @@
 
 
             if (method === GET) {
-                console.log('get received');
+                // console.log('get received');
                 requests = activeRequests.get;
 
                 var getRequest = function() {
@@ -149,7 +150,7 @@
                 return checkActiveRequests(pathKey, requests, getRequest, GET);
 
             } else {//post requests
-                console.log('post received');
+                // console.log('post received');
                 pathKey = sPath;
                 if (!_.isEmpty(data)) {
                     pathKey += md5.createHash(JSON.stringify(data));
@@ -158,7 +159,7 @@
                 }
                 requests = activeRequests.post;
                 var postRequest = function() {
-                    console.log('making post');
+                    console.log('making post', sPath);
                     return $http.post(sPath, data, {timeout: SERVER_TIMEOUT})//15 seconds, timeout is measured in milliseconds.
                         .then(success, failure);
                 };
@@ -214,6 +215,7 @@
         }
 
         function fetch(method, sPath, bRemoveCache, sStorageType, bIsUnlocalized, data) {
+
             if (!data) {
                 data = {};
             }
@@ -223,7 +225,8 @@
             sPath = endpoint + sPath;
             var deferred = $q.defer();
             var cachedObj;
-            if (typeof bRemoveCache === 'undefined' && typeof sStorageType === 'undefined' && typeof bIsUnlocalized === 'undefined') {
+            if (typeof bRemoveCache === 'undefined' && typeof sStorageType === 'undefined' &&
+                typeof bIsUnlocalized === 'undefined') {
                 bRemoveCache = false;
                 sStorageType = 'localStorage';
                 bIsUnlocalized = false;
@@ -283,6 +286,8 @@
         }
 
         function postNoStorage(sPath, bIsUnlocalized, data) {
+
+            console.log('sPath1123: ', sPath);
             return fetch(POST, sPath, false, 'noStorage', bIsUnlocalized, data);
         }
 /*

@@ -1,0 +1,15 @@
+<div ng-if="$ctrl.isLoaded">
+<a ng-href="{{$ctrl.dataURL}}" target="_blank">
+	<span ng-if="!$ctrl.imgURL">
+		{{$ctrl.linkText | translate}}
+	</span>
+	<img ng-if="$ctrl.imgURL" ng-src="{{$ctrl.imgURL}}" alt="{{$ctrl.linkText | translate}}" />
+</a>
+
+<button ng-click="$ctrl.openBlob()" >
+	<span ng-if="!$ctrl.imgURL">
+		{{$ctrl.linkText | translate}}
+	</span>
+	<img ng-if="$ctrl.imgURL" ng-src="{{}}$ctrl.imgURL}}" alt="{{$ctrl.linkText | translate}}" />
+</button>
+</div>

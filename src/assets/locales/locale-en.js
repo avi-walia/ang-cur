@@ -35,6 +35,7 @@
 			    tooFew: 'There must be atleast 2 profiles in your family group.'
             },
             linkToFeeProposal: 'Family group fee proposal',
+			testPDF: 'test pdf link',
             pages: {
                 strangeTableTest: {
                     title: "strangeTableTest"
