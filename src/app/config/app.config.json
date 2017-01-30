@@ -2,10 +2,16 @@
   "APP_CONFIG": {
 
   },
-  "COPYRIGHT_YEAR": 2016,
+  "COPYRIGHT_YEAR": 2017,
   "APP_NAME": "Evolution",
   "ELEMENTS_PER_PAGE": 12,
   "ENVIRONMENT_CONFIG_PATH": "/locator/environment-config.json",
   "SERVER_TIMEOUT": 15000,
-  "EXPIRY_TIME": 86400000
+  "EXPIRY_TIME": 86400000,
+  "RESET_EVENT": "footerReset",
+  "NEXT_EVENT": "footerNext",
+  "PREVIOUS_EVENT": "footerPrevious",
+  "SAVE_EVENT": "footerSave",
+  "CREATE_TEMPLATE_EVENT": "footerCreateTemplate",
+  "PREVIEW_EVENT": "footerPreview"
 }

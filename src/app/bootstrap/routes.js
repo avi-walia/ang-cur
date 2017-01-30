@@ -184,7 +184,7 @@
                     .state('main.evolution.fee.profileSearch', {
                         url: '/profile-search',
                         views: {
-                            'content2@main.evolution.fee': {
+                            'content@main.evolution.fee': {
                                 template: '<profile-search></profile-search>'
                             }
                         }
@@ -192,7 +192,7 @@
                     .state('main.evolution.fee.contactInfo', {
                         url: '/contact-info',
                         views: {
-                            'content2@main.evolution.fee': {
+                            'content@main.evolution.fee': {
                                 template: '<contact-info></contact-info>'
                             }
                         }
@@ -200,7 +200,7 @@
                     .state('main.evolution.fee.investmentOverview', {
                         url: '/investment-overview',
                         views: {
-                            'content2@main.evolution.fee': {
+                            'content@main.evolution.fee': {
                                 template: '<investment-overview></investment-overview>'
                             }
                         }
@@ -208,7 +208,7 @@
                     .state('main.evolution.fee.serviceFees', {
                         url: '/service-fees',
                         views: {
-                            'content2@main.evolution.fee': {
+                            'content@main.evolution.fee': {
                                 template: '<service-fees></service-fees>'
                             }
                         }
@@ -216,7 +216,7 @@
                     .state('main.evolution.fee.summary', {
                         url: '/summary',
                         views: {
-                            'content2@main.evolution.fee': {
+                            'content@main.evolution.fee': {
                                 template: '<fee-summary></fee-summary>'
                             }
                         }
@@ -224,7 +224,7 @@
                     .state('main.evolution.fee.reports', {
                         url: '/reports',
                         views: {
-                            'content2@main.evolution.fee': {
+                            'content@main.evolution.fee': {
                                 template: '<fee-reports></fee-reports>'
                             }
                         }

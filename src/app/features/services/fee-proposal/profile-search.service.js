@@ -72,9 +72,20 @@
             init();
             service.resetFlag = !service.resetFlag;
         }
+		
+		/*
+		make sure all the required fields are filled out in service.familyGroupInfo
+		return true if all fields are filled in.
+		return false otherwise.
+		*/
+		function validate() {
+			return service.familyGroupInfo.partialProfiles.length > 1;
+		}
 
-        function next() {
+        function next(nextState) {
+			validate();
             feeProposalService.setProfileSearch(service.familyGroupInfo);
+			$state.go(nextState);
         }
 
         function updateFeeProposal() {

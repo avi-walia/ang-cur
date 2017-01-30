@@ -10,18 +10,28 @@
 
         });
 
-    profileSearchCtrl.$inject = ['dataCacheLocalStorage', 'profileSearchService', 'initDataService', 'mockService'];
+    profileSearchCtrl.$inject = [
+		'dataCacheLocalStorage',
+		'$rootScope',
+		'RESET_EVENT',
+		'NEXT_EVENT',
+		'profileSearchService',
+		'initDataService',
+		'mockService'
+	];
 
     /* @ngInject */
     function profileSearchCtrl(
-        dataCacheLocalStorage,
-        profileSearchService,
-        initDataService,
-        mockService
-    ) {
+		dataCacheLocalStorage,
+		$rootScope,
+		RESET_EVENT,
+		NEXT_EVENT,
+		profileSearchService,
+		initDataService,
+		mockService
+	) {
         var vm = this;
-        vm.mock = mockService.data;
-        vm.data = {};
+		var eventWatchers = [];
         vm.profileSearchService = profileSearchService;
         vm.initDataService = initDataService;
 
@@ -40,6 +50,24 @@
             console.log(data);
         }
         */
+		
+		eventWatchers.push(
+			$rootScope.$on(NEXT_EVENT, function(event, nextState) {
+				console.log('familyGroupInfoForm: ', angular.element(document.getElementById("familyGroupInfoForm")));
+				vm.profileSearchService.next(nextState);
+			})
+		);
+		eventWatchers.push(
+			$rootScope.$on(RESET_EVENT, function() {
+				vm.profileSearchService.reset();
+			})
+		);
+		
+		vm.$onDestroy = function() {
+			_.forEach(eventWatchers, function(deleteWatch) {
+				deleteWatch();
+			});
+		}
     }
 
 })();

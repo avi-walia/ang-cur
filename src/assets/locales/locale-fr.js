@@ -12,7 +12,24 @@
             groupName: 'FR Group name',
             nameTheGroup: 'FR Name the group',
             profilesAdded: 'FR profile(s) added',
-
+            appTitle: "FR Evolution",
+			previousPage: 'FR Previous',
+			nextPage: 'FR Next',
+			reset: 'FR Reset',
+			cancel: 'FR Cancel',
+			ok: 'FR OK',
+			createTemplate: 'Create Template',
+			preview: 'preview',
+			save: 'save',
+			warningTitle: 'FR Warning',
+			feeProposal: 'FR Fee Proposal ',
+			familyGroupNameErrors: {
+				tooLong: 'FR The family group name should be less than 9 characters long.',
+				required: 'FR The family group name is required.'
+			},
+			dealerRepCodeErrors: {
+				required: 'FR The dealer rep code is required.'
+			},
             pages: {
                 strangeTableTest: {
                     title: "FR strangeTableTest"

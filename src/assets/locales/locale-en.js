@@ -14,7 +14,23 @@
             groupName: 'Group name',
             nameTheGroup: 'Name the group',
             profilesAdded: 'profile(s) added',
-
+			previousPage: 'Previous',
+			nextPage: 'Next',
+			reset: 'Reset',
+			cancel: 'Cancel',
+			ok: 'OK',
+			createTemplate: 'Create Template',
+			preview: 'preview',
+			save: 'save',
+			warningTitle: 'Warning',
+			feeProposal: 'Fee Proposal ',
+			familyGroupNameErrors: {
+				tooLong: 'The family group name should be less than 9 characters long.',
+				required: 'The family group name is required.'
+			},
+			dealerRepCodeErrors: {
+				required: 'The dealer rep code is required.'
+			},
             pages: {
                 strangeTableTest: {
                     title: "strangeTableTest"
