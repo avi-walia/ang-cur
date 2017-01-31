@@ -143,7 +143,8 @@
             });
             if (obj.hasOwnProperty('data')) {
                 reset();
-                console.log('selectedItems: ', vm.selectedItems.length);
+                // console.log('selectedItems: ', vm.selectedItems.length);
+                // console.clear();
                 _.forEach(vm.data, function (objectGroup, key) {
                     if (!objectGroup.hasOwnProperty('groupHeading')) {
                         vm.getGroupHeader(objectGroup);

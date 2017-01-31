@@ -46,6 +46,8 @@
                      */
                     partialProfiles: [],
                     familyGroupName: '',
+                    dealerRepCode: '',
+
                     //contact info
                     firstName: '',
                     middleName: '',
@@ -57,7 +59,8 @@
                     phone: '',
                     fax: '',
                     email: '',
-                    dealerRepCode: '',
+
+                    dealerName: '',
 
                     //investment overview
                     linkedCIAssets: 0,
@@ -107,7 +110,7 @@
                     dataCacheSessionStorage.put('FEE_PROPOSAL_STORAGE_KEY' + 'currentListOfDisplayedProfiles', currentListOfDisplayedProfiles);
                 });
             } catch(error) {
-                console.log('error happened retrieving portfolio details, do something: ', error);
+                console.error('error happened retrieving portfolio details, do something: ', error);
             }
         }
 
