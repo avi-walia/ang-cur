@@ -39,7 +39,7 @@
                 //urlParams[0] holds the name of the webservice we are trying to call
                 //urlParams[>= 1] holds route params passed to our service
                 if (urlParams[0] === 'tests') {
-                    mockData = TESTS[id];
+                    mockData = TESTS;
 
                 }
                 // return;
