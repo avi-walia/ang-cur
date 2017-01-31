@@ -1,34 +1,61 @@
 <h3>Profile Search / Add Screen</h3>
 {{::'nameTheGroup'| translate}}
 <form id="$ctrl.familyGroupInfoForm" name="$ctrl.familyGroupInfoForm">
-<div>
-    {{::'groupName'| translate}}
-	 <!-- ng-maxlenght=8 is an arbitrary number, will need to check with backend on what the actual limit is -->
-    <input 
-        type="text"
-		name="familyGroupName" 
-        ng-maxlength="8"
-		ng-required="true"
-		ng-model="$ctrl.profileSearchService.familyGroupInfo.familyGroupName"
-	/>
-	<!-- show an error if username is too long -->
-    <p class="validationError" ng-show="$ctrl.familyGroupInfoForm.familyGroupName.$touched && $ctrl.familyGroupInfoForm.familyGroupName.$error.maxlength" translate>familyGroupNameErrors.tooLong</p>
-    <!-- show an error if this isn't filled in -->
-    <p class="validationError" ng-show="($ctrl.familyGroupInfoForm.familyGroupName.$touched || $ctrl.profileSearchService.showValidationErrors)  && $ctrl.familyGroupInfoForm.familyGroupName.$error.required" translate>familyGroupNameErrors.required</p>
-</div>
+    <!-- GROUP NAME FIELD -->
+    <div>
+        {{::'groupName'| translate}}
+        <!-- ng-maxlenght=8 is an arbitrary number, will need to check with backend on what the actual limit is -->
+        <input
+                type="text"
+                name="familyGroupName"
+                ng-maxlength="8"
+                ng-required="true"
+                ng-model="$ctrl.profileSearchService.familyGroupInfo.familyGroupName"
+        />
+        <!-- show an error if username is too long -->
 
-{{::'addProfilesToTheGroup'| translate}}
-<div>
-    {{::'dealerRepCode'| translate}}
-    <select name="dealerRepCode" required ng-model="$ctrl.profileSearchService.familyGroupInfo.dealerRepCode" ng-change="$ctrl.profileSearchService.updateProfileList($ctrl.profileSearchService.familyGroupInfo.dealerRepCode)">
-        <option ng-repeat="value in $ctrl.initDataService.dealerRepCodes track by $index">{{value}}</option>
-    </select>
-</div>
+        <p class="validationError" ng-if="$ctrl.familyGroupInfoForm.familyGroupName.$touched"
+           ng-messages="$ctrl.familyGroupInfoForm.familyGroupName.$error">
+            <span ng-message="maxlength" translate>familyGroupNameErrors.tooLong</span>
+
+        </p>
+
+        <!-- show an error if this isn't filled in -->
+        <p class="validationError"
+           ng-if="($ctrl.familyGroupInfoForm.familyGroupName.$touched || $ctrl.profileSearchService.showValidationErrors) "
+           ng-messages="$ctrl.familyGroupInfoForm.familyGroupName.$error">
+            <span ng-message="required" translate>familyGroupNameErrors.required</span>
+        </p>
+    </div>
+
+    <!-- DEALER REP CODE -->
+    <strong>{{::'addProfilesToTheGroup'| translate}}</strong>
+    <div>
+        {{::'dealerRepCode'| translate}}
+        <select name="dealerRepCode" required ng-model="$ctrl.profileSearchService.familyGroupInfo.dealerRepCode"
+                ng-change="$ctrl.profileSearchService.updateProfileList($ctrl.profileSearchService.familyGroupInfo.dealerRepCode)">
+            <option ng-repeat="value in $ctrl.initDataService.dealerRepCodes track by $index">{{value}}</option>
+        </select>
+    </div>
+
     <!-- show an error if this isn't filled in -->
-    <p class="validationError" ng-show="($ctrl.familyGroupInfoForm.dealerRepCode.$touched || $ctrl.profileSearchService.showValidationErrors) && $ctrl.familyGroupInfoForm.dealerRepCode.$error.required" translate>dealerRepCodeErrors.required</p>
+    <p class="validationError"
+       ng-if="($ctrl.familyGroupInfoForm.dealerRepCode.$touched ||
+       $ctrl.profileSearchService.showValidationErrors) &&
+       $ctrl.familyGroupInfoForm.dealerRepCode.$error.required" translate>dealerRepCodeErrors.required</p>
 </form>
-{{::'searchProfileClientName' | translate}}
-<strange-table sub-groups="'profileSummaries'" errors="$ctrl.profileSearchService.errors" reset-flag="$ctrl.profileSearchService.resetFlag" selected-items="$ctrl.profileSearchService.familyGroupInfo.partialProfiles" get-Group-Header="$ctrl.profileSearchService.getGroupHeader" update-selected="$ctrl.profileSearchService.updateSelected(selectedItems, currentList)" data="$ctrl.profileSearchService.data" config="$ctrl.profileSearchService.configStrangeTable"></strange-table>
+
+<!-- GRID STARTS HERE --->
+<div>
+    <strong>{{::'searchProfileClientName' | translate}}</strong>
+    <strange-table sub-groups="'profileSummaries'" errors="$ctrl.profileSearchService.errors"
+                   reset-flag="$ctrl.profileSearchService.resetFlag"
+                   selected-items="$ctrl.profileSearchService.familyGroupInfo.partialProfiles"
+                   get-Group-Header="$ctrl.profileSearchService.getGroupHeader"
+                   update-selected="$ctrl.profileSearchService.updateSelected(selectedItems, currentList)"
+                   data="$ctrl.profileSearchService.data"
+                   config="$ctrl.profileSearchService.configStrangeTable"></strange-table>
+</div>
 
 <!--
 <button ng-click="$ctrl.profileSearchService.reset()">Reset</button>
