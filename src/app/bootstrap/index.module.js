@@ -68,7 +68,7 @@
         'angulartics',
         'angulartics.google.analytics',
         'angular-md5',
-
+        'ngMessages',
         'evolution.features.fee.summary',
         'evolution.features.fee.reports',
         'evolution.features.searchByName',
