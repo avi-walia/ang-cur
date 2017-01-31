@@ -15,7 +15,8 @@
                 config: '<',
                 updateSelected: '&?',
                 getGroupHeader: '<',
-                errors: '<?'
+                errors: '<?',
+                subGroups:'<'
             }
         });
 
@@ -61,12 +62,12 @@
         function compare(a,b) {
             //existing sort order only sorts on group level, it does not sort the historical records
             if (!vm.isAscending) {
-                var x = b.subGroups[0][vm.orderBy];
-                b = a.subGroups[0][vm.orderBy];
+                var x = b[vm.subGroups][0][vm.orderBy];
+                b = a[vm.subGroups][0][vm.orderBy];
                 a = x;
             } else {
-                a = a.subGroups[0][vm.orderBy];
-                b = b.subGroups[0][vm.orderBy];
+                a = a[vm.subGroups][0][vm.orderBy];
+                b = b[vm.subGroups][0][vm.orderBy];
             }
 
             if (vm.orderBy === 'creationDate' || vm.orderBy === 'modificationDate') {
@@ -117,7 +118,7 @@
             vm.orderBy = order;
             vm.filteredData.sort(compare);
             _.forEach(vm.filteredData, function(objectGroups, key) {
-                objectGroups.subGroups.sort(compareSubgroups);
+                objectGroups[vm.subGroups].sort(compareSubgroups);
             });
         }
 
@@ -153,7 +154,7 @@
                             vm.selectedItems.push(objectGroup.groupHeading);
                         }
                     }
-                    _.forEach(objectGroup.subGroups, function(subGroup) {
+                    _.forEach(objectGroup[vm.subGroups], function(subGroup) {
                         if (subGroup.isSelected) {
                             console.log('bye');
                             vm.selectedItems.push(subGroup);
@@ -263,7 +264,7 @@
                 _.forEach(vm.data, function (objGroup, key) {
                     var tempObjectGroup = null;
                     var selectedSubGroupIndexes = [];
-                    _.forEach(objGroup.subGroups, function (subGroup, key) {
+                    _.forEach(objGroup[vm.subGroups], function (subGroup, key) {
                         if (subGroup.isSelected) {
                             selectedSubGroupIndexes.push(key);
                         }
@@ -272,28 +273,28 @@
                         tempObjectGroup = {
                             id: objGroup.id,
                             groupHeading: angular.copy(objGroup.groupHeading),
-                            subGroups: [],
                             expandSubGroup: objGroup.expandSubGroup
                         };
+                        tempObjectGroup[vm.subGroups] = [];
                         _.forEach(selectedSubGroupIndexes, function(subGroupIndex, key){
-                            tempObjectGroup.subGroups.push(objGroup.subGroups[subGroupIndex]);
+                            tempObjectGroup[vm.subGroups].push(objGroup[vm.subGroups][subGroupIndex]);
                         });
                     } else if (objGroup.groupHeading.isSelected) {
                         tempObjectGroup = {
                             id: objGroup.id,
                             groupHeading: angular.copy(objGroup.groupHeading),
-                            subGroups: [],
                             expandSubGroup: objGroup.expandSubGroup
                         };
+                        tempObjectGroup[vm.subGroups] = [];
                     } else if (selectedSubGroupIndexes.length > 0) {
                         tempObjectGroup = {
                             id: objGroup.id,
                             groupHeading: {},
-                            subGroups: [],
                             expandSubGroup: objGroup.expandSubGroup
                         }
+                        tempObjectGroup[vm.subGroups] = [];
                         _.forEach(selectedSubGroupIndexes, function(subGroupIndex, key) {
-                            tempObjectGroup.subGroups.push(objGroup.subGroups[subGroupIndex]);
+                            tempObjectGroup[vm.subGroups].push(objGroup[vm.subGroups][subGroupIndex]);
                         });
                         vm.getGroupHeader(tempObjectGroup);
                     }
