@@ -29,16 +29,21 @@
          */
         function getFilteredKeys(data) {
             var locale = $translate.use();
+            var x = {};
             // if it's any kind of object, go into it
             if (_.isObject(data)) {
                 if (!_.isArray(data)) {
                     // if it's an Object and NOT an Array, fix the keys
-                    data = remapKeys(data, locale);
+                    x = remapKeys(data, locale);
+                } else {
+                    x = angular.copy(data);
                 }
                 // go into the object in case values are also objects
-                return _.each(data, function (value, key, collection) {
-                    collection[key] = getFilteredKeys(value);
+                _.forEach(x, function (value, key) {
+                    //collection[key] = getFilteredKeys(value);
+                    x[key] = getFilteredKeys(value);
                 });
+                return x;
             } else {
                 // not an Object, nothing to remap
                 return data;
