@@ -55,6 +55,10 @@
 		);
 		eventWatchers.push(
 			$rootScope.$on(RESET_EVENT, function() {
+				//lets reset the input fields in Profile Search
+                vm.familyGroupInfoForm.familyGroupName.$setUntouched();
+                vm.familyGroupInfoForm.dealerRepCode.$setUntouched();
+
 				vm.profileSearchService.reset();
 			})
 		);
@@ -63,7 +67,7 @@
 			_.forEach(eventWatchers, function(deleteWatch) {
 				deleteWatch();
 			});
-		}
+		};
     }
 
 })();
