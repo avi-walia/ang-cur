@@ -12,19 +12,19 @@
 
     <table ng-repeat="(key, objectGroup) in $ctrl.data track by $index">
         <tr ng-if="$first">
-            <th ng-repeat="(key, value) in $ctrl.data[0].subGroups[0] track by $index">
+            <th ng-repeat="(key, value) in $ctrl.data[0][$ctrl.subGroups][0] track by $index">
                 <button ng-click="$ctrl.changeOrder(key)">{{key}}</button>
             </th>
         </tr>
         <tr>
-            <td ng-repeat="(key, prop) in objectGroup.subGroups[0] track by $index" class="{{key}}">
+            <td ng-repeat="(key, prop) in objectGroup[$ctrl.subGroups][0] track by $index" class="{{key}}">
                 <button ng-if="$first" ng-click="$ctrl.expandOrCollapse($parent.$parent.$index)">
                     +
                 </button>
                 {{prop}}
             </td>
         </tr>
-        <tr ng-if="!$first && $ctrl.expandSubGroup[$parent.$index]" ng-repeat="(key, subGroup) in objectGroup.subGroups track by $index" class="{{key}}">
+        <tr ng-if="!$first && $ctrl.expandSubGroup[$parent.$index]" ng-repeat="(key, subGroup) in objectGroup[$ctrl.subGroups] track by $index" class="{{key}}">
             <td ng-repeat="(key, prop) in subGroup track by $index" class="{{key}}">{{prop}}</td>
         </tr>
     </table>
@@ -49,7 +49,7 @@
             <!-- used to generate group headers -->
             <div class="newRow">
                 <div class="tableRow" ng-repeat="(key, prop) in objectGroup.groupHeading track by $index" ng-if="::($ctrl.hideKey(key) && key != 'isSelected' && key != 'allocation')" ng-class="key">
-					<button  ng-if="key === $ctrl.config.expandColumn && objectGroup.subGroups.length" class="expandContract leftInline" ng-click="$ctrl.expandOrCollapse($parent.$parent.$parent.$index)">
+					<button  ng-if="key === $ctrl.config.expandColumn && objectGroup[$ctrl.subGroups].length" class="expandContract leftInline" ng-click="$ctrl.expandOrCollapse($parent.$parent.$parent.$index)">
                         <span ng-if="!objectGroup.expandSubGroup">
                             +
                         </span>
@@ -67,7 +67,7 @@
             </div>
             <!-- used to generate subrows of a group -->
 
-            <div class="newRow subGroup indented" ng-if="objectGroup.expandSubGroup" ng-repeat="(key, subGroup) in objectGroup.subGroups track by $index" >
+            <div class="newRow subGroup indented" ng-if="objectGroup.expandSubGroup" ng-repeat="(key, subGroup) in objectGroup[$ctrl.subGroups] track by $index" >
                 <div class="tableRow" ng-repeat="(key, prop) in subGroup track by $index" ng-if="::($ctrl.hideKey(key) && key != 'isSelected' && key != 'allocation')" ng-class="{'{{key}}' : true, indented:key==='profileName'}">{{prop}}</div>
                 <div ng-if="::$ctrl.updateSelected" class="addRemoveRow tableRow">
                     <button ng-if="::!$ctrl.config.numericAdd" ng-click="$ctrl.toggleSelect(subGroup)" translate>{{!subGroup.isSelected ? 'strangeTable.add' : 'strangeTable.remove'}}</button>

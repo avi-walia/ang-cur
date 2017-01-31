@@ -121,9 +121,9 @@
         }
         function format(profileGroups) {
             _.forEach(profileGroups, function(profileGroup) {
-                profileGroup.subGroups = profileGroup.profileSummaries;
-                delete profileGroup.profileSummaries;
-                _.forEach(profileGroup.subGroups, function(profileSummary) {
+                //profileGroup.subGroups = profileGroup.profileSummaries;
+                //delete profileGroup.profileSummaries;
+                _.forEach(profileGroup.profileSummaries, function(profileSummary) {
                     profileSummary.createdBy = stripPrefix(profileSummary.createdBy);
                 });
             });
@@ -158,15 +158,15 @@
         }
         function getGroupHeader(profileGroup) {
             var tempProfileIndexWithHighestStatus = 0;
-            _.forEach(profileGroup.subGroups, function(profile, key) {
+            _.forEach(profileGroup.profileSummaries, function(profile, key) {
                 if(key > 0) {
-                    if (mapStatus(profile.status) > mapStatus(profileGroup.subGroups[tempProfileIndexWithHighestStatus].status)) {
+                    if (mapStatus(profile.status) > mapStatus(profileGroup.profileSummaries[tempProfileIndexWithHighestStatus].status)) {
                         tempProfileIndexWithHighestStatus = key;
                     }
                 }
             });
-            profileGroup.groupHeading = profileGroup.subGroups[tempProfileIndexWithHighestStatus];
-            profileGroup.subGroups.splice(tempProfileIndexWithHighestStatus, 1);
+            profileGroup.groupHeading = profileGroup.profileSummaries[tempProfileIndexWithHighestStatus];
+            profileGroup.profileSummaries.splice(tempProfileIndexWithHighestStatus, 1);
         }
     }
 
