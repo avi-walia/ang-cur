@@ -28,7 +28,7 @@
     <p class="validationError" ng-show="($ctrl.familyGroupInfoForm.dealerRepCode.$touched || $ctrl.profileSearchService.showValidationErrors) && $ctrl.familyGroupInfoForm.dealerRepCode.$error.required" translate>dealerRepCodeErrors.required</p>
 </form>
 {{::'searchProfileClientName' | translate}}
-<strange-table subGroups="profileSummaries" errors="$ctrl.profileSearchService.errors" reset-flag="$ctrl.profileSearchService.resetFlag" selected-items="$ctrl.profileSearchService.familyGroupInfo.partialProfiles" get-Group-Header="$ctrl.profileSearchService.getGroupHeader" update-selected="$ctrl.profileSearchService.updateSelected(selectedItems, currentList)" data="$ctrl.profileSearchService.data" config="$ctrl.profileSearchService.configStrangeTable"></strange-table>
+<strange-table sub-groups="'profileSummaries'" errors="$ctrl.profileSearchService.errors" reset-flag="$ctrl.profileSearchService.resetFlag" selected-items="$ctrl.profileSearchService.familyGroupInfo.partialProfiles" get-Group-Header="$ctrl.profileSearchService.getGroupHeader" update-selected="$ctrl.profileSearchService.updateSelected(selectedItems, currentList)" data="$ctrl.profileSearchService.data" config="$ctrl.profileSearchService.configStrangeTable"></strange-table>
 
 <!--
 <button ng-click="$ctrl.profileSearchService.reset()">Reset</button>
