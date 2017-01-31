@@ -205,9 +205,9 @@
 
                 }
                 //console.log('on $stateChangeStart, fromState:', fromState);
-                console.log('on $stateChangeStart, fromState() name:', fromState.name);
-                console.log('on $stateChangeStart, toState() name:', toState.name);
-                console.log('on $stateChangeStart, toParams() name:', toParams);
+                // console.log('on $stateChangeStart, fromState() name:', fromState.name);
+                // console.log('on $stateChangeStart, toState() name:', toState.name);
+                // console.log('on $stateChangeStart, toParams() name:', toParams);
 
                 ///////// *** KEEP ME AT THE TOP, WE HAVE TO NEGOTIATE THE LANGUAGE URL SWITCH !!! *** /////////
                 // use LOCALE from URL, if any

@@ -19,9 +19,11 @@
             $httpBackend.whenGET(/(app|styles|scripts|assets|fonts).*/).passThrough();
             $httpBackend.whenGET(/app\/core\/layout\/main\.layout\.html/).passThrough();
 
+            //temporary commenting out this mock service just for the INIt call
             // $httpBackend.whenGET(/.*\/v1\/profile_groups\/.*/).passThrough();
             // $httpBackend.whenGET(/.*\/v1\/init/).passThrough();
-            //
+
+
             //Note will need to setup a version of this for each webservice call
             $httpBackend.whenGET(/\/v1\/.*/).respond(function (method, url, data, headers) {
                 var mockData = {};
