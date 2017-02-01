@@ -61,15 +61,15 @@
          */
         function compare(a,b) {
             //existing sort order only sorts on group level, it does not sort the historical records
+
             if (!vm.isAscending) {
-                var x = b[vm.subGroups][0][vm.orderBy];
-                b = a[vm.subGroups][0][vm.orderBy];
+                var x = b.groupHeading[vm.orderBy];
+                b = a.groupHeading[vm.orderBy];
                 a = x;
             } else {
-                a = a[vm.subGroups][0][vm.orderBy];
-                b = b[vm.subGroups][0][vm.orderBy];
+                a = a.groupHeading[vm.orderBy];
+                b = b.groupHeading[vm.orderBy];
             }
-
             if (vm.orderBy === 'creationDate' || vm.orderBy === 'modificationDate') {
                 a = (new Date(a)).getTime();
                 b = (new Date(b)).getTime();
@@ -191,19 +191,21 @@
             _.forEach(vm.config.searchColumns, function(prop, key) {
                 //assuming we want to make sure one column contains all the search terms. If we want to make sure all the search terms are contained in any column, then move this to where copyTokenizedSearchInput is defined.
                 copyTokenizedSearchInput = tokenizedSearchInput.slice();
-                var searchableProp = removeDiacriticsService.remove(obj[prop].toLowerCase());
-                _.forEach(tokenizedSearchInput, function(token, key) {
+                if (obj[prop]) {
+                    var searchableProp = removeDiacriticsService.remove(obj[prop].toLowerCase());
+                    _.forEach(tokenizedSearchInput, function (token, key) {
 
-                    if (searchableProp.indexOf(token) >= 0) {
-                        var x = copyTokenizedSearchInput.indexOf(token);
-                        if (x >= 0) {
-                            copyTokenizedSearchInput.splice(x, 1);
+                        if (searchableProp.indexOf(token) >= 0) {
+                            var x = copyTokenizedSearchInput.indexOf(token);
+                            if (x >= 0) {
+                                copyTokenizedSearchInput.splice(x, 1);
+                            }
                         }
+                    });
+                    //all search tokens have been matched, break out of loop
+                    if (copyTokenizedSearchInput.length === 0) {
+                        return false;
                     }
-                });
-                //all search tokens have been matched, break out of loop
-                if (copyTokenizedSearchInput.length === 0) {
-                    return false;
                 }
             });
             return copyTokenizedSearchInput.length === 0;

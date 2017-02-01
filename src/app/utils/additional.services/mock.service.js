@@ -20,8 +20,8 @@
             $httpBackend.whenGET(/app\/core\/layout\/main\.layout\.html/).passThrough();
 
             //temporary commenting out this mock service just for the INIt call
-            // $httpBackend.whenGET(/.*\/v1\/profile_groups\/.*/).passThrough();
-            // $httpBackend.whenGET(/.*\/v1\/init/).passThrough();
+            //$httpBackend.whenGET(/.*\/v1\/profile_groups\/.*/).passThrough();
+            //$httpBackend.whenGET(/.*\/v1\/init/).passThrough();
 
 
             //Note will need to setup a version of this for each webservice call
@@ -51,6 +51,8 @@
                     mockData = TESTS[id];
                 } else if(urlParams[0] === 'profile_groups') {
                     if (id) {
+                        mockData = PROFILE_GROUPS;
+                        /*
                         if (id === '9721-0033') {
                             mockData = [];
                             for(var x = 26; x < 39; x++) {
@@ -82,7 +84,7 @@
                             for(var x = 0; x < 3; x++) {
                                 mockData.push(PROFILE_GROUPS[x]);
                             }
-                        }
+                        }*/
                     } else {
                         mockData = PROFILE_GROUPS;
                     }
