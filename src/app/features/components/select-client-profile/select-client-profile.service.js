@@ -34,10 +34,11 @@
         function goToFeeProposal() {
             //dataCacheLocalStorage.put('fundList', data);
             dataCacheSessionStorage.put('startingFeeProposal', true);
-            $window.open(
-                $state.href('main.evolution.fee.profileSearch'),
-                '_blank'
-            );
+            //temporarily commented out because this runs when we sort Client Names in FP > Profile search
+            // $window.open(
+            //     $state.href('main.evolution.fee.profileSearch'),
+            //     '_blank'
+            // );
         }
 
         function init() {
